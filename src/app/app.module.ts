@@ -13,6 +13,8 @@ import { UsersService } from './Service/user.service';
 import { TestComponent } from './components/test/test.component';
 import { DashboardNavigationComponent } from './components/Dashboard-Nav/DashboardNavigation.component';
 import { DashboardComponent } from './components/Dashboard/dashboard.component';
+import { ReservationDashboardComponent } from './components/ReservationDashboard/ReservationDashboard.component';
+import { ReservationDashboardNavComponent } from './components/ReservationDashboardNav/ReservationDashboardNav.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,10 @@ import { DashboardComponent } from './components/Dashboard/dashboard.component';
     LoginComponent,
     TestComponent,
     DashboardNavigationComponent,
-    DashboardComponent
+    DashboardComponent,
+    ReservationDashboardComponent,
+    ReservationDashboardNavComponent,
+    
 
   ],
   imports: [
@@ -29,7 +34,7 @@ import { DashboardComponent } from './components/Dashboard/dashboard.component';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [
     AuthenticationService,
