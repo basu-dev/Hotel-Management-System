@@ -9,7 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 export class DashboardNavigationComponent {
     user: any;
-
+    
     constructor(
         private activatedRoute: ActivatedRoute,
         private router: Router
