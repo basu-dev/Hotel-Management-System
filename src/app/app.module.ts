@@ -15,6 +15,9 @@ import { DashboardNavigationComponent } from './components/Dashboard-Nav/Dashboa
 import { DashboardComponent } from './components/Dashboard/dashboard.component';
 import { ReservationDashboardComponent } from './components/ReservationDashboard/ReservationDashboard.component';
 import { ReservationDashboardNavComponent } from './components/ReservationDashboardNav/ReservationDashboardNav.component';
+import { AccountDashboardComponent } from './components/AccountDashboard/AccountDashboard.component';
+import { JournalVoucherService } from './Service/journalVoucher.service';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +29,8 @@ import { ReservationDashboardNavComponent } from './components/ReservationDashbo
     DashboardComponent,
     ReservationDashboardComponent,
     ReservationDashboardNavComponent,
+    AccountDashboardComponent
+    
     
 
   ],
@@ -41,6 +46,7 @@ import { ReservationDashboardNavComponent } from './components/ReservationDashbo
         DepartmentService,
         LoginService,
         UsersService,
+        JournalVoucherService
   ],
   bootstrap: [AppComponent]
 })

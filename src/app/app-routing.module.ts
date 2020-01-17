@@ -6,6 +6,7 @@ import { DashboardComponent } from './components/Dashboard/dashboard.component';
 import { AuthGuard } from './guard/auth.guard';
 import { ReservationDashboardNavComponent } from './components/ReservationDashboardNav/ReservationDashboardNav.component';
 import { ReservationDashboardComponent } from './components/ReservationDashboard/ReservationDashboard.component';
+import { AccountDashboardComponent } from './components/AccountDashboard/AccountDashboard.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,12 @@ const routes: Routes = [
   component: ReservationDashboardComponent,
   pathMatch: 'full', canActivate: [AuthGuard]
 },
+{
+  path: 'accountdashboard',
+  component: AccountDashboardComponent,
+  pathMatch: 'full', canActivate: [AuthGuard]
+},
+
 
   
 ];
