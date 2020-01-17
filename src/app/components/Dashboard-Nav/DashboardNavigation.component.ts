@@ -15,6 +15,7 @@ export class DashboardNavigationComponent {
         private router: Router
         ){
         this.user = JSON.parse(localStorage.getItem('currentUser'));
+        this.user="basudev";
     }
 
     logout () {

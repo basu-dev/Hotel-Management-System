@@ -14,13 +14,15 @@ export class AuthenticationService {
         let options = { headers: headers };
         return this.http.post(url, body, options).pipe(
             map((response: Response) => {
-             
+             console.log(url);
+             console.log("login successful");
                 // login successful 
-                let user = response.json();
-                if (user != null) {
-                    // store user details  in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', JSON.stringify(user));
-                }
+                // let user = response.json();
+                // console.log(user)
+                // if (user != null) {
+                //     // store user details  in local storage to keep user logged in between page refreshes
+                //     localStorage.setItem('currentUser', JSON.stringify(user));
+                // }
                 
                
             }));

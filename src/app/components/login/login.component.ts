@@ -35,8 +35,8 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
         this.form = this.fb.group({
-            UserName: ['', Validators.required],
-            Password: ['', Validators.required],
+            UserName: ['dcubehotel', Validators.required],
+            Password: ['dcubehotel', Validators.required],
             Remember: ['']
         });
     }
@@ -57,16 +57,18 @@ export class LoginComponent implements OnInit {
         this.authenticationSevice.login(Global.BASE_HOST_ENDPOINT+Global.BASE_LOGIN_ENDPOINT, loginfrm.value).subscribe(
                 data => {
                     debugger;
+                    console.log(data.firstName);
                     if (data != 0) {
                         alert("User Logged in successfully.");
                         this.router.navigate(['/dashboard']);
                     } else {
-                        alert("Login failed");
+                        alert("Login failed no data");
                     }
                 },
                 error => {
                     console.log(Global.BASE_LOGIN_ENDPOINT);
                     alert("Login failed");
+                    console.log(error);
                 }
             );
     }
