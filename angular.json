@@ -25,11 +25,19 @@
             ],
             "styles": [
               "src/styles.css",
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/font-awesome/css/font-awesome.css",
+              "./node_modules/ionicons/dist/css/ionicons.css",
+              "./node_modules/admin-lte/dist/css/adminlte.css",
+              "./node_modules/admin-lte/dist/css/skins/_all-skins.css"
+
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "./node_modules/fastclick/lib/fastclick.js",
+              "./node_modules/admin-lte/dist/js/adminlte.js",
+              "./node_modules/admin-lte/dist/js/demo.js"
             ]
           },
           "configurations": {

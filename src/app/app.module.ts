@@ -17,6 +17,7 @@ import { ReservationDashboardComponent } from './components/ReservationDashboard
 import { ReservationDashboardNavComponent } from './components/ReservationDashboardNav/ReservationDashboardNav.component';
 import { AccountDashboardComponent } from './components/AccountDashboard/AccountDashboard.component';
 import { JournalVoucherService } from './Service/journalVoucher.service';
+import { HeaderComponent } from './components/header/header.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { JournalVoucherService } from './Service/journalVoucher.service';
     DashboardComponent,
     ReservationDashboardComponent,
     ReservationDashboardNavComponent,
-    AccountDashboardComponent
+    AccountDashboardComponent,
+    HeaderComponent
     
     
 
