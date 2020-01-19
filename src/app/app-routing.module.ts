@@ -7,6 +7,7 @@ import { AuthGuard } from './guard/auth.guard';
 import { ReservationDashboardNavComponent } from './components/ReservationDashboardNav/ReservationDashboardNav.component';
 import { ReservationDashboardComponent } from './components/ReservationDashboard/ReservationDashboard.component';
 import { AccountDashboardComponent } from './components/AccountDashboard/AccountDashboard.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,11 @@ const routes: Routes = [
 {
   path: 'accountdashboard',
   component: AccountDashboardComponent,
+  pathMatch: 'full', canActivate: [AuthGuard]
+},
+{
+  path: 'nav',
+  component: NavbarComponent,
   pathMatch: 'full', canActivate: [AuthGuard]
 },
 

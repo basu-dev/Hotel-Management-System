@@ -18,6 +18,7 @@ import { ReservationDashboardNavComponent } from './components/ReservationDashbo
 import { AccountDashboardComponent } from './components/AccountDashboard/AccountDashboard.component';
 import { JournalVoucherService } from './Service/journalVoucher.service';
 import { HeaderComponent } from './components/header/header.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 @NgModule({
@@ -31,7 +32,9 @@ import { HeaderComponent } from './components/header/header.component';
     ReservationDashboardComponent,
     ReservationDashboardNavComponent,
     AccountDashboardComponent,
-    HeaderComponent
+    HeaderComponent,
+    NavbarComponent,
+    NavbarComponent
     
     
 
