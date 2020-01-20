@@ -10,7 +10,6 @@ import { AuthenticationService } from './Service/authentication.service';
 import { DepartmentService } from './Service/Department.service';
 import { LoginService } from './Service/login.service';
 import { UsersService } from './Service/user.service';
-import { TestComponent } from './components/test/test.component';
 import { DashboardNavigationComponent } from './components/Dashboard-Nav/DashboardNavigation.component';
 import { DashboardComponent } from './components/Dashboard/dashboard.component';
 import { ReservationDashboardComponent } from './components/ReservationDashboard/ReservationDashboard.component';
@@ -19,14 +18,15 @@ import { AccountDashboardComponent } from './components/AccountDashboard/Account
 import { JournalVoucherService } from './Service/journalVoucher.service';
 import { HeaderComponent } from './components/header/header.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-
+import { TestComponent } from './components/test/test.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import{navcomponents} from "./Shared/navcomponents";
 
 @NgModule({
   declarations: [
 
     AppComponent,
     LoginComponent,
-    TestComponent,
     DashboardNavigationComponent,
     DashboardComponent,
     ReservationDashboardComponent,
@@ -34,10 +34,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     AccountDashboardComponent,
     HeaderComponent,
     NavbarComponent,
-    NavbarComponent
-    
-    
-
+    NavbarComponent,
+    TestComponent,
+    PagenotfoundComponent
   ],
   imports: [
     FormsModule,
@@ -47,6 +46,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     AppRoutingModule,
   ],
   providers: [
+    { provide: 'NAVCOMPONENTS', useValue: navcomponents }   ,
     AuthenticationService,
         DepartmentService,
         LoginService,

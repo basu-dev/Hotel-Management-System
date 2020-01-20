@@ -8,14 +8,15 @@ import { ReservationDashboardNavComponent } from './components/ReservationDashbo
 import { ReservationDashboardComponent } from './components/ReservationDashboard/ReservationDashboard.component';
 import { AccountDashboardComponent } from './components/AccountDashboard/AccountDashboard.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 
 
 const routes: Routes = [
-  {path:'',redirectTo:"/dashboard",pathMatch:'full'},
-  {path:"login",component:LoginComponent},
-  {path:"test",component:TestComponent},
-  {path:"dashboard",component:DashboardComponent,canActivate:[AuthGuard]},
-  {
+{path:'',redirectTo:"/dashboard",pathMatch:'full'},
+{path:"login",component:LoginComponent},
+{path:"test",component:TestComponent},
+{path:"dashboard",component:DashboardComponent,canActivate:[AuthGuard]},
+{
     path: 'reservationdashboardnavcomponent',
     component: ReservationDashboardNavComponent,
     pathMatch: 'full', canActivate: [AuthGuard]
@@ -35,9 +36,10 @@ const routes: Routes = [
   component: NavbarComponent,
   pathMatch: 'full', canActivate: [AuthGuard]
 },
+{path:'**',
+component: PagenotfoundComponent,
+},
 
-
-  
 ];
 
 @NgModule({

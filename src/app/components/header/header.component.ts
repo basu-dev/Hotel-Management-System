@@ -1,8 +1,9 @@
-import { Component, ViewChild, ElementRef, OnDestroy } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnDestroy, OnInit, Inject } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
 import * as $ from 'jquery';
+import { inject } from '@angular/core/testing';
 // import { Subscription } from 'rxjs/Subscription';
 
 @Component({
@@ -10,9 +11,25 @@ import * as $ from 'jquery';
     encapsulation: ViewEncapsulation.None,
     templateUrl: './header.component.html'
 })
-export class HeaderComponent{
+export class HeaderComponent implements OnInit{
+
+    public clicked=false;
+public clickeditem:[];
+public open(link){
+    console.log(link);
+    this.router.navigate([link])
+
+}
+   
+    public clickedFunc(what){
+        console.log(what);
+    }
+    ngOnInit(){
+        
+        
+    }
     public pageName = 'Job';
-    constructor(public router: Router) {
+    constructor(public router: Router,@Inject("NAVCOMPONENTS") public  items:any[] ) {
     }
 
     redirectToHome() {
@@ -24,5 +41,5 @@ export class HeaderComponent{
     logMeOut(){
         this.router.navigateByUrl('login');
     }
-
+    
 }
