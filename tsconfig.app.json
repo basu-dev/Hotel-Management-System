@@ -9,6 +9,7 @@
     "src/polyfills.ts"
   ],
   "include": [
+    "node_modules/ng2-datetimepicker/ngx-datetimepicker/src/app/time.component/time.component.ts",
     "src/**/*.ts"
   ],
   "exclude": [

@@ -35,7 +35,7 @@ export class UsersService {
         const options = {
             headers
          };
-      //  const options = new RequestOptions({ headers  });
+      //  const options =  ({ headers  });
         return this.http.put(url + id, body, options).pipe(
             map((response: Response) => response.json()),
             catchError(this.handleError));
