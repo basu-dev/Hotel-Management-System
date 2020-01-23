@@ -191,7 +191,7 @@ export class CheckInComponent implements OnInit {
                 this.customers = results[0];
                 this.roomTypes = results[1];
                 this.reservations = results[2];
-                results[3] map((room) => room['File'] = Global.BASE_HOST_ENDPOINT + Global.BASE_FILE_UPLOAD_ENDPOINT + '?Id=' + room.Id + '&ApplicationModule=CheckInCheckOut');
+                results[3] .map((room) => room['File'] = Global.BASE_HOST_ENDPOINT + Global.BASE_FILE_UPLOAD_ENDPOINT + '?Id=' + room.Id + '&ApplicationModule=CheckInCheckOut');
                 this.reservedRooms = results[3];
                 this.isLoading = false;
             },
@@ -225,7 +225,7 @@ export class CheckInComponent implements OnInit {
         this._reservationService.get(Global.BASE_CHECKIN_ENDPOINT+ '?fetchType=new')
             .subscribe(
                 reservedRooms => {
-                    reservedRooms map((room) => room['File'] = Global.BASE_HOST_ENDPOINT + Global.BASE_FILE_UPLOAD_ENDPOINT + '?Id=' + room.Id + '&ApplicationModule=CheckInCheckOut');
+                    reservedRooms .map((room) => room['File'] = Global.BASE_HOST_ENDPOINT + Global.BASE_FILE_UPLOAD_ENDPOINT + '?Id=' + room.Id + '&ApplicationModule=CheckInCheckOut');
                     this.reservedRooms = reservedRooms;
                     this.isLoading = false;
                 },

@@ -49,6 +49,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
+import { TableComponent } from './components/POS-System/Table/table.component';
 @NgModule({
   declarations: [
 
@@ -70,7 +71,8 @@ import { AppEffects } from './app.effects';
     FacilityComponent,
     ReservationTypeComponent,
     RoomTypeComponent,
-    CustomerTypeComponent
+    CustomerTypeComponent,
+    TableComponent,
     
   ],
   imports: [

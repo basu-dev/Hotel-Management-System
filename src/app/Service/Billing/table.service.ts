@@ -1,58 +1,51 @@
-﻿// Main dependencies
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import { Global } from '../../Shared/global';
-import {map} from "rxjs/operators";
-// Models
-import { Table } from '../../Model/table.model';
-import { Category } from 'src/app/Model/category.model';
+﻿import { Injectable } from '@angular/core';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import {map,tap,catchError} from "rxjs/operators";
+
 
 @Injectable()
-export class TableService {
-	// Constructor
-	constructor (private http:HttpClient) {}
+export class tableService {
+    constructor(private _http: HttpClient) { }
 
-	// Load All Tables
-	loadTables (): Observable<Table[]> {
-		// Call to API here
-        return this.http.get(Global.BASE_SCREENTABLES_ENDPOINT).pipe(
-            map((res: HttpResponse<Table[]>) => {return  res.body} ))
-	}
-	loadCategories (): Observable<Category[]> {
-		// Call to API here
-        return this.http.get(Global.BASE_MENUCATEGORYNAMES_ENDPOINT).pipe(
-            map((res: HttpResponse<Category[]>) => {
-			  	return res.body;
-			}))
-	}
+    get(url: string): Observable<any> {
+        debugger
+        return this._http.get(url).pipe(
+            map((response: Response) => <any>response.json()),
+            tap(data => console.log("All: " + JSON.stringify(data))),
+            catchError(this.handleError));
+    }
 
-	// Load All Tables
-	show (TableId: string): Observable<Table> {
-		// Call to API here
-		return this.http.get('/db.new.json').pipe(
-		  	map((res: HttpResponse<Table>) => {
-			  	return res.body['tables'][0];
-			}));
-	}
+    post(url: string, model: any): Observable<any> {
+        debugger
+        let body = JSON.stringify(model);
+        let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+        let options = ({ headers: headers });
+        return this._http.post(url, body, options).pipe(
+            map((response: Response) => <any>response.json()),
+            catchError(this.handleError));
+    }
 
-	// Update Table
-    update(table: Table): Observable<Table> {
-		return this.http.patch('/db.new.json', table).pipe(
-			map((res: HttpResponse<Table>) => {
-				return res.body['tables'][0];
-			}));
-	}
+    put(url: string, id: number, model: any): Observable<any> {
+        debugger
+        let body = JSON.stringify(model);
+        let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+        let options = ({ headers: headers });
+        return this._http.put(url + id, body, options).pipe(
+            map((response: Response) => <any>response.json()),
+            catchError(this.handleError));
+    }
 
-	// Delete table
-    destroy(TableId: string): Observable<Table> {
-		return this.http.delete(`/db.new.json/contacts/${TableId}`).pipe(
-			map((res: HttpResponse<Table>) => {
-				return res.body;
-			}));
-	}
+    delete(url: string, id: number): Observable<any> {
+        let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+        let options = ({ headers: headers });
+        return this._http.delete(url + id, options).pipe(
+            map((response: Response) => <any>response.json()),
+            catchError(this.handleError));
+    }
 
-	getBody (data: Table) {
-		return JSON.stringify(data);
-	}
+    private handleError(error: Response) {
+        console.error(error);
+        return Observable.throw(error.json() || 'Server error');
+    }
 }

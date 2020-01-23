@@ -1,5 +1,5 @@
 ﻿import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
-import { TableService } from '../../../Service/Billing/table.service';
+import {tableService } from '../../../Service/Billing/table.service';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Table } from '../../../Model/table.model';
 
@@ -9,7 +9,6 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { DBOperation } from '../../../Shared/enum';
 import { Observable } from 'rxjs/Rx';
 import { Global } from '../../../Shared/global';
-
 // Services
 import { TableStoreService } from '../../../Service/Billing/table.store.service';
 
@@ -31,7 +30,7 @@ export class TableComponent implements OnInit {
 
     constructor(
         private fb: FormBuilder, 
-        private _tableService: TableService,
+        private _tableService:tableService,
         private _tableStoreService: TableStoreService, 
         private modalService: BsModalService
     ) { }

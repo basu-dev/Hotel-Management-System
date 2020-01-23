@@ -1,6 +1,6 @@
 ﻿import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Order, OrderItem, OrderItemRequest } from '../../models/order.model';
+import { Order, OrderItem, OrderItemRequest } from '../../Model/order.model';
 import { Observable } from 'rxjs/Observable';
 
 import * as actions from '../../actions/order.actions';
