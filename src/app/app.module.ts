@@ -28,11 +28,27 @@ import {PaymentTypeService} from "./Service/reservation/payment-type.services";
 import {ReservationTypeService} from "./Service/reservation/reservation-type.services";
 import { ModalModule } from 'node_modules/ngx-bootstrap/modal';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
- import {BsDatepickerModule} from "node_modules/ngx-bootstrap";
- import {TimepickerModule} from "node_modules/ngx-bootstrap";
+import {FileService} from "./Service/file.service";
+//  import {TimepickerModule} from "node_modules/ngx-bootstrap";
  import {BsModalModule} from "ng2-bs3-modal";
  import {DatePipe} from "@angular/common";
- import {DateTimePickerModule} from "node_modules/ng2-datetimepicker/ngx-datetimepicker/src/app/datetimepicker.module";
+  import {AngularDateTimePickerModule} from "angular2-datetimepicker";
+ import {BsDatepickerModule} from "node_modules/ngx-bootstrap";
+//  import { DateTimePickerModule} from "ng2-datetimepicker";
+import { RoomStatusComponent} from "./components/Reservation/reservation-status/Reservationstatus.component"
+import { ReservationComponent } from './components/Reservation/reservation.component';
+import { CheckOutComponent } from './components/Reservation/checkout/checkout.component';
+import { ReservationInquiryComponent } from './components/Reservation/ReservationInquiry/ReservationInquiry.component';
+import { ReservationCustomerComponent } from './components/Reservation/customer/customer.component';
+import { PaymentTypeComponent } from './components/Reservation/payment-type/payment-type.component';
+import { FacilityComponent } from './components/Reservation/facility/facility.component';
+import { ReservationTypeComponent } from './components/Reservation/reservation-type/reservation-type.component';
+import { RoomTypeComponent } from './components/Reservation/room-type/room-type.component';
+import { CustomerTypeComponent } from './components/Reservation/customer-type/customer-type.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './app.effects';
 @NgModule({
   declarations: [
 
@@ -44,7 +60,18 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
     TestComponent,
     PagenotfoundComponent,
     CheckInComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    RoomStatusComponent,
+    ReservationComponent,
+    CheckOutComponent,
+    ReservationInquiryComponent,
+    ReservationCustomerComponent,
+    PaymentTypeComponent,
+    FacilityComponent,
+    ReservationTypeComponent,
+    RoomTypeComponent,
+    CustomerTypeComponent
+    
   ],
   imports: [
     FormsModule,
@@ -55,13 +82,22 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
     BrowserAnimationsModule,
      ModalModule.forRoot(),
      BsDatepickerModule.forRoot(),
-     TimepickerModule.forRoot(),
+    //  TimepickerModule.forRoot(),
      BsModalModule,
-     DateTimePickerModule
+      AngularDateTimePickerModule,
+      StoreModule.forRoot(reducers, {
+      metaReducers,
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true
+      }
+    }),
+      EffectsModule.forRoot([AppEffects])
   ],
   providers: [
     { provide: 'NAVCOMPONENTS', useValue: navcomponents }   ,
     AuthenticationService,
+    ReservationTypeService,
     CustomerTypeService,
     FacilityService,
     PaymentTypeService,
@@ -73,7 +109,15 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
     LoginService,
     UsersService,
     JournalVoucherService,
-    DatePipe
+    DatePipe,
+    FileService,
+    ReservationCustomerService,
+    PaymentTypeService,
+    FacilityService,
+    ReservationTypeService,
+    RoomTypeService,
+    CustomerTypeService
+    
     
   ],
   bootstrap: [AppComponent]

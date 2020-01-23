@@ -8,29 +8,31 @@ export const navcomponents=[
           title: 'Booking',
           icon: 'fa fa-circle',
           children: [
+
+            {
+              title: 'Booking',
+              link: 'reservation',
+            },
             {
               title: 'Check-in',
-              link: '/pages/layout/tabs',
+              link: 'reservation/checkin',
             },
             {
               title: 'Guest Status',
-              link: '/pages/layout/accordion',
+              link: 'reservation/reservationstatus',
             },
             {
               title: 'Check-Out',
-              link: '/pages/modal-overlays/dialog',
+              link: 'reservation/checkout',
             },
-            {
-              title: 'Booking',
-              link: '/pages/extra-components/alert',
-            },
+           
             {
               title: 'Inquiry',
-              link: '/pages/layout/list',
+              link: 'reservation/reservationinquiry',
             },
             {
               title: 'Customer',
-              link: '/pages/tables/smart-table',
+              link: 'reservation/customer',
             },          
           ]
         },
@@ -40,27 +42,27 @@ export const navcomponents=[
           children: [
             {
               title: 'Payment',
-              link: '/pages/layout/iot-dashboard',
+              link: 'reservation/payment',
             },
             {
               title: 'Facility',
-              link: '/pages/ui-features/grid',
+              link: 'reservation/facility',
             },
             {
               title: 'Room',
-              link: '/pages/ui-features/grid',
+              link: 'reservation/roomtype',
             },
             {
               title: 'Customer',
-              link: '/pages/ui-features/grid',
+              link: 'reservation/customertype',
             },
             {
               title: 'Reservation',
-              link: '/pages/ui-features/grid',
+              link: 'reservation/reservationtype',
             },
             {
               title: 'Rooms Setup',
-              link: '/pages/ui-features/grid',
+              link: 'reservation/room',
             },
           ]
         },

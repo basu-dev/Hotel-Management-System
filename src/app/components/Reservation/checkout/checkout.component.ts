@@ -1,36 +1,36 @@
 ﻿import { Component, OnInit, ViewChild, TemplateRef, ElementRef } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
-import { RoomReserverd } from '../../Model/reservation/room-reserved.model';
-
-import { Reservation } from '../../Model/reservation/reservation.model';
-import { Room } from '../../Model/reservation/room.model';
+import { RoomReserverd } from '../../../Model/reservation/room-reserved.model';
+import { Reservation } from '../../../Model/reservation/reservation.model';
+import { Room } from '../../../Model/reservation/room.model';
 
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
-import { ReservationService } from '../../Service/reservation/reservation.services';
-import { RoomOccupiedService } from '../../Service/reservation/room-occupied.services';
-import { FileService } from '../../Service/file.service';
+import { ReservationService } from '../../../Service/reservation/reservation.services';
+import { RoomOccupiedService } from '../../../Service/reservation/room-occupied.services';
+import { FileService } from '../../../Service/file.service';
 
-import { DBOperation } from '../../Shared/enum';
+import { DBOperation } from '../../../Shared/enum';
 import { Observable } from 'rxjs';
-import { Global } from '../../Shared/global';
-import { Customer } from '../../Model/reservation/customer.model';
-import { RoomType } from '../../Model/reservation/customer-screen.model';
-import { forkJoin } from "rxjs";
+import { Global } from '../../../Shared/global';
+import { Customer } from '../../../Model/reservation/customer.model';
+import { RoomType } from '../../../Model/reservation/customer-screen.model';
+import { forkJoin } from "rxjs/observable/forkJoin";
 
 @Component({
-    templateUrl: './checkin.component.html'
+    templateUrl: './checkout.component.html'
 })
-export class CheckInComponent implements OnInit {
-    @ViewChild('template', {static:false}) TemplateRef: TemplateRef<any>;
-    @ViewChild('fileInput', {static:false}) fileInput: ElementRef;
+
+export class CheckOutComponent implements OnInit {
+    public fromDate: any;
+    public toDate: any;
     reservedRooms: RoomReserverd[];
     reservations: Reservation[];
+    rooms: Room[];
     customers: Customer[];
     roomTypes: RoomType[];
-    rooms: Room[];
     reservedRoom: RoomReserverd;
     msg: string;
     isLoading: boolean = false;
@@ -45,49 +45,42 @@ export class CheckInComponent implements OnInit {
     uploadUrl = Global.BASE_FILE_UPLOAD_ENDPOINT;
     fileUrl: string = '';
     file: any[] = [];
-    public currentUser: any = {};
-    dropMessage: string = "Upload Reference File";
     public company: any = {};
-    File: string;
-    public fromDate: any;
-    public toDate: any;
+
     settings = {
-		bigBanner: true,
-		timePicker: true,
-		format: 'dd/MM/yyyy hh:mm:ss a',
-		defaultOpen: false
-	};
+        bigBanner: true,
+        timePicker: true,
+        format: 'dd/MM/yyyy hh:mm:ss a',
+        defaultOpen: false
+    };
     constructor(
         private fb: FormBuilder,
         private _reservationService: ReservationService,
         private _roomOccupiedService: RoomOccupiedService,
         private modalService: BsModalService,
         private fileService: FileService,
-        private date: DatePipe,
-    ) {
-        this.company = JSON.parse(localStorage.getItem('company'));
-        this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    }
+        private date: DatePipe
+    ) { this.company = JSON.parse(localStorage.getItem('company'));}
 
     ngOnInit(): void {
-        let nd = new Date();   
-        let selectedDate = new Date();  
+        let nd = new Date();
+        let selectedDate = new Date();
         this.reservedRoomForm = this.fb.group({
             Id: [''],
-            GuestName: ['', Validators.required],
-            GRC: ['', Validators.required],
-            Adult: ['', Validators.required],
-            Children: ['', Validators.required],
+            GuestName: [''],
+            GRC: [''],
+            Adult: [''],
+            Children: [''],
             IdentityFileName: null,
             IdentityFileType: null,
             PhotoIdentity: null,
-            NumberofRoom: ['', Validators.required],
+            NumberofRoom: [''],
             ReservationId: [''],
-            RoomTypeId: ['', Validators.required],
-            ToCheckInDate: [new Date(), Validators.required],
-            ToCheckOutDate: [new Date(), Validators.required],
-            Rate: ['', Validators.required],
-            AdvanceAmount: ['', Validators.required],
+            RoomTypeId: [''],
+            ToCheckInDate: [new Date()],
+            ToCheckOutDate: [new Date()],
+            Rate: [''],
+            AdvanceAmount: [''],
             Address: [''],
             Country: [''],
             Id_Passport_No: [''],
@@ -101,14 +94,17 @@ export class CheckInComponent implements OnInit {
             NextVisit: [''],
             VehicleNo: [''],
             MobileNo: [''],
-            Remarks: [''],
-            Relation: [''],
-            PAX: [''],
-            UserName: [''],
             Plan: [''],
             listRoomOccupiedDetail: this.fb.array([this.initRoomlistRoomOccupiedDetail()])
         });
-        this.loadData("today");
+
+        this.checkInCheckOutForm = this.fb.group({
+            Id: '',
+            checkOutDate: [new Date()],
+            CheckOutTime: [new Date()]
+        });
+
+        this.loadData();
         this.reservedRoom = { File: '' };
     }
     initRoomlistRoomOccupiedDetail() {
@@ -117,38 +113,33 @@ export class CheckInComponent implements OnInit {
             ReservationId: [''],
             RoomOccupiedId: [''],
             RoomId: ['', Validators.required],
-            PAX: ['', Validators.required],
             GuestName: ['']
         });
     }
-    // Remove Individual Room
-    removeRoom(i: number) {
-        debugger
-        let controls = <FormArray>this.reservedRoomForm.controls['listRoomOccupiedDetail'];
-        let controlToRemove = this.reservedRoomForm.controls.listRoomOccupiedDetail['controls'][i].controls;
-        let selectedControl = controlToRemove.hasOwnProperty('Id') ? controlToRemove.Id.value : 0;
-        let currentRoomid = controlToRemove.Id.value;
-        if (currentRoomid == "" || currentRoomid == null) {
-            currentRoomid = 0;
-        }
-        if (currentRoomid != "0" && i != 0) {
-            this._reservationService.delete(Global.BASE_ROOM_OCCUPIED_DETAILS_ENDPOINT, currentRoomid).subscribe(data => {
-                (data == 1) && controls.removeAt(i);
-            });
-        } else {
-            if (i != 0) {
-                controls.removeAt(i);
-            } else {
-                alert("Form requires at least one row");
-            }
-        }
-    }
-    //Add Room
-    addRoom() {
-        debugger
-        const control = <FormArray>this.reservedRoomForm.controls['listRoomOccupiedDetail'];
-        const addRoom = this.initRoomlistRoomOccupiedDetail();
-        control.push(addRoom);
+    /**
+     * Loads data for reserved rooms list
+     */
+    loadData() {
+        this.isLoading = true;
+        this._reservationService.get(Global.BASE_RESERVATION_ROOM_ENDPOINT)
+            .subscribe(roomlists => { this.rooms = roomlists; this.isLoading = false; },
+                error => this.msg = <any>error);
+        let customers = this._reservationService.get(Global.BASE_RESERVATION_CUSTOMER_ENDPOINT);
+        let roomTypes = this._reservationService.get(Global.BASE_ROOM_TYPES_ENDPOINT);
+        let reservations = this._reservationService.get(Global.BASE_RESERVATION_ENDPOINT + '?fetchType=current&moduleName=test');
+        let reservedRooms = this._reservationService.get(Global.BASE_CHECKOUT_ENDPOINT);
+
+        forkJoin([customers, roomTypes, reservations, reservedRooms])
+            .subscribe(results => {
+                this.customers = results[0];
+                this.roomTypes = results[1];
+                this.reservations = results[2];
+                results[3]map((room) => room['File'] = Global.BASE_HOST_ENDPOINT + Global.BASE_FILE_UPLOAD_ENDPOINT + '?Id=' + room.Id + '&ApplicationModule=CheckInCheckOut');
+                this.reservedRooms = results[3];
+                this.isLoading = false;
+            },
+                error => this.msg = <any>error
+            );
     }
     getDataDateFilter() {
         this.isLoading = true;
@@ -158,80 +149,44 @@ export class CheckInComponent implements OnInit {
         let customers = this._reservationService.get(Global.BASE_RESERVATION_CUSTOMER_ENDPOINT);
         let roomTypes = this._reservationService.get(Global.BASE_ROOM_TYPES_ENDPOINT);
         let reservations = this._reservationService.get(Global.BASE_RESERVATION_ENDPOINT + '?fromDate=' + this.date.transform(this.fromDate, 'yyyy-MM-dd') + '&toDate=' + this.date.transform(this.toDate, 'yyyy-MM-dd') + '&fetchType=current')
-        let reservedRooms = this._reservationService.get(Global.BASE_CHECKIN_ENDPOINT + '?fromDate=' + this.date.transform(this.fromDate, 'yyyy-MM-dd') + '&toDate=' + this.date.transform(this.toDate, 'yyyy-MM-dd') + '&fetchType=current')
+        let reservedRooms = this._reservationService.get(Global.BASE_CHECKOUT_ENDPOINT + '?fromDate=' + this.date.transform(this.fromDate, 'yyyy-MM-dd') + '&toDate=' + this.date.transform(this.toDate, 'yyyy-MM-dd') + '&fetchType=current')
 
         forkJoin([customers, roomTypes, reservations, reservedRooms])
             .subscribe(results => {
                 this.customers = results[0];
                 this.roomTypes = results[1];
                 this.reservations = results[2];
-                results[3]. map((room) => room['File'] = Global.BASE_HOST_ENDPOINT + Global.BASE_FILE_UPLOAD_ENDPOINT + '?Id=' + room.Id + '&ApplicationModule=CheckInCheckOut');
+                results[3]map((room) => room['File'] = Global.BASE_HOST_ENDPOINT + Global.BASE_FILE_UPLOAD_ENDPOINT + '?Id=' + room.Id + '&ApplicationModule=CheckInCheckOut');
                 this.reservedRooms = results[3];
                 this.isLoading = false;
             },
                 error => this.msg = <any>error
             );
     }
-    /**
-     * Loads data for reserved rooms list
-     */
-    loadData(fetchType: string) {
-        debugger
-        this.isLoading = true;
-        this._reservationService.get(Global.BASE_RESERVATION_ROOM_ENDPOINT)
-            .subscribe(roomlists => { this.rooms = roomlists; this.isLoading = false; },
-                error => this.msg = <any>error);
-        let customers =this._reservationService.get(Global.BASE_RESERVATION_CUSTOMER_ENDPOINT);
-        let roomTypes = this._reservationService.get(Global.BASE_ROOM_TYPES_ENDPOINT);
-        let reservations = this._reservationService.get(Global.BASE_RESERVATION_ENDPOINT + '?fetchType='+fetchType+'&moduleName=test');
-        let reservedRooms = this._reservationService.get(Global.BASE_CHECKIN_ENDPOINT + '?fetchType=' + fetchType + '&moduleName=test');
-
-        forkJoin([customers, roomTypes, reservations, reservedRooms])
-            .subscribe(results => {
-                this.customers = results[0];
-                this.roomTypes = results[1];
-                this.reservations = results[2];
-                results[3] map((room) => room['File'] = Global.BASE_HOST_ENDPOINT + Global.BASE_FILE_UPLOAD_ENDPOINT + '?Id=' + room.Id + '&ApplicationModule=CheckInCheckOut');
-                this.reservedRooms = results[3];
-                this.isLoading = false;
-            },
-            error => this.msg = <any>error
-        );
-    }
-
-    onFileChange(event) {
-        if (event.target.files.length > 0) {
-            let file = event.target.files[0];
-        }
-    }
-
-    clearFile() {
-        this.fileInput.nativeElement.value = '';
-    }
-
     deleteFile(id) {
         this._reservationService.delete(Global.BASE_FILE_UPLOAD_ENDPOINT, id)
             .subscribe(
                 result => {
-                   if (result) {
-                       this.reservedRoom.File = '';
-                   }
+                    if (result) {
+                        this.reservedRoom.File = '';
+                    }
                 },
                 error => this.msg = <any>error
             );
     }
 
     loadRoomReserveds() {
-        this._reservationService.get(Global.BASE_CHECKIN_ENDPOINT+ '?fetchType=new')
+        this._reservationService.get(Global.BASE_CHECKOUT_ENDPOINT + '?fetchType=new')
             .subscribe(
                 reservedRooms => {
-                    reservedRooms map((room) => room['File'] = Global.BASE_HOST_ENDPOINT + Global.BASE_FILE_UPLOAD_ENDPOINT + '?Id=' + room.Id + '&ApplicationModule=CheckInCheckOut');
+                    reservedRoomsmap((room) => room['File'] = Global.BASE_HOST_ENDPOINT + Global.BASE_FILE_UPLOAD_ENDPOINT + '?Id=' + room.Id + '&ApplicationModule=CheckInCheckOut');
                     this.reservedRooms = reservedRooms;
                     this.isLoading = false;
                 },
                 error => this.msg = <any>error
             );
     }
+
     /**
      * Gets individual CHECK IN CHECK OUT
      * @param Id 
@@ -241,19 +196,6 @@ export class CheckInComponent implements OnInit {
         this.isLoading = false;
         return this._reservationService.get(Global.BASE_CHECKIN_ENDPOINT + '?ReservationId=' + Id + '&fetchType=new');
     }
-    openModal(template: TemplateRef<any>) {
-        this.dbops = DBOperation.create;
-        this.SetControlsState(true);
-        this.modalTitle = "Add Check In";
-        this.modalBtnTitle = "Save";
-        this.reservedRoomForm.reset();
-        this.reservedRoom.File = '';
-        this.modalRef = this.modalService.show(this.TemplateRef, {
-            backdrop: 'static',
-            keyboard: false,
-            class: 'modal-lg'
-        });
-    }
 
     viewFile(fileUrl, template: TemplateRef<any>) {
         this.fileUrl = fileUrl;
@@ -262,11 +204,9 @@ export class CheckInComponent implements OnInit {
     }
 
     editReservedRoom(id: number, template: TemplateRef<any>) {
-        debugger
-        this.isLoading = false;
         this.dbops = DBOperation.update;
         this.SetControlsState(true);
-        this.modalTitle = "Edit Checkin";
+        this.modalTitle = "Edit Checkout";
         this.modalBtnTitle = "Update";
         this.getCHECKINCHECKOUT(id)
             .subscribe((reservedroom: RoomReserverd) => {
@@ -294,12 +234,34 @@ export class CheckInComponent implements OnInit {
                 this.reservedRoomForm.controls.NextVisit.setValue(reservedroom.NextVisit);
                 this.reservedRoomForm.controls.VehicleNo.setValue(reservedroom.VehicleNo);
                 this.reservedRoomForm.controls.MobileNo.setValue(reservedroom.MobileNo);
-                this.reservedRoomForm.controls.Remarks.setValue(reservedroom.Remarks);
-                this.reservedRoomForm.controls.Relation.setValue(reservedroom.Relation);
                 this.reservedRoomForm.controls.Rate.setValue(reservedroom.Rate);
-                this.reservedRoomForm.controls.PAX.setValue(reservedroom.PAX);
-                this.reservedRoomForm.controls.UserName.setValue(reservedroom.UserName);
                 this.reservedRoomForm.controls.Plan.setValue(reservedroom.Plan);
+//Disabled
+                this.reservedRoomForm.controls['ReservationId'].disable();
+                this.reservedRoomForm.controls['Adult'].disable();
+                this.reservedRoomForm.controls['Children'].disable();
+                this.reservedRoomForm.controls['GuestName'].disable();
+                this.reservedRoomForm.controls['GRC'].disable();
+                this.reservedRoomForm.controls['NumberofRoom'].disable();
+                this.reservedRoomForm.controls['RoomTypeId'].disable();
+                //this.reservedRoomForm.controls['ToCheckInDate'].disable();
+                //this.reservedRoomForm.controls['ToCheckOutDate'].disable();
+                this.reservedRoomForm.controls['Address'].disable();
+                this.reservedRoomForm.controls['Country'].disable();
+                this.reservedRoomForm.controls['Id_Passport_No'].disable();
+                this.reservedRoomForm.controls['DateofIssue'].disable();
+                this.reservedRoomForm.controls['VisaNo'].disable();
+                this.reservedRoomForm.controls['PlaceIssued'].disable();
+                this.reservedRoomForm.controls['DateofBirth'].disable();
+                this.reservedRoomForm.controls['Occupation'].disable();
+                this.reservedRoomForm.controls['Organization'].disable();
+                this.reservedRoomForm.controls['PurposeofVisit'].disable();
+                this.reservedRoomForm.controls['NextVisit'].disable();
+                this.reservedRoomForm.controls['VehicleNo'].disable();
+                this.reservedRoomForm.controls['MobileNo'].disable();
+                this.reservedRoomForm.controls['Rate'].disable();
+                this.reservedRoomForm.controls['AdvanceAmount'].disable();
+                this.reservedRoomForm.controls['Plan'].disable();
                 this.reservedRoomForm.controls['listRoomOccupiedDetail'] = this.fb.array([]);
                 const control = <FormArray>this.reservedRoomForm.controls['listRoomOccupiedDetail'];
                 control.reset();
@@ -309,13 +271,13 @@ export class CheckInComponent implements OnInit {
                     let instance = this.fb.group(valuesFromServer);
                     control.push(instance);
                 }
+//
                 this.modalRef = this.modalService.show(template, { keyboard: false, class: 'modal-lg' });
             },
-            error => this.msg = <any>error);
+                error => this.msg = <any>error);
     }
 
     deleteReservedRoom(id: number, template: TemplateRef<any>) {
-        this.isLoading = false;
         this.dbops = DBOperation.delete;
         this.SetControlsState(true);
         this.modalTitle = "Confirm to Delete?";
@@ -350,7 +312,6 @@ export class CheckInComponent implements OnInit {
                 this.reservedRoomForm.controls.Relation.setValue(reservedroom.Relation);
                 this.reservedRoomForm.controls.Rate.setValue(reservedroom.Rate);
                 this.reservedRoomForm.controls.PAX.setValue(reservedroom.PAX);
-                this.reservedRoomForm.controls.UserName.setValue(reservedroom.UserName);
                 this.reservedRoomForm.controls.Plan.setValue(reservedroom.Plan);
                 this.reservedRoomForm.controls['listRoomOccupiedDetail'] = this.fb.array([]);
                 const control = <FormArray>this.reservedRoomForm.controls['listRoomOccupiedDetail'];
@@ -388,33 +349,21 @@ export class CheckInComponent implements OnInit {
         let roomReserve = this.reservedRoomForm;
 
         if (roomReserve.valid) {
-            debugger
             let newDate = new Date();
             let checkInDate = new Date(roomReserve.get('ToCheckInDate').value);
             let checkOutDate = new Date(roomReserve.get('ToCheckOutDate').value);
-            let DateofIssue = new Date(roomReserve.get('DateofIssue').value);
-            let DateofBirth = new Date(roomReserve.get('DateofBirth').value);
+
             checkInDate.setTime(checkInDate.getTime() - (newDate.getTimezoneOffset() * 60000));
             checkOutDate.setTime(checkOutDate.getTime() - (newDate.getTimezoneOffset() * 60000));
-            DateofIssue.setTime(DateofIssue.getTime() - (newDate.getTimezoneOffset() * 60000));
-            DateofBirth.setTime(DateofBirth.getTime() - (newDate.getTimezoneOffset() * 60000));
-            let CurrentUserName = this.currentUser['FullName'];
+
             roomReserve.get('ToCheckInDate').setValue(checkInDate);
             roomReserve.get('ToCheckOutDate').setValue(checkOutDate);
-            roomReserve.get('DateofIssue').setValue(DateofIssue);
-            roomReserve.get('DateofBirth').setValue(DateofBirth);
-            roomReserve.get('UserName').setValue(CurrentUserName);
-            
+
             switch (this.dbops) {
                 case DBOperation.create:
-                    this._reservationService.post(Global.BASE_CHECKIN_ENDPOINT, roomReserve.value).subscribe(
+                    this._reservationService.post(Global.BASE_CHECKOUT_ENDPOINT, roomReserve.value).subscribe(
                         async data => {
                             if (data > 0) {
-                                // file upload stuff goes here
-                                await fileUpload.handleFileUpload({
-                                    'moduleName': 'CheckInCheckOut',
-                                    'id': data
-                                });
                                 alert("Data successfully added.");
                                 this.loadRoomReserveds();
                                 this.modalRef.hide();
@@ -429,15 +378,10 @@ export class CheckInComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                    this._reservationService.put(Global.BASE_CHECKIN_ENDPOINT, formData._value.Id, roomReserve.value).subscribe(
+                    ' '
+                    this._reservationService.put(Global.BASE_CHECKOUT_ENDPOINT, formData._value.Id, roomReserve.getRawValue()).subscribe(
                         async (data) => {
-                            ' '
                             if (data > 0) {
-                                // file upload stuff goes here
-                                await fileUpload.handleFileUpload({
-                                    'moduleName': 'CheckInCheckOut',
-                                    'id': data
-                                });
                                 alert("Data successfully updated.");
                                 this.modalRef.hide();
                                 this.loadRoomReserveds();
@@ -452,7 +396,7 @@ export class CheckInComponent implements OnInit {
                     );
                     break;
                 case DBOperation.delete:
-                    this._reservationService.delete(Global.BASE_CHECKIN_ENDPOINT, formData._value.Id).subscribe(
+                    this._reservationService.delete(Global.BASE_CHECKOUT_ENDPOINT, formData._value.Id).subscribe(
                         data => {
                             if (data == 1) {
                                 alert("ReservedRoom successfully deleted.");
@@ -487,10 +431,6 @@ export class CheckInComponent implements OnInit {
         }
     }
 
-    /**
-     * 
-     * @param Id 
-     */
     getRoomType(Id: number) {
         if (this.roomTypes) {
             return this.roomTypes.filter((rType) => {
@@ -499,10 +439,6 @@ export class CheckInComponent implements OnInit {
         }
     }
 
-    /**
-     * 
-     * @param Id 
-     */
     getReservation(Id: number) {
         if (this.reservations) {
             return JSON.parse(JSON.stringify(this.reservations)).filter((r) => {
@@ -511,11 +447,8 @@ export class CheckInComponent implements OnInit {
         }
     }
 
-    /**
-     * 
-     * @param Id 
-     */
     getCustomer(Id: number) {
+        ' '
         if (this.customers) {
             return this.customers.filter((customer) => {
                 return customer.Id === Id;
@@ -527,12 +460,14 @@ export class CheckInComponent implements OnInit {
      * returns the customer 
      * @param rm 
      */
-    getCustomerFromReservation (rm: RoomReserverd) {
+    getCustomerFromReservation(rm: RoomReserverd) {
+        ' '
         let customer: any = { CustomerName: '' };
         let reservation: Reservation = this.getReservation(rm.ReservationId);
         if (reservation) {
             customer = this.getCustomer(reservation.CustomerId);
         }
+        ' '
         return customer;
     }
 
@@ -540,40 +475,17 @@ export class CheckInComponent implements OnInit {
         isEnable ? this.reservedRoomForm.enable() : this.reservedRoomForm.disable();
     }
 
-    /**
-     * Filters reservation fills the form
-     * @param event 
-     */
-    fillForm <FormGroup> (event) {
-        let param = event.target.value;
-        let reservationId = eval(param.split(':')[1].trim());
-        let reservation = JSON.parse(JSON.stringify(this.reservations)).filter((reservation) => {
-            return reservation.Id  == reservationId;
-        })[0];
-        if (reservation) {
-            this.reservedRoomForm.controls.Adult.setValue(reservation.Adult);
-            this.reservedRoomForm.controls.Children.setValue(reservation.Children);
-            this.reservedRoomForm.controls.NumberofRoom.setValue(reservation.NumberOfRoom);
-            this.reservedRoomForm.controls.RoomTypeId.setValue(reservation.RoomTypeId);
-            this.reservedRoomForm.controls.ToCheckInDate.setValue(new Date(reservation.CheckInDate));
-            this.reservedRoomForm.controls.ToCheckOutDate.setValue(new Date(reservation.CheckOutDate));
-            this.reservedRoomForm.controls.GuestName.setValue(reservation.GuestName);
-        }
-    }
-    
     // Fetch reservations based on given fetch type
     getData(fetchType: string) {
-        debugger
-        //this.isLoading = true;
-        //this._reservationService.get(Global.BASE_CHECKIN_ENDPOINT + '?fetchType=' + fetchType + '&moduleName=test')
-        //    .subscribe(
-        //        reservations => {
-        //            this.reservations = reservations;
-        //            this.isLoading = false;
-        //        },
-        //        error => this.msg = <any>error
-        //    );
-        this.loadData(fetchType);
+        this.isLoading = true;
+        this._reservationService.get(Global.BASE_CHECKOUT_ENDPOINT + '?fetchType=' + fetchType + '&moduleName=test')
+            .subscribe(
+                reservations => {
+                    this.reservations = reservations;
+                    this.isLoading = false;
+                },
+                error => this.msg = <any>error
+            );
     }
     /**
      * Export formatter table in excel
@@ -591,7 +503,7 @@ export class CheckInComponent implements OnInit {
         $('#' + tableID).html(clonedHtml.html());
 
         // Specify file name
-        filename = filename ? filename + '.xls' : 'Reservation Check In of ' + this.date.transform(new Date, 'dd-MM-yyyy') + '.xls';
+        filename = filename ? filename + '.xls' : 'Reservation Check Out of ' + this.date.transform(new Date, 'dd-MM-yyyy') + '.xls';
 
         // Create download link element
         downloadLink = document.createElement("a");
@@ -606,7 +518,7 @@ export class CheckInComponent implements OnInit {
             downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
 
             // Setting the file name
-            downloadLink.dowwnload = filename;
+            downloadLink.download = filename;
 
             //triggering the function
             downloadLink.click();
