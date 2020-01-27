@@ -50,6 +50,17 @@ import { reducers, metaReducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
 import { TableComponent } from './components/POS-System/Table/table.component';
+import { CategoryService } from './Service/Billing/category.service';
+import { ProductService } from './Service/Billing/product.service';
+import { TableStoreService } from './Service/Billing/table.store.service';
+// import { UserService } from './Service/Billing/user.service';
+import { CustomerService } from './Service/Billing/customer.service';
+import { OrderService } from './Service/Billing/Order.service';
+import { OrderStoreService } from './Service/Billing/order.store.service';
+import { tableService } from './Service/Billing/table.service';
+import { CustomerStoreService } from './Service/Billing/customer.store.service';
+import { POSDashboardComponent } from './components/POS-System/pos-dashboard/pos-dashboard.component';
+// import { TicketService } from './Service/Billing/ticket.service';
 @NgModule({
   declarations: [
 
@@ -73,6 +84,7 @@ import { TableComponent } from './components/POS-System/Table/table.component';
     RoomTypeComponent,
     CustomerTypeComponent,
     TableComponent,
+    POSDashboardComponent
     
   ],
   imports: [
@@ -118,8 +130,18 @@ import { TableComponent } from './components/POS-System/Table/table.component';
     FacilityService,
     ReservationTypeService,
     RoomTypeService,
-    CustomerTypeService
-    
+    CustomerTypeService,
+    CategoryService,
+    CustomerService,
+    OrderService,
+    OrderStoreService,
+    ProductService,
+    tableService,
+    TableStoreService,
+    CustomerStoreService,
+
+    // TicketService,
+    // UserService,
     
   ],
   bootstrap: [AppComponent]

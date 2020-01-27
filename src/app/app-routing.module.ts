@@ -19,6 +19,8 @@ import { RoomTypeComponent } from './components/Reservation/room-type/room-type.
 import { CustomerTypeComponent } from './components/Reservation/customer-type/customer-type.component';
 import { FacilityComponent } from './components/Reservation/facility/facility.component';
 import { ReservationTypeComponent } from './components/Reservation/reservation-type/reservation-type.component';
+import { TableComponent } from './components/POS-System/Table/table.component';
+import { POSDashboardComponent } from './components/POS-System/pos-dashboard/pos-dashboard.component';
 
 
 const routes: Routes = [
@@ -26,7 +28,6 @@ const routes: Routes = [
 {path:"login",component:LoginComponent, canActivate:[AuthGuard]},
 {path:"test",component:TestComponent},
 {path:"reservation",component:ReservationComponent, canActivate:[AuthGuard]},
-
   {path:"reservation/checkin",component:CheckInComponent, canActivate:[AuthGuard]},
   {path:"reservation/reservationstatus",component:RoomStatusComponent, canActivate:[AuthGuard]},
   {path:"reservation/checkout",component:CheckOutComponent, canActivate:[AuthGuard]},
@@ -38,8 +39,15 @@ const routes: Routes = [
   {path:"reservation/roomtype",component:RoomTypeComponent, canActivate:[AuthGuard]},
   {path:"reservation/room",component:RoomStatusComponent, canActivate:[AuthGuard]},
   {path:"reservation/customertype",component:CustomerTypeComponent, canActivate:[AuthGuard]},
-  
+  {
+    path: 'pos-dashboard/:tabName',
+    component: POSDashboardComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
+},
   {path:"reservation/reservationtype",component:ReservationTypeComponent, canActivate:[AuthGuard]},
+  {path:"billing/order",component:TableComponent, canActivate:[AuthGuard]},
+
 
 
 {
