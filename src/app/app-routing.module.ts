@@ -21,11 +21,19 @@ import { FacilityComponent } from './components/Reservation/facility/facility.co
 import { ReservationTypeComponent } from './components/Reservation/reservation-type/reservation-type.component';
 import { TableComponent } from './components/POS-System/Table/table.component';
 import { POSDashboardComponent } from './components/POS-System/pos-dashboard/pos-dashboard.component';
+import { UserComponent } from './components/ManageDashboard/user/user.component';
+import { RoleModuleComponent } from './components/ManageDashboard/rolemodule/rolemodule.component';
+import { RoleComponent } from './components/ManageDashboard/role/role.component';
+import { RoleAssignmentComponent } from './components/ManageDashboard/role-assign/role-assign.component';
+import { CompanyComponent } from './components/ManageDashboard/company/company.component';
+import { FinancialYearComponent } from './components/ManageDashboard/FinancialYear/FinancialYear.component';
+import { DepartmentComponent } from './components/ManageDashboard/Department/Department.component';
 
 
 const routes: Routes = [
 {path:'',redirectTo:"/test",pathMatch:'full'},
 {path:"login",component:LoginComponent, canActivate:[AuthGuard]},
+{path:"user",component:UserComponent},
 {path:"test",component:TestComponent},
 {path:"reservation",component:ReservationComponent, canActivate:[AuthGuard]},
   {path:"reservation/checkin",component:CheckInComponent, canActivate:[AuthGuard]},
@@ -47,7 +55,26 @@ const routes: Routes = [
 },
   {path:"reservation/reservationtype",component:ReservationTypeComponent, canActivate:[AuthGuard]},
   {path:"billing/order",component:TableComponent, canActivate:[AuthGuard]},
-
+  {
+    path: 'managedashboard/rolemodule',
+    component: RoleModuleComponent,
+    canActivate: [AuthGuard]
+},
+{
+  path: 'managedashboard/role', 
+  component: RoleComponent, 
+  canActivate: [AuthGuard]
+},
+{
+  path: 'managedashboard/userRole', 
+  component: RoleAssignmentComponent, 
+  canActivate: [AuthGuard]
+},
+{
+  path: 'managedashboard/company',
+  component: CompanyComponent,
+  pathMatch: 'full', canActivate: [AuthGuard]
+},
 
 
 {
@@ -55,8 +82,19 @@ const routes: Routes = [
   component: NavbarComponent,
   pathMatch: 'full', canActivate: [AuthGuard]
 },
+{
+  path: 'managedashboard/financial',
+  component: FinancialYearComponent,
+  pathMatch: 'full', canActivate: [AuthGuard]
+},
+{
+  path: 'managedashboard/department',
+  component: DepartmentComponent,
+  canActivate: [AuthGuard]
+},
+{path:"404",component:PagenotfoundComponent},
 {path:'**',
-component: PagenotfoundComponent,
+redirectTo:"/404",
 },
 
 ];

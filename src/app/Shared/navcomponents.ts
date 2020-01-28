@@ -71,7 +71,7 @@ export const navcomponents=[
     {
       title: 'POS',
       group: true,
-      link:"/pos"
+     
     }, 
     {
       title: 'Billing',
@@ -119,11 +119,6 @@ export const navcomponents=[
         },
       ],    
     },
-    // {
-    //   title: 'IoT Dashboard',
-    //   icon: 'home-outline',
-    //   link: '/pages/iot-dashboard',
-    // },
     {
       title: 'Account / Finance',
       group: true,
@@ -455,19 +450,23 @@ export const navcomponents=[
           children: [
             {
               title: 'Login',
-              link: '/auth/login',
+              link: 'login',
             },
             {
-              title: 'Register',
-              link: '/auth/register',
+              title: 'Users',
+              link: '/user',
             },
             {
-              title: 'Request Password',
-              link: '/auth/request-password',
+              title: 'Roles',
+              link: '/managedashboard/role',
             },
             {
-              title: 'Reset Password',
-              link: '/auth/reset-password',
+              title: 'Role Module',
+              link: '/managedashboard/rolemodule',
+            },
+            {
+              title: 'User Roles',
+              link: '/managedashboard/userRole',
             },
           ],
         },
@@ -477,15 +476,15 @@ export const navcomponents=[
           children: [
             {
               title: 'Department',
-              link: '/auth/login',
+              link: '/managedashboard/department',
             },
             {
               title: 'Financial Year',
-              link: '/auth/register',
+              link: '/managedashboard/financial',
             },
             {
               title: 'Company',
-              link: '/auth/request-password',
+              link: '/managedashboard/company',
             },
           ],
         },      

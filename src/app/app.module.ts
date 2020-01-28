@@ -60,6 +60,18 @@ import { OrderStoreService } from './Service/Billing/order.store.service';
 import { tableService } from './Service/Billing/table.service';
 import { CustomerStoreService } from './Service/Billing/customer.store.service';
 import { POSDashboardComponent } from './components/POS-System/pos-dashboard/pos-dashboard.component';
+import { UserComponent } from './components/ManageDashboard/user/user.component';
+import { DepartmentComponent } from './components/ManageDashboard/Department/Department.component';
+import { FinancialYearComponent } from './components/ManageDashboard/FinancialYear/FinancialYear.component';
+import { RoleComponent } from './components/ManageDashboard/role/role.component';
+import { RoleAssignmentComponent } from './components/ManageDashboard/role-assign/role-assign.component';
+import { RoleModuleComponent } from './components/ManageDashboard/rolemodule/rolemodule.component';
+import { UserPermission } from './Model/User/userpermission';
+import { UserPermissionComponent } from './components/ManageDashboard/user-permission/user-permission.component';
+import { CompanyComponent } from './components/ManageDashboard/company/company.component';
+import { UserRoleService } from './Service/userRole.service';
+import { RoleService } from './Service/role.service';
+import { RoleNameComponent } from './components/ManageDashboard/role-assign/role-name/role-name.component';
 // import { TicketService } from './Service/Billing/ticket.service';
 @NgModule({
   declarations: [
@@ -84,7 +96,16 @@ import { POSDashboardComponent } from './components/POS-System/pos-dashboard/pos
     RoomTypeComponent,
     CustomerTypeComponent,
     TableComponent,
-    POSDashboardComponent
+    POSDashboardComponent,
+    UserComponent,
+    CompanyComponent,
+    DepartmentComponent,
+    FinancialYearComponent,
+    RoleComponent,
+    RoleAssignmentComponent,
+    RoleModuleComponent,
+    UserPermissionComponent,
+    RoleNameComponent,
     
   ],
   imports: [
@@ -96,7 +117,6 @@ import { POSDashboardComponent } from './components/POS-System/pos-dashboard/pos
     BrowserAnimationsModule,
      ModalModule.forRoot(),
      BsDatepickerModule.forRoot(),
-    //  TimepickerModule.forRoot(),
      BsModalModule,
       AngularDateTimePickerModule,
       StoreModule.forRoot(reducers, {
@@ -139,7 +159,9 @@ import { POSDashboardComponent } from './components/POS-System/pos-dashboard/pos
     tableService,
     TableStoreService,
     CustomerStoreService,
-
+    RoleService,
+    UserRoleService,
+    RoleNameComponent,
     // TicketService,
     // UserService,
     

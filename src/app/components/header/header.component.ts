@@ -4,12 +4,12 @@ import { Router } from '@angular/router';
 import * as moment from 'moment';
 import * as $ from 'jquery';
 import { inject } from '@angular/core/testing';
-// import { Subscription } from 'rxjs/Subscription';
 
 @Component({
     selector: 'app-header-component',
     encapsulation: ViewEncapsulation.None,
-    templateUrl: './header.component.html'
+    templateUrl: './header.component.html',
+    styleUrls:['./header.component.css']
 })
 export class HeaderComponent implements OnInit{
 
@@ -20,7 +20,7 @@ public open(link){
     this.router.navigate([link])
 
 }
-   
+
     public clickedFunc(what){
         console.log(what);
     }
@@ -32,14 +32,6 @@ public open(link){
     constructor(public router: Router,@Inject("NAVCOMPONENTS") public  items:any[] ) {
     }
 
-    redirectToHome() {
-        this.router.navigateByUrl('dashboard/home');
-    }
-    redirectToAbout() {
-        this.router.navigateByUrl('dashboard/about');
-    }
-    logMeOut(){
-        this.router.navigateByUrl('login');
-    }
+   
     
 }
