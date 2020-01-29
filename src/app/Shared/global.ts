@@ -1,6 +1,6 @@
 ﻿export class Global {
     // public static BASE_HOST_ENDPOINT = 'http://' + location.hostname + ':' + location.port + '/';
-    public static BASE_HOST_ENDPOINT = 'http://hotel.dcubeitsolution.com';
+    public static BASE_HOST_ENDPOINT = 'http://localhost:54405';
     public static BASE_NEPALIMONTH_ENDPOINT = '/api/NepaliMonthAPI/';
     public static BASE_USER_ENDPOINT = '/api/userapi/';
     public static BASE_USERROLE_ENDPOINT = '/api/userRoleAPI/';

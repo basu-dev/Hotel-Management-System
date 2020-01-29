@@ -1,6 +1,6 @@
 ﻿import { Component, OnInit, ViewChild, Directive, TemplateRef } from '@angular/core';
-import { InventoryReceiptService } from '../../../Service/Inventory/Inventory/InventoryReceipt.service';
-import { InventoryReceiptDetailsService } from '../../../Service/Inventory/Inventory/InventoryReceiptDetails.service';
+import { InventoryReceiptService } from '../../../Service/Inventory/InventoryReceipt.service';
+import { InventoryReceiptDetailsService } from '../../../Service/Inventory/InventoryReceiptDetails.service';
 import { FormBuilder, FormGroup, Validators, NgModel, FormArray, FormControl } from '@angular/forms';
 import { InventoryReceipt, InventoryReceiptDetails } from '../../../Model/Inventory/InventoryReceipt';
 import { Account } from '../../../Model/Account/account';
@@ -57,7 +57,7 @@ export class InventoryReceiptComponent implements OnInit {
         this.company = JSON.parse(localStorage.getItem('company'));
         this.fromDate = new Date(this.currentYear['StartDate']);
         this.toDate = new Date(this.currentYear['EndDate']);
-        this._inventoryReceiptService.getAccounts().subscribe(data => { this.account = data });
+        this._inventoryReceiptService.getAccounts().subscribe(data => { this.account = data});
         this._inventoryReceiptService.getInventoryItems().subscribe(data => { this.inventoryReceiptItem = data });   
     }
     

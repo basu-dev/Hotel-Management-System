@@ -49,12 +49,12 @@ export class InventoryReceiptService {
     private handleError(error: Response) {
         console.error(error);
         return Observable.throw(error.json()|| 'Server error');
-    }
+    }   
 
   
     getInventoryItems(){
         return this._http.get("/api/InventoryItemAPI/get").pipe(
-            map((responseData) => responseData));
+            map((responseData:Response) => responseData.json()));
     } 
 
     getAccounts() {

@@ -9,7 +9,6 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { DatePipe } from '@angular/common';
 import { IWareHouse, IWareHouseType } from '../../../Model/WareHouse/WareHouse';
-import { RoomService } from '../../../Service/Inventory/room.service';
 import { PeriodicConsumptionItemService } from '../../../Service/Inventory/peroidic-consumption-item.service';
 import { IInventoryItem } from '../../../Model/Inventory/inventoryItem';
 import { InventoryReceiptService } from '../../../Service/Inventory/InventoryReceipt.service';
@@ -56,7 +55,7 @@ export class PeriodicConsumptionComponent implements OnInit {
         this._pcitemService.getWareHouse().subscribe(x => {
             this.warehouses = x;
         })
-        this._inventoryReceiptService.getInventoryItems().subscribe(data => { debugger; this.inventoryReceiptItem = data });   
+        this._inventoryReceiptService.getInventoryItems().subscribe(data => { this.inventoryReceiptItem = data });   
         this.currentYear = JSON.parse(localStorage.getItem('currentYear'));
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
         this.company = JSON.parse(localStorage.getItem('company'));

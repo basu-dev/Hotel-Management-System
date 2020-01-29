@@ -439,6 +439,12 @@ export const navcomponents=[
     {
       title: 'User Management',
       group: true,
+      css:{
+        "background-color":"white",
+        "color":"black",
+        "font-size":"1.2em",
+
+      }
     }, 
     {
       title: 'Manage',

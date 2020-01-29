@@ -1,5 +1,5 @@
 ﻿import { Injectable } from '@angular/core';
-    import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 import {HttpClient,HttpHeaders} from "@angular/common/http";
 import {map,tap,catchError} from "rxjs/operators" 
 import { ICategory } from 'src/app/Model/Category';
