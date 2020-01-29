@@ -1,4 +1,4 @@
-﻿,{static:false}import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
+﻿import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
 import { PeriodicConsumptionService } from '../../../Service/Inventory/periodic-consumption.service';
 import { PeriodicConsumption } from '../../../Model/periodic-consumption-items/periodic-consumption-item';
