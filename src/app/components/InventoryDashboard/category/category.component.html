@@ -20,7 +20,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let category of categorys | InventoryItemCategory: ItemCategory">
+                        <!-- original one=  <tr *ngFor="let category of categorys | InventoryItemCategory: ItemCategory"> -->
+                        <tr *ngFor="let category of categorys ">
                             <td>{{category.Name}}</td>
                             <td>
                                 <span><img src="../../images/Edit.png" (click)="editCategory(category.Id,template)" height="60" width="60" /></span>

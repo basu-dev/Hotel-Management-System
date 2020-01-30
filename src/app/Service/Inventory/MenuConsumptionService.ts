@@ -2,6 +2,7 @@
 import { Observable } from 'rxjs/Observable';
 import {HttpClient,HttpHeaders} from "@angular/common/http"
 import {map,tap,catchError} from "rxjs/operators" 
+import { MenuItemPortion } from 'src/app/Model/Menu/MenuItemPortion';
 
 
 @Injectable()
@@ -75,7 +76,7 @@ export class MenuConsumptionService {
 
     getMenuConsumptionProductPortions() {
         return this._http.get("/api/MenuConsumptionProductPortionAPI/").pipe(
-            map((responseData) => responseData));
+            map((responseData:Observable<MenuItemPortion>) => responseData));
     } 
 
     getMenuConsumptionCategoryFilters() {

@@ -54,13 +54,13 @@ export class InventoryReceiptService {
   
     getInventoryItems(){
         return this._http.get("/api/InventoryItemAPI/get").pipe(
-            map((responseData:Response) => responseData.json()));
+            map((responseData:IInventoryItem) => responseData.json()));
     } 
 
     getAccounts() {
 
         return this._http.get("/api/AccountAPI/get").pipe(
-            map((responseData) => responseData));
+            map((responseData:Observable<Account>) => responseData));
     } 
 }
 

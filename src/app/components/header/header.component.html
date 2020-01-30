@@ -2,7 +2,7 @@
 <aside class="main-sidebar" >
     <section class="sidebar fixed" style="height:98vh; overflow-y:scroll">
      <ul class="sidebar-menu tree" data-widget="tree"  *ngFor="let item of items" >
-            <li class="treeview mb-1" [class.group]="item.group" [style]="item.css.background-color">
+            <li class="treeview mb-1" [class.group]="item.group" >
                 <a   *ngIf="item.children; else elseBlockk">
                     <i class="text-danger"></i> <span>{{item.title}}</span>
                     <span class="pull-right-container">

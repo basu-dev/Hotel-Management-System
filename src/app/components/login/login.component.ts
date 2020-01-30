@@ -54,7 +54,8 @@ export class LoginComponent implements OnInit {
     
     onSubmit() {
         let loginfrm = this.form;
-        this.authenticationSevice.login(Global.BASE_HOST_ENDPOINT+Global.BASE_LOGIN_ENDPOINT, loginfrm.value).subscribe(
+        console.log(Global.BASE_LOGIN_ENDPOINT)
+        this.authenticationSevice.login(Global.BASE_LOGIN_ENDPOINT, loginfrm.value).subscribe(
                 data => {
                     debugger;
                     console.log(data.firstName);

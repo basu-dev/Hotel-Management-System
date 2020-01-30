@@ -1,10 +1,14 @@
 ﻿import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
+import {HttpClient,HttpHeaders} from "@angular/common/http";
 import {map,tap,catchError} from "rxjs/operators";
-import {HttpHeaders, HttpClient} from "@angular/common/http";
+import { UnitType } from 'src/app/Model/Inventory/UnitType';
+
 @Injectable()
-export class RoomService {
-    constructor(private _http: HttpClient) { }
+export class AccountTransactionTypeService {
+    constructor(private _http: HttpClient) {
+        this._http = _http;
+    }
 
     get(url: string): Observable<any> {
         return this._http.get(url).pipe(
@@ -23,16 +27,15 @@ export class RoomService {
     }
 
     put(url: string, id: number, model: any): Observable<any> {
-        debugger
         let body = JSON.stringify(model);
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options = ({ headers: headers });
-        return this._http.put(url + id, body, options)
-            map((response: Response) => <any>response.json())
-            catchError(this.handleError);
+        return this._http.put(url + id, body, options).pipe(
+            map((response: Response) => <any>response.json()),
+            catchError(this.handleError));
     }
 
-  delete(url: string, id: number): Observable<any> {
+    delete(url: string, id: number): Observable<any> {
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options = ({ headers: headers });
         return this._http.delete(url + id, options).pipe(
@@ -40,24 +43,16 @@ export class RoomService {
             catchError(this.handleError));
     }
 
+     getAccountTypes () {
+        return this._http.get("/api/AccountTypeAPI/get").pipe(
+            map((responseData:Observable<UnitType>) => responseData));
+    } 
+   
+
     private handleError(error: Response) {
         console.error(error);
-        return Observable.throw(error.json() || 'Server error');
+        return Observable.throw(error.body|| 'Server error');
     }
 
-    getroomtype() {
-        return this._http.get("/api/RoomTypeAPI/get")
-            map((responseData:Response) => responseData.json());
-    }
-
-    getRoom() {
-        return this._http.get("/api/RoomAPI/get")
-            map((responseData:Response) => responseData.json());
-    }
-    getWareHouseType() {
-        debugger
-        return this._http.get("/api/WareHouseTypeAPI/get")
-            map((responseData:Response) => responseData.json());
-        }
-
-    }
+  
+}

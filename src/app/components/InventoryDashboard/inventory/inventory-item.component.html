@@ -142,7 +142,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let InventoryItem of InventoryItems | InventoryItemName: ItemName">
+                      <!-- original  <tr *ngFor="let InventoryItem of InventoryItems | InventoryItemName: ItemName"> -->
+                        <tr *ngFor="let InventoryItem of InventoryItems ">
                             <td>{{InventoryItem.Name}}</td>
                             <td>{{InventoryItem.OpeningStock}}</td>
                             <td>{{InventoryItem.OpeningStockRate.toFixed(2)}}</td>

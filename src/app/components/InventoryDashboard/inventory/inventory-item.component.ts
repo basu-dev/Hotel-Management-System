@@ -35,7 +35,7 @@ export class InventoryItemComponent implements OnInit {
     ItemName: string = '';
 
     constructor(private router: Router, private fb: FormBuilder, private _inventoryService: InventoryItemService, private modalService: BsModalService) {
-        this._inventoryService.getCategories().subscribe(data => { this.category = data });
+        this._inventoryService.getCategories().subscribe(data => { this.categories = data });
         this._inventoryService.getMenuUnits(Global.BASE_UNITTYPE_ENDPOINT).subscribe(data => { this.UnitTypes = data });
     }
 

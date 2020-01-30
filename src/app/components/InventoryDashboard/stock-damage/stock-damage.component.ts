@@ -12,6 +12,7 @@ import { PeriodicConsumptionItemService } from '../../../Service/Inventory/peroi
 import { IInventoryItem } from '../../../Model/Inventory/inventoryItem';
 import { MenuItemPortion } from '../../../Model/Menu/MenuItemPortion';
 import { MenuConsumptionService } from '../../../Service/Inventory/MenuConsumptionService';
+import { map } from 'rxjs/operators';
 
 @Component({
     moduleId: module.id,
@@ -51,7 +52,11 @@ export class StockDamageComponent implements OnInit {
         private _menuConsumptionService: MenuConsumptionService,
         private date: DatePipe,
     ) {
-        this._menuConsumptionService.getMenuConsumptionProductPortions().subscribe(data => this.MenuItemPortions = data);
+        this._menuConsumptionService.getMenuConsumptionProductPortions().pipe(
+            map(data=>this.MenuItemPortions)
+        )
+        
+        .subscribe(data => this.MenuItemPortions = data);
         this.currentYear = JSON.parse(localStorage.getItem('currentYear'));
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
         this.company = JSON.parse(localStorage.getItem('company'));

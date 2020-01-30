@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import {HttpClient,HttpHeaders} from "@angular/common/http";
 import {map,tap,catchError} from "rxjs/operators" 
 import { ICategory } from 'src/app/Model/Category';
+import { UnitType } from 'src/app/Model/Inventory/UnitType';
 
 @Injectable()
 export class InventoryItemService {
@@ -50,7 +51,7 @@ export class InventoryItemService {
 
     getMenuUnits(url: string) {
         return this._http.get(url).pipe(
-            map((responseData) => responseData));
+            map((responseData) => responseData as UnitType[]));
     }
 
     //getInventoryItems() {

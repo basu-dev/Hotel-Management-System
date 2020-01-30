@@ -4,6 +4,8 @@
   import { Observable } from 'rxjs/Observable';
 import {HttpClient,HttpHeaders} from "@angular/common/http"
 import {map,tap,catchError} from "rxjs/operators" 
+import { IWareHouse } from 'src/app/Model/WareHouse/WareHouse';
+import { InventoryReceiptDetails } from 'src/app/Model/Inventory/InventoryReceipt';
 
 @Injectable()
 export class PeriodicConsumptionItemService {
@@ -68,13 +70,13 @@ export class PeriodicConsumptionItemService {
     getInventoryReceipts() {
 
         return this._http.get("/api/InventoryReceiptDetailAPI/get").pipe(
-            map((responseData) => responseData));
+            map((responseData:InventoryReceiptDetails[]) => responseData));
     }
 
     getWareHouse() {
 
         return this._http.get("/api/WareHouseAPI/").pipe(
-            map((responseData) => responseData));
+            map((responseData:Observable<IWareHouse>) => responseData));
     } 
 
     private handleError(error: Response) {

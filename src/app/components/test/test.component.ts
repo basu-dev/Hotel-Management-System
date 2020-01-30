@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import { map } from 'rxjs/operators';
 import { stringify } from 'querystring';
 import { FormBuilder } from '@angular/forms';
+import {Global} from "../../Shared/global";
 
 @Component({
   selector: 'app-test',
@@ -22,10 +23,11 @@ public showNav(){
      
   }
 showData(){
-  this.http.get("https://jsonplaceholder.typicode.com/users").subscribe(
+  this.http.get(Global.BASE_HOST_ENDPOINT).subscribe(
     data=>console.log(data),
     error=>console.log(error)
   )
+  console.log(Global.BASE_HOST_ENDPOINT);
 
 } 
 }
