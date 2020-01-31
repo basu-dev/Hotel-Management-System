@@ -1,4 +1,6 @@
-﻿export interface IUser {
+﻿import { IUserRole } from './userRole';
+
+export interface IUser {
     UserId: number,
     FullName: string,
     UserName: string
@@ -6,5 +8,7 @@
     Email: string,
     PhoneNumber: string,
     IsActive: boolean,
-    ResetPassword: boolean
+    ResetPassword: boolean,
+    Token:string,
+    Roles:IUserRole[];
 }

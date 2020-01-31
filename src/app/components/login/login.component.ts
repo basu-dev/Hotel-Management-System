@@ -51,23 +51,23 @@ export class LoginComponent implements OnInit {
             }
         });
     }
-    
     onSubmit() {
         let loginfrm = this.form;
-        console.log(Global.BASE_LOGIN_ENDPOINT)
+        
         this.authenticationSevice.login(Global.BASE_LOGIN_ENDPOINT, loginfrm.value).subscribe(
                 data => {
-                    debugger;
-                    console.log(data.firstName);
-                    if (data != 0) {
+                    
+                    console.log("data from login:"+data);
+                    if (data!= null ) {
                         alert("User Logged in successfully.");
-                        this.router.navigate(['/dashboard']);
+                        
+                        console.log("data:"+data)
+                        // this.router.navigate(['/reservation']);
                     } else {
                         alert("Login failed no data");
                     }
                 },
                 error => {
-                    console.log(Global.BASE_LOGIN_ENDPOINT);
                     alert("Login failed");
                     console.log(error);
                 }

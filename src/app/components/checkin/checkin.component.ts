@@ -19,6 +19,7 @@ import { Global } from '../../Shared/global';
 import { Customer } from '../../Model/reservation/customer.model';
 import { RoomType } from '../../Model/reservation/customer-screen.model';
 import { forkJoin } from "rxjs";
+import { map } from 'rxjs/operators';
 
 @Component({
     templateUrl: './checkin.component.html'
@@ -165,7 +166,7 @@ export class CheckInComponent implements OnInit {
                 this.customers = results[0];
                 this.roomTypes = results[1];
                 this.reservations = results[2];
-                results[3]. map((room) => room['File'] = Global.BASE_HOST_ENDPOINT + Global.BASE_FILE_UPLOAD_ENDPOINT + '?Id=' + room.Id + '&ApplicationModule=CheckInCheckOut');
+                results[3].pipe(map((room:Room) => room['File'] = Global.BASE_HOST_ENDPOINT + Global.BASE_FILE_UPLOAD_ENDPOINT + '?Id=' + room.Id + '&ApplicationModule=CheckInCheckOut'));
                 this.reservedRooms = results[3];
                 this.isLoading = false;
             },
@@ -188,10 +189,11 @@ export class CheckInComponent implements OnInit {
 
         forkJoin([customers, roomTypes, reservations, reservedRooms])
             .subscribe(results => {
+                console.log(results);
                 this.customers = results[0];
                 this.roomTypes = results[1];
                 this.reservations = results[2];
-                results[3] .map((room) => room['File'] = Global.BASE_HOST_ENDPOINT + Global.BASE_FILE_UPLOAD_ENDPOINT + '?Id=' + room.Id + '&ApplicationModule=CheckInCheckOut');
+                results[3].pipe(map((room:Room) => room['File'] = Global.BASE_HOST_ENDPOINT + Global.BASE_FILE_UPLOAD_ENDPOINT + '?Id=' + room.Id + '&ApplicationModule=CheckInCheckOut'));
                 this.reservedRooms = results[3];
                 this.isLoading = false;
             },
@@ -225,7 +227,7 @@ export class CheckInComponent implements OnInit {
         this._reservationService.get(Global.BASE_CHECKIN_ENDPOINT+ '?fetchType=new')
             .subscribe(
                 reservedRooms => {
-                    reservedRooms .map((room) => room['File'] = Global.BASE_HOST_ENDPOINT + Global.BASE_FILE_UPLOAD_ENDPOINT + '?Id=' + room.Id + '&ApplicationModule=CheckInCheckOut');
+                    reservedRooms.pipe(map((room:Room) => room['File'] = Global.BASE_HOST_ENDPOINT + Global.BASE_FILE_UPLOAD_ENDPOINT + '?Id=' + room.Id + '&ApplicationModule=CheckInCheckOut'));
                     this.reservedRooms = reservedRooms;
                     this.isLoading = false;
                 },
