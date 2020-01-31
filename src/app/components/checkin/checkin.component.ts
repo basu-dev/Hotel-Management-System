@@ -166,6 +166,7 @@ export class CheckInComponent implements OnInit {
         console.log("reservedrooms:"+reservedRooms);
         forkJoin([customers, roomTypes, reservations, reservedRooms])
             .subscribe(results => {
+                console.log("results:"+results);
                 this.customers = results[0];
                 this.roomTypes = results[1];
                 this.reservations = results[2];
