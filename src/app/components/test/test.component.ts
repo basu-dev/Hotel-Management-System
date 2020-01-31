@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { stringify } from 'querystring';
 import { FormBuilder } from '@angular/forms';
 import {Global} from "../../Shared/global";
+import { ReservationService } from 'src/app/Service/reservation/reservation.services';
 
 @Component({
   selector: 'app-test',
@@ -12,7 +13,7 @@ import {Global} from "../../Shared/global";
 })
 export class TestComponent implements OnInit {
 public items:[];
-  constructor(public http:HttpClient,public fb:FormBuilder) { }
+  constructor(public http:HttpClient,public fb:FormBuilder,public _reservationService:ReservationService) { }
   
 public showNav(){
   console.log(this.items);
@@ -23,11 +24,14 @@ public showNav(){
      
   }
 showData(){
-  this.http.get(Global.BASE_HOST_ENDPOINT).subscribe(
-    data=>console.log(data),
-    error=>console.log(error)
-  )
-  console.log(Global.BASE_HOST_ENDPOINT);
+  let customers = this._reservationService.get(Global.BASE_RESERVATION_CUSTOMER_ENDPOINT).subscribe(
+
+    data=>console.log("data: "+data),
+    error=>console.log("error: "+error)
+  );
+
+  
+  console.log(Global.BASE_RESERVATION_CUSTOMER_ENDPOINT);
 
 } 
 }

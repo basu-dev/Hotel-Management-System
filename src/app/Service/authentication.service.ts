@@ -34,14 +34,14 @@ export class AuthenticationService {
     public isAuthenticated(): boolean {
         const user = localStorage.getItem('userToken');
         console.log(user);
-        // if (user != null)
-        // {
-        //     return true;
-        // }
-        // else
-        // {
-        //     return false;
-        // }
+        if (user != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
         return true;
     }
 

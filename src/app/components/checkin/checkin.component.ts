@@ -124,7 +124,7 @@ export class CheckInComponent implements OnInit {
     }
     // Remove Individual Room
     removeRoom(i: number) {
-        debugger
+        
         let controls = <FormArray>this.reservedRoomForm.controls['listRoomOccupiedDetail'];
         let controlToRemove = this.reservedRoomForm.controls.listRoomOccupiedDetail['controls'][i].controls;
         let selectedControl = controlToRemove.hasOwnProperty('Id') ? controlToRemove.Id.value : 0;
@@ -157,10 +157,13 @@ export class CheckInComponent implements OnInit {
             .subscribe(roomlists => { this.rooms = roomlists; this.isLoading = false; },
                 error => this.msg = <any>error);
         let customers = this._reservationService.get(Global.BASE_RESERVATION_CUSTOMER_ENDPOINT);
+        console.log("customers:"+customers);
         let roomTypes = this._reservationService.get(Global.BASE_ROOM_TYPES_ENDPOINT);
+        console.log("roomtypes:"+roomTypes);
         let reservations = this._reservationService.get(Global.BASE_RESERVATION_ENDPOINT + '?fromDate=' + this.date.transform(this.fromDate, 'yyyy-MM-dd') + '&toDate=' + this.date.transform(this.toDate, 'yyyy-MM-dd') + '&fetchType=current')
+        console.log("reserv:"+reservations);
         let reservedRooms = this._reservationService.get(Global.BASE_CHECKIN_ENDPOINT + '?fromDate=' + this.date.transform(this.fromDate, 'yyyy-MM-dd') + '&toDate=' + this.date.transform(this.toDate, 'yyyy-MM-dd') + '&fetchType=current')
-
+        console.log("reservedrooms:"+reservedRooms);
         forkJoin([customers, roomTypes, reservations, reservedRooms])
             .subscribe(results => {
                 this.customers = results[0];
@@ -173,9 +176,7 @@ export class CheckInComponent implements OnInit {
                 error => this.msg = <any>error
             );
     }
-    /**
-     * Loads data for reserved rooms list
-     */
+
     loadData(fetchType: string) {
         debugger
         this.isLoading = true;
