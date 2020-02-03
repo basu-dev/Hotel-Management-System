@@ -25,7 +25,7 @@ import { map } from 'rxjs/operators';
     templateUrl: './checkin.component.html'
 })
 export class CheckInComponent implements OnInit {
-    @ViewChild('template', {static:false}) TemplateRef: TemplateRef<any>;
+    @ViewChild('template', {static:falsegit add .}) TemplateRef: TemplateRef<any>;
     @ViewChild('fileInput', {static:false}) fileInput: ElementRef;
     reservedRooms: RoomReserverd[];
     reservations: Reservation[];
@@ -569,15 +569,15 @@ export class CheckInComponent implements OnInit {
     // Fetch reservations based on given fetch type
     getData(fetchType: string) {
         debugger
-        this.isLoading = true;
-        this._reservationService.get(Global.BASE_CHECKIN_ENDPOINT + '?fetchType=' + fetchType + '&moduleName=test')
-           .subscribe(
-               reservations => {
-                   this.reservations = reservations;
-                   this.isLoading = false;
-               },
-               error => this.msg = <any>error
-           );
+        //this.isLoading = true;
+        //this._reservationService.get(Global.BASE_CHECKIN_ENDPOINT + '?fetchType=' + fetchType + '&moduleName=test')
+        //    .subscribe(
+        //        reservations => {
+        //            this.reservations = reservations;
+        //            this.isLoading = false;
+        //        },
+        //        error => this.msg = <any>error
+        //    );
         this.loadData(fetchType);
     }
     /**
