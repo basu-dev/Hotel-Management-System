@@ -25,17 +25,17 @@
 //        //    .switchMap((params: Params) =>
 //        //        this._customerService.getCustomerList(params['Id']))
 //        //    .subscribe((customerData: Customer) => {
-//        //        debugger;
+//        //         ;
 //        //        this.customer = customerData;
 //        //        console.log(customerData);
 //        //    });
 
 //        this.route.paramMap.subscribe((params: Params) => {
-//            debugger
+//             
 //            let Id = parseInt(params.get('Id'));
 //            this.selectedEmployeeId = Id;
 //            this._customerService.getCustomerList(Id).subscribe((customerData: Customer) => {
-//                debugger
+//                 
 //                this.customer = customerData;
 //                console.log(customerData);
 //            })

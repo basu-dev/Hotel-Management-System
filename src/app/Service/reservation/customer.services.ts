@@ -1,6 +1,6 @@
 ﻿import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import { Observable, throwError } from 'rxjs';
+import {HttpClient, HttpHeaders, HttpErrorResponse} from "@angular/common/http";
 import {map,tap,catchError} from 'rxjs/operators';
 @Injectable(
     
@@ -13,8 +13,7 @@ export class ReservationCustomerService {
 
     get(url: string): Observable<any> {
         return this._http.get(url).pipe(
-             map((response: Response) => <any>response.json()),
-            tap(data => console.log("All: " + JSON.stringify(data))),
+             
             catchError(this.handleError));
     }
 
@@ -23,7 +22,6 @@ export class ReservationCustomerService {
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options =  ({ headers: headers });
         return this._http.post(url, body, options).pipe(
-             map((response: Response) => <any>response.json()),
             catchError(this.handleError));
     }
 
@@ -32,7 +30,6 @@ export class ReservationCustomerService {
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options =  ({ headers: headers });
         return this._http.put(url + id, body, options).pipe(
-             map((response: Response) => <any>response.json()),
             catchError(this.handleError));
     }
 
@@ -40,12 +37,11 @@ export class ReservationCustomerService {
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options =  ({ headers: headers });
         return this._http.delete(url + id, options).pipe(
-             map((response: Response) => <any>response.json()),
             catchError(this.handleError));
     }
 
-    private handleError(error: Response) {
-        console.error(error);
-        return Observable.throw(error.json() || 'Server error');
+    private handleError(error: HttpErrorResponse) {
+        
+        return throwError(error.error || 'Server error');
     }
 }

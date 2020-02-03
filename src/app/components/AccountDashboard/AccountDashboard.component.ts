@@ -40,9 +40,9 @@ export class AccountDashboardComponent implements OnInit{
     }
 
     LoadProfitAndLoss(): void {
-        debugger
+         
         this._journalvoucherService.get(Global.BASE_ACCOUNTPROFITANDLOSS_ENDPOINT + "?FinancialYear=" + (this.currentYear['Name'] + "&ReportType=" + "Dashboard"))
-            .subscribe(ProfitAndLosss => { debugger; this.profitandloss = ProfitAndLosss; this.inLoading = false; },
+            .subscribe(ProfitAndLosss => {  ; this.profitandloss = ProfitAndLosss; this.inLoading = false; },
                 error => this.msg = <any>error);
     }
     /**

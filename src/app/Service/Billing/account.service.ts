@@ -1,7 +1,8 @@
 ﻿import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import {HttpClient,HttpHeaders, HttpResponse} from "@angular/common/http";
+import {HttpClient,HttpHeaders, HttpResponse, HttpErrorResponse} from "@angular/common/http";
 import {map,tap,catchError} from "rxjs/operators";
+import { throwError } from 'rxjs';
 
 @Injectable()
 export class AccountService {
@@ -35,7 +36,7 @@ export class AccountService {
     }
 
     delete(url: string, id: number): Observable<any> {
-        debugger;
+         ;
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options = ({ headers: headers });
         return this._http.delete(url + id, options).pipe(
@@ -49,9 +50,9 @@ export class AccountService {
             map((responseData) => responseData));
     } 
 
-    private handleError(error: Response) {
+    private handleError (error:HttpErrorResponse) {
         console.error(error);
-        return Observable.throw(error.json() || 'Server error');
+        return  throwError(error.error || 'Server error');
     }
 
    

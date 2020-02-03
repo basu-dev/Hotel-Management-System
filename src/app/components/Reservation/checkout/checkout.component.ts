@@ -192,7 +192,7 @@ export class CheckOutComponent implements OnInit {
      * @param Id 
      */
     getCHECKINCHECKOUT(Id: number) {
-        debugger
+         
         this.isLoading = false;
         return this._reservationService.get(Global.BASE_CHECKIN_ENDPOINT + '?ReservationId=' + Id + '&fetchType=new');
     }
@@ -379,7 +379,7 @@ export class CheckOutComponent implements OnInit {
                     break;
                 case DBOperation.update:
                     ' '
-                    this._reservationService.put(Global.BASE_CHECKOUT_ENDPOINT, formData._value.Id, roomReserve.getRawValue()).subscribe(
+                    this._reservationService.put(Global.BASE_CHECKOUT_ENDPOINT,  formData.value.Id, roomReserve.getRawValue()).subscribe(
                         async (data) => {
                             if (data > 0) {
                                 alert("Data successfully updated.");
@@ -396,7 +396,7 @@ export class CheckOutComponent implements OnInit {
                     );
                     break;
                 case DBOperation.delete:
-                    this._reservationService.delete(Global.BASE_CHECKOUT_ENDPOINT, formData._value.Id).subscribe(
+                    this._reservationService.delete(Global.BASE_CHECKOUT_ENDPOINT,  formData.value.Id).subscribe(
                         data => {
                             if (data == 1) {
                                 alert("ReservedRoom successfully deleted.");

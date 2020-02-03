@@ -111,7 +111,7 @@ export class RoomTypeComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                    this._roomTypeService.put(Global.BASE_ROOM_TYPES_ENDPOINT, formData._value.Id, formData._value).subscribe(
+                    this._roomTypeService.put(Global.BASE_ROOM_TYPES_ENDPOINT,  formData.value.Id, formData._value).subscribe(
                         data => {
                             if (data == 1) {
                                 alert("Data successfully updated.");
@@ -128,7 +128,7 @@ export class RoomTypeComponent implements OnInit {
                     );
                     break;
                 case DBOperation.delete:
-                    this._roomTypeService.delete(Global.BASE_ROOM_TYPES_ENDPOINT, formData._value.Id).subscribe(
+                    this._roomTypeService.delete(Global.BASE_ROOM_TYPES_ENDPOINT,  formData.value.Id).subscribe(
                         data => {
                             if (data == 1) {
                                 alert("Department successfully deleted.");

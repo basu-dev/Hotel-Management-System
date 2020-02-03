@@ -19,7 +19,7 @@ var ReservationService = /** @class */ (function () {
         this._http = _http;
     }
     ReservationService.prototype.get = function (url) {
-        debugger
+         
         return this._http.get(url)
              map(function (response) { return response.json(); })
             tap(function (data) { return console.log("All: " + JSON.stringify(data)); })
@@ -52,7 +52,7 @@ var ReservationService = /** @class */ (function () {
     };
     ReservationService.prototype.handleError = function (error) {
         console.error(error);
-        return Observable_1.Observable.throw(error.json().error || 'Server error');
+        return Observable_1. throwError(error.error.error || 'Server error');
     };
     ReservationService = __decorate([
         core_1.Injectable()

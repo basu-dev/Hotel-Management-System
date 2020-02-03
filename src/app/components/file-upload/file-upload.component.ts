@@ -90,7 +90,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
    */
   async handleFileUpload(extraData) {
       if (this.fileToUpload) {
-        debugger
+         
       let uploadStatus = await new Promise(resolve => {
         this.fileUploadSub = this.fileUploadService.fileUpload(this.uploadUrl, this.fileToUpload, extraData)
           .subscribe(
@@ -98,7 +98,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
             error => console.log("Server error")
           );
       });
-      debugger
+       
       return uploadStatus;
     } else {
       return 0;

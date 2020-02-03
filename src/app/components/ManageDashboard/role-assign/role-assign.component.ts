@@ -116,7 +116,7 @@ export class RoleAssignmentComponent implements OnInit {
     }
 
     onSubmit() {
-        debugger;
+         ;
         this.msg = "";
         let Role = this.UserRoleFrm;
         this.formSubmitAttempt = true;
@@ -124,12 +124,12 @@ export class RoleAssignmentComponent implements OnInit {
         if (Role.valid) {
             switch (this.dbops) {
                 case DBOperation.create:
-                    debugger;
+                     ;
                     this._userRoleService.post(Global.BASE_USERROLE_ENDPOINT, Role.value).subscribe(
                         data => {
                             if (data == 1) //Success
                             {
-                                debugger;
+                                 ;
                                 this.msg = "Data successfully added.";
                                 this.modalRef.hide();
                                 this.LoadRoles();
@@ -140,7 +140,7 @@ export class RoleAssignmentComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                    debugger;
+                     ;
                     this._userRoleService.put(Global.BASE_USERROLE_ENDPOINT, Role.value.Id, Role.value).subscribe(
                         data => {
                             if (data == 2) //Success

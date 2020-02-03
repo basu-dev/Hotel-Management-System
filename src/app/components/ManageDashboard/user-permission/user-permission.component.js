@@ -49,7 +49,7 @@ var UserPermissionComponent = /** @class */ (function () {
         });
     };
     UserPermissionComponent.prototype.editUserPermission = function (Id) {
-        debugger;
+         ;
         this.dbops = enum_1.DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit User";
@@ -62,7 +62,7 @@ var UserPermissionComponent = /** @class */ (function () {
         });
     };
     UserPermissionComponent.prototype.deleteUserPermission = function (Id) {
-        debugger;
+         ;
         this.dbops = enum_1.DBOperation.delete;
         this.SetControlsState(false);
         this.modalTitle = "Confirm to Delete?";
@@ -88,7 +88,7 @@ var UserPermissionComponent = /** @class */ (function () {
     };
     UserPermissionComponent.prototype.onSubmit = function (formData) {
         var _this = this;
-        debugger;
+         ;
         this.formSubmitAttempt = true;
         this.msg = "";
         var usrPermFrm = this.userPermissionFrm;
@@ -107,7 +107,7 @@ var UserPermissionComponent = /** @class */ (function () {
                     });
                     break;
                 case enum_1.DBOperation.update:
-                    debugger;
+                     ;
                     this._userService.put(global_1.Global.BASE_USERACCOUNT_ENDPOINT, formData.value.UserId, formData.value).subscribe(function (data) {
                         if (data == 1) {
                             _this.msg = "Data updated successfully.";
@@ -120,7 +120,7 @@ var UserPermissionComponent = /** @class */ (function () {
                     });
                     break;
                 case enum_1.DBOperation.delete:
-                    debugger;
+                     ;
                     this._userService.delete(global_1.Global.BASE_USER_ENDPOINT, formData.value.UserId).subscribe(function (data) {
                         if (data == 1) {
                             _this.msg = "Data successfully deleted.";
@@ -138,7 +138,7 @@ var UserPermissionComponent = /** @class */ (function () {
         }
     };
     UserPermissionComponent.prototype.reset = function () {
-        debugger;
+         ;
         var control = this.userPermissionFrm.controls['UserId'].value;
         if (control > 0) {
             this.buttonDisabled = true;

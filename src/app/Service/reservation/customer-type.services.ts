@@ -1,6 +1,6 @@
 ﻿import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import { Observable } from 'rxjs';
+import {HttpClient, HttpHeaders, HttpErrorResponse} from "@angular/common/http";
+import { Observable, throwError } from 'rxjs';
 import {map ,tap ,catchError} from 'rxjs/operators';
 
 @Injectable(
@@ -45,8 +45,7 @@ export class CustomerTypeService {
             catchError(this.handleError));
     }
 
-    private handleError(error: Response) {
-        console.error(error);
-        return Observable.throw(error.json() || 'Server error');
+    private handleError (error:HttpErrorResponse) {
+        return  throwError(error.error || 'Server error');
     }
 }

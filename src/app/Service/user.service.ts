@@ -1,6 +1,6 @@
 ﻿import { Injectable } from '@angular/core';
-import { HttpClient , HttpHeaders} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient , HttpHeaders, HttpErrorResponse} from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
 import {map, tap, catchError} from 'rxjs/operators';
 
 
@@ -17,7 +17,7 @@ export class UsersService {
     }
 
     post(url: string, model: any): Observable<any> {
-       // debugger;
+       //  ;
         const body = JSON.stringify(model);
         const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         const options = {
@@ -29,7 +29,7 @@ export class UsersService {
     }
 
     put(url: string, id: number, model: any): Observable<any> {
-        // debugger;
+        //  ;
         const body = JSON.stringify(model);
         const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         const options = {
@@ -42,7 +42,7 @@ export class UsersService {
     }
 
     delete(url: string, id: number): Observable<any> {
-       // debugger;
+       //  ;
         const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         const options = {
             headers
@@ -59,9 +59,9 @@ export class UsersService {
 
     }
 
-    private handleError(error: Response) {
-        // debugger;
+    private handleError (error:HttpErrorResponse) {
+        //  ;
         console.error(error);
-        return Observable.throw(error.json() || 'Server error');
+        return  throwError(error.error || 'Server error');
     }
 }

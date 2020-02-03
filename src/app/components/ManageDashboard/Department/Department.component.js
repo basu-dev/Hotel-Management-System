@@ -26,7 +26,7 @@ var DepartmentComponent = /** @class */ (function () {
     };
     DepartmentComponent.prototype.LoadDepartment = function () {
         var _this = this;
-        debugger;
+         ;
         this.indLoading = true;
         this._departmentService.get(global_1.Global.BASE_DEPARTMENT_ENDPOINT)
             .subscribe(function (departments) { _this.departments = departments; _this.indLoading = false; }, function (error) { return _this.msg = error; });
@@ -40,7 +40,7 @@ var DepartmentComponent = /** @class */ (function () {
         this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false });
     };
     DepartmentComponent.prototype.editDepartment = function (id, template) {
-        debugger;
+         ;
         this.dbops = enum_1.DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit DepartmentName";
@@ -50,7 +50,7 @@ var DepartmentComponent = /** @class */ (function () {
         this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false });
     };
     DepartmentComponent.prototype.deleteDepartment = function (id, template) {
-        debugger;
+         ;
         this.dbops = enum_1.DBOperation.delete;
         this.SetControlsState(true);
         this.modalTitle = "Confirm to Delete?";
@@ -94,7 +94,7 @@ var DepartmentComponent = /** @class */ (function () {
                     });
                     break;
                 case enum_1.DBOperation.update:
-                    this._departmentService.put(global_1.Global.BASE_DEPARTMENT_ENDPOINT, formData._value.Id, formData._value).subscribe(function (data) {
+                    this._departmentService.put(global_1.Global.BASE_DEPARTMENT_ENDPOINT,  formData.value.Id, formData._value).subscribe(function (data) {
                         if (data == 1) {
                             alert("Data successfully updated.");
                             _this.modalRef.hide();
@@ -109,7 +109,7 @@ var DepartmentComponent = /** @class */ (function () {
                     });
                     break;
                 case enum_1.DBOperation.delete:
-                    this._departmentService.delete(global_1.Global.BASE_DEPARTMENT_ENDPOINT, formData._value.Id).subscribe(function (data) {
+                    this._departmentService.delete(global_1.Global.BASE_DEPARTMENT_ENDPOINT,  formData.value.Id).subscribe(function (data) {
                         if (data == 1) {
                             alert("Department successfully deleted.");
                             _this.modalRef.hide();

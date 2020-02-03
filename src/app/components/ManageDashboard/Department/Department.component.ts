@@ -38,7 +38,7 @@ export class DepartmentComponent implements OnInit {
     }
 
     LoadDepartment(): void {
-        debugger
+         
         this.indLoading = true;
         this._departmentService.get(Global.BASE_DEPARTMENT_ENDPOINT)
             .subscribe(departments => { this.departments = departments; this.indLoading = false; },
@@ -56,7 +56,7 @@ export class DepartmentComponent implements OnInit {
     }
 
     editDepartment(id: number, template: TemplateRef<any>) {
-        debugger
+         
         this.dbops = DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit DepartmentName";
@@ -67,7 +67,7 @@ export class DepartmentComponent implements OnInit {
     }
 
     deleteDepartment(id: number, template: TemplateRef<any>) {  
-        debugger
+         
         this.dbops = DBOperation.delete;
         this.SetControlsState(true);
         this.modalTitle = "Confirm to Delete?";
@@ -115,7 +115,7 @@ export class DepartmentComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                    this._departmentService.put(Global.BASE_DEPARTMENT_ENDPOINT, formData._value.Id, formData._value).subscribe(
+                    this._departmentService.put(Global.BASE_DEPARTMENT_ENDPOINT,  formData.value.Id, formData._value).subscribe(
                         data => {
                             if (data == 1) //Success
                             {
@@ -134,7 +134,7 @@ export class DepartmentComponent implements OnInit {
                     );
                     break;
                 case DBOperation.delete:
-                    this._departmentService.delete(Global.BASE_DEPARTMENT_ENDPOINT, formData._value.Id).subscribe(
+                    this._departmentService.delete(Global.BASE_DEPARTMENT_ENDPOINT,  formData.value.Id).subscribe(
                         data => {
                             if (data == 1) //Success
                             {

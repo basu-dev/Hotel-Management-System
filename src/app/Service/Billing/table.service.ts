@@ -1,6 +1,6 @@
 ﻿import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient,HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
 import {map,tap,catchError} from "rxjs/operators";
 
 
@@ -9,7 +9,7 @@ export class tableService {
     constructor(private _http: HttpClient) { }
 
     get(url: string): Observable<any> {
-        debugger
+         
         return this._http.get(url).pipe(
             map((response: Response) => <any>response.json()),
             tap(data => console.log("All: " + JSON.stringify(data))),
@@ -17,7 +17,7 @@ export class tableService {
     }
 
     post(url: string, model: any): Observable<any> {
-        debugger
+         
         let body = JSON.stringify(model);
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options = ({ headers: headers });
@@ -27,7 +27,7 @@ export class tableService {
     }
 
     put(url: string, id: number, model: any): Observable<any> {
-        debugger
+         
         let body = JSON.stringify(model);
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options = ({ headers: headers });
@@ -44,8 +44,8 @@ export class tableService {
             catchError(this.handleError));
     }
 
-    private handleError(error: Response) {
+    private handleError (error:HttpErrorResponse) {
         console.error(error);
-        return Observable.throw(error.json() || 'Server error');
+        return  throwError(error.error || 'Server error');
     }
 }

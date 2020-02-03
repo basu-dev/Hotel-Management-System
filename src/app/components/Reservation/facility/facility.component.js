@@ -26,7 +26,7 @@ var FacilityComponent = /** @class */ (function () {
     };
     FacilityComponent.prototype.LoadFacilitys = function () {
         var _this = this;
-        debugger;
+         ;
         this.isLoading = true;
         this._facilityService.get(global_1.Global.BASE_RESERVATION_FACILITY_ENDPOINT)
             .subscribe(function (facilities) { _this.facilities = facilities; _this.isLoading = false; }, function (error) { return _this.msg = error; });
@@ -40,7 +40,7 @@ var FacilityComponent = /** @class */ (function () {
         this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false });
     };
     FacilityComponent.prototype.editDepartment = function (id, template) {
-        debugger;
+         ;
         this.dbops = enum_1.DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit Room Type";
@@ -50,7 +50,7 @@ var FacilityComponent = /** @class */ (function () {
         this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false });
     };
     FacilityComponent.prototype.deleteDepartment = function (id, template) {
-        debugger;
+         ;
         this.dbops = enum_1.DBOperation.delete;
         this.SetControlsState(true);
         this.modalTitle = "Confirm to Delete?";
@@ -94,7 +94,7 @@ var FacilityComponent = /** @class */ (function () {
                     });
                     break;
                 case enum_1.DBOperation.update:
-                    this._facilityService.put(global_1.Global.BASE_RESERVATION_FACILITY_ENDPOINT, formData._value.Id, formData._value).subscribe(function (data) {
+                    this._facilityService.put(global_1.Global.BASE_RESERVATION_FACILITY_ENDPOINT,  formData.value.Id, formData._value).subscribe(function (data) {
                         if (data == 1) {
                             alert("Data successfully updated.");
                             _this.modalRef.hide();
@@ -109,7 +109,7 @@ var FacilityComponent = /** @class */ (function () {
                     });
                     break;
                 case enum_1.DBOperation.delete:
-                    this._facilityService.delete(global_1.Global.BASE_RESERVATION_FACILITY_ENDPOINT, formData._value.Id).subscribe(function (data) {
+                    this._facilityService.delete(global_1.Global.BASE_RESERVATION_FACILITY_ENDPOINT,  formData.value.Id).subscribe(function (data) {
                         if (data == 1) {
                             alert("Department successfully deleted.");
                             _this.modalRef.hide();

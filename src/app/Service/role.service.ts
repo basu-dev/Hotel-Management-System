@@ -1,7 +1,8 @@
 ﻿import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import {HttpClient,HttpHeaders} from "@angular/common/http";
+import {HttpClient,HttpHeaders, HttpErrorResponse} from "@angular/common/http";
 import {map,tap,catchError} from "rxjs/operators";
+import { throwError } from 'rxjs';
 
 @Injectable()
 export class RoleService {
@@ -24,14 +25,14 @@ export class RoleService {
     }
 
     gets(url: string): Observable<any> {
-        debugger
+         
         return this._http.get(url).pipe(
             map((response: Response) => <any>response.json()),
             catchError(this.handleError));
     }
 
     posts(url: string, model: any): Observable<any> {
-        debugger
+         
         let body = JSON.stringify(model);
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options = ({ headers: headers });
@@ -41,7 +42,7 @@ export class RoleService {
     }
 
     put(url: string, Id: number, model: any): Observable<any> {
-        debugger
+         
         let body = JSON.stringify(model);
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options = ({ headers: headers });
@@ -51,7 +52,7 @@ export class RoleService {
     }
 
     delete(url: string, id: number): Observable<any> {
-        debugger;
+         ;
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options = ({ headers: headers });
         return this._http.delete(url + id, options).pipe(
@@ -65,8 +66,8 @@ export class RoleService {
     
     }
 
-    private handleError(error: Response) {
+    private handleError (error:HttpErrorResponse) {
         console.error(error);
-        return Observable.throw(error.json() || 'Server error');
+        return  throwError(error.error || 'Server error');
     }
 }

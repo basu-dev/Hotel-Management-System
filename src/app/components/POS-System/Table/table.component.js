@@ -26,7 +26,7 @@ var TableComponent = /** @class */ (function () {
     };
     TableComponent.prototype.LoadTable = function () {
         var _this = this;
-        debugger;
+         ;
         this.indLoading = true;
         this._tableService.get(global_1.Global.BASE_TABLEAPI_ENDPOINT)
             .subscribe(function (tables) { _this.tables = tables; _this.indLoading = false; }, function (error) { return _this.msg = error; });
@@ -92,7 +92,7 @@ var TableComponent = /** @class */ (function () {
                     });
                     break;
                 case enum_1.DBOperation.update:
-                    this._tableService.put(global_1.Global.BASE_TABLEAPI_ENDPOINT, formData._value.Id, formData._value).subscribe(function (data) {
+                    this._tableService.put(global_1.Global.BASE_TABLEAPI_ENDPOINT,  formData.value.Id, formData._value).subscribe(function (data) {
                         if (data == 1) {
                             alert("Table successfully updated.");
                             _this.modalRef.hide();
@@ -107,7 +107,7 @@ var TableComponent = /** @class */ (function () {
                     });
                     break;
                 case enum_1.DBOperation.delete:
-                    this._tableService.delete(global_1.Global.BASE_TABLEAPI_ENDPOINT, formData._value.Id).subscribe(function (data) {
+                    this._tableService.delete(global_1.Global.BASE_TABLEAPI_ENDPOINT,  formData.value.Id).subscribe(function (data) {
                         if (data == 1) {
                             alert("Table successfully deleted.");
                             _this.modalRef.hide();

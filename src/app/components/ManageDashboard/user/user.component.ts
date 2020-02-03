@@ -66,7 +66,7 @@ export class UserComponent implements OnInit {
     }
 
     editUser(Id: number) {
-        debugger;
+         ;
         this.dbops = DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit User";
@@ -82,7 +82,7 @@ export class UserComponent implements OnInit {
     }
 
     deleteUser(Id: number) {
-        debugger;
+         ;
         this.dbops = DBOperation.delete;
         this.SetControlsState(false);
         this.modalTitle = "Confirm to Delete User?";
@@ -112,7 +112,7 @@ export class UserComponent implements OnInit {
     }
 
     onSubmit(formData:any) {
-        debugger;
+         ;
         this.formSubmitAttempt = true;
         this.msg = "";
         let users = this.userFrm
@@ -138,7 +138,7 @@ export class UserComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                    debugger;
+                     ;
                     this._userService.put(Global.BASE_USERACCOUNT_ENDPOINT, formData.value.UserId, formData.value, ).subscribe(
                         data => {
                             if (data == 1) //Success
@@ -157,7 +157,7 @@ export class UserComponent implements OnInit {
                     );
                     break;
                 case DBOperation.delete:
-                    debugger;
+                     ;
                     this._userService.delete(Global.BASE_USER_ENDPOINT, formData.value.UserId).subscribe(
                         data => {
                             if (data == 1) //Success
@@ -185,7 +185,7 @@ export class UserComponent implements OnInit {
     }
 
     reset() {
-        debugger;
+         ;
         let control = this.userFrm.controls['UserId'].value;
         if (control > 0) {
             this.buttonDisabled = true;

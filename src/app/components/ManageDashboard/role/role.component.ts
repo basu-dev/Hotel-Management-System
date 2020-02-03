@@ -68,7 +68,7 @@ export class RoleComponent implements OnInit {
     }
 
     editUserRole(Id: number) {
-        debugger;
+         ;
         this.dbops = DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit UserRole";
@@ -84,7 +84,7 @@ export class RoleComponent implements OnInit {
     }
 
     deleteUserRole(id: number) {
-        debugger;
+         ;
         this.dbops = DBOperation.delete;
         this.SetControlsState(true);
         this.modalTitle = "Confirm to Delete?";
@@ -125,7 +125,7 @@ export class RoleComponent implements OnInit {
                         data => {
                             if (data == 1) //Success
                             {
-                                debugger;
+                                 ;
                                 this.openModal2(this.TemplateRef2);
                                 this.LoadRoles();
                             }
@@ -140,7 +140,7 @@ export class RoleComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                    debugger;
+                     ;
                     this._roleService.put(Global.BASE_ROLES_ENDPOINT, formData.value.RoleId, formData.value).subscribe(
                         data => {
                             if (data == 1) //Success
@@ -157,7 +157,7 @@ export class RoleComponent implements OnInit {
                     )
                     break;
                 case DBOperation.delete:
-                    debugger;
+                     ;
                     this._roleService.delete(Global.BASE_ROLES_ENDPOINT, formData.value.RoleId).subscribe(
                         data => {
                             if (data == 1) //Success

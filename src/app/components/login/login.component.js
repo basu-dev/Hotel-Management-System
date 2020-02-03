@@ -42,7 +42,7 @@ var LoginComponent = /** @class */ (function () {
         var _this = this;
         var loginfrm = this.form;
         this.authenticationSevice.login(global_1.Global.BASE_LOGIN_ENDPOINT, loginfrm.value).subscribe(function (data) {
-            debugger;
+             ;
             if (data != 0) {
                 alert("User Logged in successfully.");
                 _this.router.navigate(['/dashboard']);

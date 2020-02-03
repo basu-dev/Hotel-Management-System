@@ -60,7 +60,7 @@ export class OrderService {
 	 * @param payload 
 	 */
     addOrderProduct(payload: OrderItemRequest) {
-        debugger
+         
         payload.OrderItem.Tags = <any>payload.OrderItem.Tags.join(',');
         
         return this.http.post(Global.BASE_ORDERS_ENDPOINT, payload).pipe(

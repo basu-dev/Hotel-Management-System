@@ -1,6 +1,6 @@
 ﻿import { Injectable } from '@angular/core';
-import { HttpClient , HttpHeaders} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient , HttpHeaders, HttpErrorResponse} from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
 import{map,tap,catchError} from 'rxjs/operators';
 
 
@@ -16,7 +16,7 @@ export class LoginService {
     }
 
     login(url: string, model: any): Observable<any> {
-        debugger;
+         ;
         let body = JSON.stringify(model);
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options = { headers: headers };
@@ -26,9 +26,9 @@ export class LoginService {
     }
 
 
-    private handleError(error: Response) {
-        //debugger;
+    private handleError (error:HttpErrorResponse) {
+        // ;
         console.error(error);
-        return Observable.throw(error.json() || 'Server error');
+        return  throwError(error.error || 'Server error');
     }
 }

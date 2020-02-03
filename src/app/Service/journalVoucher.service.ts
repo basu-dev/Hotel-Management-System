@@ -1,9 +1,9 @@
 ﻿
 
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpErrorResponse} from "@angular/common/http";
 import {map,catchError,tap} from "rxjs/operators";
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 
 
 
@@ -23,7 +23,7 @@ export class JournalVoucherService {
     }
 
     post(url: string, model: any): Observable<any> {
-        debugger;
+         ;
         let body = JSON.stringify(model);
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options = { headers: headers };
@@ -35,7 +35,7 @@ export class JournalVoucherService {
     }
 
     put(url: string, id: number, model: any): Observable<any> {
-        debugger;
+         ;
         let body = JSON.stringify(model);
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options = { headers: headers };
@@ -45,7 +45,7 @@ export class JournalVoucherService {
     }
 
     RemoveTransactionValues(url: string, id: number) {
-        debugger;
+         ;
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options = { headers: headers };
         return this._http.delete(url + id, options)
@@ -69,7 +69,7 @@ export class JournalVoucherService {
     }
 
     delete(url: string, model: any): Observable<any> {
-        debugger;
+         ;
         let body = JSON.stringify(model);
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options = { headers: headers, body: body };
@@ -78,9 +78,9 @@ export class JournalVoucherService {
             catchError(this.handleError);
     }
 
-    private handleError(error: Response) {
+    private handleError (error:HttpErrorResponse) {
         console.error(error);
-        return Observable.throw(error.json() || 'Server error');
+        return  throwError(error.error || 'Server error');
     }
 
 }

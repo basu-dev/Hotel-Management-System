@@ -361,7 +361,7 @@ export class ReservationComponent implements OnInit {
      * On Submitting the form
      */
     onSubmit(formData: any) {
-        debugger;
+         ;
         this.msg = "";
         this.formSubmitAttempt = true;
         let reserve = this.reservationForm;
@@ -381,7 +381,7 @@ export class ReservationComponent implements OnInit {
         if (reserve.valid) {
             switch (this.dbops) {
                 case DBOperation.create:
-                    debugger;
+                     ;
                     this._reservationService.post(Global.BASE_RESERVATION_ENDPOINT, reserve.value).subscribe(
                         data => {
                             if (data == 1) {
@@ -392,7 +392,7 @@ export class ReservationComponent implements OnInit {
                             } else {
                                 alert("There is some issue in saving records, please contact to system administrator!");
                             }
-                            debugger;
+                             ;
                         },
                         error => {
                             this.msg = error;
@@ -400,7 +400,7 @@ export class ReservationComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                    this._reservationService.put(Global.BASE_RESERVATION_ENDPOINT, formData._value.Id, reserve.value).subscribe(
+                    this._reservationService.put(Global.BASE_RESERVATION_ENDPOINT,  formData.value.Id, reserve.value).subscribe(
                         data => {
                             if (data == 1) {
                                 alert("Data successfully updated.");
@@ -417,7 +417,7 @@ export class ReservationComponent implements OnInit {
                     );
                     break;
                 case DBOperation.delete:
-                    this._reservationService.delete(Global.BASE_RESERVATION_ENDPOINT, formData._value.Id).subscribe(
+                    this._reservationService.delete(Global.BASE_RESERVATION_ENDPOINT,  formData.value.Id).subscribe(
                         data => {
                             if (data == 1) {
                                 alert("Reservation successfully deleted.");
@@ -522,7 +522,7 @@ export class ReservationComponent implements OnInit {
     }
     // Fetch reservations based on given fetch type
     getDataDateFilter(fetchType: string) {
-        debugger
+         
         this.isLoading = true;
         this._reservationService.get(Global.BASE_RESERVATION_ENDPOINT + '?fromDate=' + this.date.transform(this.fromDate, 'yyyy-MM-dd') + '&toDate=' + this.date.transform(this.toDate, 'yyyy-MM-dd') + '&fetchType=' + fetchType)
             .subscribe(

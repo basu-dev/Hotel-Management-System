@@ -66,7 +66,7 @@ export class UserPermissionComponent implements OnInit {
     }
 
     editUserPermission(Id: number) {
-        debugger;
+         ;
         this.dbops = DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit User";
@@ -81,7 +81,7 @@ export class UserPermissionComponent implements OnInit {
     }
 
     deleteUserPermission(Id: number) {
-        debugger;
+         ;
         this.dbops = DBOperation.delete;
         this.SetControlsState(false);
         this.modalTitle = "Confirm to Delete?";
@@ -106,7 +106,7 @@ export class UserPermissionComponent implements OnInit {
     }
 
     onSubmit(formData: any) {
-        debugger;
+         ;
         this.formSubmitAttempt = true;
         this.msg = "";
         let usrPermFrm = this.userPermissionFrm
@@ -130,7 +130,7 @@ export class UserPermissionComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                    debugger;
+                     ;
                     this._userService.put(Global.BASE_USERACCOUNT_ENDPOINT, formData.value.UserId, formData.value, ).subscribe(
                         data => {
                             if (data == 1) //Success
@@ -145,7 +145,7 @@ export class UserPermissionComponent implements OnInit {
                     );
                     break;
                 case DBOperation.delete:
-                    debugger;
+                     ;
                     this._userService.delete(Global.BASE_USER_ENDPOINT, formData.value.UserId).subscribe(
                         data => {
                             if (data == 1) //Success
@@ -166,7 +166,7 @@ export class UserPermissionComponent implements OnInit {
     }
 
     reset() {
-        debugger;
+         ;
         let control = this.userPermissionFrm.controls['UserId'].value;
         if (control > 0) {
             this.buttonDisabled = true;

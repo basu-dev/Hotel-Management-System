@@ -48,7 +48,7 @@ var UserComponent = /** @class */ (function () {
         });
     };
     UserComponent.prototype.editUser = function (Id) {
-        debugger;
+         ;
         this.dbops = enum_1.DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit User";
@@ -61,7 +61,7 @@ var UserComponent = /** @class */ (function () {
         });
     };
     UserComponent.prototype.deleteUser = function (Id) {
-        debugger;
+         ;
         this.dbops = enum_1.DBOperation.delete;
         this.SetControlsState(false);
         this.modalTitle = "Confirm to Delete User?";
@@ -90,7 +90,7 @@ var UserComponent = /** @class */ (function () {
     };
     UserComponent.prototype.onSubmit = function (formData) {
         var _this = this;
-        debugger;
+         ;
         this.formSubmitAttempt = true;
         this.msg = "";
         var users = this.userFrm;
@@ -110,7 +110,7 @@ var UserComponent = /** @class */ (function () {
                     });
                     break;
                 case enum_1.DBOperation.update:
-                    debugger;
+                     ;
                     this._userService.put(global_1.Global.BASE_USERACCOUNT_ENDPOINT, formData.value.UserId, formData.value).subscribe(function (data) {
                         if (data == 1) {
                             _this.msg = "Data updated successfully.";
@@ -124,7 +124,7 @@ var UserComponent = /** @class */ (function () {
                     });
                     break;
                 case enum_1.DBOperation.delete:
-                    debugger;
+                     ;
                     this._userService.delete(global_1.Global.BASE_USER_ENDPOINT, formData.value.UserId).subscribe(function (data) {
                         if (data == 1) {
                             _this.msg = "Data successfully deleted.";
@@ -146,7 +146,7 @@ var UserComponent = /** @class */ (function () {
         this.modalRef2.hide();
     };
     UserComponent.prototype.reset = function () {
-        debugger;
+         ;
         var control = this.userFrm.controls['UserId'].value;
         if (control > 0) {
             this.buttonDisabled = true;

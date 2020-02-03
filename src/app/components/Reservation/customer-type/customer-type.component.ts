@@ -117,7 +117,7 @@ export class CustomerTypeComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                    this._customerTypeService.put(Global.BASE_CUSTOMER_TYPES_ENDPOINT, formData._value.Id, formData._value).subscribe(
+                    this._customerTypeService.put(Global.BASE_CUSTOMER_TYPES_ENDPOINT,  formData.value.Id, formData._value).subscribe(
                         data => {
                             if (data == 1) //Success
                             {
@@ -136,7 +136,7 @@ export class CustomerTypeComponent implements OnInit {
                     );
                     break;
                 case DBOperation.delete:
-                    this._customerTypeService.delete(Global.BASE_CUSTOMER_TYPES_ENDPOINT, formData._value.Id).subscribe(
+                    this._customerTypeService.delete(Global.BASE_CUSTOMER_TYPES_ENDPOINT,  formData.value.Id).subscribe(
                         data => {
                             if (data == 1) //Success
                             {

@@ -212,11 +212,11 @@ var CompanyComponent = /** @class */ (function () {
                             });
                             break;
                         case enum_1.DBOperation.update:
-                            this._reservationService.put(global_1.Global.BASE_COMPANY_ENDPOINT, formData._value.Id, company.value).subscribe(function (data) { return __awaiter(_this, void 0, void 0, function () {
+                            this._reservationService.put(global_1.Global.BASE_COMPANY_ENDPOINT,  formData.value.Id, company.value).subscribe(function (data) { return __awaiter(_this, void 0, void 0, function () {
                                 return __generator(this, function (_a) {
                                     switch (_a.label) {
                                         case 0:
-                                            debugger;
+                                             ;
                                             if (!(data == 1)) return [3 /*break*/, 2];
                                             // file upload stuff goes here
                                             return [4 /*yield*/, fileUpload.handleFileUpload({
@@ -242,7 +242,7 @@ var CompanyComponent = /** @class */ (function () {
                             });
                             break;
                         case enum_1.DBOperation.delete:
-                            this._reservationService.delete(global_1.Global.BASE_COMPANY_ENDPOINT, formData._value.Id).subscribe(function (data) {
+                            this._reservationService.delete(global_1.Global.BASE_COMPANY_ENDPOINT,  formData.value.Id).subscribe(function (data) {
                                 if (data == 1) {
                                     alert("Company successfully deleted.");
                                     _this.modalRef.hide();

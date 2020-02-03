@@ -113,7 +113,7 @@ export class ReservationTypeComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                    this._reservationTypeService.put(Global.BASE_RESERVATION_TYPES_ENDPOINT, formData._value.Id, formData._value).subscribe(
+                    this._reservationTypeService.put(Global.BASE_RESERVATION_TYPES_ENDPOINT,  formData.value.Id, formData._value).subscribe(
                         data => {
                             if (data == 1) //Success
                             {
@@ -131,7 +131,7 @@ export class ReservationTypeComponent implements OnInit {
                     );
                     break;
                 case DBOperation.delete:
-                    this._reservationTypeService.delete(Global.BASE_RESERVATION_TYPES_ENDPOINT, formData._value.Id).subscribe(
+                    this._reservationTypeService.delete(Global.BASE_RESERVATION_TYPES_ENDPOINT,  formData.value.Id).subscribe(
                         data => {
                             if (data == 1) //Success
                             {

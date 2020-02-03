@@ -214,7 +214,7 @@ export class CompanyComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                    this._reservationService.put(Global.BASE_COMPANY_ENDPOINT, formData._value.Id, company.value).subscribe(
+                    this._reservationService.put(Global.BASE_COMPANY_ENDPOINT,  formData.value.Id, company.value).subscribe(
                         async (data) => {
                             if (data == 1) {
                                 // file upload stuff goes here
@@ -236,7 +236,7 @@ export class CompanyComponent implements OnInit {
                     );
                     break;
                 case DBOperation.delete:
-                    this._reservationService.delete(Global.BASE_COMPANY_ENDPOINT, formData._value.Id).subscribe(
+                    this._reservationService.delete(Global.BASE_COMPANY_ENDPOINT,  formData.value.Id).subscribe(
                         data => {
                             if (data == 1) {
                                 alert("Company successfully deleted.");

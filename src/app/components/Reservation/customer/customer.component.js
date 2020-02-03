@@ -108,7 +108,7 @@ var ReservationCustomerComponent = /** @class */ (function () {
         this.msg = "";
         this.formSubmitAttempt = true;
         var departfrm = this.customerForm;
-        debugger;
+         ;
         if (departfrm.valid) {
             switch (this.dbops) {
                 case enum_1.DBOperation.create:
@@ -127,7 +127,7 @@ var ReservationCustomerComponent = /** @class */ (function () {
                     });
                     break;
                 case enum_1.DBOperation.update:
-                    this._customerService.put(global_1.Global.BASE_RESERVATION_CUSTOMER_ENDPOINT, formData._value.Id, formData._value).subscribe(function (data) {
+                    this._customerService.put(global_1.Global.BASE_RESERVATION_CUSTOMER_ENDPOINT,  formData.value.Id, formData._value).subscribe(function (data) {
                         if (data == 1) {
                             alert("Data successfully updated.");
                             _this.modalRef.hide();
@@ -142,7 +142,7 @@ var ReservationCustomerComponent = /** @class */ (function () {
                     });
                     break;
                 case enum_1.DBOperation.delete:
-                    this._customerService.delete(global_1.Global.BASE_RESERVATION_CUSTOMER_ENDPOINT, formData._value.Id).subscribe(function (data) {
+                    this._customerService.delete(global_1.Global.BASE_RESERVATION_CUSTOMER_ENDPOINT,  formData.value.Id).subscribe(function (data) {
                         if (data == 1) {
                             alert("Department successfully deleted.");
                             _this.modalRef.hide();

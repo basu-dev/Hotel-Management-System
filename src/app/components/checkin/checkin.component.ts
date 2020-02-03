@@ -25,7 +25,7 @@ import { map } from 'rxjs/operators';
     templateUrl: './checkin.component.html'
 })
 export class CheckInComponent implements OnInit {
-    @ViewChild('template', {static:falsegit add .}) TemplateRef: TemplateRef<any>;
+    @ViewChild('template', {static:false}) TemplateRef: TemplateRef<any>;
     @ViewChild('fileInput', {static:false}) fileInput: ElementRef;
     reservedRooms: RoomReserverd[];
     reservations: Reservation[];
@@ -146,7 +146,7 @@ export class CheckInComponent implements OnInit {
     }
     //Add Room
     addRoom() {
-        debugger
+         
         const control = <FormArray>this.reservedRoomForm.controls['listRoomOccupiedDetail'];
         const addRoom = this.initRoomlistRoomOccupiedDetail();
         control.push(addRoom);
@@ -179,7 +179,7 @@ export class CheckInComponent implements OnInit {
     }
 
     loadData(fetchType: string) {
-        debugger
+         
         this.isLoading = true;
         this._reservationService.get(Global.BASE_RESERVATION_ROOM_ENDPOINT)
             .subscribe(roomlists => { this.rooms = roomlists; this.isLoading = false; },
@@ -230,7 +230,7 @@ export class CheckInComponent implements OnInit {
         this._reservationService.get(Global.BASE_CHECKIN_ENDPOINT+ '?fetchType=new')
             .subscribe(
                 reservedRooms => {
-                    reservedRooms.pipe(map((room:Room) => room['File'] = Global.BASE_HOST_ENDPOINT + Global.BASE_FILE_UPLOAD_ENDPOINT + '?Id=' + room.Id + '&ApplicationModule=CheckInCheckOut'));
+                    reservedRooms.map((room:Room) => room['File'] = Global.BASE_HOST_ENDPOINT + Global.BASE_FILE_UPLOAD_ENDPOINT + '?Id=' + room.Id + '&ApplicationModule=CheckInCheckOut');
                     this.reservedRooms = reservedRooms;
                     this.isLoading = false;
                 },
@@ -242,7 +242,7 @@ export class CheckInComponent implements OnInit {
      * @param Id 
      */
     getCHECKINCHECKOUT(Id: number) {
-        debugger
+         
         this.isLoading = false;
         return this._reservationService.get(Global.BASE_CHECKIN_ENDPOINT + '?ReservationId=' + Id + '&fetchType=new');
     }
@@ -267,7 +267,7 @@ export class CheckInComponent implements OnInit {
     }
 
     editReservedRoom(id: number, template: TemplateRef<any>) {
-        debugger
+         
         this.isLoading = false;
         this.dbops = DBOperation.update;
         this.SetControlsState(true);
@@ -393,7 +393,7 @@ export class CheckInComponent implements OnInit {
         let roomReserve = this.reservedRoomForm;
 
         if (roomReserve.valid) {
-            debugger
+             
             let newDate = new Date();
             let checkInDate = new Date(roomReserve.get('ToCheckInDate').value);
             let checkOutDate = new Date(roomReserve.get('ToCheckOutDate').value);
@@ -434,7 +434,7 @@ export class CheckInComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                    this._reservationService.put(Global.BASE_CHECKIN_ENDPOINT, formData._value.Id, roomReserve.value).subscribe(
+                    this._reservationService.put(Global.BASE_CHECKIN_ENDPOINT, formData.value.Id, roomReserve.value).subscribe(
                         async (data) => {
                             ' '
                             if (data > 0) {
@@ -457,7 +457,7 @@ export class CheckInComponent implements OnInit {
                     );
                     break;
                 case DBOperation.delete:
-                    this._reservationService.delete(Global.BASE_CHECKIN_ENDPOINT, formData._value.Id).subscribe(
+                    this._reservationService.delete(Global.BASE_CHECKIN_ENDPOINT,  formData.value.Id).subscribe(
                         data => {
                             if (data == 1) {
                                 alert("ReservedRoom successfully deleted.");
@@ -568,7 +568,7 @@ export class CheckInComponent implements OnInit {
     
     // Fetch reservations based on given fetch type
     getData(fetchType: string) {
-        debugger
+         
         //this.isLoading = true;
         //this._reservationService.get(Global.BASE_CHECKIN_ENDPOINT + '?fetchType=' + fetchType + '&moduleName=test')
         //    .subscribe(

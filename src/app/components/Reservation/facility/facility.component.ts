@@ -113,7 +113,7 @@ export class FacilityComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                    this._facilityService.put(Global.BASE_RESERVATION_FACILITY_ENDPOINT, formData._value.Id, formData._value).subscribe(
+                    this._facilityService.put(Global.BASE_RESERVATION_FACILITY_ENDPOINT,  formData.value.Id, formData._value).subscribe(
                         data => {
                             if (data == 1) //Success
                             {
@@ -132,7 +132,7 @@ export class FacilityComponent implements OnInit {
                     );
                     break;
                 case DBOperation.delete:
-                    this._facilityService.delete(Global.BASE_RESERVATION_FACILITY_ENDPOINT, formData._value.Id).subscribe(
+                    this._facilityService.delete(Global.BASE_RESERVATION_FACILITY_ENDPOINT,  formData.value.Id).subscribe(
                         data => {
                             if (data == 1) //Success
                             {

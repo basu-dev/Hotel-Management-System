@@ -10,7 +10,7 @@ export class AuthenticationService {
     constructor(private http: HttpClient) { }
 
     login  (url:string,model: any) {
-        //debugger;
+        // ;
         let body = JSON.stringify(model);
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options = { headers: headers };

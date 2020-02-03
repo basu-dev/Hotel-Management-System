@@ -43,7 +43,7 @@ export class RoleNameComponent {
     }
     
     LoadRoleName(Id: number): void {
-        debugger
+         
         this.indLoading = true;
         this._userRoleService.get(Global.BASE_USERROLE_ENDPOINT + Id)
             .subscribe(rolesName => { this.rolesNames = rolesName; this.indLoading = false; },
@@ -51,11 +51,11 @@ export class RoleNameComponent {
     }
 
     addNamesToRole(RoleId: number, Selected: boolean ): void {
-        debugger
+         
         let RoleScreenNames = new IScreenRoleNames(RoleId, Selected);
         this._userRoleService.post(Global.BASE_USERROLE_ENDPOINT, RoleScreenNames).subscribe(
             data => {
-                debugger
+                 
                 if (data == 1) {
                     alert("RoleName added successfully");
                 }

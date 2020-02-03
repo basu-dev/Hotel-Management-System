@@ -50,7 +50,7 @@ var RoleComponent = /** @class */ (function () {
         });
     };
     RoleComponent.prototype.editUserRole = function (Id) {
-        debugger;
+         ;
         this.dbops = enum_1.DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit UserRole";
@@ -96,7 +96,7 @@ var RoleComponent = /** @class */ (function () {
                 case enum_1.DBOperation.create:
                     this._roleService.post(global_1.Global.BASE_ROLES_ENDPOINT, formData.value).subscribe(function (data) {
                         if (data == 1) {
-                            debugger;
+                             ;
                             _this.openModal2(_this.TemplateRef2);
                             _this.LoadRoles();
                         }
@@ -108,7 +108,7 @@ var RoleComponent = /** @class */ (function () {
                     });
                     break;
                 case enum_1.DBOperation.update:
-                    debugger;
+                     ;
                     this._roleService.put(global_1.Global.BASE_ROLES_ENDPOINT, formData.value.RoleId, formData.value).subscribe(function (data) {
                         if (data == 1) {
                             _this.msg = "Data successfully updated.";

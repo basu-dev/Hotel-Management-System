@@ -54,7 +54,7 @@ var RoleAssignmentComponent = /** @class */ (function () {
         });
     };
     RoleAssignmentComponent.prototype.editUserRole = function (Id) {
-        //debugger;
+        // ;
         this.dbops = enum_1.DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit UserRole";
@@ -86,17 +86,17 @@ var RoleAssignmentComponent = /** @class */ (function () {
     };
     RoleAssignmentComponent.prototype.onSubmit = function () {
         var _this = this;
-        debugger;
+         ;
         this.msg = "";
         var Role = this.UserRoleFrm;
         this.formSubmitAttempt = true;
         if (Role.valid) {
             switch (this.dbops) {
                 case enum_1.DBOperation.create:
-                    debugger;
+                     ;
                     this._userRoleService.post(global_1.Global.BASE_USERROLE_ENDPOINT, Role.value).subscribe(function (data) {
                         if (data == 1) {
-                            debugger;
+                             ;
                             _this.msg = "Data successfully added.";
                             _this.modalRef.hide();
                             _this.LoadRoles();
@@ -107,7 +107,7 @@ var RoleAssignmentComponent = /** @class */ (function () {
                     });
                     break;
                 case enum_1.DBOperation.update:
-                    debugger;
+                     ;
                     this._userRoleService.put(global_1.Global.BASE_USERROLE_ENDPOINT, Role.value.Id, Role.value).subscribe(function (data) {
                         if (data == 2) {
                             _this.msg = "Data successfully added.";
@@ -125,7 +125,7 @@ var RoleAssignmentComponent = /** @class */ (function () {
         }
     };
     RoleAssignmentComponent.prototype.reset = function () {
-        //debugger;
+        // ;
         var control = this.UserRoleFrm.controls['RoleId'].value;
         if (control > 0) {
             this.buttonDisabled = true;
