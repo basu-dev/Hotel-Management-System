@@ -157,20 +157,20 @@ export class CheckInComponent implements OnInit {
             .subscribe(roomlists => { this.rooms = roomlists; this.isLoading = false; },
                 error => this.msg = <any>error);
         let customers = this._reservationService.get(Global.BASE_RESERVATION_CUSTOMER_ENDPOINT);
-        console.log("customers:"+customers);
+        
         let roomTypes = this._reservationService.get(Global.BASE_ROOM_TYPES_ENDPOINT);
-        console.log("roomtypes:"+roomTypes);
+        
         let reservations = this._reservationService.get(Global.BASE_RESERVATION_ENDPOINT + '?fromDate=' + this.date.transform(this.fromDate, 'yyyy-MM-dd') + '&toDate=' + this.date.transform(this.toDate, 'yyyy-MM-dd') + '&fetchType=current')
-        console.log("reserv:"+reservations);
+        
         let reservedRooms = this._reservationService.get(Global.BASE_CHECKIN_ENDPOINT + '?fromDate=' + this.date.transform(this.fromDate, 'yyyy-MM-dd') + '&toDate=' + this.date.transform(this.toDate, 'yyyy-MM-dd') + '&fetchType=current')
-        console.log("reservedrooms:"+reservedRooms);
+        
         forkJoin([customers, roomTypes, reservations, reservedRooms])
             .subscribe(results => {
                 console.log("results:"+results);
                 this.customers = results[0];
                 this.roomTypes = results[1];
                 this.reservations = results[2];
-                results[3].pipe(map((room:Room) => room['File'] = Global.BASE_HOST_ENDPOINT + Global.BASE_FILE_UPLOAD_ENDPOINT + '?Id=' + room.Id + '&ApplicationModule=CheckInCheckOut'));
+                results[3].map((room:Room) => room['File'] = Global.BASE_HOST_ENDPOINT + Global.BASE_FILE_UPLOAD_ENDPOINT + '?Id=' + room.Id + '&ApplicationModule=CheckInCheckOut');
                 this.reservedRooms = results[3];
                 this.isLoading = false;
             },
@@ -195,7 +195,8 @@ export class CheckInComponent implements OnInit {
                 this.customers = results[0];
                 this.roomTypes = results[1];
                 this.reservations = results[2];
-                results[3].pipe(map((room:Room) => room['File'] = Global.BASE_HOST_ENDPOINT + Global.BASE_FILE_UPLOAD_ENDPOINT + '?Id=' + room.Id + '&ApplicationModule=CheckInCheckOut'));
+                console.log(this.reservations);
+                results[3].map((room:Room) => room['File'] = Global.BASE_FILE_UPLOAD_ENDPOINT + '?Id=' + room.Id + '&ApplicationModule=CheckInCheckOut');
                 this.reservedRooms = results[3];
                 this.isLoading = false;
             },
@@ -568,15 +569,15 @@ export class CheckInComponent implements OnInit {
     // Fetch reservations based on given fetch type
     getData(fetchType: string) {
         debugger
-        //this.isLoading = true;
-        //this._reservationService.get(Global.BASE_CHECKIN_ENDPOINT + '?fetchType=' + fetchType + '&moduleName=test')
-        //    .subscribe(
-        //        reservations => {
-        //            this.reservations = reservations;
-        //            this.isLoading = false;
-        //        },
-        //        error => this.msg = <any>error
-        //    );
+        this.isLoading = true;
+        this._reservationService.get(Global.BASE_CHECKIN_ENDPOINT + '?fetchType=' + fetchType + '&moduleName=test')
+           .subscribe(
+               reservations => {
+                   this.reservations = reservations;
+                   this.isLoading = false;
+               },
+               error => this.msg = <any>error
+           );
         this.loadData(fetchType);
     }
     /**

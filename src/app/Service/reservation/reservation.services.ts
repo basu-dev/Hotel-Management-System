@@ -1,7 +1,8 @@
 ﻿import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
 import {map,tap,catchError} from "rxjs/operators";
 import { Observable } from 'rxjs';
+import { Room } from 'src/app/Model/reservation/room.model';
 
 
 @Injectable()
@@ -11,9 +12,9 @@ export class ReservationService {
         this._http = _http;
     }
     get(url: string): Observable<any> {
-        return this._http.get(url).pipe(
-            map((response: Response) => {<any>response}),
-            tap(data => console.log("All: " + JSON.stringify(data))),
+        return this._http.get<any>(url).pipe(
+            // map((response: Response) => {<any>response}),
+            // tap(data => console.log("All: " + JSON.stringify(data))),
             catchError(this.handleError));
     }
     post(url: string, model: any): Observable<any> {
@@ -42,8 +43,8 @@ export class ReservationService {
              map((response: Response) => <any>response),
             catchError(this.handleError));
     }
-    private handleError(error: Response) {
+    private handleError(error: HttpErrorResponse) {
         console.error(error);
-        return Observable.throw(error.json() || 'Server error');
+        return Observable.throw(error || 'Server error');
     }
 }

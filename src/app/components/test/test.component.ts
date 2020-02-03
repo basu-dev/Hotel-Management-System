@@ -21,7 +21,8 @@ public showNav(){
 }
 
   ngOnInit() {
-     
+    let reservations = this._reservationService.get(Global.BASE_RESERVATION_ENDPOINT + '?fromDate=' + this.date.transform(this.fromDate, 'yyyy-MM-dd') + '&toDate=' + this.date.transform(this.toDate, 'yyyy-MM-dd') + '&fetchType=current')
+
   }
 showData(){
   let customers = this._reservationService.get(Global.BASE_RESERVATION_CUSTOMER_ENDPOINT).subscribe(
