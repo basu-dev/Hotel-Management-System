@@ -49,7 +49,7 @@ export class UserComponent implements OnInit {
     LoadUsers(): void {
         this.indLoading = true;
         this._userService.get(Global.BASE_USERACCOUNT_ENDPOINT)
-            .subscribe(user => { this.user = user; this.indLoading = false; },
+            .subscribe(user => { this.user = user; this.indLoading = false; console.log(user) },
             error => this.msg = <any>error);
     }
 

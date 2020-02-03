@@ -14,8 +14,7 @@ export class CustomerTypeService {
 
     get(url: string): Observable<any> {
         return this._http.get(url).pipe(
-             map((response: Response) => <any>response.json()),
-            tap(data => console.log("All: " + JSON.stringify(data))),
+                 tap(data => console.log("All: " + JSON.stringify(data))),
             catchError(this.handleError));
     }
 
@@ -33,19 +32,17 @@ export class CustomerTypeService {
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options =  ({ headers: headers });
         return this._http.put(url + id, body, options).pipe(
-             map((response: Response) => <any>response.json()),
-            catchError(this.handleError));
+                 catchError(this.handleError));
     }
 
     delete(url: string, id: number): Observable<any> {
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options =  ({ headers: headers });
         return this._http.delete(url + id, options).pipe(
-             map((response: Response) => <any>response.json()),
-            catchError(this.handleError));
+                 catchError(this.handleError));
     }
 
     private handleError (error:HttpErrorResponse) {
-        return  throwError(error.error || 'Server error');
+           return  throwError(error.message|| 'Server error');  
     }
 }

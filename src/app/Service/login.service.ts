@@ -10,8 +10,7 @@ export class LoginService {
 
     get(url: string): Observable<any> {
         return this._http.get(url).pipe(
-            map((response: Response) => <any>response.json()),
-            tap(data => console.log("All: " + JSON.stringify(data))),
+                tap(data => console.log("All: " + JSON.stringify(data))),
             catchError(this.handleError));
     }
 
@@ -21,14 +20,13 @@ export class LoginService {
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options = { headers: headers };
         return this._http.post(url, body, options).pipe(
-            map((response: Response) => <any>response.json()),
-            catchError(this.handleError));
+                catchError(this.handleError));
     }
 
 
     private handleError (error:HttpErrorResponse) {
         // ;
         console.error(error);
-        return  throwError(error.error || 'Server error');
+           return  throwError(error.message|| 'Server error');  
     }
 }

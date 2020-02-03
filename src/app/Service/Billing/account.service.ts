@@ -12,8 +12,7 @@ export class AccountService {
 
     get(url: string): Observable<any> {
         return this._http.get(url).pipe(
-            map((response: Response) => <any>response.json()),
-            tap(data => console.log("All: " + JSON.stringify(data))),
+                tap(data => console.log("All: " + JSON.stringify(data))),
             catchError(this.handleError));
     }
 
@@ -22,8 +21,7 @@ export class AccountService {
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options = ({ headers: headers });
         return this._http.post(url, body, options).pipe(
-            map((response: Response) => <any>response.json()),
-            catchError(this.handleError));
+                catchError(this.handleError));
     }
 
     put(url: string, id: number, model: any): Observable<any> {
@@ -31,8 +29,7 @@ export class AccountService {
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options = ({ headers: headers });
         return this._http.put(url + id, body, options).pipe(
-            map((response: Response) => <any>response.json()),
-            catchError(this.handleError));
+                catchError(this.handleError));
     }
 
     delete(url: string, id: number): Observable<any> {
@@ -40,19 +37,16 @@ export class AccountService {
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options = ({ headers: headers });
         return this._http.delete(url + id, options).pipe(
-            map((response: Response) => <any>response.json()),
-            catchError(this.handleError));
+                catchError(this.handleError));
     }
 
     getAccountTypes() {
 
-        return this._http.get("/api/AccountTypeAPI/get").pipe(
-            map((responseData) => responseData));
-    } 
-
+        return this._http.get("/api/AccountTypeAPI/get");
+    }
     private handleError (error:HttpErrorResponse) {
         console.error(error);
-        return  throwError(error.error || 'Server error');
+           return  throwError(error.message|| 'Server error');  
     }
 
    
