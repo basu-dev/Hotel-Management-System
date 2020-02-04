@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
                         this.router.navigate(["/reservation"]);
                         this.router.navigate(['/reservation']);
                     } else {
-                        alert("Login failed no data");
+                        alert("Login failed");
                     }
                 },
                 error => {
