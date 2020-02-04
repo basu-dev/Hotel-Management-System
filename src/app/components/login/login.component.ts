@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
                         alert("User Logged in successfully.");
                         this.router.navigate(['/dashboard']);
                     } else {
-                        alert("Login failed no data");
+                        alert("Login failed");
                     }
                 },
                 error => {
