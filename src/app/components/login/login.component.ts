@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { Global } from '../../Shared/global';
 import { DBOperation } from '../../Shared/enum';
 import { AuthenticationService } from '../../Service/authentication.service';
+import { User } from 'src/app/Model/user.model';
 
 
 @Component({
@@ -55,7 +56,7 @@ export class LoginComponent implements OnInit {
         let loginfrm = this.form;
         
         this.authenticationSevice.login(Global.BASE_LOGIN_ENDPOINT, loginfrm.value).subscribe(
-                data => {
+                (data) => {
                     
                     if (data!= null ) {
                         localStorage.setItem("userToken",data.Token),

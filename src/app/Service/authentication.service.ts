@@ -9,12 +9,13 @@ import { IUser } from '../Model/User/user';
 export class AuthenticationService {
     constructor(private http: HttpClient) { }
 
-    login(url:string,model: any) {
+    login(url:string,model: any){
        
         let body = JSON.stringify(model);
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options = { headers: headers };
-        return this.http.post(url, body, options).pipe(
+        return this.http.post<IUser>(url, body, options).pipe(
+            
             catchError(this.handleError)
         )}
     public isAuthenticated(): boolean {
