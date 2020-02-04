@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { Global } from '../../Shared/global';
 import { DBOperation } from '../../Shared/enum';
 import { AuthenticationService } from '../../Service/authentication.service';
+import { User } from 'src/app/Model/user.model';
 
 
 @Component({
@@ -51,22 +52,22 @@ export class LoginComponent implements OnInit {
             }
         });
     }
-    
     onSubmit() {
         let loginfrm = this.form;
-        this.authenticationSevice.login(Global.BASE_HOST_ENDPOINT+Global.BASE_LOGIN_ENDPOINT, loginfrm.value).subscribe(
-                data => {
-                    debugger;
-                    console.log(data.firstName);
-                    if (data != 0) {
-                        alert("User Logged in successfully.");
-                        this.router.navigate(['/dashboard']);
+        
+        this.authenticationSevice.login(Global.BASE_LOGIN_ENDPOINT, loginfrm.value).subscribe(
+                (data) => {
+                    
+                    if (data!= null ) {
+                        localStorage.setItem("userToken",data.Token),
+                        localStorage.setItem("currentUser",JSON.stringify(data))
+                        this.router.navigate(["/reservation"]);
+                        this.router.navigate(['/reservation']);
                     } else {
                         alert("Login failed");
                     }
                 },
                 error => {
-                    console.log(Global.BASE_LOGIN_ENDPOINT);
                     alert("Login failed");
                     console.log(error);
                 }

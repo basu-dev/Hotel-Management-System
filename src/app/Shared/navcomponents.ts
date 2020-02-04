@@ -8,29 +8,31 @@ export const navcomponents=[
           title: 'Booking',
           icon: 'fa fa-circle',
           children: [
+
+            {
+              title: 'Booking',
+              link: 'reservation',
+            },
             {
               title: 'Check-in',
-              link: '/pages/layout/tabs',
+              link: 'reservation/checkin',
             },
             {
               title: 'Guest Status',
-              link: '/pages/layout/accordion',
+              link: 'reservation/reservationstatus',
             },
             {
               title: 'Check-Out',
-              link: '/pages/modal-overlays/dialog',
+              link: 'reservation/checkout',
             },
-            {
-              title: 'Booking',
-              link: '/pages/extra-components/alert',
-            },
+           
             {
               title: 'Inquiry',
-              link: '/pages/layout/list',
+              link: 'reservation/reservationinquiry',
             },
             {
               title: 'Customer',
-              link: '/pages/tables/smart-table',
+              link: 'reservation/customer',
             },          
           ]
         },
@@ -40,27 +42,27 @@ export const navcomponents=[
           children: [
             {
               title: 'Payment',
-              link: '/pages/layout/iot-dashboard',
+              link: 'reservation/payment',
             },
             {
               title: 'Facility',
-              link: '/pages/ui-features/grid',
+              link: 'reservation/facility',
             },
             {
               title: 'Room',
-              link: '/pages/ui-features/grid',
+              link: 'reservation/roomtype',
             },
             {
               title: 'Customer',
-              link: '/pages/ui-features/grid',
+              link: 'reservation/customertype',
             },
             {
               title: 'Reservation',
-              link: '/pages/ui-features/grid',
+              link: 'reservation/reservationtype',
             },
             {
               title: 'Rooms Setup',
-              link: '/pages/ui-features/grid',
+              link: 'reservation/room',
             },
           ]
         },
@@ -69,7 +71,7 @@ export const navcomponents=[
     {
       title: 'POS',
       group: true,
-      link:"/pos"
+     
     }, 
     {
       title: 'Billing',
@@ -117,11 +119,6 @@ export const navcomponents=[
         },
       ],    
     },
-    // {
-    //   title: 'IoT Dashboard',
-    //   icon: 'home-outline',
-    //   link: '/pages/iot-dashboard',
-    // },
     {
       title: 'Account / Finance',
       group: true,
@@ -442,6 +439,7 @@ export const navcomponents=[
     {
       title: 'User Management',
       group: true,
+      
     }, 
     {
       title: 'Manage',
@@ -453,19 +451,23 @@ export const navcomponents=[
           children: [
             {
               title: 'Login',
-              link: '/auth/login',
+              link: 'login',
             },
             {
-              title: 'Register',
-              link: '/auth/register',
+              title: 'Users',
+              link: '/user',
             },
             {
-              title: 'Request Password',
-              link: '/auth/request-password',
+              title: 'Roles',
+              link: '/managedashboard/role',
             },
             {
-              title: 'Reset Password',
-              link: '/auth/reset-password',
+              title: 'Role Module',
+              link: '/managedashboard/rolemodule',
+            },
+            {
+              title: 'User Roles',
+              link: '/managedashboard/userRole',
             },
           ],
         },
@@ -475,15 +477,15 @@ export const navcomponents=[
           children: [
             {
               title: 'Department',
-              link: '/auth/login',
+              link: '/managedashboard/department',
             },
             {
               title: 'Financial Year',
-              link: '/auth/register',
+              link: '/managedashboard/financial',
             },
             {
               title: 'Company',
-              link: '/auth/request-password',
+              link: '/managedashboard/company',
             },
           ],
         },      

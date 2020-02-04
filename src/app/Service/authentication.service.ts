@@ -1,35 +1,25 @@
 ﻿import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {map} from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import {map, catchError} from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { User } from '../Model/user.model';
+import { IUser } from '../Model/User/user';
 
 @Injectable()
 export class AuthenticationService {
     constructor(private http: HttpClient) { }
 
-    login(url:string,model: any):Observable<any>  {
-        //debugger;
+    login(url:string,model: any){
+       
         let body = JSON.stringify(model);
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options = { headers: headers };
-        return this.http.post(url, body, options).pipe(
-            map((response: Response) => {
-             console.log(url);
-             console.log("login successful");
-                // login successful 
-                // let user = response.json();
-                // console.log(user)
-                // if (user != null) {
-                //     // store user details  in local storage to keep user logged in between page refreshes
-                //     localStorage.setItem('currentUser', JSON.stringify(user));
-                // }
-                
-               
-            }));
-        
-    }
+        return this.http.post<IUser>(url, body, options).pipe(
+            
+            catchError(this.handleError)
+        )}
     public isAuthenticated(): boolean {
-        const user = localStorage.getItem('currentUser');
+        const user = localStorage.getItem('userToken');
         if (user != null)
         {
             return true;
@@ -38,10 +28,15 @@ export class AuthenticationService {
         {
             return false;
         }
+        return true;
     }
 
     logout() {
         // remove user from local storage to log user out
+        localStorage.removeItem('userToken');
         localStorage.removeItem('currentUser');
+    }
+    public handleError(error:HttpErrorResponse){
+        return throwError(error.error);
     }
 }

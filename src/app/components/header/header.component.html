@@ -1,8 +1,8 @@
 
-<aside class="main-sidebar">
-    <section class="sidebar" style="height: auto;">
-     <ul class="sidebar-menu tree" data-widget="tree"  *ngFor="let item of items">
-            <li class="treeview mb-1" >
+<aside class="main-sidebar" >
+    <section class="sidebar fixed" style="height:98vh; overflow-y:scroll">
+     <ul class="sidebar-menu tree" data-widget="tree"  *ngFor="let item of items" >
+            <li class="treeview mb-1" [class.group]="item.group" >
                 <a   *ngIf="item.children; else elseBlockk">
                     <i class="text-danger"></i> <span>{{item.title}}</span>
                     <span class="pull-right-container">
@@ -19,7 +19,7 @@
                     </a>
                 </ng-template>
                     <ul class="treeview-menu second " data-widget="second">
-                        <div  *ngFor="let child of item.children">
+                        <div  *ngFor="let child of item.children" >
                         <li class="treeview">
                             <a href="#" *ngIf="child.children; else elseBlock">
                             <i class=""></i><span>{{child.title}}</span><span class="pull-right-container">
@@ -65,9 +65,18 @@
 </aside>
 
 <style>
-.treeview{
+/* .treeview{
     padding-top:3px;
     padding-bottom:3px;
     border-bottom:1px solid rgba(255,255,255,.1)
+} */
+.group{
+    border:'none';
+    background-color:'white';
+    font-size:"1.2em";
+    color:"blue";
+    letter-spacing:".1em"
 }
+
+
 </style>
