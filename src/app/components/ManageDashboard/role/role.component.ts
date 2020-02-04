@@ -51,7 +51,10 @@ export class RoleComponent implements OnInit {
         this.indLoading = true;
         this._roleService.get(Global.BASE_ROLES_ENDPOINT)
             .subscribe(roles => { this.roles = roles; this.indLoading = false; },
-            error => this.msg = <any>error);
+            error =>{this.msg = error,
+                        this.indLoading=false,
+                        console.log("Error:"+error)    
+                    } );
     }
 
     addRoles() {

@@ -14,7 +14,6 @@ export class CustomerTypeService {
 
     get(url: string): Observable<any> {
         return this._http.get(url).pipe(
-                 tap(data => console.log("All: " + JSON.stringify(data))),
             catchError(this.handleError));
     }
 
@@ -23,7 +22,6 @@ export class CustomerTypeService {
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options =  ({ headers: headers });
         return this._http.post(url, body, options)
-             map((response: Response) => <any>response.json())
             catchError(this.handleError);
     }
 

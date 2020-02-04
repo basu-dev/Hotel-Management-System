@@ -42,7 +42,7 @@ export class DepartmentComponent implements OnInit {
         this.indLoading = true;
         this._departmentService.get(Global.BASE_DEPARTMENT_ENDPOINT)
             .subscribe(departments => { this.departments = departments; this.indLoading = false; },
-            error => this.msg = <any>error);
+            error => this.msg = error);
     }
 
     openModal(template: TemplateRef<any>) {
@@ -65,7 +65,7 @@ export class DepartmentComponent implements OnInit {
         this.DepartFrm.setValue(this.department);
         this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false });
     }
-
+    
     deleteDepartment(id: number, template: TemplateRef<any>) {  
          
         this.dbops = DBOperation.delete;

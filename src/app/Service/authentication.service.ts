@@ -1,7 +1,7 @@
 ﻿import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {map} from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import {map, catchError} from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
 import { User } from '../Model/user.model';
 import { IUser } from '../Model/User/user';
 
@@ -9,31 +9,16 @@ import { IUser } from '../Model/User/user';
 export class AuthenticationService {
     constructor(private http: HttpClient) { }
 
-    login  (url:string,model: any) {
-        // ;
+    login(url:string,model: any) {
+       
         let body = JSON.stringify(model);
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options = { headers: headers };
         return this.http.post(url, body, options).pipe(
-            map((response:IUser) => {
-             
-             console.log("login successful");
-                
-                let user = response;
-                console.log(user);
-                console.log(user.UserName)
-                if (user != null) {
-                    localStorage.setItem('currentUser', JSON.stringify(user));
-                    localStorage.setItem('userToken',JSON.stringify(user.Token));
-                }
-                
-               
-            }));
-        
-            }
+            catchError(this.handleError)
+        )}
     public isAuthenticated(): boolean {
         const user = localStorage.getItem('userToken');
-        console.log(user);
         if (user != null)
         {
             return true;
@@ -49,5 +34,8 @@ export class AuthenticationService {
         // remove user from local storage to log user out
         localStorage.removeItem('userToken');
         localStorage.removeItem('currentUser');
+    }
+    public handleError(error:HttpErrorResponse){
+        return throwError(error.error);
     }
 }

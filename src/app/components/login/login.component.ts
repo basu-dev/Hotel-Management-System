@@ -57,12 +57,11 @@ export class LoginComponent implements OnInit {
         this.authenticationSevice.login(Global.BASE_LOGIN_ENDPOINT, loginfrm.value).subscribe(
                 data => {
                     
-                    console.log("data from login:"+data);
                     if (data!= null ) {
-                        alert("User Logged in successfully.");
-                        
-                        console.log("data:"+data)
-                        // this.router.navigate(['/reservation']);
+                        localStorage.setItem("userToken",data.Token),
+                        localStorage.setItem("currentUser",JSON.stringify(data))
+                        this.router.navigate(["/reservation"]);
+                        this.router.navigate(['/reservation']);
                     } else {
                         alert("Login failed no data");
                     }

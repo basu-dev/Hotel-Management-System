@@ -50,7 +50,8 @@ export class UserComponent implements OnInit {
         this.indLoading = true;
         this._userService.get(Global.BASE_USERACCOUNT_ENDPOINT)
             .subscribe(user => { this.user = user; this.indLoading = false; console.log(user) },
-            error => this.msg = <any>error);
+            error =>{this.msg = error,
+                this.indLoading=false} );
     }
 
     addUser() {
@@ -122,7 +123,7 @@ export class UserComponent implements OnInit {
                 case DBOperation.create:
                     this._userService.post(Global.BASE_USERACCOUNT_ENDPOINT, formData.value, ).subscribe(
                         data => {
-                            if (data == 1) //Success
+                            if (data == 1)
                             {
                                 this.openModal2(this.TemplateRef2); 
                                 this.LoadUsers();
@@ -138,7 +139,7 @@ export class UserComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                     ;
+                     
                     this._userService.put(Global.BASE_USERACCOUNT_ENDPOINT, formData.value.UserId, formData.value, ).subscribe(
                         data => {
                             if (data == 1) //Success
