@@ -1,9 +1,7 @@
- .group{
-    background-color:grey;
-    font-size:1.2em;
-color:red !important;
-letter-spacing: .1em;
-
+.group {
+    background-color:#151a30!important;
+    font-size:12px!important;
+    color:grey!important;
 }
  .group:hover{
 background-color:white;
@@ -11,4 +9,69 @@ font-size:1.2em;
 color:black;
 
 cursor: pointer;
+}
+.treeview a:hover{
+                background:none!important;
+}
+.skin-blue .sidebar-menu > li:hover > a, .skin-blue .sidebar-menu > li.active > a, .skin-blue .sidebar-menu > li.menu-open > a {
+    color: grey;
+    font-size: 12px;
+}
+.treeview a{
+    font-family: 'Open Sans', sans-serif;
+     font-size: 12px;
+     font-weight: bold;
+    letter-spacing: 1px;
+    line-height: 1.5rem;
+    color:#fff!important;
+    display:flex;
+    border-bottom:1px solid rgba(0,0,0,.3)!important;
+}
+/* ========== style of non branches like pos ============ */
+.treeview .coloring{
+                     color:grey;
+                     font-size:12px;
+                  
+}
+/* ========= sidebar ========= */
+.main-sidebar{
+              background-color: #151a30!important;
+              color: #fff!important;
+              font-family: 'Raleway',sans-serif;
+              font-size: 18px;
+              padding-bottom:5px;
+              position: absolute;
+              top:50px;
+              margin-top: 20px;
+           
+              opacity: 1!important;
+}
+/* style of treeview main icon  */
+.treeview i{
+                      color:grey;
+                      font-size:18px;
+                      padding-top:5px;
+                      padding-right:5px;
+
+}
+/* style of inner of font office */
+.treeview-menu{
+                background:#151a30!important;
+}
+.treeview .treeview-menu .textleft{
+                       
+                           padding-bottom:10px;
+                           padding-top:10px;
+                          
+}
+.treeview-menu .flexing {
+                         display: flex;
+                         padding-left: 12%;;
+                         width:95%;
+}
+.treeview-menu  .pull-left{
+                           color:grey;
+                           font-size:18px;
+                           padding-top:12px!important;
+                           padding-right:7px;
 }
