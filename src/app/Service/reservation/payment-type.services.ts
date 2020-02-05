@@ -42,6 +42,6 @@ export class PaymentTypeService {
 
     private handleError (error:HttpErrorResponse) {
         console.error(error);
-           return  throwError(error.message|| 'Server error');  
+           return  throwError(error.error|| 'Server error');  
     }
 }

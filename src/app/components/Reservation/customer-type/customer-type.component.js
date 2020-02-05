@@ -79,7 +79,7 @@ var CustomerTypeComponent = /** @class */ (function () {
         if (departfrm.valid) {
             switch (this.dbops) {
                 case enum_1.DBOperation.create:
-                    this._customerTypeService.post(global_1.Global.BASE_CUSTOMER_TYPES_ENDPOINT, formData._value).subscribe(function (data) {
+                    this._customerTypeService.post(global_1.Global.BASE_CUSTOMER_TYPES_ENDPOINT, formData.value).subscribe(function (data) {
                         if (data == 1) {
                             alert("Data successfully added.");
                             _this.LoadCustomerTypes();
@@ -94,7 +94,7 @@ var CustomerTypeComponent = /** @class */ (function () {
                     });
                     break;
                 case enum_1.DBOperation.update:
-                    this._customerTypeService.put(global_1.Global.BASE_CUSTOMER_TYPES_ENDPOINT,  formData.value.Id, formData._value).subscribe(function (data) {
+                    this._customerTypeService.put(global_1.Global.BASE_CUSTOMER_TYPES_ENDPOINT,  formData.value.Id, formData.value).subscribe(function (data) {
                         if (data == 1) {
                             alert("Data successfully updated.");
                             _this.modalRef.hide();

@@ -4,10 +4,11 @@ import {map, catchError} from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { User } from '../Model/user.model';
 import { IUser } from '../Model/User/user';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthenticationService {
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient,public router:Router) { }
 
     login(url:string,model: any){
        
@@ -26,9 +27,10 @@ export class AuthenticationService {
         }
         else
         {
+            this.router.navigate(["/login"])
             return false;
         }
-        return true;
+        
     }
 
     logout() {

@@ -62,7 +62,6 @@ export class LoginComponent implements OnInit {
                         localStorage.setItem("userToken",data.Token),
                         localStorage.setItem("currentUser",JSON.stringify(data))
                         this.router.navigate(["/reservation"]);
-                        this.router.navigate(['/reservation']);
                     } else {
                         alert("Login failed");
                     }

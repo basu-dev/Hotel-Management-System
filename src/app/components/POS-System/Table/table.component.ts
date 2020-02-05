@@ -99,7 +99,7 @@ export class TableComponent implements OnInit {
         if (tablefrm.valid) {
             switch (this.dbops) {
                 case DBOperation.create:
-                    this._tableService.post(Global.BASE_TABLEAPI_ENDPOINT, formData._value).subscribe(
+                    this._tableService.post(Global.BASE_TABLEAPI_ENDPOINT, formData.value).subscribe(
                         data => {
                             if (data == 1) //Success
                             {
@@ -118,7 +118,7 @@ export class TableComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                    this._tableService.put(Global.BASE_TABLEAPI_ENDPOINT,  formData.value.Id, formData._value).subscribe(
+                    this._tableService.put(Global.BASE_TABLEAPI_ENDPOINT,  formData.value.Id, formData.value).subscribe(
                         data => {
                             if (data == 1) //Success
                             {

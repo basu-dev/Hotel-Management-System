@@ -18,7 +18,7 @@ export const navcomponents=[
               link: 'reservation/checkin',
             },
             {
-              title: 'Guest Status',
+              title: 'Room Status',
               link: 'reservation/reservationstatus',
             },
             {
@@ -33,7 +33,8 @@ export const navcomponents=[
             {
               title: 'Customer',
               link: 'reservation/customer',
-            },          
+            }
+                     
           ]
         },
         {
@@ -49,12 +50,12 @@ export const navcomponents=[
               link: 'reservation/facility',
             },
             {
-              title: 'Room',
+              title: 'Room Types',
               link: 'reservation/roomtype',
             },
             {
               title: 'Customer',
-              link: 'reservation/customertype',
+              link: 'reservation/customertypes',
             },
             {
               title: 'Reservation',
@@ -82,9 +83,10 @@ export const navcomponents=[
           link: '/pages/forms/inputs',
           home: true,
         },
+        
         {
           title: 'Customer',
-          link: '/pages/forms/layouts',
+          link: 'reservation/customertype',
         },
         {
           title: 'Billing',
@@ -274,15 +276,15 @@ export const navcomponents=[
       children: [
         {
           title: 'Receipt',
-          link: '/pages/modal-overlays/dialog',
+          link: 'Inventory/inventory-receipt',
         },
         {
           title: 'Consumption',
-          link: '/pages/modal-overlays/window',
+          link: 'Inventory/consumption',
         },
         {
           title: 'Stock Damage',
-          link: '/pages/modal-overlays/popover',
+          link: 'Inventory/stock-damage',
         },
       ],
     },
@@ -291,8 +293,8 @@ export const navcomponents=[
       icon: 'keypad-outline',
       children: [
         {
-          title: 'Stock=in-hand',
-          link: '/pages/modal-overlays/toastr',
+          title: 'Stockin-hand',
+          link: 'Inventory/stockinhand',
         },
       ],
     },   
@@ -302,15 +304,15 @@ export const navcomponents=[
       children: [
         {
           title: 'Item',
-          link: '/pages/modal-overlays/toastr',
+          link: 'Inventory/inventory',
         },
         {
           title: 'Category',
-          link: '/pages/modal-overlays/tooltip',
+          link: 'Inventory/category',
         },
         {
           title: 'Unit Type',
-          link: '/pages/modal-overlays/tooltip',
+          link: 'Inventory/unittype',
         },      
       ],
     },
@@ -320,11 +322,11 @@ export const navcomponents=[
       children: [
         {
           title: 'Warehouses',
-          link: '/pages/modal-overlays/toastr',
+          link: 'Inventory/warehouses',
         },
         {
           title: 'Warehouse Type',
-          link: '/pages/modal-overlays/tooltip',
+          link: 'Inventory/WareHouseType',
         },
       ],
     },

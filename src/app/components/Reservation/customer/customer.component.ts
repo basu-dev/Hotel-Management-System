@@ -151,8 +151,9 @@ export class ReservationCustomerComponent implements OnInit {
         if (departfrm.valid) {
             switch (this.dbops) {
                 case DBOperation.create:
-                    this._customerService.post(Global.BASE_RESERVATION_CUSTOMER_ENDPOINT, formData._value).subscribe(
+                    this._customerService.post(Global.BASE_RESERVATION_CUSTOMER_ENDPOINT, formData.value).subscribe(
                         data => {
+                            console.log(data)
                             if (data == 1) //Success
                             {
                                 alert("Data successfully added.");
@@ -170,7 +171,7 @@ export class ReservationCustomerComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                    this._customerService.put(Global.BASE_RESERVATION_CUSTOMER_ENDPOINT,  formData.value.Id, formData._value).subscribe(
+                    this._customerService.put(Global.BASE_RESERVATION_CUSTOMER_ENDPOINT,  formData.value.Id, formData.value).subscribe(
                         data => {
                             if (data == 1) //Success
                             {

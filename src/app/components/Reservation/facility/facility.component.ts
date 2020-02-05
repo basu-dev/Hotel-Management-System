@@ -37,7 +37,7 @@ export class FacilityComponent implements OnInit {
     }
     
     LoadFacilitys(): void {
-        ' '
+        
         this.isLoading = true;
         this._facilityService.get(Global.BASE_RESERVATION_FACILITY_ENDPOINT)
             .subscribe(facilities => { this.facilities = facilities; this.isLoading = false; },
@@ -94,7 +94,7 @@ export class FacilityComponent implements OnInit {
         if (departfrm.valid) {
             switch (this.dbops) {
                 case DBOperation.create:
-                    this._facilityService.post(Global.BASE_RESERVATION_FACILITY_ENDPOINT, formData._value).subscribe(
+                    this._facilityService.post(Global.BASE_RESERVATION_FACILITY_ENDPOINT, formData.value).subscribe(
                         data => {
                             if (data == 1) //Success
                             {
@@ -113,7 +113,7 @@ export class FacilityComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                    this._facilityService.put(Global.BASE_RESERVATION_FACILITY_ENDPOINT,  formData.value.Id, formData._value).subscribe(
+                    this._facilityService.put(Global.BASE_RESERVATION_FACILITY_ENDPOINT,  formData.value.Id, formData.value).subscribe(
                         data => {
                             if (data == 1) //Success
                             {

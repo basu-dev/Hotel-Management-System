@@ -94,7 +94,7 @@ export class RoomTypeComponent implements OnInit {
         if (departfrm.valid) {
             switch (this.dbops) {
                 case DBOperation.create:
-                    this._roomTypeService.post(Global.BASE_ROOM_TYPES_ENDPOINT, formData._value).subscribe(
+                    this._roomTypeService.post(Global.BASE_ROOM_TYPES_ENDPOINT, formData.value).subscribe(
                         data => {
                             if (data == 1) {
                                 alert("Data successfully added.");
@@ -111,7 +111,7 @@ export class RoomTypeComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                    this._roomTypeService.put(Global.BASE_ROOM_TYPES_ENDPOINT,  formData.value.Id, formData._value).subscribe(
+                    this._roomTypeService.put(Global.BASE_ROOM_TYPES_ENDPOINT,  formData.value.Id, formData.value).subscribe(
                         data => {
                             if (data == 1) {
                                 alert("Data successfully updated.");

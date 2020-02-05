@@ -77,7 +77,7 @@ var TableComponent = /** @class */ (function () {
         if (tablefrm.valid) {
             switch (this.dbops) {
                 case enum_1.DBOperation.create:
-                    this._tableService.post(global_1.Global.BASE_TABLEAPI_ENDPOINT, formData._value).subscribe(function (data) {
+                    this._tableService.post(global_1.Global.BASE_TABLEAPI_ENDPOINT, formData.value).subscribe(function (data) {
                         if (data == 1) {
                             alert("Table successfully added.");
                             _this.LoadTable();
@@ -92,7 +92,7 @@ var TableComponent = /** @class */ (function () {
                     });
                     break;
                 case enum_1.DBOperation.update:
-                    this._tableService.put(global_1.Global.BASE_TABLEAPI_ENDPOINT,  formData.value.Id, formData._value).subscribe(function (data) {
+                    this._tableService.put(global_1.Global.BASE_TABLEAPI_ENDPOINT,  formData.value.Id, formData.value).subscribe(function (data) {
                         if (data == 1) {
                             alert("Table successfully updated.");
                             _this.modalRef.hide();

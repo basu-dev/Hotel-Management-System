@@ -98,7 +98,7 @@ export class CustomerTypeComponent implements OnInit {
         if (departfrm.valid) {
             switch (this.dbops) {
                 case DBOperation.create:
-                    this._customerTypeService.post(Global.BASE_CUSTOMER_TYPES_ENDPOINT, formData._value).subscribe(
+                    this._customerTypeService.post(Global.BASE_CUSTOMER_TYPES_ENDPOINT, formData.value).subscribe(
                         data => {
                             if (data == 1) //Success
                             {
@@ -117,7 +117,7 @@ export class CustomerTypeComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                    this._customerTypeService.put(Global.BASE_CUSTOMER_TYPES_ENDPOINT,  formData.value.Id, formData._value).subscribe(
+                    this._customerTypeService.put(Global.BASE_CUSTOMER_TYPES_ENDPOINT,  formData.value.Id, formData.value).subscribe(
                         data => {
                             if (data == 1) //Success
                             {

@@ -9,7 +9,6 @@ export class DepartmentService {
 
     get(url: string): Observable<any> {
         return this._http.get(url).pipe(
-                tap(data => console.log("All: " + JSON.stringify(data))),
             catchError(this.handleError));
     }
 
