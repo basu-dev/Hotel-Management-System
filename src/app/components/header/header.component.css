@@ -43,7 +43,6 @@ cursor: pointer;
               position: absolute;
               top:50px;
               margin-top: 20px;
-           
               opacity: 1!important;
 }
 /* style of treeview main icon  */
@@ -66,7 +65,7 @@ cursor: pointer;
 }
 .treeview-menu .flexing {
                          display: flex;
-                         padding-left: 12%;;
+                         padding-left: 12%;
                          width:95%;
 }
 .treeview-menu  .pull-left{
@@ -74,4 +73,19 @@ cursor: pointer;
                            font-size:18px;
                            padding-top:12px!important;
                            padding-right:7px;
+}
+/* ============== css of second inner of fontstyle ======== */
+.secondinner{
+             width:95%;
+             padding-bottom:10px;
+             padding-top:10px;
+             padding-left: 5%!important;
+
+}
+/* ====================== css of another second =================== */
+.anothersecond{
+    padding-bottom:10px;
+    padding-top:10px;
+    padding-left: 5%!important;
+    width:100%;
 }

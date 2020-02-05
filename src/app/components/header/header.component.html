@@ -1,6 +1,6 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 <aside class="main-sidebar">
-    <section class="sidebar scrollbar" style="height:auto;">
+    <section class="sidebar" style="height:auto;">
      <ul class="sidebar-menu tree" data-widget="tree"  *ngFor="let item of items" >
             <li class="treeview mb-1" [class.group]="item.group" >
                 <a   *ngIf="item.children; else elseBlockk">
@@ -26,7 +26,7 @@
                             </span></a>
                             <ng-template #elseBlock>
                                 <a  (click)=open(child.link)>
-                                    <i class=""></i> <span>{{child.title}}</span>
+                                    <i class=""></i> <span class="anothersecond">{{child.title}}</span>
                                     <span class="pull-right-container">
                                         
                                     </span>
@@ -35,7 +35,7 @@
                             <ul class="treeview-menu">
                                 <div  *ngFor="let chil of child.children">
                                     <a (click)=open(chil.link)>
-                                <li class="treeview">
+                                <li class="treeview secondinner">
                                     
                                     <i class=""></i><span>{{chil.title}}</span><span class="pull-right-container">
                                         <i class=""></i>
