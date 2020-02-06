@@ -3,11 +3,10 @@
     font-size:12px!important;
     color:grey!important;
 }
- .group:hover{
+.group:hover{
 background-color:white;
 font-size:1.2em;
 color:black;
-
 cursor: pointer;
 }
 .treeview a:hover{
@@ -48,7 +47,7 @@ cursor: pointer;
               opacity: 1!important;
 }
 .sidebar{
-  position: absolute;
+ 
     height:90vh;
 }
 /* ========================== css for scrollbar ===========================  */
