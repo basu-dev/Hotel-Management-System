@@ -93,7 +93,7 @@
                     <div class="col-md-3">
                         <div (click)="addInventoryReceipt()" style="cursor: pointer">
                             <span>
-                                <img src="../../images/Add.png" height="60" width="60" />
+                                <img src="../../../../assets/images/Add.png" height="60" width="60" />
                                 Add Inventory Receipt
                             </span>
                         </div>
@@ -119,7 +119,7 @@
                     </div>
                 </div>
             </div>
-            <div class="alert alert-info" role="alert" *ngIf="indLoading"><img src="../../images/loading.gif" width="32" height="32" /> Loading...</div>
+            <div class="alert alert-info" role="alert" *ngIf="indLoading"><img src="../../../../assets/images/loading.gif" width="32" height="32" /> Loading...</div>
             <div *ngIf='inventoryReceipt && inventoryReceipt.length==0' class="alert alert-info" role="alert">No record found!</div>
             <table id="inventoryTable" class='table table-striped' *ngIf='inventoryReceipt && inventoryReceipt.length'>
                 <thead>
@@ -147,10 +147,10 @@
                         <td>&nbsp;</td>
                         <td>&nbsp;</td>
                         <td>
-                            <span><img style="cursor: pointer;" src="../../images/Edit.png" (click)="editInventoryReceipt(IReceipts.Id)" height="60" width="60" /></span>
+                            <span><img style="cursor: pointer;" src="../../../../assets/images/Edit.png" (click)="editInventoryReceipt(IReceipts.Id)" height="60" width="60" /></span>
                         </td>
                         <td>
-                            <span><img style="cursor: pointer;" src="../../images/Delete.png" (click)="deleteInventory(IReceipts.Id)" height="60" width="60" /></span>
+                            <span><img style="cursor: pointer;" src="../../../../assets/images/Delete.png" (click)="deleteInventory(IReceipts.Id)" height="60" width="60" /></span>
                         </td>
                     </tr>
                     <tr style="color: blue;">

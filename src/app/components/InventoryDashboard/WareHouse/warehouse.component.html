@@ -5,8 +5,8 @@
     <div class='panel-body'>
         <div class='table-responsive'>
             <div style="padding-bottom:10px">
-                <img src="../../images/Add.png" (click)="openModal(template)" height="60" width="60" />
-                <div class="alert alert-info" role="alert" *ngIf="indLoading"><img src="../../images/loading.gif" width="32" height="32" /> Loading...</div>
+                <img src="../../../../assets/images/Add.png" (click)="openModal(template)" height="60" width="60" />
+                <div class="alert alert-info" role="alert" *ngIf="indLoading"><img src="../../../../assets/images/loading.gif" width="32" height="32" /> Loading...</div>
                 <div *ngIf='warehouses && warehouses.length==0' class="alert alert-info" role="alert">No record found!</div>
                 <table class='table table-striped' *ngIf='warehouses && warehouses.length'>
                     <thead>
@@ -24,8 +24,8 @@
                             <td>{{warehouse.SortOrder}}</td>
                             <td>{{warehouse.Id}}</td>
                             <td>
-                                <span><img src="../../images/Edit.png" (click)="editWareHouse(warehouse.WarehouseTypeId,warehouse.Id,template)" height="60" width="60" /></span>
-                                <span><img src="../../images/Delete.png" (click)="deleteWareHouse(warehouse.Id,template)" height="60" width="60" /></span>
+                                <span><img src="../../../../assets/images/Edit.png" (click)="editWareHouse(warehouse.WarehouseTypeId,warehouse.Id,template)" height="60" width="60" /></span>
+                                <span><img src="../../../../assets/images/Delete.png" (click)="deleteWareHouse(warehouse.Id,template)" height="60" width="60" /></span>
                             </td>
                         </tr>
                     </tbody>

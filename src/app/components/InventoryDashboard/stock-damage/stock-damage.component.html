@@ -74,7 +74,7 @@
                     <div class="col-md-3">
                         <div (click)="addPeriodicConsumed()" style="cursor: pointer">
                             <span>
-                                <img src="../../images/Add.png" height="60" width="60" />
+                                <img src="../../../../assets/images/Add.png" height="60" width="60" />
                                 Add Stock Damage
                             </span>
                         </div>
@@ -100,7 +100,7 @@
                     </div>
                 </div>
             </div>
-            <div class="alert alert-info" role="alert" *ngIf="indLoading"><img src="../../images/loading.gif" width="32" height="32" /> Loading...</div>
+            <div class="alert alert-info" role="alert" *ngIf="indLoading"><img src="../../../../assets/images/loading.gif" width="32" height="32" /> Loading...</div>
             <div *ngIf='pConsumes && pConsumes.length==0' class="alert alert-info" role="alert">No record found!</div>
 
             <table id="periodicConsumptionTable" class='table table-striped' *ngIf='pConsumes && pConsumes.length'>
@@ -120,8 +120,8 @@
                         <td>&nbsp;</td>
                         <td>&nbsp;</td>
                         <td class="export-no-display">
-                            <span><img src="../../images/Edit.png" (click)="editPeriodicConsumed(pConsume.Id)" height="60" width="60" /></span>
-                            <span><img src="../../images/Delete.png" (click)="deletePeriodicConsumed(pConsume.Id)" height="60" width="60" /></span>
+                            <span><img src="../../../../assets/images/Edit.png" (click)="editPeriodicConsumed(pConsume.Id)" height="60" width="60" /></span>
+                            <span><img src="../../../../assets/images/Delete.png" (click)="deletePeriodicConsumed(pConsume.Id)" height="60" width="60" /></span>
                         </td>
                     </tr>
                     <tr style="color: blue;">

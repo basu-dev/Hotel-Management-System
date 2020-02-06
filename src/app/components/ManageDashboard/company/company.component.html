@@ -6,10 +6,10 @@
         <div class='table-responsive'>
             <div style="padding-bottom:10px">
                 <img *ngIf="companies && companies.length == 0"
-                     src="../../images/Add.png" (click)="openModal(template)"
+                     src="../../../../assets/images/Add.png" (click)="openModal(template)"
                      height="60" width="60" />
                 <div class="alert alert-info" role="alert" *ngIf="isLoading">
-                    <img src="../../images/loading.gif" width="32" height="32" />
+                    <img src="../../../../assets/images/loading.gif" width="32" height="32" />
                     Loading...
                 </div>
                 <div *ngIf='companies && companies.length==0' class="alert alert-info" role="alert">No record found!</div>
@@ -35,10 +35,10 @@
                             <td>{{company.Pan_Vat}}</td>
                             <td>
                                 <span>
-                                    <img src="../../images/Edit.png" (click)="editCompany(company.Id,template)" height="32" width="32" />
+                                    <img src="../../../../assets/images/Edit.png" (click)="editCompany(company.Id,template)" height="32" width="32" />
                                 </span>
                                 <span>
-                                    <img src="../../images/Delete.png" (click)="deleteCompany(company.Id,template)" height="32" width="32" />
+                                    <img src="../../../../assets/images/Delete.png" (click)="deleteCompany(company.Id,template)" height="32" width="32" />
                                 </span>
                             </td>
                         </tr>

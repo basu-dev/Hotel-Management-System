@@ -91,6 +91,7 @@ import { StockDamageDetailsComponent } from './components/InventoryDashboard/sto
 import { WareHouseTypeComponent } from './components/InventoryDashboard/WareHouse/warehousetype.component';
 import { WareHousesComponent } from './components/InventoryDashboard/WareHouse/WareHouse';
 import { TokenInterceptorService } from './interceptor/token-interceptor.service';
+import { PeriodicConsumptionItemComponent } from './components/InventoryDashboard/periodic-consumption/periodic-consumption-items/periodic-consumption-item.component';
 // import { TicketService } from './Service/Billing/ticket.service';
 @NgModule({
   declarations: [
@@ -126,7 +127,7 @@ import { TokenInterceptorService } from './interceptor/token-interceptor.service
     RoleModuleComponent,
     UserPermissionComponent,
     RoleNameComponent,
-
+//INventoryComponents
     CategoryComponent,
     InventoryDashboardComponent,
     InventoryItemComponent,
@@ -139,7 +140,8 @@ import { TokenInterceptorService } from './interceptor/token-interceptor.service
      UnitTypeComponent,
     WareHouseComponent,
     WareHouseTypeComponent,
-    WareHousesComponent
+    WareHousesComponent,
+    PeriodicConsumptionItemComponent
 
     
   ],
