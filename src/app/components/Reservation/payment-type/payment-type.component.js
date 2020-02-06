@@ -79,7 +79,7 @@ var PaymentTypeComponent = /** @class */ (function () {
         if (departfrm.valid) {
             switch (this.dbops) {
                 case enum_1.DBOperation.create:
-                    this._paymentTypeService.post(global_1.Global.BASE_PAYMENT_TYPES_ENDPOINT, formData._value).subscribe(function (data) {
+                    this._paymentTypeService.post(global_1.Global.BASE_PAYMENT_TYPES_ENDPOINT, formData.value).subscribe(function (data) {
                         if (data == 1) {
                             alert("Data successfully added.");
                             _this.LoadPaymentTypes();
@@ -94,7 +94,7 @@ var PaymentTypeComponent = /** @class */ (function () {
                     });
                     break;
                 case enum_1.DBOperation.update:
-                    this._paymentTypeService.put(global_1.Global.BASE_PAYMENT_TYPES_ENDPOINT,  formData.value.Id, formData._value).subscribe(function (data) {
+                    this._paymentTypeService.put(global_1.Global.BASE_PAYMENT_TYPES_ENDPOINT,  formData.value.Id, formData.value).subscribe(function (data) {
                         if (data == 1) {
                             alert("Data successfully updated.");
                             _this.modalRef.hide();

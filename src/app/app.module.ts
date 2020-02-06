@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import{FormsModule, ReactiveFormsModule}from '@angular/forms'
 import { AuthenticationService } from './Service/authentication.service';
 import { DepartmentService } from './Service/Department.service';
@@ -72,27 +72,25 @@ import { CompanyComponent } from './components/ManageDashboard/company/company.c
 import { UserRoleService } from './Service/userRole.service';
 import { RoleService } from './Service/role.service';
 import { RoleNameComponent } from './components/ManageDashboard/role-assign/role-name/role-name.component';
-// import { InventoryItemService } from './Service/Inventory/InventoryItem.service';
-// import { InventoryIssueService } from './Service/Inventory/InventoryIssue.service';
-// import { InventoryReceiptDetailsService } from './Service/Inventory/InventoryReceiptDetails.service';
-// import { MenuConsumptionService } from './Service/Inventory/MenuConsumptionService';
-// import { PeriodicConsumptionService } from './Service/Inventory/periodic-consumption.service';
-// import { RoomService } from './Service/Inventory/room.service';
-// import { AccountTransactionTypeService } from './Service/Inventory/account-trans-type.service';
-// import { InventoryReceiptService } from './Service/Inventory/InventoryReceipt.service';
-// import { PeriodicConsumptionItemService } from './Service/Inventory/peroidic-consumption-item.service';
-// import { CategoryComponent } from './components/InventoryDashboard/category/category.component';
-// import { InventoryDashboardComponent } from './components/InventoryDashboard/InventoryDashboard.Component';
-// import { StockInHandComponent } from './components/InventoryDashboard/inventory report/stock-in-hand.component';
-// import { InventoryReceiptDetailsComponent } from './components/InventoryDashboard/inventory-receipt/inventory-receiptdetails/inventory-receiptdetails.component';
-// import { UnitTypeComponent } from './components/InventoryDashboard/UnitType/UnitType.Component';
-// import { WareHouseComponent } from './components/InventoryDashboard/WareHouse/warehouse.component';
-// import { InventoryItemComponent } from './components/InventoryDashboard/inventory/inventory-item.component';
-// import { InventoryReceiptComponent } from './components/InventoryDashboard/inventory-receipt/inventory-receipt.component';
-// import { PeriodicConsumptionComponent } from './components/InventoryDashboard/periodic-consumption/periodic-consumption.component';
-// import { StockDamageComponent } from './components/InventoryDashboard/stock-damage/stock-damage.component';
-// import { StockDamageDetailsComponent } from './components/InventoryDashboard/stock-damage/stock-damage-details/stock-damage-details.component';
-// import { WareHouseTypeComponent } from './components/InventoryDashboard/WareHouse/warehousetype.component';
+import { RoomComponent } from './components/Reservation/room/room.component';
+import { AccountTransactionTypeService } from './Service/Inventory/account-trans-type.service';
+
+
+
+import { CategoryComponent } from './components/InventoryDashboard/category/category.component';
+import { InventoryDashboardComponent } from './components/InventoryDashboard/InventoryDashboard.Component';
+import { StockInHandComponent } from './components/InventoryDashboard/inventory report/stock-in-hand.component';
+import { InventoryReceiptDetailsComponent } from './components/InventoryDashboard/inventory-receipt/inventory-receiptdetails/inventory-receiptdetails.component';
+import { UnitTypeComponent } from './components/InventoryDashboard/UnitType/UnitType.Component';
+import { WareHouseComponent } from './components/InventoryDashboard/WareHouse/warehouse.component';
+import { InventoryItemComponent } from './components/InventoryDashboard/inventory/inventory-item.component';
+import { InventoryReceiptComponent } from './components/InventoryDashboard/inventory-receipt/inventory-receipt.component';
+import { PeriodicConsumptionComponent } from './components/InventoryDashboard/periodic-consumption/periodic-consumption.component';
+import { StockDamageComponent } from './components/InventoryDashboard/stock-damage/stock-damage.component';
+import { StockDamageDetailsComponent } from './components/InventoryDashboard/stock-damage/stock-damage-details/stock-damage-details.component';
+import { WareHouseTypeComponent } from './components/InventoryDashboard/WareHouse/warehousetype.component';
+import { WareHousesComponent } from './components/InventoryDashboard/WareHouse/WareHouse';
+import { TokenInterceptorService } from './interceptor/token-interceptor.service';
 // import { TicketService } from './Service/Billing/ticket.service';
 @NgModule({
   declarations: [
@@ -111,6 +109,7 @@ import { RoleNameComponent } from './components/ManageDashboard/role-assign/role
     CheckOutComponent,
     ReservationInquiryComponent,
     ReservationCustomerComponent,
+    RoomComponent,
     PaymentTypeComponent,
     FacilityComponent,
     ReservationTypeComponent,
@@ -127,19 +126,20 @@ import { RoleNameComponent } from './components/ManageDashboard/role-assign/role
     RoleModuleComponent,
     UserPermissionComponent,
     RoleNameComponent,
-    //InventoryComponents
-    // CategoryComponent,
-    // InventoryDashboardComponent,
-    // InventoryItemComponent,
-    // StockInHandComponent,
-    // InventoryReceiptComponent,
-    // InventoryReceiptDetailsComponent,
-    // PeriodicConsumptionComponent,
-    // StockDamageComponent,
-    // StockDamageDetailsComponent,
-    // // UnitTypeComponent,
-    // WareHouseComponent,
-    // WareHouseTypeComponent,
+
+    CategoryComponent,
+    InventoryDashboardComponent,
+    InventoryItemComponent,
+    StockInHandComponent,
+    InventoryReceiptComponent,
+    InventoryReceiptDetailsComponent,
+    PeriodicConsumptionComponent,
+    StockDamageComponent,
+    StockDamageDetailsComponent,
+     UnitTypeComponent,
+    WareHouseComponent,
+    WareHouseTypeComponent,
+    WareHousesComponent
 
     
   ],
@@ -165,6 +165,7 @@ import { RoleNameComponent } from './components/ManageDashboard/role-assign/role
   ],
   providers: [
     { provide: 'NAVCOMPONENTS', useValue: navcomponents }   ,
+    {provide:HTTP_INTERCEPTORS,useClass:TokenInterceptorService,multi:true},
     AuthenticationService,
     ReservationTypeService,
     CustomerTypeService,
@@ -200,6 +201,7 @@ import { RoleNameComponent } from './components/ManageDashboard/role-assign/role
     // 
     // TicketService,
     // UserService,
+    AccountTransactionTypeService
     
   ],
   bootstrap: [AppComponent]

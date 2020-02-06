@@ -28,22 +28,29 @@ import { RoleAssignmentComponent } from './components/ManageDashboard/role-assig
 import { CompanyComponent } from './components/ManageDashboard/company/company.component';
 import { FinancialYearComponent } from './components/ManageDashboard/FinancialYear/FinancialYear.component';
 import { DepartmentComponent } from './components/ManageDashboard/Department/Department.component';
-// import { InventoryItemComponent } from './components/InventoryDashboard/inventory/inventory-item.component';
-// import { CategoryComponent } from './components/InventoryDashboard/category/category.component';
-// import { UnitTypeComponent } from './components/InventoryDashboard/UnitType/UnitType.Component';
-// import { InventoryReceiptComponent } from './components/InventoryDashboard/inventory-receipt/inventory-receipt.component';
-// import { PeriodicConsumptionComponent } from './components/InventoryDashboard/periodic-consumption/periodic-consumption.component';
-// import { StockDamageComponent } from './components/InventoryDashboard/stock-damage/stock-damage.component';
-// import { WareHousesComponent } from './components/InventoryDashboard/WareHouse/WareHouse';
-// import { WareHouseComponent } from './components/InventoryDashboard/WareHouse/warehouse.component';
-// import { StockInHandComponent } from './components/InventoryDashboard/inventory report/stock-in-hand.component';
-// import { WareHouseTypeComponent } from './components/InventoryDashboard/WareHouse/warehousetype.component';
+import { RoomComponent } from './components/Reservation/room/room.component';
+import { InventoryItemComponent } from './components/InventoryDashboard/inventory/inventory-item.component';
+import { CategoryComponent } from './components/InventoryDashboard/category/category.component';
+import { UnitTypeComponent } from './components/InventoryDashboard/UnitType/UnitType.Component';
+import { InventoryReceiptComponent } from './components/InventoryDashboard/inventory-receipt/inventory-receipt.component';
+import { PeriodicConsumptionComponent } from './components/InventoryDashboard/periodic-consumption/periodic-consumption.component';
+import { StockDamageComponent } from './components/InventoryDashboard/stock-damage/stock-damage.component';
+import { WareHousesComponent } from './components/InventoryDashboard/WareHouse/WareHouse';
+import { WareHouseComponent } from './components/InventoryDashboard/WareHouse/warehouse.component';
+import { StockInHandComponent } from './components/InventoryDashboard/inventory report/stock-in-hand.component';
+import { WareHouseTypeComponent } from './components/InventoryDashboard/WareHouse/warehousetype.component';
 
 
 const routes: Routes = [
 {path:'',redirectTo:"/test",pathMatch:'full'},
 {path:"login",component:LoginComponent, canActivate:[AuthGuard]},
 {path:"user",component:UserComponent},
+
+
+
+
+
+
 {path:"test",component:TestComponent},
 {path:"reservation",component:ReservationComponent, canActivate:[AuthGuard]},
   {path:"reservation/checkin",component:CheckInComponent, canActivate:[AuthGuard]},
@@ -55,8 +62,8 @@ const routes: Routes = [
   {path:"reservation/roomtype",component:RoomTypeComponent, canActivate:[AuthGuard]},
   {path:"reservation/facility",component:FacilityComponent, canActivate:[AuthGuard]},
   {path:"reservation/roomtype",component:RoomTypeComponent, canActivate:[AuthGuard]},
-  {path:"reservation/room",component:RoomStatusComponent, canActivate:[AuthGuard]},
-  {path:"reservation/customertype",component:CustomerTypeComponent, canActivate:[AuthGuard]},
+  {path:"reservation/room",component:RoomComponent, canActivate:[AuthGuard]},
+  {path:"reservation/customertypes",component:CustomerTypeComponent, canActivate:[AuthGuard]},
   {
     path: 'pos-dashboard/:tabName',
     component: POSDashboardComponent,
@@ -102,53 +109,53 @@ const routes: Routes = [
   component: DepartmentComponent,
   canActivate: [AuthGuard]
 },
-// {
-//   path: 'Inventory/inventory', 
-//   component: InventoryItemComponent, 
-//   canActivate: [AuthGuard]
-// },
-// {
-//   path: 'Inventory/category',
-//   component: CategoryComponent,
-//   canActivate: [AuthGuard]
-// },
-// // {
-// //   path: 'Inventory/unittype',
-// //   component: UnitTypeComponent,
-// //   canActivate: [AuthGuard]
-// // },
-// {
-//   path: 'Inventory/inventory-receipt', 
-//   component: InventoryReceiptComponent, 
-//   canActivate: [AuthGuard]
-// },
-// {
-//   path: 'Inventory/consumption',
-//   component: PeriodicConsumptionComponent, canActivate: [AuthGuard]
-// },
-// {
-//   path: 'Inventory/stock-damage',
-//   component: StockDamageComponent,
-//   canActivate: [AuthGuard]
-// },
-// // WareHouse
-// // {
-// //   path: 'Inventory/warehouses',
-// //   component: WareHousesComponent, canActivate: [AuthGuard]
-// // },
-// {
-//   path: 'Inventory/WareHouse',
-//   component: WareHouseComponent, canActivate: [AuthGuard]
-// },
-// {
-//   path: 'Inventory/stockinhand',
-//   component: StockInHandComponent, canActivate: [AuthGuard]
-// },
-// {
-//   path: 'Inventory/WareHouseType',
-//   component: WareHouseTypeComponent, 
-//   canActivate: [AuthGuard]
-// },
+{
+  path: 'Inventory/inventory', 
+  component: InventoryItemComponent, 
+  canActivate: [AuthGuard]
+},
+{
+  path: 'Inventory/category',
+  component: CategoryComponent,
+  canActivate: [AuthGuard]
+},
+{
+  path: 'Inventory/unittype',
+  component: UnitTypeComponent,
+  canActivate: [AuthGuard]
+},
+{
+  path: 'Inventory/inventory-receipt', 
+  component: InventoryReceiptComponent, 
+  canActivate: [AuthGuard]
+},
+{
+  path: 'Inventory/consumption',
+  component: PeriodicConsumptionComponent, canActivate: [AuthGuard]
+},
+{
+  path: 'Inventory/stock-damage',
+  component: StockDamageComponent,
+  canActivate: [AuthGuard]
+},
+
+{
+  path: 'Inventory/warehouses',
+  component: WareHouseComponent, canActivate: [AuthGuard]
+},
+{
+  path: 'Inventory/WareHouse',
+  component: WareHouseComponent, canActivate: [AuthGuard]
+},
+{
+  path: 'Inventory/stockinhand',
+  component: StockInHandComponent, canActivate: [AuthGuard]
+},
+{
+  path: 'Inventory/WareHouseType',
+  component: WareHouseTypeComponent, 
+  canActivate: [AuthGuard]
+},
 {path:"404",component:PagenotfoundComponent},
 {path:'**',
 redirectTo:"/404",

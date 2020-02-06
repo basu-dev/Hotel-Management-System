@@ -139,7 +139,7 @@ export class FinancialYearComponent implements OnInit {
         if (fyearfrm.valid) {
             switch (this.dbops) {
                 case DBOperation.create:
-                    this._departmentService.post(Global.BASE_FINANCIAL_YEAR_ENDPOINT, formData._value).subscribe(
+                    this._departmentService.post(Global.BASE_FINANCIAL_YEAR_ENDPOINT, formData.value).subscribe(
                         data => {
                             if (data == 1) //Success
                             {
@@ -158,7 +158,7 @@ export class FinancialYearComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                    this._departmentService.put(Global.BASE_FINANCIAL_YEAR_ENDPOINT,  formData.value.Id, formData._value).subscribe(
+                    this._departmentService.put(Global.BASE_FINANCIAL_YEAR_ENDPOINT,  formData.value.Id, formData.value).subscribe(
                         data => {
                             if (data == 1) //Success
                             {

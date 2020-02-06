@@ -95,7 +95,7 @@ export class ReservationTypeComponent implements OnInit {
         if (departfrm.valid) {
             switch (this.dbops) {
                 case DBOperation.create:
-                    this._reservationTypeService.post(Global.BASE_RESERVATION_TYPES_ENDPOINT, formData._value).subscribe(
+                    this._reservationTypeService.post(Global.BASE_RESERVATION_TYPES_ENDPOINT, formData.value).subscribe(
                         data => {
                             if (data == 1) //Success
                             {
@@ -113,7 +113,7 @@ export class ReservationTypeComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                    this._reservationTypeService.put(Global.BASE_RESERVATION_TYPES_ENDPOINT,  formData.value.Id, formData._value).subscribe(
+                    this._reservationTypeService.put(Global.BASE_RESERVATION_TYPES_ENDPOINT,  formData.value.Id, formData.value).subscribe(
                         data => {
                             if (data == 1) //Success
                             {

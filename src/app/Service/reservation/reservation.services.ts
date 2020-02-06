@@ -1,7 +1,7 @@
 ﻿import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
 import {map,tap,catchError} from "rxjs/operators";
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { Room } from 'src/app/Model/reservation/room.model';
 
 
@@ -23,7 +23,6 @@ export class ReservationService {
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options =  ({ headers: headers });
         return this._http.post(url, body, options).pipe(
-             map((response: Response) => <any>response),
             catchError(this.handleError));
     }
 
@@ -33,18 +32,15 @@ export class ReservationService {
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options =  ({ headers: headers });
         return this._http.put(url + id, body, options).pipe(
-             map((response: Response) => <any>response),
             catchError(this.handleError));
     }
     delete(url: string, id: number): Observable<any> {
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options =  ({ headers: headers });
         return this._http.delete(url + id, options).pipe(
-             map((response: Response) => <any>response),
             catchError(this.handleError));
     }
     private handleError(error: HttpErrorResponse) {
-        console.error(error);
-        return Observable.throw(error || 'Server error');
+        return throwError(error || 'Server error');
     }
 }

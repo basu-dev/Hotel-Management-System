@@ -15,7 +15,6 @@ export class FacilityService {
 
     get(url: string): Observable<any> {
         return this._http.get(url).pipe(
-                 tap(data => console.log("All: " + JSON.stringify(data))),
             catchError(this.handleError));
     }
 
@@ -44,6 +43,6 @@ export class FacilityService {
 
     private handleError (error:HttpErrorResponse) {
         console.error(error);
-           return  throwError(error.message|| 'Server error');  
+           return  throwError(error.error|| 'Server error');  
     }
 }
