@@ -66,7 +66,7 @@ export class RoomComponent implements OnInit {
     }
 
     editRoom(id: number, template: TemplateRef<any>) {
-        ' '
+        
         this.dbops = DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit Room";

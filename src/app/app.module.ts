@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import{FormsModule, ReactiveFormsModule}from '@angular/forms'
 import { AuthenticationService } from './Service/authentication.service';
 import { DepartmentService } from './Service/Department.service';
@@ -90,6 +90,7 @@ import { StockDamageComponent } from './components/InventoryDashboard/stock-dama
 import { StockDamageDetailsComponent } from './components/InventoryDashboard/stock-damage/stock-damage-details/stock-damage-details.component';
 import { WareHouseTypeComponent } from './components/InventoryDashboard/WareHouse/warehousetype.component';
 import { WareHousesComponent } from './components/InventoryDashboard/WareHouse/WareHouse';
+import { TokenInterceptorService } from './interceptor/token-interceptor.service';
 // import { TicketService } from './Service/Billing/ticket.service';
 @NgModule({
   declarations: [
@@ -164,6 +165,7 @@ import { WareHousesComponent } from './components/InventoryDashboard/WareHouse/W
   ],
   providers: [
     { provide: 'NAVCOMPONENTS', useValue: navcomponents }   ,
+    {provide:HTTP_INTERCEPTORS,useClass:TokenInterceptorService,multi:true},
     AuthenticationService,
     ReservationTypeService,
     CustomerTypeService,

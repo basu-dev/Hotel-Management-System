@@ -68,14 +68,15 @@ export class WareHouseComponent implements OnInit {
         this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false });
     }
 
-    editWareHouse(id: number, template: TemplateRef<any>) {
-          
+    editWareHouse(id:number, warehouseid: number,template: TemplateRef<any>) {
+        console.log("ids"+id+" "+warehouseid);
         this.dbops = DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit Room";
         this.modalBtnTitle = "Update";
         this.warehouse = this.warehouses.filter(x => x.Id == id)[0];
-        this.WarehouseFrm.setValue(this.warehouse);
+        console.log(this.warehouse.Name);
+        // this.WarehouseFrm.setValue(this.warehouse);
         this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false });
     }
 
@@ -84,7 +85,7 @@ export class WareHouseComponent implements OnInit {
         this.SetControlsState(true);
         this.modalTitle = "Confirm to Delete?";
         this.modalBtnTitle = "Delete";
-        this.warehouse = this.warehouses.filter(x => x.Id == id)[0];
+        this.warehouse = this.warehouses.filter(x => x.WarehouseTypeId == id)[0];
         this.WarehouseFrm.setValue(this.warehouse);
         this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false });
     }

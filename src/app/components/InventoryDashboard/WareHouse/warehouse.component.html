@@ -22,8 +22,9 @@
                             <td>{{warehouse.Name}}</td>
                             <td>{{warehouse.WarehouseTypeId}}</td>
                             <td>{{warehouse.SortOrder}}</td>
+                            <td>{{warehouse.Id}}</td>
                             <td>
-                                <span><img src="../../images/Edit.png" (click)="editWareHouse(warehouse.Id,template)" height="60" width="60" /></span>
+                                <span><img src="../../images/Edit.png" (click)="editWareHouse(warehouse.WarehouseTypeId,warehouse.Id,template)" height="60" width="60" /></span>
                                 <span><img src="../../images/Delete.png" (click)="deleteWareHouse(warehouse.Id,template)" height="60" width="60" /></span>
                             </td>
                         </tr>

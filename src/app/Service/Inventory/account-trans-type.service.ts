@@ -9,6 +9,7 @@ import { InventoryReceiptDetails } from 'src/app/Model/Inventory/InventoryReceip
 import { IWareHouse, IWareHouseType } from 'src/app/Model/WareHouse/WareHouse';
 
 import { InventoryItem } from 'src/app/Model/Inventory/inventoryItem';
+import { Global } from 'src/app/Shared/global';
 
 @Injectable()
 export class AccountTransactionTypeService {
@@ -49,22 +50,22 @@ export class AccountTransactionTypeService {
     }
 
      getAccountTypes () {
-        return this._http.get("/api/AccountTypeAPI/get").pipe(
+        return this._http.get(Global.BASE_ACCOUNTTYPE_ENDPOINT).pipe(
            catchError(this.handleError))
     } 
     getInventoryItems():Observable<InventoryItem[]> {
 
-        return this._http.get<InventoryItem[]>("/api/InventoryItemAPI/get").pipe(
+        return this._http.get<InventoryItem[]>(Global.BASE_INVENTORY_ENDPOINT).pipe(
          catchError(this.handleError))
     }
 
     getmasterledger() {
-        return this._http.get("/api/MasterLedgerAPI/get").pipe(
+        return this._http.get(Global.BASE_MASTERLEDGER_ENDPOINT).pipe(
             catchError(this.handleError))
     }
     //InventoryItems
     getCategories() {
-        return this._http.get("/api/CategoryAPI/get").pipe(
+        return this._http.get(Global.BASE_CATEGORY_ENDPOINT).pipe(
             map((responseData) => responseData as ICategory[]));
             catchError(this.handleError)
     }
@@ -86,16 +87,16 @@ export class AccountTransactionTypeService {
    
 
     getMenuConsumptionProductPortions() {
-        return this._http.get("/api/MenuConsumptionProductPortionAPI/").pipe(
+        return this._http.get("http://localhost:8080/api/MenuConsumptionProductPortionAPI/").pipe(
             map((responseData:Observable<MenuItemPortion>) => responseData));
     } 
 
     getMenuConsumptionCategoryFilters() {
-        return this._http.get("/api/MenuConsumptionCategoryFilterAPI/").pipe(
+        return this._http.get(Global.BASE_MENUITEM_ConsumptionCategory_ENDPOINT).pipe(
             catchError(this.handleError));    } 
 
     getMenuConsumptionListDetails() {
-        return this._http.get("/api/MenuConsumptionDetailAPI/").pipe(
+        return this._http.get(Global.BASE_MENUCONSUMPTIONDETAILS_ENDPOINT).pipe(
             catchError(this.handleError));    } 
 
 
@@ -103,7 +104,7 @@ export class AccountTransactionTypeService {
 
     getAccounts():Observable<Account> {
 
-        return this._http.get<Account>("/api/AccountAPI/get").pipe(
+        return this._http.get<Account>(Global.BASE_ACCOUNT_ENDPOINT).pipe(
             catchError(this.handleError)
         );
           
@@ -122,38 +123,40 @@ export class AccountTransactionTypeService {
     
     getInventoryReceipts() {
 
-        return this._http.get("/api/InventoryReceiptDetailAPI/get").pipe(
+        return this._http.get(Global.BASE_INVENTORYRECEIPTDETAIL_ENDPOINT).pipe(
             map((responseData:InventoryReceiptDetails[]) => responseData),
             catchError(this.handleError));
     }
 
     getWareHouse() {
 
-        return this._http.get("/api/WareHouseAPI/").pipe(
+        return this._http.get(Global.BASE_WAREHOUSEAPI_ENDPOINT).pipe(
             map((responseData:Observable<IWareHouse>) => responseData),
             catchError(this.handleError)
             );
     } 
     getroomtype() {
-        return this._http.get("/api/RoomTypeAPI/get").pipe(
+        return this._http.get(Global.BASE_ROOMTYPE_ENDPOINT).pipe(
             catchError(this.handleError)
         )
            
     }
 
     getRoom() {
-        return this._http.get("/api/RoomAPI/get").pipe(
+        return this._http.get(Global.BASE_ROOMAPI_ENDPOINT).pipe(
             catchError(this.handleError)
         )
             
     }
     getWareHouseType():Observable<IWareHouseType> {
         
-        return this._http.get<IWareHouseType>("/api/WareHouseTypeAPI/get")
+        return this._http.get<IWareHouseType>(Global.BASE_WAREHOUSETYPE_ENDPOINT).pipe(
+            catchError(this.handleError)
+        )
             
         }
         private handleError(error: HttpErrorResponse) {
-            return throwError(error.error|| 'Server error');
+            return throwError(error.message || 'Server error');
         }
         
 
