@@ -42,7 +42,7 @@ cursor: pointer;
               position: absolute;
               top:50px;
               margin-top: 20px;
-              height:70vh;
+      
               overflow-y: scroll;
               opacity: 1!important;
 }
