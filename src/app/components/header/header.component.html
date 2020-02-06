@@ -1,6 +1,6 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 <aside class="main-sidebar">
-    <section class="sidebar" style="height:auto;">
+    <section class="sidebar">
      <ul class="sidebar-menu tree" data-widget="tree"  *ngFor="let item of items" >
             <li class="treeview mb-1" [class.group]="item.group" >
                 <a   *ngIf="item.children; else elseBlockk">
