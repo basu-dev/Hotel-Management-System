@@ -6,10 +6,10 @@
         <div class='panel-body'>
             <div class='table-responsive'>
                 <div style="padding-bottom:10px">
-                    <img src="../../images/UserAdd.png" (click)="addRoles()" height="60" width="60" style="cursor: pointer;" />
+                    <img src="../../../../assets/images/UserAdd.png" (click)="addRoles()" height="60" width="60" style="cursor: pointer;" />
                 </div>
                 <div class="alert alert-info" role="alert" *ngIf="indLoading">
-                    <img src="../../images/loading.gif" width="32" height="32" /> Loading...
+                    <img src="../../../../assets/images/loading.gif" width="32" height="32" /> Loading...
                 </div>
                 <div *ngIf='roles && roles.length==0' class="alert alert-info" role="alert">No record found!</div>
                 <table class='table table-striped' *ngIf='roles && roles.length'>
@@ -26,10 +26,10 @@
                             <td>{{role.Description}}</td>
                             <td>
                                 <span>
-                                    <img src="../../images/EditUser.png" (click)="editUserRole(role.RoleId)" height="32" width="32" style="cursor: pointer;" />
+                                    <img src="../../../../assets/images/EditUser.png" (click)="editUserRole(role.RoleId)" height="32" width="32" style="cursor: pointer;" />
                                 </span>
                                 <span>
-                                    <img src="../../images/DeleteUser.png" (click)="deleteUserRole(role.RoleId)" height="32" width="32" style="cursor: pointer;" />
+                                    <img src="../../../../assets/images/DeleteUser.png" (click)="deleteUserRole(role.RoleId)" height="32" width="32" style="cursor: pointer;" />
                                 </span>
                             </td>
                         </tr>

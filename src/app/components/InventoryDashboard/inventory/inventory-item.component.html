@@ -123,12 +123,12 @@
         </div>
         <div class='panel-body'>
             <div class='table-responsive'>
-                <div class="col-md-5"> <div style="padding-bottom:10px"><img src="../../images/Add.png" (click)="addInventory()" height="60" width="60" /></div></div>
+                <div class="col-md-5"> <div style="padding-bottom:10px"><img src="../../../../assets/images/Add.png" (click)="addInventory()" height="60" width="60" /></div></div>
                 <div class="col-md-1"> Search: </div>
                 <div class="col-md-6">
                     <input type="text" class="form-control" [(ngModel)]="ItemName" placeholder="Search by Name">
                 </div>
-                <div class="alert alert-info" role="alert" *ngIf="indLoading"><img src="../../images/loading.gif" width="32" height="32" /> Loading...</div>
+                <div class="alert alert-info" role="alert" *ngIf="indLoading"><img src="../../../../assets/images/loading.gif" width="32" height="32" /> Loading...</div>
                 <div *ngIf='InventoryItems && InventoryItems.length==0' class="alert alert-info" role="alert">No record found!</div>
                 <table class='table table-striped' *ngIf='InventoryItems && InventoryItems.length'>
                     <thead>
@@ -150,14 +150,14 @@
                             <td>{{InventoryItem.StockLimit}}</td>
                             <td>{{InventoryItem.Category}}</td>
                             <td>
-                                <span><img src="../../images/Edit.png" (click)="editInventory(InventoryItem.Id)" height="60" width="60" /></span>
-                                <span><img src="../../images/Delete.png" (click)="deleteInventory(InventoryItem.Id)" height="60" width="60" /></span>
+                                <span><img src="../../../../assets/images/Edit.png" (click)="editInventory(InventoryItem.Id)" height="60" width="60" /></span>
+                                <span><img src="../../../../assets/images/Delete.png" (click)="deleteInventory(InventoryItem.Id)" height="60" width="60" /></span>
                             </td>
                         </tr>
                     </tbody>
                 </table>
                 <div *ngIf='InventoryItems && InventoryItems.length' class="alert alert-info" role="alert">
-                <div style="padding-bottom:10px"><img src="../../images/Add.png" (click)="addInventory()" height="60" width="60" /></div>
+                <div style="padding-bottom:10px"><img src="../../../../assets/images/Add.png" (click)="addInventory()" height="60" width="60" /></div>
                 </div>
             </div>
             <div *ngIf="msg" role="alert" class="alert alert-info alert-dismissible">

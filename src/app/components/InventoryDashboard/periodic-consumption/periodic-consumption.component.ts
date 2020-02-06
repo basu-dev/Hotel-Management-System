@@ -11,6 +11,7 @@ import { DatePipe } from '@angular/common';
 import { IWareHouse, IWareHouseType } from '../../../Model/WareHouse/WareHouse';
 import { IInventoryItem, InventoryItem } from '../../../Model/Inventory/inventoryItem';
 
+
 @Component({
     moduleId: module.id,
     templateUrl: 'periodic-consumption.component.html'
