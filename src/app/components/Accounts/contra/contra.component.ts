@@ -21,8 +21,8 @@ type CSV = any[][];
 })
 export class ContraComponent implements OnInit{
     @ViewChild('template',{static:false}) TemplateRef: TemplateRef<any>;
-    @ViewChild('templateNested'{static:false}) TemplateRef2: TemplateRef<any>;
-    @ViewChild('fileInput'{static:false}) fileInput: ElementRef;
+    @ViewChild('templateNested',{static:false}) TemplateRef2: TemplateRef<any>;
+    @ViewChild('fileInput',{static:false}) fileInput: ElementRef;
 
     modalRef: BsModalRef;
     modalRef2: BsModalRef;
