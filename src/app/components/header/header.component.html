@@ -1,33 +1,32 @@
-
-<aside class="main-sidebar" >
-    <section class="sidebar fixed" style="height:98vh; overflow-y:scroll">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+<aside class="main-sidebar">
+    <section class="sidebar">
      <ul class="sidebar-menu tree" data-widget="tree"  *ngFor="let item of items" >
             <li class="treeview mb-1" [class.group]="item.group" >
                 <a   *ngIf="item.children; else elseBlockk">
-                    <i class="text-danger"></i> <span>{{item.title}}</span>
-                    <span class="pull-right-container">
+                    <i class="text-danger"></i> 
+                    <i class="fa fa-columns pull-left"></i><span>{{item.title}}</span>
+                   <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ng-template #elseBlockk>
-
                     <a (click)=open(item.link) >
-                        <i class=""></i> <span>{{item.title}}</span>
+                        <i class=""></i> <span class="coloring">{{item.title}}</span>
                         <span class="pull-right-container">
-                            
                         </span>
                     </a>
                 </ng-template>
                     <ul class="treeview-menu second " data-widget="second">
                         <div  *ngFor="let child of item.children" >
                         <li class="treeview">
-                            <a href="#" *ngIf="child.children; else elseBlock">
-                            <i class=""></i><span>{{child.title}}</span><span class="pull-right-container">
+                            <a href="#" class="flexing" *ngIf="child.children; else elseBlock">
+                                <i class="fa fa-book pull-left"></i><span class="textleft">{{child.title}}</span><span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span></a>
                             <ng-template #elseBlock>
                                 <a  (click)=open(child.link)>
-                                    <i class=""></i> <span>{{child.title}}</span>
+                                    <i class=""></i> <span class="anothersecond">{{child.title}}</span>
                                     <span class="pull-right-container">
                                         
                                     </span>
@@ -36,7 +35,7 @@
                             <ul class="treeview-menu">
                                 <div  *ngFor="let chil of child.children">
                                     <a (click)=open(chil.link)>
-                                <li class="treeview">
+                                <li class="treeview secondinner">
                                     
                                     <i class=""></i><span>{{chil.title}}</span><span class="pull-right-container">
                                         <i class=""></i>
@@ -44,8 +43,6 @@
                                     
                                 </li>
                             </a>
-                               
-                                
                                 </div>
                                 
                             </ul>

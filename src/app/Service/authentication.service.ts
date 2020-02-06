@@ -20,6 +20,7 @@ export class AuthenticationService {
             catchError(this.handleError)
         )}
     public isAuthenticated(): boolean {
+
         const user = localStorage.getItem('userToken');
         if (user != null)
         {
@@ -31,6 +32,7 @@ export class AuthenticationService {
             return false;
         }
         
+
     }
 
     logout() {
