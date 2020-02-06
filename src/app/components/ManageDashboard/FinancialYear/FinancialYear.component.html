@@ -6,9 +6,9 @@
         <div class='table-responsive'>
             <div style="padding-bottom:10px">
                 <img  *ngIf="FinancialYears && FinancialYears.length == 0" 
-                     src="../../images/Add.png" (click)="openModal(template)" height="60" width="60" />
+                     src="../../../../assets/images/Add.png" (click)="openModal(template)" height="60" width="60" />
                 <div class="alert alert-info" role="alert" *ngIf="indLoading">
-                    <img src="../../images/loading.gif" width="32" height="32" /> Loading...
+                    <img src="../../../../assets/images/loading.gif" width="32" height="32" /> Loading...
                 </div>
                 <div *ngIf='FinancialYears && FinancialYears.length==0' class="alert alert-info" role="alert">No record found!</div>
                 <table class='table table-striped' *ngIf='FinancialYears && FinancialYears.length'>
@@ -31,10 +31,10 @@
                             <td>{{ fy.EndDate | date: 'dd/MM/yyyy' }}</td>
                             <td>
                                 <span>
-                                    <img src="../../images/Edit.png" (click)="editFinancialYear(fy.Id,template)" height="32" width="32" />
+                                    <img src="../../../../assets/images/Edit.png" (click)="editFinancialYear(fy.Id,template)" height="32" width="32" />
                                 </span>
                                 <span>
-                                    <img src="../../images/Delete.png" (click)="deleteFinancialYear(fy.Id,template)" height="32" width="32" />
+                                    <img src="../../../../assets/images/Delete.png" (click)="deleteFinancialYear(fy.Id,template)" height="32" width="32" />
                                 </span>
                             </td>
                         </tr>

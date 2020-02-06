@@ -7,7 +7,7 @@
             <div style="padding-bottom:10px">
                 <div class="row">
                     <div class="col-md-3">
-                        <img src="../../images/Add.png" (click)="openModal(template)" height="60" width="60" />
+                        <img src="../../../../assets/images/Add.png" (click)="openModal(template)" height="60" width="60" />
                     </div>
                     <div class="col-md-6">
                     </div>
@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="alert alert-info" role="alert" *ngIf="isLoading">
-                            <img src="../../images/loading.gif" width="32" height="32" /> Loading...
+                            <img src="../../../../assets/images/loading.gif" width="32" height="32" /> Loading...
                         </div>
                         <div *ngIf='customers && customers.length==0' class="alert alert-info" role="alert">No record found!</div>
                     </div>
@@ -49,10 +49,10 @@
                             <td>{{customer.MobileNumber}}</td>
                             <td class="export-no-display">
                                 <span>
-                                    <img src="../../images/Edit.png" (click)="editDepartment(customer.Id,template)" height="32" width="32" />
+                                    <img src="../../../../assets/images/Edit.png" (click)="editDepartment(customer.Id,template)" height="32" width="32" />
                                 </span>
                                 <span>
-                                    <img src="../../images/Delete.png" (click)="deleteDepartment(customer.Id,template)" height="32" width="32" />
+                                    <img src="../../../../assets/images/Delete.png" (click)="deleteDepartment(customer.Id,template)" height="32" width="32" />
                                 </span>
                             </td>
                         </tr>

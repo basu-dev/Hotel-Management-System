@@ -48,10 +48,10 @@ cursor: pointer;
               opacity: 1!important;
 }
 .sidebar{
+  position: absolute;
     height:90vh;
-  
-  
 }
+/* ========================== css for scrollbar ===========================  */
 /* width */
 ::-webkit-scrollbar {
     width: 9px;

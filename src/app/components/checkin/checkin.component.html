@@ -8,7 +8,7 @@
             <div style="padding-bottom:10px">
                 <div class="row">
                     <div class="col-md-2">
-                        <img src="../../images/Add.png" (click)="openModal(template)" height="60" width="60" />
+                        <img src="../../../../assets/images/Add.png" (click)="openModal(template)" height="60" width="60" />
                     </div>
                     <div class="col-md-5">
                         <div class="col-sm-6 text-right">
@@ -36,7 +36,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="alert alert-info" role="alert" *ngIf="isLoading">
-                            <img src="../../images/loading.gif" width="32" height="32" /> Loading...
+                            <img src="../../../../assets/images/loading.gif" width="32" height="32" /> Loading...
                         </div>
                         <div *ngIf='reservedRooms && reservedRooms.length==0' class="alert alert-info" role="alert">No record found!</div>
                     </div>
@@ -79,10 +79,10 @@
                             <td>{{rm.ToCheckOutDate | date: 'dd/MM/yyyy h:mm a'}}</td>
                             <td class="export-no-display">
                                 <span>
-                                    <img src="../../images/Edit.png" (click)="editReservedRoom(rm.Id,template)" height="32" width="32" />
+                                    <img src="../../../../assets/images/Edit.png" (click)="editReservedRoom(rm.Id,template)" height="32" width="32" />
                                 </span>
                                 <span>
-                                    <img src="../../images/Delete.png" (click)="deleteReservedRoom(rm.Id,template)" height="32" width="32" />
+                                    <img src="../../../../assets/images/Delete.png" (click)="deleteReservedRoom(rm.Id,template)" height="32" width="32" />
                                 </span>
                             </td>
                         </tr>

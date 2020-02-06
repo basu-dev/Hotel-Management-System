@@ -1,4 +1,6 @@
-
+.wrapper{
+         background-color:#ecf0f5!important;
+}
 nav.navbar.navbar-static-top{
                            
                             height: 70px!important;
