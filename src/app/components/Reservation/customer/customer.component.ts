@@ -1,6 +1,5 @@
 ﻿import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { ReservationCustomerService } from '../../../Service/reservation/customer.services';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Customer } from '../../../Model/reservation/customer.model';
 
@@ -9,7 +8,8 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 import { DBOperation } from '../../../Shared/enum';
 import { Observable } from 'rxjs/Rx';
-import { Global } from '../../../Shared/global';
+import { Global } from '../../../Shared/global'; import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
+
 import { CustomerType } from '../../../Model/reservation/customer-type.model';
 
 @Component({
@@ -32,7 +32,7 @@ export class ReservationCustomerComponent implements OnInit {
     
     constructor(
         private fb: FormBuilder, 
-        private _customerService: ReservationCustomerService, 
+        private _customerService: AccountTransactionTypeService, 
         private modalService: BsModalService, 
         private date: DatePipe
     ) { this.company = JSON.parse(localStorage.getItem('company'));}

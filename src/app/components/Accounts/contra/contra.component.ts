@@ -5,12 +5,13 @@ import { Account } from '../../../Model/Account/account';
 import { DBOperation } from '../../../Shared/enum';
 import { Observable } from 'rxjs/Rx';
 import { Global } from '../../../Shared/global';
-import { JournalVoucherService } from '../../../Service/journalVoucher.service';
-import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
+ import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
+
+
 import { DatePipe } from '@angular/common';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-// import * as XLSX from 'xlsx';
+// //import * as XLSX from 'xlsx';
 import { FileService } from '../../../Service/file.service';
 
 type CSV = any[][];
@@ -56,7 +57,7 @@ export class ContraComponent implements OnInit{
 
     constructor(
         private fb: FormBuilder,
-        private _journalvoucherService: JournalVoucherService,
+        private _journalvoucherService: AccountTransactionTypeService,
         private _accountTransValues: AccountTransactionTypeService,
         private date: DatePipe,
         private modalService: BsModalService,
@@ -98,7 +99,7 @@ export class ContraComponent implements OnInit{
     }
 
     voucherDateValidator(currentdate: string) {
-         ;
+         
         if (currentdate == "") {
             alert("Please enter the voucher date");
             return false;
@@ -520,7 +521,7 @@ export class ContraComponent implements OnInit{
                     );
                     break;
                 case DBOperation.delete:
-                    this._journalvoucherService.delete(Global.BASE_JOURNALVOUCHER_ENDPOINT, paymentObject).subscribe(
+                    this._journalvoucherService.delete(Global.BASE_JOURNALVOUCHER_ENDPOINT, paymentObject.Id).subscribe(
                         data => {
                             if (data == 1) //Success
                             {

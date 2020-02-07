@@ -10,6 +10,7 @@ import { DBOperation } from '../../../Shared/enum';
 import { Observable } from 'rxjs/Rx';
 import { Global } from '../../../Shared/global';
 
+
 @Component({
     selector: 'my-room-list',
     templateUrl: './warehouse.component.html'

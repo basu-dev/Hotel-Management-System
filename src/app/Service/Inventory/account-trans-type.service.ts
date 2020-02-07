@@ -105,9 +105,9 @@ export class AccountTransactionTypeService {
 
 
 
-    getAccounts(): Observable<Account> {
+    getAccounts(): Observable<Account[]> {
 
-        return this._http.get<Account>(Global.BASE_ACCOUNT_ENDPOINT).pipe(
+        return this._http.get<Account[]>(Global.BASE_ACCOUNT_ENDPOINT).pipe(
             catchError(this.handleError)
         );
 
@@ -213,6 +213,7 @@ export class AccountTransactionTypeService {
         )
 
     }
+    
     private handleError(error: HttpErrorResponse) {
         return throwError(error.message || 'Server error');
     }

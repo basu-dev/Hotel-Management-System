@@ -9,7 +9,7 @@ import { AuthenticationService } from './Service/authentication.service';
 import { DepartmentService } from './Service/Department.service';
 import { LoginService } from './Service/login.service';
 import { UsersService } from './Service/user.service';    
-import { JournalVoucherService } from './Service/journalVoucher.service';
+
 import { HeaderComponent } from './components/header/header.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TestComponent } from './components/test/test.component';
@@ -18,9 +18,7 @@ import{navcomponents} from "./Shared/navcomponents";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CheckInComponent } from './components/checkin/checkin.component';
 import {CustomerTypeService} from "./Service/reservation/customer-type.services";
-import {ReservationCustomerService} from "./Service/reservation/customer.services";
 import {FacilityService} from "./Service/reservation/facility.services";
-import {ReservationService} from "./Service/reservation/reservation.services";
 import {RoomOccupiedService} from "./Service/reservation/room-occupied.services";
 import {RoomTypeService} from "./Service/reservation/room-type.services";
 import {PaymentTypeService} from "./Service/reservation/payment-type.services";
@@ -93,6 +91,7 @@ import { ContraComponent } from './components/Accounts/contra/contra.component';
 import {SelectDropDownModule} from "ngx-select-dropdown";
 import { SalesComponent } from './components/Accounts/sales/sales.component';
 import { SalesDetailComponent } from './components/Accounts/sales/sales-detail/salesDetail.component';
+import { ReceiptComponent } from './components/Accounts/receipt/receipt.component';
 
 // import { TicketService } from './Service/Billing/ticket.service';
 @NgModule({
@@ -146,9 +145,7 @@ import { SalesDetailComponent } from './components/Accounts/sales/sales-detail/s
     ContraComponent,
     SalesComponent,
     SalesDetailComponent,
-    
-    
-    
+    ReceiptComponent
   ],
   imports: [
     SelectDropDownModule,
@@ -181,16 +178,17 @@ import { SalesDetailComponent } from './components/Accounts/sales/sales-detail/s
     FacilityService,
     PaymentTypeService,
     ReservationTypeService,
-    ReservationService,
+    AccountTransactionTypeService,
     RoomOccupiedService,
     RoomTypeService,
     DepartmentService,
     LoginService,
     UsersService,
-    JournalVoucherService,
+    AccountTransactionTypeService
+,
     DatePipe,
     FileService,
-    ReservationCustomerService,
+    AccountTransactionTypeService,
     PaymentTypeService,
     FacilityService,
     ReservationTypeService,

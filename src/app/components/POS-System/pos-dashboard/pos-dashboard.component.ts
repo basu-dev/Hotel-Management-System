@@ -2,7 +2,9 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
-import { Global } from '../../../Shared/global';
+import { Global } from '../../../Shared/global'; 
+import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
+
 
 // Models
 import { Table } from '../../../Model/table.model';
@@ -12,14 +14,13 @@ import { Customer } from '../../../Model/customer.model';
 import { TableStoreService } from '../../../Service/Billing/table.store.service';
 import { CustomerStoreService } from '../../../Service/Billing/customer.store.service';
 import { TicketStoreService } from '../../../Service/Billing/ticket.store.service';
-import {ReservationCustomerService } from '../../../Service/Billing/customer.services';
 
 // Selectors
 import * as TableSelector from '../../../selectors/table.selector';
 import * as CustomerSelector from '../../../selectors/customer.selector';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { DBOperation } from '../../../Shared/enum';
-import { AccountService } from '../../../Service/Billing/account.service';
+
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { Account } from '../../../Model/Account/account';
@@ -58,8 +59,9 @@ export class POSDashboardComponent implements OnInit {
         private activatedRoute: ActivatedRoute,
         private tableStoreService: TableStoreService,
         private customerStoreService: CustomerStoreService,
-        private _customerService:ReservationCustomerService,
-        private accountService: AccountService,
+        private _customerService:AccountTransactionTypeService,
+        private accountService: AccountTransactionTypeService
+,
         private ticketStoreApi: TicketStoreService,
         private modalService: BsModalService
     ) 

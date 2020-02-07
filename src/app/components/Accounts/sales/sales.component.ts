@@ -2,15 +2,16 @@
 import { FormBuilder, FormGroup, Validators, NgModel, FormArray, FormControl, AbstractControl } from '@angular/forms';
 import { AccountTransactionValues, AccountTrans, PurchaseOrderDetail, EntityMock } from '../../../Model/AccountTransaction/accountTrans';
 import { Account } from '../../../Model/Account/account';
-import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
 
 import { DBOperation } from '../../../Shared/enum';
 import { Observable } from 'rxjs/Rx';
 import { Global } from '../../../Shared/global';
+ import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
+
 import { DatePipe } from '@angular/common'
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-// import * as XLSX from 'xlsx';
+// //import * as XLSX from 'xlsx';
 import { FileService } from '../../../Service/file.service';
 
 type CSV = any[][];
@@ -22,7 +23,7 @@ type CSV = any[][];
 export class SalesComponent implements OnInit {
     @ViewChild("template",{static:false}) TemplateRef: TemplateRef<any>;
     @ViewChild('templateNested',{static:false}) TemplateRef2: TemplateRef<any>;
-    //@ViewChild('fileInput') fileInput: ElementRef;
+    //@ViewChild('fileInput',{static:false}) fileInput: ElementRef;
 
     modalRef: BsModalRef;
     modalRef2: BsModalRef;

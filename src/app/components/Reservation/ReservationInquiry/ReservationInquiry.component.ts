@@ -1,6 +1,5 @@
 ﻿import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { ReservationService } from '../../../Service/reservation/reservation.services';
 import { FormBuilder, FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
 import { Reservation } from '../../../Model/reservation/reservation.model';
 
@@ -10,6 +9,8 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { DBOperation } from '../../../Shared/enum';
 import { Observable } from 'rxjs/Rx';
 import { Global } from '../../../Shared/global';
+ import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
+
 import { ReservationType } from '../../../Model/reservation/reservation-type.model';
 import { Customer } from '../../../Model/reservation/customer.model';
 import { RoomType } from '../../../Model/reservation/customer-screen.model';
@@ -40,7 +41,7 @@ export class ReservationInquiryComponent implements OnInit {
 
     constructor(
         private fb: FormBuilder,
-        private _reservationService: ReservationService,
+        private _reservationService: AccountTransactionTypeService,
         private modalService: BsModalService,
         private date: DatePipe
     ) { }

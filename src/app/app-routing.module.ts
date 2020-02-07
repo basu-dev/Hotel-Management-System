@@ -41,6 +41,7 @@ import { WareHouseTypeComponent } from './components/InventoryDashboard/WareHous
 import { ContraComponent } from './components/Accounts/contra/contra.component';
 import { SalesDetailComponent } from './components/Accounts/sales/sales-detail/salesDetail.component';
 import { SalesComponent } from './components/Accounts/sales/sales.component';
+import { ReceiptComponent } from './components/Accounts/receipt/receipt.component';
 
 
 const routes: Routes = [
@@ -161,6 +162,11 @@ const routes: Routes = [
   {
     path: 'Account/Bankcash',
     component: ContraComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Account/receipt',
+    component: ReceiptComponent,
     canActivate: [AuthGuard]
   },
   {

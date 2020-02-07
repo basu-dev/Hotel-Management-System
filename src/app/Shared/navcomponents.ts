@@ -131,15 +131,15 @@ export const navcomponents=[
       children: [
         {
           title: 'Bank/Cash',
-          link: '/pages/forms/inputs',
+          link: 'Account/Bankcash',
         },
         {
           title: 'Sales',
-          link: '/pages/forms/layouts',
+          link: 'Account/sales',
         },
         {
           title: 'Receipt',
-          link: '/pages/forms/buttons',
+          link: 'Account/receipt',
         },
         {
           title: 'Purchase',

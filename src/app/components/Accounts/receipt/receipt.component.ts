@@ -2,12 +2,13 @@ import { Component, OnInit, ViewChild, TemplateRef, ElementRef } from '@angular/
 import { FormBuilder, FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
 import { Account } from '../../../Model/Account/account';
 import { AccountTrans } from '../../../Model/AccountTransaction/accountTrans';
-import { JournalVoucherService } from '../../../Service/journalVoucher.service';
+
 import { DBOperation } from '../../../Shared/enum';
-import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
 
 import { Observable } from 'rxjs/Rx';
 import { Global } from '../../../Shared/global';
+ import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
+
 import { DatePipe } from '@angular/common';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
@@ -74,7 +75,8 @@ export class ReceiptComponent {
      */
     constructor(
         private fb: FormBuilder, 
-        private _journalvoucherService: JournalVoucherService, 
+        private _journalvoucherService: AccountTransactionTypeService
+, 
         private _accountTransValues: AccountTransactionTypeService, 
         private date: DatePipe, 
         private modalService: BsModalService,
@@ -570,7 +572,7 @@ export class ReceiptComponent {
                         CompanyCode: this.receiptFrm.controls['CompanyCode'].value,
                         AccountTransactionValues: this.receiptFrm.controls['AccountTransactionValues'].value
                     }
-                    this._journalvoucherService.delete(Global.BASE_JOURNALVOUCHER_ENDPOINT,  receiptObject).subscribe(
+                    this._journalvoucherService.delete(Global.BASE_JOURNALVOUCHER_ENDPOINT,  receiptObject.Id).subscribe(
                         data => {
                             if (data == 1) //Success
                             {

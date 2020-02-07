@@ -4,7 +4,8 @@ import { AccountTransactionTypeService } from '../../../Service/Inventory/accoun
 import { PeriodicConsumption } from '../../../Model/periodic-consumption-items/periodic-consumption-item';
 import { DBOperation } from '../../../Shared/enum';
 import { Observable } from 'rxjs/Rx';
-import { Global } from '../../../Shared/global';
+import { Global } from '../../../Shared/global'; 
+
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { DatePipe } from '@angular/common';

@@ -12,20 +12,20 @@ var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/do");
 require("rxjs/add/operator/catch");
-var ReservationService = /** @class */ (function () {
+var AccountTransactionTypeService = /** @class */ (function () {
     // Constructor
-    function ReservationService(_http) {
+    function AccountTransactionTypeService(_http) {
         this._http = _http;
         this._http = _http;
     }
-    ReservationService.prototype.get = function (url) {
+    AccountTransactionTypeService.prototype.get = function (url) {
          
         return this._http.get(url)
              map(function (response) { return response.json(); })
             tap(function (data) { return console.log("All: " + JSON.stringify(data)); })
             catchError(this.handleError);
     };
-    ReservationService.prototype.post = function (url, model) {
+    AccountTransactionTypeService.prototype.post = function (url, model) {
         ' ';
         var body = JSON.stringify(model);
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
@@ -34,7 +34,7 @@ var ReservationService = /** @class */ (function () {
              map(function (response) { return response.json(); })
             catchError(this.handleError);
     };
-    ReservationService.prototype.put = function (url, id, model) {
+    AccountTransactionTypeService.prototype.put = function (url, id, model) {
         ' ';
         var body = JSON.stringify(model);
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
@@ -43,20 +43,20 @@ var ReservationService = /** @class */ (function () {
              map(function (response) { return response.json(); })
             catchError(this.handleError);
     };
-    ReservationService.prototype.delete = function (url, id) {
+    AccountTransactionTypeService.prototype.delete = function (url, id) {
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
         return this._http.delete(url + id, options)
              map(function (response) { return response.json(); })
             catchError(this.handleError);
     };
-    ReservationService.prototype.handleError = function (error) {
+    AccountTransactionTypeService.prototype.handleError = function (error) {
         console.error(error);
         return Observable_1. throwError(error.error.error || 'Server error');
     };
-    ReservationService = __decorate([
+    AccountTransactionTypeService = __decorate([
         core_1.Injectable()
-    ], ReservationService);
-    return ReservationService;
+    ], AccountTransactionTypeService);
+    return AccountTransactionTypeService;
 }());
-exports.ReservationService = ReservationService;
+exports.AccountTransactionTypeService = AccountTransactionTypeService;

@@ -1,17 +1,18 @@
 ﻿import { Component, OnInit, ViewChild, TemplateRef, ElementRef } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { Company } from '../../../models/company.model';
+import { Company } from '../../../Model/company.model';
 
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
-import { ReservationService } from '../../../Service/reservation/reservation.services';
 import { FileService } from '../../../Service/file.service';
 
 import { DBOperation } from '../../../Shared/enum';
 import { Observable } from 'rxjs/Rx';
 import { Global } from '../../../Shared/global';
+ import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
+
 
 @Component({
     templateUrl: './company.component.html',
@@ -36,7 +37,7 @@ export class CompanyComponent implements OnInit {
 
     constructor(
         private fb: FormBuilder,
-        private _reservationService: ReservationService,
+        private _reservationService: AccountTransactionTypeService,
         private modalService: BsModalService,
         private fileService: FileService,
         private date: DatePipe

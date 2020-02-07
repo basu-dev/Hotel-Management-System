@@ -1,8 +1,8 @@
 ﻿//import { Component, Input } from '@angular/core';
 //import { Router, Params, ActivatedRoute } from '@angular/router';
 //import 'rxjs/add/operator/switchMap';
-//import { Customer } from '../../models/customer.model';
-//import { ReservationCustomerService } from '../../services/reservation/customer.services';
+//import { Customer } from '../../Model/customer.model';
+//import { AccountTransactionTypeService } from '../../services/reservation/customer.services';
 
 //@Component({
 //    selector: 'employee-detail',
@@ -17,7 +17,7 @@
 //    constructor(
 //        private router: Router,
 //        private route: ActivatedRoute,
-//        private _customerService: ReservationCustomerService,
+//        private _customerService: AccountTransactionTypeService,
 //    ) { }
 
 //    ngOnInit(Id: number) {

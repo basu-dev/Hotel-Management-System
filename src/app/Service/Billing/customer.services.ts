@@ -4,7 +4,7 @@ import {HttpClient, HttpHeaders, HttpErrorResponse} from "@angular/common/http";
 import {tap,map,catchError} from "rxjs/operators";
 
 @Injectable()
-export class ReservationCustomerService {
+export class AccountTransactionTypeService {
     // Constructor
     constructor(private _http: HttpClient) {
         this._http = _http;

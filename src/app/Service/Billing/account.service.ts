@@ -5,7 +5,8 @@ import {map,tap,catchError} from "rxjs/operators";
 import { throwError } from 'rxjs';
 
 @Injectable()
-export class AccountService {
+export class AccountTransactionTypeService
+ {
     constructor(private _http: HttpClient) {
         this._http = _http;
     }

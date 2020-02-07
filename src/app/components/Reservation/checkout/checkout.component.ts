@@ -8,13 +8,13 @@ import { Room } from '../../../Model/reservation/room.model';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
-import { ReservationService } from '../../../Service/reservation/reservation.services';
 import { RoomOccupiedService } from '../../../Service/reservation/room-occupied.services';
 import { FileService } from '../../../Service/file.service';
 
 import { DBOperation } from '../../../Shared/enum';
 import { Observable } from 'rxjs';
-import { Global } from '../../../Shared/global';
+import { Global } from '../../../Shared/global'; import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
+
 import { Customer } from '../../../Model/reservation/customer.model';
 import { RoomType } from '../../../Model/reservation/customer-screen.model';
 import { forkJoin } from "rxjs/observable/forkJoin";
@@ -55,7 +55,7 @@ export class CheckOutComponent implements OnInit {
     };
     constructor(
         private fb: FormBuilder,
-        private _reservationService: ReservationService,
+        private _reservationService: AccountTransactionTypeService,
         private _roomOccupiedService: RoomOccupiedService,
         private modalService: BsModalService,
         private fileService: FileService,

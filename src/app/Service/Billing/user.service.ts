@@ -5,7 +5,7 @@
 // import { Global } from '../Shared/global';
 
 // // Models
-// import { User } from '../models/user.model';
+// import { User } from '../Model/user.model';
 
 // // Environments
 // import * as env from '../../environments/environment';

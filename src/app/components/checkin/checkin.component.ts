@@ -9,7 +9,6 @@ import { Room } from '../../Model/reservation/room.model';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
-import { ReservationService } from '../../Service/reservation/reservation.services';
 import { RoomOccupiedService } from '../../Service/reservation/room-occupied.services';
 import { FileService } from '../../Service/file.service';
 
@@ -20,6 +19,7 @@ import { Customer } from '../../Model/reservation/customer.model';
 import { RoomType } from '../../Model/reservation/customer-screen.model';
 import { forkJoin } from "rxjs";
 import { map } from 'rxjs/operators';
+import { AccountTransactionTypeService } from 'src/app/Service/Inventory/account-trans-type.service';
 
 @Component({
     templateUrl: './checkin.component.html'
@@ -60,7 +60,7 @@ export class CheckInComponent implements OnInit {
 	};
     constructor(
         private fb: FormBuilder,
-        private _reservationService: ReservationService,
+        private _reservationService: AccountTransactionTypeService,
         private _roomOccupiedService: RoomOccupiedService,
         private modalService: BsModalService,
         private fileService: FileService,

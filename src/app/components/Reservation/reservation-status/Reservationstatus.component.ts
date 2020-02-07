@@ -1,10 +1,11 @@
 ﻿import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-import { ReservationService } from '../../../Service/reservation/reservation.services';
 import { RoomStatus } from '../../../Model/reservation/room-status.model';
 import { Observable } from 'rxjs/Rx';
 import { Global } from '../../../Shared/global';
+ import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
+
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -23,7 +24,7 @@ export class RoomStatusComponent implements OnInit{
     /**
      * Sale Book Constructor
      */
-    constructor(private _reservationService: ReservationService, private modalService: BsModalService, private date: DatePipe) {
+    constructor(private _reservationService: AccountTransactionTypeService, private modalService: BsModalService, private date: DatePipe) {
         this.company = JSON.parse(localStorage.getItem('company'));
     }
 
