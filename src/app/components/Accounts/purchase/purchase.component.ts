@@ -12,8 +12,7 @@ import { DatePipe } from '@angular/common'
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import * as moment from 'moment';
-//import * as XLSX from 'xlsx';
-
+import * as XLSX from 'xlsx';
 type CSV = any[][];
 
 @Component({

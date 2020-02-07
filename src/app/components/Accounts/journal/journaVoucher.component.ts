@@ -3,8 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormArray, FormControl, AbstractCon
 import { DatePipe } from '@angular/common';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { Observable } from 'rxjs/Rx';
-//import * as XLSX from 'xlsx';
-
+import * as XLSX from 'xlsx';
 import { DBOperation } from '../../../Shared/enum';
 import { Global } from '../../../Shared/global';
  import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';

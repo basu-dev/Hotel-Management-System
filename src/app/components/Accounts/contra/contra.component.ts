@@ -11,8 +11,8 @@ import { Global } from '../../../Shared/global';
 import { DatePipe } from '@angular/common';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-// //import * as XLSX from 'xlsx';
-import { FileService } from '../../../Service/file.service';
+import { FileService } from 'src/app/Service/file.service';
+// import * as XLSX from 'xlsx';import { FileService } from '../../../Service/file.service';
 
 type CSV = any[][];
 
