@@ -31,12 +31,27 @@ export class InventoryItemComponent implements OnInit {
     modalTitle: string;
     modalBtnTitle: string;
     receiptProducts: any[] = [];
-    ItemName: string = '';
+    _itemName: string;
+    filteredInventoryItems:IInventoryItem[];
 
     constructor(private router: Router, private fb: FormBuilder, private _inventoryService: AccountTransactionTypeService, private modalService: BsModalService) {
         this._inventoryService.getCategories().subscribe(data => { this.categories = data,console.log(this.categories) });
         this._inventoryService.getMenuUnits(Global.BASE_UNITTYPE_ENDPOINT).subscribe(data => { this.UnitTypes = data });
     }
+//SearchBox
+get ItemName() :string {
+    return this._itemName;
+}
+set IterName(searchData:string){
+    this._itemName=searchData;
+    this.filteredInventoryItems=this.filterInventoryItems(searchData);
+}
+filterInventoryItems(searchData:string){
+    return this.InventoryItems.filter(category=>
+        category.Name.toLocaleLowerCase().indexOf(searchData.toLocaleLowerCase() )!==-1) ;
+        
+}
+
 
     ngOnInit(): void {
         this.InventFrm = this.fb.group({
@@ -52,12 +67,17 @@ export class InventoryItemComponent implements OnInit {
             Category: ['', Validators.required]
         });
         this.LoadInventoryItems();
+
+        
     }
 
     LoadInventoryItems(): void {
         this.indLoading = true;
         this._inventoryService.get(Global.BASE_INVENTORY_ENDPOINT)
-            .subscribe(InventoryItems => { this.InventoryItems = InventoryItems; this.indLoading = false; },
+            .subscribe(InventoryItems => { this.InventoryItems = InventoryItems;
+                this.filteredInventoryItems=this.InventoryItems;
+
+                this.indLoading = false; },
             error => this.msg = <any>error);
     }
 

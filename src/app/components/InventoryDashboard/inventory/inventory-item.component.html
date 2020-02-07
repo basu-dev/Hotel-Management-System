@@ -126,11 +126,11 @@
                 <div class="col-md-5"> <div style="padding-bottom:10px"><img src="../../../../assets/images/Add.png" (click)="addInventory()" height="60" width="60" /></div></div>
                 <div class="col-md-1"> Search: </div>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" [(ngModel)]="ItemName" placeholder="Search by Name">
+                    <input type="text" class="form-control" [(ngModel)]="_itemName" placeholder="Search by Name">
                 </div>
                 <div class="alert alert-info" role="alert" *ngIf="indLoading"><img src="../../../../assets/images/loading.gif" width="32" height="32" /> Loading...</div>
-                <div *ngIf='InventoryItems && InventoryItems.length==0' class="alert alert-info" role="alert">No record found!</div>
-                <table class='table table-striped' *ngIf='InventoryItems && InventoryItems.length'>
+                <div *ngIf='filteredInventoryItems && filteredInventoryItems.length==0' class="alert alert-info" role="alert">No record found!</div>
+                <table class='table table-striped' *ngIf='filteredInventoryItems && filteredInventoryItems.length'>
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -143,7 +143,7 @@
                     </thead>
                     <tbody>
                         <!-- <tr *ngFor="let InventoryItem of InventoryItems | ItemName:InventoryItemName "> -->
-                        <tr *ngFor="let InventoryItem of InventoryItems ">
+                        <tr *ngFor="let InventoryItem of filteredInventoryItems ">
                             <td>{{InventoryItem.Name}}</td>
                             <td>{{InventoryItem.OpeningStock}}</td>
                             <td>{{InventoryItem.OpeningStockRate.toFixed(2)}}</td>

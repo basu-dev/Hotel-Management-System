@@ -9,7 +9,6 @@ import { AuthenticationService } from './Service/authentication.service';
 import { DepartmentService } from './Service/Department.service';
 import { LoginService } from './Service/login.service';
 import { UsersService } from './Service/user.service';    
-import { AccountDashboardComponent } from './components/AccountDashboard/AccountDashboard.component';
 import { JournalVoucherService } from './Service/journalVoucher.service';
 import { HeaderComponent } from './components/header/header.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -75,8 +74,6 @@ import { RoleNameComponent } from './components/ManageDashboard/role-assign/role
 import { RoomComponent } from './components/Reservation/room/room.component';
 import { AccountTransactionTypeService } from './Service/Inventory/account-trans-type.service';
 
-
-
 import { CategoryComponent } from './components/InventoryDashboard/category/category.component';
 import { InventoryDashboardComponent } from './components/InventoryDashboard/InventoryDashboard.Component';
 import { StockInHandComponent } from './components/InventoryDashboard/inventory report/stock-in-hand.component';
@@ -92,13 +89,17 @@ import { WareHouseTypeComponent } from './components/InventoryDashboard/WareHous
 import { WareHousesComponent } from './components/InventoryDashboard/WareHouse/WareHouse';
 import { TokenInterceptorService } from './interceptor/token-interceptor.service';
 import { PeriodicConsumptionItemComponent } from './components/InventoryDashboard/periodic-consumption/periodic-consumption-items/periodic-consumption-item.component';
+import { ContraComponent } from './components/Accounts/contra/contra.component';
+import {SelectDropDownModule} from "ngx-select-dropdown";
+import { SalesComponent } from './components/Accounts/sales/sales.component';
+import { SalesDetailComponent } from './components/Accounts/sales/sales-detail/salesDetail.component';
+
 // import { TicketService } from './Service/Billing/ticket.service';
 @NgModule({
   declarations: [
 
     AppComponent,
     LoginComponent,
-    AccountDashboardComponent,
     HeaderComponent,
     NavbarComponent,
     TestComponent,
@@ -141,11 +142,16 @@ import { PeriodicConsumptionItemComponent } from './components/InventoryDashboar
     WareHouseComponent,
     WareHouseTypeComponent,
     WareHousesComponent,
-    PeriodicConsumptionItemComponent
-
+    PeriodicConsumptionItemComponent,
+    ContraComponent,
+    SalesComponent,
+    SalesDetailComponent,
+    
+    
     
   ],
   imports: [
+    SelectDropDownModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -158,6 +164,7 @@ import { PeriodicConsumptionItemComponent } from './components/InventoryDashboar
       AngularDateTimePickerModule,
       StoreModule.forRoot(reducers, {
       metaReducers,
+      
       runtimeChecks: {
         strictStateImmutability: true,
         strictActionImmutability: true

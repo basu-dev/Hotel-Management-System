@@ -5,7 +5,6 @@ import { TestComponent } from './components/test/test.component';
 
 import { AuthGuard } from './guard/auth.guard';
 
-import { AccountDashboardComponent } from './components/AccountDashboard/AccountDashboard.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { CheckInComponent } from './components/checkin/checkin.component';
@@ -39,127 +38,148 @@ import { WareHousesComponent } from './components/InventoryDashboard/WareHouse/W
 import { WareHouseComponent } from './components/InventoryDashboard/WareHouse/warehouse.component';
 import { StockInHandComponent } from './components/InventoryDashboard/inventory report/stock-in-hand.component';
 import { WareHouseTypeComponent } from './components/InventoryDashboard/WareHouse/warehousetype.component';
+import { ContraComponent } from './components/Accounts/contra/contra.component';
+import { SalesDetailComponent } from './components/Accounts/sales/sales-detail/salesDetail.component';
+import { SalesComponent } from './components/Accounts/sales/sales.component';
 
 
 const routes: Routes = [
-{path:'',redirectTo:"/test",pathMatch:'full'},
-{path:"login",component:LoginComponent, canActivate:[AuthGuard]},
-{path:"user",component:UserComponent},
+  { path: '', redirectTo: "/test", pathMatch: 'full' },
+  { path: "login", component: LoginComponent, canActivate: [AuthGuard] },
+  { path: "user", component: UserComponent },
 
 
 
 
 
 
-{path:"test",component:TestComponent},
-{path:"reservation",component:ReservationComponent, canActivate:[AuthGuard]},
-  {path:"reservation/checkin",component:CheckInComponent, canActivate:[AuthGuard]},
-  {path:"reservation/reservationstatus",component:RoomStatusComponent, canActivate:[AuthGuard]},
-  {path:"reservation/checkout",component:CheckOutComponent, canActivate:[AuthGuard]},
-  {path:"reservation/reservationinquiry",component:ReservationInquiryComponent, canActivate:[AuthGuard]},
-  {path:"reservation/customer",component:ReservationCustomerComponent, canActivate:[AuthGuard]},
-  {path:"reservation/payment",component:PaymentTypeComponent, canActivate:[AuthGuard]},
-  {path:"reservation/roomtype",component:RoomTypeComponent, canActivate:[AuthGuard]},
-  {path:"reservation/facility",component:FacilityComponent, canActivate:[AuthGuard]},
-  {path:"reservation/roomtype",component:RoomTypeComponent, canActivate:[AuthGuard]},
-  {path:"reservation/room",component:RoomComponent, canActivate:[AuthGuard]},
-  {path:"reservation/customertypes",component:CustomerTypeComponent, canActivate:[AuthGuard]},
+  { path: "test", component: TestComponent },
+  { path: "reservation", component: ReservationComponent, canActivate: [AuthGuard] },
+  { path: "reservation/checkin", component: CheckInComponent, canActivate: [AuthGuard] },
+  { path: "reservation/reservationstatus", component: RoomStatusComponent, canActivate: [AuthGuard] },
+  { path: "reservation/checkout", component: CheckOutComponent, canActivate: [AuthGuard] },
+  { path: "reservation/reservationinquiry", component: ReservationInquiryComponent, canActivate: [AuthGuard] },
+  { path: "reservation/customer", component: ReservationCustomerComponent, canActivate: [AuthGuard] },
+  { path: "reservation/payment", component: PaymentTypeComponent, canActivate: [AuthGuard] },
+  { path: "reservation/roomtype", component: RoomTypeComponent, canActivate: [AuthGuard] },
+  { path: "reservation/facility", component: FacilityComponent, canActivate: [AuthGuard] },
+  { path: "reservation/roomtype", component: RoomTypeComponent, canActivate: [AuthGuard] },
+  { path: "reservation/room", component: RoomComponent, canActivate: [AuthGuard] },
+  { path: "reservation/customertypes", component: CustomerTypeComponent, canActivate: [AuthGuard] },
   {
     path: 'pos-dashboard/:tabName',
     component: POSDashboardComponent,
     pathMatch: 'full',
     canActivate: [AuthGuard]
-},
-  {path:"reservation/reservationtype",component:ReservationTypeComponent, canActivate:[AuthGuard]},
-  {path:"billing/order",component:TableComponent, canActivate:[AuthGuard]},
+  },
+  { path: "reservation/reservationtype", component: ReservationTypeComponent, canActivate: [AuthGuard] },
+  { path: "billing/order", component: TableComponent, canActivate: [AuthGuard] },
   {
     path: 'managedashboard/rolemodule',
     component: RoleModuleComponent,
     canActivate: [AuthGuard]
-},
-{
-  path: 'managedashboard/role', 
-  component: RoleComponent, 
-  canActivate: [AuthGuard]
-},
-{
-  path: 'managedashboard/userRole', 
-  component: RoleAssignmentComponent, 
-  canActivate: [AuthGuard]
-},
-{
-  path: 'managedashboard/company',
-  component: CompanyComponent,
-  pathMatch: 'full', canActivate: [AuthGuard]
-},
+  },
+  {
+    path: 'managedashboard/role',
+    component: RoleComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'managedashboard/userRole',
+    component: RoleAssignmentComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'managedashboard/company',
+    component: CompanyComponent,
+    pathMatch: 'full', canActivate: [AuthGuard]
+  },
 
 
-{
-  path: 'nav',
-  component: NavbarComponent,
-  pathMatch: 'full', canActivate: [AuthGuard]
-},
-{
-  path: 'managedashboard/financial',
-  component: FinancialYearComponent,
-  pathMatch: 'full', canActivate: [AuthGuard]
-},
-{
-  path: 'managedashboard/department',
-  component: DepartmentComponent,
-  canActivate: [AuthGuard]
-},
-{
-  path: 'Inventory/inventory', 
-  component: InventoryItemComponent, 
-  canActivate: [AuthGuard]
-},
-{
-  path: 'Inventory/category',
-  component: CategoryComponent,
-  canActivate: [AuthGuard]
-},
-{
-  path: 'Inventory/unittype',
-  component: UnitTypeComponent,
-  canActivate: [AuthGuard]
-},
-{
-  path: 'Inventory/inventory-receipt', 
-  component: InventoryReceiptComponent, 
-  canActivate: [AuthGuard]
-},
-{
-  path: 'Inventory/consumption',
-  component: PeriodicConsumptionComponent, canActivate: [AuthGuard]
-},
-{
-  path: 'Inventory/stock-damage',
-  component: StockDamageComponent,
-  canActivate: [AuthGuard]
-},
+  {
+    path: 'nav',
+    component: NavbarComponent,
+    pathMatch: 'full', canActivate: [AuthGuard]
+  },
+  {
+    path: 'managedashboard/financial',
+    component: FinancialYearComponent,
+    pathMatch: 'full', canActivate: [AuthGuard]
+  },
+  {
+    path: 'managedashboard/department',
+    component: DepartmentComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Inventory/inventory',
+    component: InventoryItemComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Inventory/category',
+    component: CategoryComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Inventory/unittype',
+    component: UnitTypeComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Inventory/inventory-receipt',
+    component: InventoryReceiptComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Inventory/consumption',
+    component: PeriodicConsumptionComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'Inventory/stock-damage',
+    component: StockDamageComponent,
+    canActivate: [AuthGuard]
+  },
 
-{
-  path: 'Inventory/warehouses',
-  component: WareHouseComponent, canActivate: [AuthGuard]
-},
-{
-  path: 'Inventory/WareHouse',
-  component: WareHouseComponent, canActivate: [AuthGuard]
-},
-{
-  path: 'Inventory/stockinhand',
-  component: StockInHandComponent, canActivate: [AuthGuard]
-},
-{
-  path: 'Inventory/WareHouseType',
-  component: WareHouseTypeComponent, 
-  canActivate: [AuthGuard]
-},
-{path:"404",component:PagenotfoundComponent},
-{path:'**',
-redirectTo:"/404",
-},
+  {
+    path: 'Inventory/warehouses',
+    component: WareHouseComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'Inventory/WareHouse',
+    component: WareHouseComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'Inventory/stockinhand',
+    component: StockInHandComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'Inventory/WareHouseType',
+    component: WareHouseTypeComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Account/Bankcash',
+    component: ContraComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Account/sales',
+    component: SalesComponent,
+    canActivate: [AuthGuard],
+    children:[
+      {path:'detail/:id',
+      component:SalesDetailComponent,
+      canActivate:[AuthGuard]
+    }
+    ]
+  },
+
+  { path: "404", component: PagenotfoundComponent },
+  {
+    path: '**',
+    redirectTo: "/404",
+  },
 
 ];
 

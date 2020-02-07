@@ -6,12 +6,12 @@ import { DBOperation } from '../../../Shared/enum';
 import { Observable } from 'rxjs/Rx';
 import { Global } from '../../../Shared/global';
 import { JournalVoucherService } from '../../../Service/journalVoucher.service';
-import { AccountTransValuesService } from '../../../Service/accountTransValues.service';
+import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
 import { DatePipe } from '@angular/common';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-import * as XLSX from 'xlsx';
-import { FileService } from '../../../services/file.service';
+// import * as XLSX from 'xlsx';
+import { FileService } from '../../../Service/file.service';
 
 type CSV = any[][];
 
@@ -57,7 +57,7 @@ export class ContraComponent implements OnInit{
     constructor(
         private fb: FormBuilder,
         private _journalvoucherService: JournalVoucherService,
-        private _accountTransValues: AccountTransValuesService,
+        private _accountTransValues: AccountTransactionTypeService,
         private date: DatePipe,
         private modalService: BsModalService,
         private fileService: FileService
@@ -98,7 +98,7 @@ export class ContraComponent implements OnInit{
     }
 
     voucherDateValidator(currentdate: string) {
-        debugger;
+         ;
         if (currentdate == "") {
             alert("Please enter the voucher date");
             return false;
@@ -146,7 +146,7 @@ export class ContraComponent implements OnInit{
      * Load Contra List
      */
     loadContraList(sfromdate: string, stodate: string) {
-        debugger
+         
         this.indLoading = true;
         if (sfromdate == "undefined" || sfromdate == null) {
             alert("Enter Start Date");
@@ -257,7 +257,7 @@ export class ContraComponent implements OnInit{
         this.modalBtnTitle = "Save";
         this.getJournalVoucher(Id)
             .subscribe((contra: AccountTrans) => {
-                debugger
+                 
                 this.indLoading = false;
                 this.contraForm.controls['Id'].setValue(contra.Id);
                 this.contraForm.controls['Name'].setValue(contra.Name);
@@ -301,7 +301,7 @@ export class ContraComponent implements OnInit{
         this.modalBtnTitle = "Delete";
         this.getJournalVoucher(Id)
             .subscribe((contra: AccountTrans) => {
-                debugger
+                 
                 this.indLoading = false;
                 this.contraForm.controls['Id'].setValue(contra.Id);
                 this.contraForm.controls['Name'].setValue(contra.Name);
@@ -356,7 +356,7 @@ export class ContraComponent implements OnInit{
 
     //remove the rows//
     removeAccount(i: number) {
-        debugger
+         
         let controls = <FormArray>this.contraForm.controls['AccountTransactionValues'];
         let controlToRemove = this.contraForm.controls.AccountTransactionValues['controls'][i].controls;
         let selectedControl = controlToRemove.hasOwnProperty('Id') ? controlToRemove.Id.value : 0;
@@ -431,7 +431,7 @@ export class ContraComponent implements OnInit{
         contra.get('CompanyCode').setValue(this.currentUser && this.company['BranchCode'] || '');
 
         if (contra.valid) {
-            debugger
+             
             const control = <FormArray>this.contraForm.controls['AccountTransactionValues'].value;
             const controls = <FormArray>this.contraForm.controls['AccountTransactionValues'];
             for (var i = 0; i < control.length; i++) {
@@ -484,7 +484,7 @@ export class ContraComponent implements OnInit{
                     this._journalvoucherService.post(Global.BASE_JOURNALVOUCHER_ENDPOINT, paymentObject).subscribe(
                         async (data) => {
                             if (data > 0) {
-                                debugger
+                                 
                                 await fileUpload.handleFileUpload({
                                     'moduleName': 'JournalVoucher',
                                     'id': data
@@ -578,7 +578,7 @@ export class ContraComponent implements OnInit{
         limitTo: 1000
     };
     onFilterDateSelect(selectedDate) {
-        debugger
+         
         let currentYearStartDate = new Date(this.currentYear.StartDate);
         let currentYearEndDate = new Date(this.currentYear.EndDate);
 
