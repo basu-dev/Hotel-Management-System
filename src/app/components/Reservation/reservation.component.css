@@ -1,0 +1,150 @@
+.panel-heading h2{
+                   font-size:18px;
+                   font-weight:bold;
+                   font-family:'Raleway',sans-serif;
+                   color:#2874a6;
+}
+.panel-primary{
+               padding:30px;
+               background-color:#fff;
+}
+.panel-heading{
+             padding-bottom:15px;
+           
+}
+.panel-body{
+            background-color: #202644;
+            color:#fff;
+            padding: 30px 30px;
+            box-shadow:5px 6px 5px #151a30;
+            border-radius:5px;
+}
+.btn-mar .btn{
+              margin-right:25px;
+              font-size:15px;
+              font-family: 'Raleway',sans-serif;
+              padding:5px 10px;
+              color: #fff!important;
+              border:none!important;
+              margin-top: 10px;
+}
+.firstrow img{
+               width: 60px;
+               height:60px;
+               transition: transform 2s linear;
+}
+.firstrow img:hover{
+                   transform:scale(1.05,1.05);
+}
+.btn-mar{
+         padding-left:11%;
+         margin-left:8%;
+}
+.btn-mar .btn-success{
+                      background:#2874a6;
+}
+.btn-mar .btn-info{
+                    background:#2b8638;
+}
+.btn-mar .btn-primary{
+                      background:#ecbe07;
+                     
+}
+.btn-mar .btn-warning{
+                      background:#972323;
+}
+.secondrow{
+           padding-top: 25px;
+           padding-bottom:25px;
+           font-size:15px!important;
+           font-family:'Raleway',sans-serif;
+}
+.secondrow input,button{
+                 font-size:14px!important; 
+}
+.secondrow .padfirst{
+                     padding-top:5px;
+                     text-align:center;
+}
+/* =========== style css of table ============== */
+table{
+      background:#fff!important;
+      width:100%;
+      margin-top:30px;
+}
+
+table th{
+         padding:8px;
+         font-size:15px;
+         font-weight:bold;
+         background-color: #dcdcdc;
+}
+table .headfirst{
+                 padding-top:5px!important;
+                 background:#2874a6;
+                 color:#fff;
+}
+table td{
+    font-size:15px;
+    font-weight:200;
+    padding:8px;
+}
+table td img{
+              height:28px;
+              width:28px;
+            
+}
+table td .firstimg{
+                   padding-right:10px;
+}
+/* ================= style css of modal ========================== */
+
+.modal-header{
+             background:#2874a6;
+             color:#fff;
+             font-family: "Raleway",sans-serif;
+             font-size: 18px;
+           
+}
+.modal-header button{
+                     color:#fff!important;
+                     width:30px;
+                     height:30px;
+}
+.modal-header button span{
+                          width:100px!important;
+                          height:100px!important;
+                    
+}
+.modal-body{
+            background-color: #dcdcdc;
+            color:#212226;
+           
+}
+.modal{
+       margin:0;
+       padding:0;
+       box-sizing: border-box;
+}
+.footermodal{
+              margin-top:25px;
+
+}
+.footermodal button,a{
+                      width:80%;
+                      color:#fff;
+                      border:none;
+                      padding:8px;
+}
+
+
+input.form-control.ng-pristine.ng-valid.ng-touched{
+                                                   width:400px!important;
+                                                   
+}
+.padonradio{
+            margin-top: 40px;
+}
+.padonradio input{
+                 margin-left:20px!important;
+}

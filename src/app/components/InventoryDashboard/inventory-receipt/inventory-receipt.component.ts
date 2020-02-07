@@ -205,7 +205,7 @@ export class InventoryReceiptComponent implements OnInit {
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
             keyboard: false,
-            class: 'modal-lg',
+            class: 'modal-xl',
         });
     }
 
@@ -243,7 +243,7 @@ export class InventoryReceiptComponent implements OnInit {
             this.modalRef = this.modalService.show(this.TemplateRef, {
                 backdrop: 'static',
                 keyboard: false,
-                class: 'modal-lg'
+                class: 'modal-xl'
             });
         },
             error => this.msg = <any>error);
@@ -285,7 +285,7 @@ export class InventoryReceiptComponent implements OnInit {
             this.modalRef = this.modalService.show(this.TemplateRef, {
                 backdrop: 'static',
                 keyboard: false,
-                class: 'modal-lg'
+                class: 'modal-xl'
             });
         },
             error => this.msg = <any>error);

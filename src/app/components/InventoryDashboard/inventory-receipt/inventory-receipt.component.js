@@ -79,7 +79,7 @@ var InventoryReceiptComponent = /** @class */ (function () {
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
             keyboard: false,
-            class: 'modal-lg'
+            class: 'modal-xl'
         });
     };
     InventoryReceiptComponent.prototype.editInventoryReceipt = function (Id) {
@@ -101,7 +101,7 @@ var InventoryReceiptComponent = /** @class */ (function () {
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
             keyboard: false,
-            class: 'modal-lg'
+            class: 'modal-xl'
         });
     };
     InventoryReceiptComponent.prototype.deleteInventory = function (Id) {
@@ -123,7 +123,7 @@ var InventoryReceiptComponent = /** @class */ (function () {
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
             keyboard: false,
-            class: 'modal-lg'
+            class: 'modal-xl'
         });
     };
     InventoryReceiptComponent.prototype.validateAllFields = function (formGroup) {

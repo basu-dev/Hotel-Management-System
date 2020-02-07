@@ -46,7 +46,7 @@ var InventoryItemComponent = /** @class */ (function () {
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
             keyboard: false,
-            class: 'modal-lg'
+            class: 'modal-xl'
         });
     };
     InventoryItemComponent.prototype.editInventory = function (Id) {
@@ -60,7 +60,7 @@ var InventoryItemComponent = /** @class */ (function () {
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
             keyboard: false,
-            class: 'modal-lg'
+            class: 'modal-xl'
         });
     };
     InventoryItemComponent.prototype.deleteInventory = function (id) {

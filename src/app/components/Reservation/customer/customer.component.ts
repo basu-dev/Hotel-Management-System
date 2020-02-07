@@ -74,7 +74,7 @@ export class ReservationCustomerComponent implements OnInit {
         this.modalTitle = "Add Customer";
         this.modalBtnTitle = "Save";
         this.customerForm.reset();
-        this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false, class: 'modal-lg'});
+        this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false, class: 'modal-xl'});
     }
 
     editDepartment(id: number, template: TemplateRef<any>) {
@@ -94,7 +94,7 @@ export class ReservationCustomerComponent implements OnInit {
         this.customerForm.controls.CustomerTypeId.setValue(this.customer.CustomerTypeId);
         this.customerForm.controls.MemberId.setValue(this.customer.MemberId);
         this.customerForm.controls.MemberSince.setValue(new Date(this.customer.MemberSince));
-        this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false, class: 'modal-lg'});
+        this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false, class: 'modal-xl'});
     }
 
     deleteDepartment(id: number, template: TemplateRef<any>) {
@@ -114,7 +114,7 @@ export class ReservationCustomerComponent implements OnInit {
         this.customerForm.controls.CustomerTypeId.setValue(this.customer.CustomerTypeId);
         this.customerForm.controls.MemberId.setValue(this.customer.MemberId);
         this.customerForm.controls.MemberSince.setValue(new Date(this.customer.MemberSince));        
-        this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false, class: 'modal-lg'});
+        this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false, class: 'modal-xl'});
     }
 
     emailValidator(control: FormControl) {

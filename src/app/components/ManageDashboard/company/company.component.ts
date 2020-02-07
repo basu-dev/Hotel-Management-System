@@ -120,7 +120,7 @@ export class CompanyComponent implements OnInit {
     viewFile(fileUrl, template: TemplateRef<any>) {
         this.fileUrl = fileUrl;
         this.modalTitle = "View Attachment";
-        this.modalRef = this.modalService.show(template, { keyboard: false, class: 'modal-lg' });
+        this.modalRef = this.modalService.show(template, { keyboard: false, class: 'modal-xl' });
     }
 
     editCompany(id: number, template: TemplateRef<any>) {
