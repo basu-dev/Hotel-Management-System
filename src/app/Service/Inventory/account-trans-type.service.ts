@@ -190,15 +190,7 @@ export class AccountTransactionTypeService {
             catchError(this.handleError))
     }
 
-    // getAccounts() {
-    //     return this._http.get("/api/AccountAPI/get")
-    //         .map((responseData) => responseData.json());
-    // } 
-
-    // getAccountTypes() {
-    //     return this._http.get("/api/AccountTypeAPI/get")
-    //         .map((responseData) => responseData.json());
-    // }
+ 
 
 
     getSalesItems() {
@@ -214,6 +206,7 @@ export class AccountTransactionTypeService {
         )
 
     }
+    
     
     private handleError(error: HttpErrorResponse) {
         return throwError(error.message || 'Server error');
