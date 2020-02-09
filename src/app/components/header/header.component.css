@@ -1,5 +1,5 @@
 .group {
-    background-color:#151a30!important;
+    background-color:#3b5998!important;
     font-size:12px!important;
     color:grey!important;
 }
@@ -18,8 +18,8 @@ cursor: pointer;
 }
 .treeview a{
     font-family: 'Open Sans', sans-serif;
-     font-size: 12px;
-     font-weight: bold;
+    font-size: 12px;
+    font-weight: bold;
     letter-spacing: 1px;
     line-height: 1.5rem;
     color:#fff!important;
@@ -28,13 +28,12 @@ cursor: pointer;
 }
 /* ========== style of non branches like pos ============ */
 .treeview .coloring{
-                     color:grey;
+                     color:#212226;
                      font-size:12px;
-                  
 }
 /* ========= sidebar ========= */
 .main-sidebar{
-              background-color: #151a30!important;
+              background-color: #3b5998!important;
               color: #fff!important;
               font-family: 'Raleway',sans-serif;
               font-size: 18px;
@@ -42,32 +41,27 @@ cursor: pointer;
               position: absolute;
               top:50px;
               margin-top: 20px;
-      
               overflow-y: scroll;
               opacity: 1!important;
 }
 .sidebar{
- 
-    height:90vh;
+         height:90vh;
 }
 /* ========================== css for scrollbar ===========================  */
 /* width */
 ::-webkit-scrollbar {
     width: 9px;
   }
-  
   /* Track */
   ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px #151a30; 
     border-radius: none;
   }
-   
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: #29335e; 
     border-radius: none;
   }
-  
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #171138; 
@@ -82,13 +76,11 @@ cursor: pointer;
 }
 /* style of inner of font office */
 .treeview-menu{
-                background:#151a30!important;
+                background:#3b5998!important;
 }
 .treeview .treeview-menu .textleft{
-                       
-                           padding-bottom:10px;
-                           padding-top:10px;
-                          
+                                   padding-bottom:10px;
+                                   padding-top:10px;
 }
 .treeview-menu .flexing {
                          display: flex;
