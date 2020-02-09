@@ -15,7 +15,7 @@ var PurchaseOrderDetailComponent = /** @class */ (function () {
     }
     // calculate amount
     PurchaseOrderDetailComponent.prototype.calculateAmount = function (pOrderDetails) {
-        debugger;
+        
         return pOrderDetails.PurchaseOrderAmount.setValue(pOrderDetails.Quantity.value * pOrderDetails.PurchaseOrderRate.value);
     };
     __decorate([

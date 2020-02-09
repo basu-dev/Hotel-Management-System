@@ -117,7 +117,7 @@ export class JournalVouchercomponent implements OnInit {
      * @param template 
      */
     viewFile(fileUrl, template: TemplateRef<any>) {
-        debugger
+        
         this.fileUrl = fileUrl;
         this.modalTitle = "View Attachment";
         this.modalRef = this.modalService.show(template, { keyboard: false, class: 'modal-lg' });
@@ -129,7 +129,7 @@ export class JournalVouchercomponent implements OnInit {
      * @param filename 
      */
     exportTableToExcel(tableID, filename = '') {
-        debugger
+        
         var downloadLink;
         var dataType = 'application/vnd.ms-excel';
         var clonedtable = $('#' + tableID);
@@ -163,7 +163,7 @@ export class JournalVouchercomponent implements OnInit {
     }
 
     voucherDateValidator(currentdate: string) {
-        debugger;
+        
         if (currentdate == "") {
             alert("Please enter the voucher date");
             return false;
@@ -209,7 +209,7 @@ export class JournalVouchercomponent implements OnInit {
      * Load list of journal vouchers form the server
      */
     loadJournalVoucherList(sfromdate: string, stodate: string) {
-        debugger
+        
         this.indLoading = true;
         if (sfromdate == "undefined" || sfromdate == null) {
             alert("Enter Start Date");
@@ -244,7 +244,7 @@ export class JournalVouchercomponent implements OnInit {
                 journalVoucher => {
                     this.indLoading = false;
                     journalVoucher.map((voucher) => voucher['File'] = Global.BASE_HOST_ENDPOINT + Global.BASE_FILE_UPLOAD_ENDPOINT + '?Id=' + voucher.Id + '&ApplicationModule=JournalVoucher');
-                    debugger
+                    
                     return this.journalVoucher = journalVoucher;
                 },
                 error => this.msg = <any>error
@@ -282,7 +282,7 @@ export class JournalVouchercomponent implements OnInit {
      * @param Id {String} Voucher Id
      */
     editJournalVoucher(Id: number) {
-        //debugger
+        //
         this.dbops = DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit";
@@ -290,7 +290,7 @@ export class JournalVouchercomponent implements OnInit {
         this.reset();
         this.getJournalVoucher(Id)
             .subscribe((journalVoucher: AccountTrans) => {
-                debugger
+                
                 this.indLoading = false;
                 this.journalFrm.controls['Id'].setValue(journalVoucher.Id);
                 this.journalFrm.controls['Name'].setValue(journalVoucher.Name);
@@ -335,14 +335,14 @@ export class JournalVouchercomponent implements OnInit {
      * @param id 
      */
     deleteJournalVoucher(id: number) {
-        //debugger;
+        //
         this.dbops = DBOperation.delete;
         this.SetControlsState(true);
         this.modalTitle = "Confirm to Delete?";
         this.modalBtnTitle = "Delete";
         this.getJournalVoucher(id)
             .subscribe((journalVoucher: AccountTrans) => {
-                //debugger
+                //
                 this.indLoading = false;
                 this.journalFrm.controls['Id'].setValue(journalVoucher.Id);
                 this.journalFrm.controls['Name'].setValue(journalVoucher.Name);
@@ -402,7 +402,7 @@ export class JournalVouchercomponent implements OnInit {
 
     //remove the rows//
     removeAccount(i: number) {
-        debugger
+        
         let controls = <FormArray>this.journalFrm.controls['AccountTransactionValues'];
         let controlToRemove = this.journalFrm.controls.AccountTransactionValues['controls'][i].controls;
         let selectedControl = controlToRemove.hasOwnProperty('Id') ? controlToRemove.Id.value : 0;
@@ -487,7 +487,7 @@ export class JournalVouchercomponent implements OnInit {
      * @param formData 
      */
     onSubmit(formData: any, fileUpload: any) {
-        //debugger
+        //
         this.msg = "";
         let journal = this.journalFrm;
 

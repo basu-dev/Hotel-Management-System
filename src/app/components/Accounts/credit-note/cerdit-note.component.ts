@@ -124,7 +124,7 @@ export class CreditNoteComponent implements OnInit {
     }
 
     getSaleBook() {
-        debugger
+        
         this.indLoading = true;
         this._reservationService.get(Global.BASE_POSBILLING_API_ENDPOINT + '?fromDate=' + this.fromDate + '&toDate=' + this.toDate + '&TransactionTypeId=' + 11)
             .subscribe(data => {
@@ -145,7 +145,7 @@ export class CreditNoteComponent implements OnInit {
     }
 
     voucherDateValidator(currentdate: string) {
-        debugger;
+        
         if (currentdate == "") {
             alert("Please enter the voucher date");
             return false;
@@ -180,7 +180,7 @@ export class CreditNoteComponent implements OnInit {
      * @param Id 
      */
     viewFile(fileUrl, template: TemplateRef<any>) {
-        debugger
+        
         this.fileUrl = fileUrl;
         this.modalTitle = "View Attachment";
         this.modalRef = this.modalService.show(template, { keyboard: false, class: 'modal-lg' });
@@ -201,7 +201,7 @@ export class CreditNoteComponent implements OnInit {
      * Load list of journal vouchers form the server
      */
     loadCreditNote(sfromdate: string, stodate: string) {
-        debugger
+        
         this.indLoading = true;
 
         if (sfromdate == "undefined" || sfromdate == null) {
@@ -241,7 +241,7 @@ export class CreditNoteComponent implements OnInit {
             creditNote => {
                 this.indLoading = false;
                 creditNote.map((voucher) => voucher['File'] = Global.BASE_HOST_ENDPOINT + Global.BASE_FILE_UPLOAD_ENDPOINT + '?Id=' + voucher.Id + '&ApplicationModule=JournalVoucher');
-                debugger
+                
                 return this.creditNote = creditNote;
             },
             error => this.msg = <any>error
@@ -304,7 +304,7 @@ export class CreditNoteComponent implements OnInit {
      * @param Id 
      */
     getCreditNote(Id: number) {
-        debugger
+        
         this.indLoading = false;
         return this._journalvoucherService.get(Global.BASE_JOURNALVOUCHER_ENDPOINT + '?TransactionId=' + Id);
     }
@@ -320,7 +320,7 @@ export class CreditNoteComponent implements OnInit {
         this.modalBtnTitle = "Update";
         this.getCreditNote(Id)
             .subscribe((creditNote: AccountTrans) => {
-                debugger
+                
                 //this.FillCurrentCustomerInvoice(creditNote.SourceAccountTypeId);
                 this.indLoading = false;
                 this.cerditNoteFrm.controls['Id'].setValue(creditNote.Id);
@@ -370,14 +370,14 @@ export class CreditNoteComponent implements OnInit {
      * @param id 
      */
     deleteCreditNote(id: number) {
-        debugger;
+        
         this.dbops = DBOperation.delete;
         this.SetControlsState(true);
         this.modalTitle = "Confirm to Delete Credit Note?";
         this.modalBtnTitle = "Delete";
         this.getCreditNote(id)
             .subscribe((creditNote: AccountTrans) => {
-                debugger
+                
                 this.indLoading = false;
                 this.cerditNoteFrm.controls['Id'].setValue(creditNote.Id);
                 this.cerditNoteFrm.controls['Name'].setValue(creditNote.Name);
@@ -442,7 +442,7 @@ export class CreditNoteComponent implements OnInit {
 
     //remove the rows//
     removeAccount(i: number) {
-        debugger
+        
         let controls = <FormArray>this.cerditNoteFrm.controls['AccountTransactionValues'];
         let controlToRemove = this.cerditNoteFrm.controls.AccountTransactionValues['controls'][i].controls;
         let selectedControl = controlToRemove.hasOwnProperty('Id') ? controlToRemove.Id.value : 0;
@@ -528,7 +528,7 @@ export class CreditNoteComponent implements OnInit {
      * @param formData 
      */
     onSubmit(formData: any, fileUpload: any) {
-        debugger
+        
         this.msg = "";
         let journal = this.cerditNoteFrm;
 
@@ -543,7 +543,7 @@ export class CreditNoteComponent implements OnInit {
         journal.get('CompanyCode').setValue(this.currentUser && this.company['BranchCode'] || '');
 
         if (journal.valid) {
-            debugger
+            
             const control = <FormArray>this.cerditNoteFrm.controls['AccountTransactionValues'].value;
             const controls = <FormArray>this.cerditNoteFrm.controls['AccountTransactionValues'];
             for (var i = 0; i < control.length; i++) {
@@ -601,7 +601,7 @@ export class CreditNoteComponent implements OnInit {
                     this._journalvoucherService.post(Global.BASE_JOURNALVOUCHER_ENDPOINT, journalObj)
                         .subscribe(
                         async (data) => {
-                            debugger
+                            
                             if (data > 0) {
                                 // file upload stuff goes here
                                 await fileUpload.handleFileUpload({
@@ -624,7 +624,7 @@ export class CreditNoteComponent implements OnInit {
                     this._journalvoucherService.put(Global.BASE_JOURNALVOUCHER_ENDPOINT, journal.value.Id, journalObj).subscribe(
                         async (data) => {
                             if (data > 0) {
-                                debugger
+                                
                                 // file upload stuff goes here
                                 await fileUpload.handleFileUpload({
                                     'moduleName': 'JournalVoucher',
@@ -692,7 +692,7 @@ export class CreditNoteComponent implements OnInit {
     }
 
     onFilterDateSelect(selectedDate) {
-        debugger
+        
         let currentYearStartDate = new Date(this.currentYear.StartDate);
         let currentYearEndDate = new Date(this.currentYear.EndDate);
 
@@ -707,7 +707,7 @@ export class CreditNoteComponent implements OnInit {
         }
     }
     fillCustomerInvoice(event) {
-        debugger
+        
         //let param = event.Id;
         let CustomerId = event.value.Id;
         this._journalvoucherService.get(Global.BASE_CREDITNOTEINVOICE_ENDPOINT + '?CustomerId=' + CustomerId)

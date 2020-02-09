@@ -120,7 +120,7 @@ export class SalesBillingComponent implements OnInit {
         this._customerService.get(Global.BASE_SCREENCustomerTicket_ENDPOINT)
             .subscribe(
             customers => {
-                debugger
+                
                 this.customers = customers;
                 this.indLoading = false;
             },
@@ -236,7 +236,7 @@ export class SalesBillingComponent implements OnInit {
         this.modalBtnTitle = "Update";
         this.getSalesDetails(Id)
             .subscribe((SalesBilling: AccountTrans) => {
-                debugger
+                
                 this.indLoading = false;
                 this.salesBillingForm.controls['Id'].setValue(SalesBilling.Id);
                 this.salesBillingForm.controls['Date'].setValue(new Date(SalesBilling.Date));
@@ -291,7 +291,7 @@ export class SalesBillingComponent implements OnInit {
         this.reset();
         this.getSalesDetails(Id)
             .subscribe((SalesBilling: AccountTrans) => {
-                debugger
+                
                 this.indLoading = false;
                 this.salesBillingForm.controls['Id'].setValue(SalesBilling.Id);
                 this.salesBillingForm.controls['Date'].setValue(new Date(SalesBilling.Date));
@@ -574,7 +574,7 @@ export class SalesBillingComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                    debugger;
+                    
                     let purchaseObj = {
                         Id: this.salesBillingForm.controls['Id'].value,
                         Date: this.salesBillingForm.controls['Date'].value,

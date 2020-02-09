@@ -125,14 +125,14 @@ export class DebitNoteComponent implements OnInit {
      * @param template 
      */
     viewFile(fileUrl, template: TemplateRef<any>) {
-        debugger
+        
         this.fileUrl = fileUrl;
         this.modalTitle = "View Attachment";
         this.modalRef = this.modalService.show(template, { keyboard: false, class: 'modal-lg' });
     }
 
     voucherDateValidator(currentdate: string) {
-        debugger;
+        
         if (currentdate == "") {
             alert("Please enter the voucher date");
             return false;
@@ -208,7 +208,7 @@ export class DebitNoteComponent implements OnInit {
             debitNote => {
                 this.indLoading = false;
                 debitNote.map((voucher) => voucher['File'] = Global.BASE_HOST_ENDPOINT + Global.BASE_FILE_UPLOAD_ENDPOINT + '?Id=' + voucher.Id + '&ApplicationModule=JournalVoucher');
-                debugger
+                
                 return this.debitNote = debitNote;
             },
             error => this.msg = <any>error);
@@ -279,7 +279,7 @@ export class DebitNoteComponent implements OnInit {
      * @param Id {String} Voucher Id
      */
     editDebitNote(Id: number) {
-        debugger
+        
         this.dbops = DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit Debit Note";
@@ -330,7 +330,7 @@ export class DebitNoteComponent implements OnInit {
      * @param id 
      */
     deleteDebitNote(id: number) {
-        debugger;
+        
         this.dbops = DBOperation.delete;
         this.SetControlsState(true);
         this.modalTitle = "Confirm to Delete Debit Note?";
@@ -541,7 +541,7 @@ export class DebitNoteComponent implements OnInit {
                         .subscribe(
                         async (data) => {
                             if (data > 0) {
-                                debugger
+                                
                                 // file upload stuff goes here
                                 await fileUpload.handleFileUpload({
                                     'moduleName': 'JournalVoucher',
@@ -563,7 +563,7 @@ export class DebitNoteComponent implements OnInit {
                     this._journalvoucherService.put(Global.BASE_JOURNALVOUCHER_ENDPOINT, journal.value.Id, journalObj).subscribe(
                         async (data) => {
                             if (data > 0) {
-                                debugger
+                                
                                 // file upload stuff goes here
                                 await fileUpload.handleFileUpload({
                                     'moduleName': 'JournalVoucher',
@@ -631,7 +631,7 @@ export class DebitNoteComponent implements OnInit {
     }
 
     onFilterDateSelect(selectedDate) {
-        debugger
+        
         let currentYearStartDate = new Date(this.currentYear.StartDate);
         let currentYearEndDate = new Date(this.currentYear.EndDate);
 

@@ -36,7 +36,7 @@ export class SalesBillingDetailComponent {
 
     //calculate rate 
     calcRate(SaleOrderDetails: any) {
-        debugger
+        
         var itemId = this.SaleOrderDetails.controls['ItemId'].value;
         var sum = this._purchaseService.get(Global.BASE_INVENTORYRECEIPTDETAIL_ENDPOINT + itemId)
             .subscribe((data) => {

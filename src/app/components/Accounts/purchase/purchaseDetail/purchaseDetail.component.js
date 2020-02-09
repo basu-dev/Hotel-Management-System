@@ -12,13 +12,13 @@ var PurchaseDetailsComponent = /** @class */ (function () {
         var _this = this;
         this._purchaseService = _purchaseService;
         this._purchaseService.getInventoryItems().subscribe(function (data) {
-            debugger;
+            
             _this.inventoryItem = data;
         });
     }
     // calculate Purchase Amount//
     PurchaseDetailsComponent.prototype.calculateAmount = function (purchaseDetails) {
-        debugger;
+        
         return purchaseDetails.PurchaseAmount.setValue(purchaseDetails.Quantity.value * purchaseDetails.PurchaseRate.value);
     };
     __decorate([

@@ -81,7 +81,7 @@ var AccountComponent = /** @class */ (function () {
             .subscribe(function (accounts) { _this.accounts = accounts; _this.indLoading = false; }, function (error) { return _this.msg = error; });
     };
     AccountComponent.prototype.addAccounts = function () {
-        debugger;
+        
         this.dbops = enum_1.DBOperation.create;
         this.SetControlsState(true);
         this.modalTitle = "Add Ledger";
@@ -94,7 +94,7 @@ var AccountComponent = /** @class */ (function () {
         });
     };
     AccountComponent.prototype.editAccounts = function (Id) {
-        debugger;
+        
         this.dbops = enum_1.DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit Ledger";
@@ -188,7 +188,7 @@ var AccountComponent = /** @class */ (function () {
         this.formSubmitAttempt = false;
     };
     AccountComponent.prototype.reset = function () {
-        //debugger;
+        //
         var control = this.accountLedgerFrm.controls['Id'].value;
         if (control > 0) {
             this.buttonDisabled = true;

@@ -265,7 +265,7 @@ export class PaymentComponent {
         this.modalBtnTitle = "Update";
         this.getJournalVoucher(Id)
             .subscribe((payment: AccountTrans) => {
-                debugger
+                
                 this.indLoading = false;
                 this.paymentFrm.controls['Id'].setValue(payment.Id);
                 this.paymentFrm.controls['Name'].setValue(payment.Name);
@@ -311,7 +311,7 @@ export class PaymentComponent {
         this.modalBtnTitle = "Delete";
         this.getJournalVoucher(Id)
             .subscribe((payment: AccountTrans) => {
-                debugger
+                
                 this.indLoading = false;
                 this.paymentFrm.controls['Id'].setValue(payment.Id);
                 this.paymentFrm.controls['Name'].setValue(payment.Name);
@@ -588,7 +588,7 @@ export class PaymentComponent {
     }
 
     onFilterDateSelect(selectedDate) {
-        debugger
+        
         let currentYearStartDate = new Date(this.currentYear.StartDate);
         let currentYearEndDate = new Date(this.currentYear.EndDate);
 

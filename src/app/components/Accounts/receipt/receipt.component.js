@@ -84,7 +84,7 @@ var ReceiptComponent = /** @class */ (function () {
     };
     ReceiptComponent.prototype.editReceipt = function (Id) {
         var _this = this;
-        debugger;
+        
         this.dbops = enum_1.DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit Receipt ";
@@ -156,7 +156,7 @@ var ReceiptComponent = /** @class */ (function () {
     };
     //remove the rows
     ReceiptComponent.prototype.removeAccount = function (i, Id) {
-        debugger;
+        
         var control = this.receiptFrm.controls['AccountTransactionValues'];
         if (i > 0) {
             this._accountTransValues.delete(global_1.Global.BASE_JOURNAL_ENDPOINT, Id).subscribe(function (data) {
@@ -172,14 +172,14 @@ var ReceiptComponent = /** @class */ (function () {
     ReceiptComponent.prototype.sumDebit = function () {
         var controls = this.receiptFrm.controls.AccountTransactionValues.value;
         return controls.reduce(function (total, accounts) {
-            //debugger;
+            //
             return (accounts.Debit) ? (total + Math.round(accounts.Debit)) : total;
         }, 0);
     };
     ReceiptComponent.prototype.sumCredit = function () {
         var controls = this.receiptFrm.controls.AccountTransactionValues.value;
         return controls.reduce(function (total, accounts) {
-            //debugger;
+            //
             return (accounts.Credit) ? (total + Math.round(accounts.Credit)) : total;
         }, 0);
     };
@@ -201,7 +201,7 @@ var ReceiptComponent = /** @class */ (function () {
     };
     ReceiptComponent.prototype.onSubmit = function () {
         var _this = this;
-        debugger;
+        
         this.msg = "";
         this.formSubmitAttempt = true;
         var receipt = this.receiptFrm;
@@ -221,7 +221,7 @@ var ReceiptComponent = /** @class */ (function () {
                     });
                     break;
                 case enum_1.DBOperation.update:
-                    debugger;
+                    
                     var receiptObj = {
                         Id: this.receiptFrm.controls['Id'].value,
                         Date: this.receiptFrm.controls['Date'].value,
@@ -244,7 +244,7 @@ var ReceiptComponent = /** @class */ (function () {
                     });
                     break;
                 case enum_1.DBOperation.delete:
-                    debugger;
+                    
                     var receiptObject = {
                         Id: this.receiptFrm.controls['Id'].value,
                         Date: this.receiptFrm.controls['Date'].value,
@@ -276,7 +276,7 @@ var ReceiptComponent = /** @class */ (function () {
         this.formSubmitAttempt = false;
     };
     ReceiptComponent.prototype.reset = function () {
-        //debugger;
+        //
         var control = this.receiptFrm.controls['Id'].value;
         if (control > 0) {
             this.buttonDisabled = true;

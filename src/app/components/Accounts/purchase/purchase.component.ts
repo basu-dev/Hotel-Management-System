@@ -145,7 +145,7 @@ export class PurchaseComponent implements OnInit {
      * Load list of purchases form the server
      */
     loadPurchaseList(sfromdate: string, stodate: string){
-        debugger
+        
         this.indLoading = true;
         if (sfromdate == "undefined" || sfromdate == null) {
             alert("Enter Start Date");
@@ -261,7 +261,7 @@ export class PurchaseComponent implements OnInit {
      * @param Id 
      */
     editPurchase(Id: number) {
-        debugger
+        
         this.dbops = DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit";
@@ -269,7 +269,7 @@ export class PurchaseComponent implements OnInit {
         this.reset();
         this.getPurchaseDetails(Id)
             .subscribe((purchase: AccountTrans) => {
-                debugger
+                
                 this.indLoading = false;
                 this.purchaseFrm.controls['Id'].setValue(purchase.Id);
                 this.purchaseFrm.controls['Date'].setValue(purchase.AccountTransactionValues[0]['NVDate']);
@@ -324,7 +324,7 @@ export class PurchaseComponent implements OnInit {
      * @param id 
      */
     deletePurchase(Id: number) {
-        debugger;
+        
         this.dbops = DBOperation.delete;
         this.SetControlsState(true);
         this.modalTitle = "Delete Purchase Items";
@@ -435,7 +435,7 @@ export class PurchaseComponent implements OnInit {
 
     //remove the rows//
     removePurchase(i: number) {
-        debugger
+        
         let controls = <FormArray>this.purchaseFrm.controls['AccountTransactionValues'];
         let controlToRemove = this.purchaseFrm.controls.AccountTransactionValues['controls'][i].controls;
         let selectedControl = controlToRemove.hasOwnProperty('Id') ? controlToRemove.Id.value : 0;
@@ -496,7 +496,7 @@ export class PurchaseComponent implements OnInit {
 
     //enable disable the debit and credit on change entitylists//
     enableDisable(data: any) {
-        debugger;
+        
         if (data.entityLists.value == 'Dr') {
             data.Debit.enable();
             data.Credit.disable();
@@ -535,7 +535,7 @@ export class PurchaseComponent implements OnInit {
         purchase.get('CompanyCode').setValue(this.currentUser && this.company['BranchCode'] || '');
         
         if (purchase.valid) {
-            debugger
+            
             let totalDebit = this.sumDebit(this.journalDetailsFrm);
             let totalCredit = this.sumCredit(this.journalDetailsFrm);
 
@@ -607,7 +607,7 @@ export class PurchaseComponent implements OnInit {
                 case DBOperation.create:
                     this._purchaseService.post(Global.BASE_PURCHASE_ENDPOINT, purchaseObject).subscribe(
                         async data => {
-                            debugger
+                            
                             if (data > 0) {
                                 // file upload stuff goes here
                                 await fileUpload.handleFileUpload({
@@ -705,7 +705,7 @@ export class PurchaseComponent implements OnInit {
         return null;
     }
     onFilterDateSelect(selectedDate) {
-        debugger
+        
         let currentYearStartDate = new Date(this.currentYear.StartDate);
         let currentYearEndDate = new Date(this.currentYear.EndDate);
 

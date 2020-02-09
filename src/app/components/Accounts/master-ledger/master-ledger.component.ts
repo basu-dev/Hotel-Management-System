@@ -109,7 +109,7 @@ export class MasterLedgerComponent implements OnInit {
     }
 
     editMasterLedger(Id: number) {
-        //debugger;
+        //
         this.dbops = DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit Group Ledger";
@@ -187,7 +187,7 @@ export class MasterLedgerComponent implements OnInit {
     }
 
     reset() {
-        //debugger;
+        //
         let control = this.masterLedgerFrm.controls['Id'].value;
         if (control > 0) {
             this.buttonDisabled = true;

@@ -65,7 +65,7 @@ var AccountTransactionTypeComponent = /** @class */ (function () {
         });
     };
     AccountTransactionTypeComponent.prototype.deleteAcctransType = function (id) {
-        debugger;
+        
         this.dbops = enum_1.DBOperation.delete;
         this.SetControlsState(true);
         this.modalTitle = "Confirm to Delete Transaction Type?";
@@ -97,7 +97,7 @@ var AccountTransactionTypeComponent = /** @class */ (function () {
     //Submit the Form
     AccountTransactionTypeComponent.prototype.onSubmit = function () {
         var _this = this;
-        debugger;
+        
         this.msg = "";
         var accountType = this.acctransTypeFrm;
         this.formSubmitAttempt = true;
@@ -106,7 +106,7 @@ var AccountTransactionTypeComponent = /** @class */ (function () {
                 case enum_1.DBOperation.create:
                     this.acctransTypeService.post(global_1.Global.BASE_ACCOUNTTRANSTYPE_ENDPOINT, accountType.value).subscribe(function (data) {
                         if (data == 1) {
-                            debugger;
+                            
                             _this.openModal2(_this.TemplateRef2);
                             _this.LoadAcctransTypes();
                         }
@@ -121,7 +121,7 @@ var AccountTransactionTypeComponent = /** @class */ (function () {
                 case enum_1.DBOperation.update:
                     this.acctransTypeService.put(global_1.Global.BASE_ACCOUNTTRANSTYPE_ENDPOINT, accountType.value.Id, accountType.value).subscribe(function (data) {
                         if (data == 1) {
-                            debugger;
+                            
                             _this.openModal2(_this.TemplateRef2);
                             _this.LoadAcctransTypes();
                         }
@@ -133,7 +133,7 @@ var AccountTransactionTypeComponent = /** @class */ (function () {
                     });
                     break;
                 case enum_1.DBOperation.delete:
-                    debugger;
+                    
                     this.acctransTypeService.delete(global_1.Global.BASE_ACCOUNTTRANSTYPE_ENDPOINT, accountType.value.Id).subscribe(function (data) {
                         if (data == 1) {
                             alert("Data deleted sucessfully");
@@ -169,7 +169,7 @@ var AccountTransactionTypeComponent = /** @class */ (function () {
         this.formSubmitAttempt = false;
     };
     AccountTransactionTypeComponent.prototype.reset = function () {
-        //debugger;
+        //
         var control = this.acctransTypeFrm.controls['Id'].value;
         if (control > 0) {
             this.buttonDisabled = true;

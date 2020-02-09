@@ -43,7 +43,7 @@ var PurchaseOrderComponent = /** @class */ (function () {
         this.indLoading = true;
         this._purchaseOrderService.get(global_1.Global.BASE_PURCHASEORDER_ENDPOINT + '?fromDate=' + this.date.transform(this.fromDate, 'yyyy-MM-dd') + '&toDate=' + this.date.transform(this.toDate, 'yyyy-MM-dd') + '&TransactionTypeId=' + 9)
             .subscribe(function (purchaseorder) {
-            debugger;
+            
             _this.purchaseorder = purchaseorder;
             _this.indLoading = false;
         }, function (error) { return _this.msg = error; });
@@ -85,7 +85,7 @@ var PurchaseOrderComponent = /** @class */ (function () {
         });
     };
     PurchaseOrderComponent.prototype.deletePurchaseOrder = function (Id) {
-        debugger;
+        
         this.dbops = enum_1.DBOperation.delete;
         this.SetControlsState(true);
         this.modalTitle = "Confirm to Delete?";
@@ -125,7 +125,7 @@ var PurchaseOrderComponent = /** @class */ (function () {
     };
     //Remove rows generated//
     PurchaseOrderComponent.prototype.removePurchaseOrder = function (i, PurchaseOrderId) {
-        debugger;
+        
         var control = this.purchaseOrderFrm.controls['PurchaseOrderDetails'];
         if (i > 0) {
             this._purchaseOrderDetailsService.delete(global_1.Global.BASE_PURCHASEORDERDETAILS_ENDPOINT, PurchaseOrderId).subscribe(function (data) {
@@ -161,16 +161,16 @@ var PurchaseOrderComponent = /** @class */ (function () {
     };
     PurchaseOrderComponent.prototype.onSubmit = function () {
         var _this = this;
-        debugger;
+        
         this.msg = "";
         this.formSubmitAttempt = true;
         var purchaseOrder = this.purchaseOrderFrm;
         if (purchaseOrder.valid) {
             switch (this.dbops) {
                 case enum_1.DBOperation.create:
-                    debugger;
+                    
                     this._purchaseOrderService.post(global_1.Global.BASE_PURCHASEORDER_ENDPOINT, purchaseOrder.value).subscribe(function (data) {
-                        debugger;
+                        
                         if (data == 1) {
                             _this.openModal2(_this.TemplateRef2);
                             _this.loadPurchaseOrderList();

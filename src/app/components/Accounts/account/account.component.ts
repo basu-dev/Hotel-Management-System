@@ -146,7 +146,7 @@ export class AccountComponent implements OnInit {
     }
 
     addAccounts() {
-        debugger;
+        
         this.dbops = DBOperation.create;
         this.SetControlsState(true);
         this.modalTitle = "Add Ledger";
@@ -160,7 +160,7 @@ export class AccountComponent implements OnInit {
     }
     
     editAccounts(Id: number) {
-        debugger;
+        
         this.dbops = DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit Ledger";
@@ -326,7 +326,7 @@ export class AccountComponent implements OnInit {
     }
 
     onSubmit() {
-        debugger
+        
         this.msg = "";
         let master = this.accountLedgerFrm;
         this.formSubmitAttempt = true;
@@ -350,7 +350,7 @@ export class AccountComponent implements OnInit {
                 case DBOperation.create:
                     this.accountService.post(Global.BASE_ACCOUNT_ENDPOINT, master.value).subscribe(
                         data => {
-                            debugger
+                            
                             if (data == 1) //Success
                             {
                                 this.openModal2(this.TemplateRef2);
@@ -415,7 +415,7 @@ export class AccountComponent implements OnInit {
     }
 
     reset() {
-        //debugger;
+        //
         let control = this.accountLedgerFrm.controls['Id'].value;
         if (control > 0) {
             this.buttonDisabled = true;

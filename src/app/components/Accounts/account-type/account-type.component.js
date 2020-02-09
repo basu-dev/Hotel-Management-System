@@ -50,7 +50,7 @@ var AccountTypeComponent = /** @class */ (function () {
     };
     AccountTypeComponent.prototype.LoadAccTypes = function () {
         var _this = this;
-        debugger;
+        
         this.indLoading = true;
         this.accTypeService.get(global_1.Global.BASE_ACCOUNTTYPE_ENDPOINT)
             .subscribe(function (accounttypes) { _this.accountTypes = accounttypes; _this.indLoading = false; }, function (error) { return _this.msg = error; });
@@ -68,7 +68,7 @@ var AccountTypeComponent = /** @class */ (function () {
         });
     };
     AccountTypeComponent.prototype.editAccType = function (Id) {
-        debugger;
+        
         this.dbops = enum_1.DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit Group";
@@ -113,7 +113,7 @@ var AccountTypeComponent = /** @class */ (function () {
     //Submit the Form
     AccountTypeComponent.prototype.onSubmit = function () {
         var _this = this;
-        debugger;
+        
         this.msg = "";
         var accountType = this.accTypeFrm;
         this.formSubmitAttempt = true;
@@ -122,7 +122,7 @@ var AccountTypeComponent = /** @class */ (function () {
                 case enum_1.DBOperation.create:
                     this.accTypeService.post(global_1.Global.BASE_ACCOUNTTYPE_ENDPOINT, accountType.value).subscribe(function (data) {
                         if (data == 1) {
-                            debugger;
+                            
                             _this.openModal2(_this.TemplateRef2);
                             _this.LoadAccTypes();
                         }
@@ -169,7 +169,7 @@ var AccountTypeComponent = /** @class */ (function () {
         this.modalRef2.hide();
     };
     AccountTypeComponent.prototype.reset = function () {
-        //debugger;
+        //
         var control = this.accTypeFrm.controls['Id'].value;
         if (control > 0) {
             this.buttonDisabled = true;

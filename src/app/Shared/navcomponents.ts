@@ -131,7 +131,7 @@ export const navcomponents=[
       children: [
         {
           title: 'Bank/Cash',
-          link: 'Account/Bankcash',
+          link: 'Account/contra',
         },
         {
           title: 'Sales',
@@ -143,23 +143,23 @@ export const navcomponents=[
         },
         {
           title: 'Purchase',
-          link: '/pages/forms/datepicker',
+          link: 'Account/purchase',
         },
         {
           title: 'Payment',
-          link: '/pages/forms/datepicker',
+          link: 'Account/payment',
         },
         {
           title: 'Journal',
-          link: '/pages/forms/datepicker',
+          link: 'Account/journalVoucher',
         },
         {
           title: 'Debit Note',
-          link: '/pages/forms/datepicker',
+          link: 'Account/debit-note',
         },
         {
           title: 'Credit Note',
-          link: '/pages/forms/datepicker',
+          link: 'Account/credit-note',
         },      
       ],
     },

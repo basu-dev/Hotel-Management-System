@@ -84,7 +84,7 @@ var MasterLedgerComponent = /** @class */ (function () {
         });
     };
     MasterLedgerComponent.prototype.editMasterLedger = function (Id) {
-        //debugger;
+        //
         this.dbops = enum_1.DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit Group Ledger";
@@ -154,7 +154,7 @@ var MasterLedgerComponent = /** @class */ (function () {
         this.modalRef2.hide();
     };
     MasterLedgerComponent.prototype.reset = function () {
-        //debugger;
+        //
         var control = this.masterLedgerFrm.controls['Id'].value;
         if (control > 0) {
             this.buttonDisabled = true;

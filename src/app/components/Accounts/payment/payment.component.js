@@ -42,7 +42,7 @@ var PaymentComponent = /** @class */ (function () {
     };
     PaymentComponent.prototype.loadPaymentList = function () {
         var _this = this;
-        debugger;
+        
         this.indLoading = true;
         this._journalvoucherService.get(global_1.Global.BASE_JOURNALVOUCHER_ENDPOINT + '?fromDate=' + this.date.transform(this.fromDate, 'yyyy-MM-dd') + '&toDate=' + this.date.transform(this.toDate, 'yyyy-MM-dd') + '&TransactionTypeId=' + 6)
             .subscribe(function (paymentList) { _this.paymentList = paymentList; _this.indLoading = false; }, function (error) { return _this.msg = error; });
@@ -70,7 +70,7 @@ var PaymentComponent = /** @class */ (function () {
     };
     PaymentComponent.prototype.editPayment = function (Id) {
         var _this = this;
-        debugger;
+        
         this.dbops = enum_1.DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit Payment";
@@ -99,7 +99,7 @@ var PaymentComponent = /** @class */ (function () {
     };
     PaymentComponent.prototype.deletePayment = function (Id) {
         var _this = this;
-        debugger;
+        
         this.dbops = enum_1.DBOperation.delete;
         this.SetControlsState(true);
         this.modalTitle = "Delete Payment";
@@ -143,7 +143,7 @@ var PaymentComponent = /** @class */ (function () {
     };
     //remove the rows//
     PaymentComponent.prototype.removeAccount = function (i, Id) {
-        debugger;
+        
         var control = this.paymentFrm.controls['AccountTransactionValues'];
         if (i > 0) {
             this._accountTransValues.delete(global_1.Global.BASE_JOURNAL_ENDPOINT, Id).subscribe(function (data) {
@@ -195,7 +195,7 @@ var PaymentComponent = /** @class */ (function () {
         if (payment.valid) {
             switch (this.dbops) {
                 case enum_1.DBOperation.create:
-                    debugger;
+                    
                     this._journalvoucherService.post(global_1.Global.BASE_JOURNALVOUCHER_ENDPOINT, payment.value).subscribe(function (data) {
                         if (data == 1) {
                             _this.openModal2(_this.TemplateRef2);
@@ -209,7 +209,7 @@ var PaymentComponent = /** @class */ (function () {
                     });
                     break;
                 case enum_1.DBOperation.update:
-                    debugger;
+                    
                     var paymentObj = {
                         Id: this.paymentFrm.controls['Id'].value,
                         Date: this.paymentFrm.controls['Date'].value,
@@ -232,7 +232,7 @@ var PaymentComponent = /** @class */ (function () {
                     });
                     break;
                 case enum_1.DBOperation.delete:
-                    debugger;
+                    
                     var paymentObject = {
                         Id: this.paymentFrm.controls['Id'].value,
                         Date: this.paymentFrm.controls['Date'].value,

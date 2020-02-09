@@ -93,6 +93,15 @@ import {SelectDropDownModule} from "ngx-select-dropdown";
 import { SalesComponent } from './components/Accounts/sales/sales.component';
 import { SalesDetailComponent } from './components/Accounts/sales/sales-detail/salesDetail.component';
 import { ReceiptComponent } from './components/Accounts/receipt/receipt.component';
+import { JournalVouchercomponent } from './components/Accounts/journal/journaVoucher.component';
+import { PurchaseComponent } from './components/Accounts/purchase/purchase.component';
+import { PaymentComponent } from './components/Accounts/payment/payment.component';
+import { DebitNoteComponent } from './components/Accounts/debit-note/debit-note.component';
+import { CreditNoteComponent } from './components/Accounts/credit-note/cerdit-note.component';
+import { AccountDashboardComponent } from './components/Accounts/AccountDashboard.component';
+import { PurchaseDetailsComponent } from './components/Accounts/purchase/purchaseDetail/purchaseDetail.component';
+import { SalesBillingDetailComponent } from './components/Accounts/sales-billing/sales-billing-detail/sales-billing-details.component';
+import { JournalVoucherDetailComponent } from './components/Accounts/journal/journalvoucher-details/journalvoucher-details.component';
 
 // import { TicketService } from './Service/Billing/ticket.service';
 @NgModule({
@@ -146,7 +155,20 @@ import { ReceiptComponent } from './components/Accounts/receipt/receipt.componen
     ContraComponent,
     SalesComponent,
     SalesDetailComponent,
-    ReceiptComponent
+    ReceiptComponent,
+    PurchaseComponent,
+    PurchaseDetailsComponent,
+    PurchaseComponent,
+    PaymentComponent,
+    JournalVouchercomponent,
+    JournalVoucherDetailComponent,
+    DebitNoteComponent,
+    CreditNoteComponent,
+    AccountDashboardComponent,
+    PurchaseDetailsComponent,
+    SalesBillingDetailComponent,
+
+
   ],
   imports: [
     SelectDropDownModule,

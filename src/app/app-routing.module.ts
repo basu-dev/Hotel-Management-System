@@ -42,6 +42,12 @@ import { ContraComponent } from './components/Accounts/contra/contra.component';
 import { SalesDetailComponent } from './components/Accounts/sales/sales-detail/salesDetail.component';
 import { SalesComponent } from './components/Accounts/sales/sales.component';
 import { ReceiptComponent } from './components/Accounts/receipt/receipt.component';
+import { PurchaseComponent } from './components/Accounts/purchase/purchase.component';
+import { PaymentComponent } from './components/Accounts/payment/payment.component';
+import { DebitNoteComponent } from './components/Accounts/debit-note/debit-note.component';
+import { CreditNoteComponent } from './components/Accounts/credit-note/cerdit-note.component';
+import { JournalVouchercomponent } from './components/Accounts/journal/journaVoucher.component';
+import { InventoryDashboardComponent } from './components/InventoryDashboard/InventoryDashboard.Component';
 
 
 const routes: Routes = [
@@ -160,26 +166,60 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'Account/Bankcash',
-    component: ContraComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'Account/receipt',
-    component: ReceiptComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'Account/sales',
-    component: SalesComponent,
+    path: 'Account',
+    component: InventoryDashboardComponent,
     canActivate: [AuthGuard],
-    children:[
-      {path:'detail/:id',
-      component:SalesDetailComponent,
-      canActivate:[AuthGuard]
-    }
-    ]
-  },
+    
+      },
+      
+        {
+          path: 'Account/contra',
+          component: ContraComponent,
+          canActivate: [AuthGuard]
+        },
+        {
+          path: 'Account/receipt',
+          component: ReceiptComponent,
+          canActivate: [AuthGuard]
+        },
+        {
+          path: 'Account/sales',
+          component: SalesComponent,
+          canActivate: [AuthGuard],
+        },
+            {path:'Account/sales/detail/:id',
+            component:SalesDetailComponent,
+            canActivate:[AuthGuard]
+          },
+          {
+            path: 'Account/purchase',
+            component: PurchaseComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'Account/payment',
+            component: PaymentComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'Account/journalVoucher',
+            component: JournalVouchercomponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'Account/debit-note',
+            component: DebitNoteComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'Account/credit-note',
+            component: CreditNoteComponent,
+            canActivate: [AuthGuard]
+          },
+          
+    
+  
+
 
   { path: "404", component: PagenotfoundComponent },
   {

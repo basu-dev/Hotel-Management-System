@@ -126,7 +126,7 @@ export class AccountTransactionTypeComponent implements OnInit {
     }
 
     deleteAcctransType(id: number) {
-        debugger;
+        
         this.dbops = DBOperation.delete;
         this.SetControlsState(true);
         this.modalTitle = "Confirm to Delete Transaction Type?";
@@ -158,7 +158,7 @@ export class AccountTransactionTypeComponent implements OnInit {
 
     //Submit the Form
     onSubmit() {
-        debugger;
+        
         this.msg = "";
         let accountType = this.acctransTypeFrm
         this.formSubmitAttempt = true;
@@ -173,7 +173,7 @@ export class AccountTransactionTypeComponent implements OnInit {
                             if (data == 1) //Success
 
                             {
-                                debugger;
+                                
 
                                 this.openModal2(this.TemplateRef2);
                                 this.LoadAcctransTypes();
@@ -195,7 +195,7 @@ export class AccountTransactionTypeComponent implements OnInit {
                         data => {
                             if (data == 1) //Success
                             {
-                                debugger;
+                                
                                 this.openModal2(this.TemplateRef2);
                                 this.LoadAcctransTypes();
                             }
@@ -212,7 +212,7 @@ export class AccountTransactionTypeComponent implements OnInit {
 
                     break;
                 case DBOperation.delete:
-                    debugger;
+                    
                     this.acctransTypeService.delete(Global.BASE_ACCOUNTTRANSTYPE_ENDPOINT, accountType.value.Id).subscribe(
                         data => {
                             if (data == 1) //Success
@@ -268,7 +268,7 @@ export class AccountTransactionTypeComponent implements OnInit {
 
 
     reset() {
-        //debugger;
+        //
         let control = this.acctransTypeFrm.controls['Id'].value;
         if (control > 0) {
             this.buttonDisabled = true;

@@ -61,7 +61,7 @@ var PurchaseComponent = /** @class */ (function () {
      * Open Add New Purchase Form Modal
      */
     PurchaseComponent.prototype.addPurchase = function () {
-        debugger;
+        
         this.dbops = enum_1.DBOperation.create;
         this.SetControlsState(true);
         this.modalTitle = "Add Purchase";
@@ -133,7 +133,7 @@ var PurchaseComponent = /** @class */ (function () {
      */
     PurchaseComponent.prototype.deletePurchase = function (Id) {
         var _this = this;
-        debugger;
+        
         this.dbops = enum_1.DBOperation.delete;
         this.SetControlsState(true);
         this.modalTitle = "Delete Purchase Items";
@@ -219,7 +219,7 @@ var PurchaseComponent = /** @class */ (function () {
     };
     //remove the rows//
     PurchaseComponent.prototype.removeJournal = function (i, Id) {
-        debugger;
+        
         var control = this.purchaseFrm.controls['AccountTransactionValues'];
         if (i > 0) {
             this._accountTransValues.delete(global_1.Global.BASE_JOURNAL_ENDPOINT, Id).subscribe(function (data) {
@@ -271,7 +271,7 @@ var PurchaseComponent = /** @class */ (function () {
     };
     //enable disable the debit and credit on change entitylists//
     PurchaseComponent.prototype.enableDisable = function (data) {
-        debugger;
+        
         if (data.entityLists.value == 'Dr') {
             data.Debit.enable();
             data.Credit.disable();
@@ -297,7 +297,7 @@ var PurchaseComponent = /** @class */ (function () {
      */
     PurchaseComponent.prototype.onSubmit = function () {
         var _this = this;
-        debugger;
+        
         this.msg = "";
         this.formSubmitAttempt = true;
         var purchase = this.purchaseFrm;
@@ -305,7 +305,7 @@ var PurchaseComponent = /** @class */ (function () {
             switch (this.dbops) {
                 case enum_1.DBOperation.create:
                     this._purchaseService.post(global_1.Global.BASE_PURCHASE_ENDPOINT, purchase.value).subscribe(function (data) {
-                        debugger;
+                        
                         if (data == 1) {
                             _this.openModal2(_this.TemplateRef2);
                             _this.loadPurchaseList();
@@ -340,7 +340,7 @@ var PurchaseComponent = /** @class */ (function () {
                     });
                     break;
                 case enum_1.DBOperation.delete:
-                    debugger;
+                    
                     var purchaseObjc = {
                         Id: this.purchaseFrm.controls['Id'].value,
                         Date: this.purchaseFrm.controls['Date'].value,

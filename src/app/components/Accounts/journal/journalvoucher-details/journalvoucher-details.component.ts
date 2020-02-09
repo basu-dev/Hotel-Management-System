@@ -48,7 +48,7 @@ export class JournalVoucherDetailComponent {
 
 
     enableDisable(data: any) {
-        debugger;
+        
         if (data.entityLists.value == 'Dr') {
             data.Debit.enable();
             data.Credit.disable();

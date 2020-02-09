@@ -47,13 +47,13 @@ var SalesComponent = /** @class */ (function () {
     };
     SalesComponent.prototype.loadPurchaseList = function () {
         var _this = this;
-        debugger;
+        
         this.indLoading = true;
         this._purchaseService.get(global_1.Global.BASE_SALES_ENDPOINT + '?fromDate=' + this.date.transform(this.fromDate, 'yyyy-MM-dd') + '&toDate=' + this.date.transform(this.toDate, 'yyyy-MM-dd') + '&TransactionTypeId=' + 3)
             .subscribe(function (purchase) { _this.purchase = purchase; _this.indLoading = false; }, function (error) { return _this.msg = error; });
     };
     SalesComponent.prototype.addPurchase = function () {
-        debugger;
+        
         this.dbops = enum_1.DBOperation.create;
         this.SetControlsState(true);
         this.modalTitle = "Add Sales";
@@ -67,7 +67,7 @@ var SalesComponent = /** @class */ (function () {
         });
     };
     SalesComponent.prototype.editPurchase = function (Id) {
-        debugger;
+        
         this.dbops = enum_1.DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit";
@@ -105,7 +105,7 @@ var SalesComponent = /** @class */ (function () {
         });
     };
     SalesComponent.prototype.deletePurchase = function (Id) {
-        debugger;
+        
         this.dbops = enum_1.DBOperation.delete;
         this.SetControlsState(true);
         this.modalTitle = "Delete Sales Items";
@@ -121,11 +121,11 @@ var SalesComponent = /** @class */ (function () {
         var control = this.salesForm.controls['SaleOrderDetails'];
         this.salesForm.controls['AccountTransactioValues'] = this.fb.array([]);
         var controlAc = this.salesForm.controls['AccountTransactionValues'];
-        debugger;
+        
         for (var i = 0; i < this.purchases.SaleOrderDetails.length; i++) {
             control.push(this.fb.group(this.purchases.SaleOrderDetails[i]));
         }
-        debugger;
+        
         for (var i = 0; i < this.purchases.AccountTransactionValues.length; i++) {
             var valuesFromServer = this.purchases.AccountTransactionValues[i];
             var instance = this.fb.group(valuesFromServer);
@@ -193,7 +193,7 @@ var SalesComponent = /** @class */ (function () {
     };
     // Remove the rows
     SalesComponent.prototype.removeJournal = function (i, Id) {
-        debugger;
+        
         var control = this.salesForm.controls['AccountTransactionValues'];
         if (i > 0) {
             this._accountTransValues.delete(global_1.Global.BASE_JOURNAL_ENDPOINT, Id).subscribe(function (data) {
@@ -240,7 +240,7 @@ var SalesComponent = /** @class */ (function () {
     };
     //enable disable the debit and credit on change entitylists//
     SalesComponent.prototype.enableDisable = function (data) {
-        debugger;
+        
         if (data.entityLists.value == 'Dr') {
             data.Debit.enable();
             data.Credit.disable();
@@ -262,7 +262,7 @@ var SalesComponent = /** @class */ (function () {
     };
     SalesComponent.prototype.onSubmit = function () {
         var _this = this;
-        debugger;
+        
         this.msg = "";
         this.formSubmitAttempt = true;
         var sales = this.salesForm;
@@ -306,7 +306,7 @@ var SalesComponent = /** @class */ (function () {
                     });
                     break;
                 case enum_1.DBOperation.delete:
-                    debugger;
+                    
                     var purchaseObjc = {
                         Id: this.salesForm.controls['Id'].value,
                         Date: this.date.transform(this.salesForm.controls['Date'].value, 'dd/MM/yyyy'),

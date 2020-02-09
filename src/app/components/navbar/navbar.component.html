@@ -1,4 +1,4 @@
-<div class="master-main-container col-sm-12 clearfix no-padding ">
+<div class="master-main-container col-sm-12 clearfix no-padding "  *ngIf="navdisplay;else notAuthenticated">
 <app-header-component></app-header-component>
     <div class="wrapper">
   
@@ -56,3 +56,7 @@
    
   
   </div>
+  <ng-template #notAuthenticated>
+    <router-outlet></router-outlet>
+  </ng-template>
+  

@@ -21,7 +21,7 @@ export class PurchaseOrderDetailComponent {
 
     // calculate amount
     calculateAmount(pOrderDetails: any) {
-        debugger;
+        
         return pOrderDetails.PurchaseOrderAmount.setValue(pOrderDetails.Quantity.value * pOrderDetails.PurchaseOrderRate.value);
     }
 

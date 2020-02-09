@@ -67,7 +67,7 @@ export class AccountTypeComponent implements OnInit {
     }
 
     LoadAccTypes(): void {
-        debugger;
+        
         this.indLoading = true;
         this.accTypeService.get(Global.BASE_ACCOUNTTYPE_ENDPOINT)
             .subscribe(accounttypes => { this.accountTypes = accounttypes; this.indLoading = false; },
@@ -122,7 +122,7 @@ export class AccountTypeComponent implements OnInit {
       
     }
     editAccType(Id: number) {
-        debugger;
+        
         this.dbops = DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit Group";
@@ -169,7 +169,7 @@ export class AccountTypeComponent implements OnInit {
 
     //Submit the Form
     onSubmit() {
-        debugger;
+        
         this.msg = "";
         let accountType = this.accTypeFrm
         this.formSubmitAttempt = true;
@@ -181,7 +181,7 @@ export class AccountTypeComponent implements OnInit {
                         data => {
                             if (data == 1) //Success
                             {
-                                debugger;
+                                
                                 this.openModal2(this.TemplateRef2);
                                 this.LoadAccTypes();
                             }
@@ -244,7 +244,7 @@ export class AccountTypeComponent implements OnInit {
 
 
     reset() {
-        //debugger;
+        //
         let control = this.accTypeFrm.controls['Id'].value;
         if (control > 0) {
             this.buttonDisabled = true;
