@@ -102,6 +102,22 @@ import { AccountDashboardComponent } from './components/Accounts/AccountDashboar
 import { PurchaseDetailsComponent } from './components/Accounts/purchase/purchaseDetail/purchaseDetail.component';
 import { SalesBillingDetailComponent } from './components/Accounts/sales-billing/sales-billing-detail/sales-billing-details.component';
 import { JournalVoucherDetailComponent } from './components/Accounts/journal/journalvoucher-details/journalvoucher-details.component';
+import { AccountTypeComponent } from './components/Accounts/account-type/account-type.component';
+import { AccountTransactionTypeComponent } from './components/Accounts/account-transaction-type/account-transaction-type.component';
+import { AccountComponent } from './components/Accounts/account/account.component';
+import { BalanceSheetComponent } from './components/Report/balance-sheet/balance-sheet.component';
+import { AccountBalanceSheetComponent } from './components/Report/BalanceSheet/AccountBalanceSheet.Component';
+import { BillReturnViewComponent } from './components/Report/BillReturnView/BillReturnView.component';
+import { MaterializedViewComponent } from './components/Report/materialized view/materializedview.component';
+import { AccountProfitAndLossComponent } from './components/Report/ProfitAndLoss/AccountProfitAndLoss.Component';
+import { AccountSaleBookDaywise } from './components/Report/SaleBookDate/AccountSaleBookDatewise.Component';
+import { AccountLedgerViewComponent } from './components/Report/LedgerView/AccountLedgerView.Component';
+import { AccountSaleBookComponent } from './components/Report/SaleBook/AccountSaleBook.Component';
+import { AccountSaleBookCustomer } from './components/Report/SaleBookCustomer/AccountSaleBookCustomer.Component';
+import { AccountSaleBookItem } from './components/Report/SaleBookItem/AccountSaleBookItem.Component';
+import { TrialBalanceComponent } from './components/Report/TrialBalance/TrialBalance.component';
+import { MasterLedgerComponent } from './components/Accounts/master-ledger/master-ledger.component';
+import { SalesBillingComponent } from './components/Accounts/sales-billing/sales-billing.component';
 
 // import { TicketService } from './Service/Billing/ticket.service';
 @NgModule({
@@ -167,8 +183,32 @@ import { JournalVoucherDetailComponent } from './components/Accounts/journal/jou
     AccountDashboardComponent,
     PurchaseDetailsComponent,
     SalesBillingDetailComponent,
-
-
+    AccountTypeComponent,
+    AccountTransactionTypeComponent,
+    AccountComponent,
+    BalanceSheetComponent,
+    AccountBalanceSheetComponent,
+    BillReturnViewComponent,
+    AccountLedgerViewComponent,
+    MaterializedViewComponent,
+    AccountProfitAndLossComponent,
+    AccountSaleBookComponent,
+    AccountSaleBookCustomer,
+    AccountSaleBookDaywise,
+    AccountSaleBookItem,
+    TrialBalanceComponent,
+    MasterLedgerComponent,
+    SalesComponent,
+    SalesBillingComponent,
+    SalesBillingDetailComponent,
+    AccountSaleBookComponent,
+    AccountSaleBookDaywise,
+    AccountSaleBookCustomer,
+    AccountSaleBookItem,
+    AccountLedgerViewComponent,
+    BillReturnViewComponent,
+    MaterializedViewComponent,
+    PurchaseComponent,
   ],
   imports: [
     SelectDropDownModule,

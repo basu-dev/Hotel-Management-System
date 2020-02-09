@@ -48,6 +48,20 @@ import { DebitNoteComponent } from './components/Accounts/debit-note/debit-note.
 import { CreditNoteComponent } from './components/Accounts/credit-note/cerdit-note.component';
 import { JournalVouchercomponent } from './components/Accounts/journal/journaVoucher.component';
 import { InventoryDashboardComponent } from './components/InventoryDashboard/InventoryDashboard.Component';
+import { AccountTransactionTypeComponent } from './components/Accounts/account-transaction-type/account-transaction-type.component';
+import { AccountComponent } from './components/Accounts/account/account.component';
+import { AccountTypeComponent } from './components/Accounts/account-type/account-type.component';
+import { MasterLedgerComponent } from './components/Accounts/master-ledger/master-ledger.component';
+import { AccountProfitAndLossComponent } from './components/Report/ProfitAndLoss/AccountProfitAndLoss.Component';
+import { TrialBalanceComponent } from './components/Report/TrialBalance/TrialBalance.component';
+import { BalanceSheetComponent } from './components/Report/balance-sheet/balance-sheet.component';
+import { AccountSaleBookItem } from './components/Report/SaleBookItem/AccountSaleBookItem.Component';
+import { AccountSaleBookDaywise } from './components/Report/SaleBookDate/AccountSaleBookDatewise.Component';
+import { AccountSaleBookCustomer } from './components/Report/SaleBookCustomer/AccountSaleBookCustomer.Component';
+import { SalesBillingComponent } from './components/Accounts/sales-billing/sales-billing.component';
+import { AccountLedgerViewComponent } from './components/Report/LedgerView/AccountLedgerView.Component';
+import { MaterializedViewComponent } from './components/Report/materialized view/materializedview.component';
+import { BillReturnViewComponent } from './components/Report/BillReturnView/BillReturnView.component';
 
 
 const routes: Routes = [
@@ -216,6 +230,80 @@ const routes: Routes = [
             component: CreditNoteComponent,
             canActivate: [AuthGuard]
           },
+          {
+            path: 'Account/accounttransType',
+            component: AccountTransactionTypeComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'Account/account',
+            component: AccountComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'Account/accountType',
+            component: AccountTypeComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'Account/accountLedgerView',
+            component: AccountLedgerViewComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'Account/TrialBalance',
+            component: TrialBalanceComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'Account/ProfitLoss',
+            component: AccountProfitAndLossComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'Account/BalanceSheet',
+            component: BalanceSheetComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'Account/SaleBook',
+            component: SalesBillingComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'Account/SaleItemWise',
+            component: AccountSaleBookItem,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'Account/SaleDateWise',
+            component: AccountSaleBookDaywise,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'Account/SaleCustomerWise',
+            component: AccountSaleBookCustomer,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'Account/PurchaseBook',
+            component: SalesComponent
+            ,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'Account/MaterializedView',
+            component: MaterializedViewComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'Account/BillReturnView',
+            component: BillReturnViewComponent,
+            canActivate: [AuthGuard]
+          },
+          
+          
+          
           
     
   

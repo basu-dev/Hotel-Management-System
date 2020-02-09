@@ -11,6 +11,7 @@ import { IWareHouse, IWareHouseType } from 'src/app/Model/WareHouse/WareHouse';
 import { InventoryItem } from 'src/app/Model/Inventory/inventoryItem';
 import { Global } from 'src/app/Shared/global';
 import { AccountType } from 'src/app/Model/AccountType/accountType';
+import { NepaliMonth } from 'src/app/Model/NepaliMonth';
 
 @Injectable()
 export class AccountTransactionTypeService {
@@ -184,8 +185,8 @@ export class AccountTransactionTypeService {
         )
     }
 
-    getAccountMonths() {
-        return this._http.get("/api/NepaliMonthAPI/get").pipe(
+    getAccountMonths():Observable<NepaliMonth> {
+        return this._http.get<NepaliMonth>(Global.BASE_NEPALIMONTH_ENDPOINT).pipe(
             catchError(this.handleError))
     }
 
@@ -201,14 +202,14 @@ export class AccountTransactionTypeService {
 
 
     getSalesItems() {
-        return this._http.get("/api/MenuCategoryItemAPI").pipe(
+        return this._http.get(Global.BASE_MENUCATEGORYITEM_ENDPOINT).pipe(
             catchError(this.handleError)
         )
 
     }
     deletePurchaseOrder() {
 
-        return this._http.delete("/api/PurchaseOrderAPI/RemovePurchaseDetails").pipe(
+        return this._http.delete(`${Global.BASE_PURCHASEORDER_ENDPOINT}/RemovePurchaseDetails`).pipe(
             catchError(this.handleError)
         )
 
