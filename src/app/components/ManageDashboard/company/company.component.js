@@ -119,7 +119,7 @@ var CompanyComponent = /** @class */ (function () {
     CompanyComponent.prototype.viewFile = function (fileUrl, template) {
         this.fileUrl = fileUrl;
         this.modalTitle = "View Attachment";
-        this.modalRef = this.modalService.show(template, { keyboard: false, class: 'modal-lg' });
+        this.modalRef = this.modalService.show(template, { keyboard: false, class: 'modal-xl' });
     };
     CompanyComponent.prototype.editCompany = function (id, template) {
         this.dbops = enum_1.DBOperation.update;

@@ -93,7 +93,7 @@ filterInventoryItems(searchData:string){
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
             keyboard: false,
-            class: 'modal-lg'
+            class: 'modal-xl'
 
         });
     }
@@ -108,7 +108,7 @@ filterInventoryItems(searchData:string){
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
             keyboard: false,
-            class: 'modal-lg'
+            class: 'modal-xl'
 
         });
     }
@@ -124,7 +124,7 @@ filterInventoryItems(searchData:string){
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
             keyboard: false,
-            class: 'modal-lg'
+            class: 'modal-xl'
 
         });
     }

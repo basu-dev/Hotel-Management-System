@@ -18,7 +18,10 @@ import { PaymentType } from '../../Model/reservation/payment-type.model';
 import { AccountTransactionTypeService } from 'src/app/Service/Inventory/account-trans-type.service';
 
 @Component({
-    templateUrl: './reservation.component.html'
+    templateUrl: './reservation.component.html',
+    styleUrls:[
+        './reservation.component.css'
+    ]
 })
 
 export class ReservationComponent implements OnInit {
@@ -221,7 +224,7 @@ export class ReservationComponent implements OnInit {
         this.modalTitle = "Add Reservation";
         this.modalBtnTitle = "Save";
         this.reset();
-        this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false, class: 'modal-lg' });
+        this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false, class: 'modal-xl' });
     }
 
     /**
@@ -264,7 +267,7 @@ export class ReservationComponent implements OnInit {
                     let instance = this.fb.group(valuesFromServer);
                     control.push(instance);
                 }
-                this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false, class: 'modal-lg' });
+                this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false, class: 'modal-xl' });
             });
     }
 
@@ -307,7 +310,7 @@ export class ReservationComponent implements OnInit {
                     let instance = this.fb.group(valuesFromServer);
                     control.push(instance);
                 }
-                this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false, class: 'modal-lg' });
+                this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false, class: 'modal-xl' });
             });
     }
 

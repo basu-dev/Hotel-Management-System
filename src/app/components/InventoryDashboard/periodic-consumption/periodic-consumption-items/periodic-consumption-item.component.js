@@ -52,7 +52,7 @@ var PeriodicConsumptionItemComponent = /** @class */ (function () {
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
             keyboard: false,
-            class: 'modal-lg'
+            class: 'modal-xl'
         });
     };
     PeriodicConsumptionItemComponent.prototype.editPeriodicConsumedItem = function (Id) {
@@ -65,7 +65,7 @@ var PeriodicConsumptionItemComponent = /** @class */ (function () {
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
             keyboard: false,
-            class: 'modal-lg'
+            class: 'modal-xl'
         });
     };
     PeriodicConsumptionItemComponent.prototype.deletePeriodicConsumedItem = function (id) {
@@ -78,7 +78,7 @@ var PeriodicConsumptionItemComponent = /** @class */ (function () {
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
             keyboard: false,
-            class: 'modal-lg'
+            class: 'modal-xl'
         });
     };
     PeriodicConsumptionItemComponent.prototype.validateAllFields = function (formGroup) {

@@ -114,7 +114,7 @@ var StockDamageComponent = /** @class */ (function () {
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
             keyboard: false,
-            class: 'modal-lg'
+            class: 'modal-xl'
         });
     };
     StockDamageComponent.prototype.editPeriodicConsumed = function (Id) {
@@ -138,7 +138,7 @@ var StockDamageComponent = /** @class */ (function () {
             _this.modalRef = _this.modalService.show(_this.TemplateRef, {
                 backdrop: 'static',
                 keyboard: false,
-                class: 'modal-lg'
+                class: 'modal-xl'
             });
         }, function (error) { return _this.msg = error; });
     };
@@ -163,7 +163,7 @@ var StockDamageComponent = /** @class */ (function () {
             _this.modalRef = _this.modalService.show(_this.TemplateRef, {
                 backdrop: 'static',
                 keyboard: false,
-                class: 'modal-lg'
+                class: 'modal-xl'
             });
         }, function (error) { return _this.msg = error; });
     };
