@@ -6,31 +6,32 @@
     <div class='panel-body'>
         <div class='table-responsive'>
             <div style="padding-bottom:10px">
-                <div class="row">
-                    <div class="col-md-2">
-                        <img src="../../../../assets/images/Add.png" (click)="openModal(template)" height="60" width="60" />
-                    </div>
+                <div class="row firstrow">
                     <div class="col-md-5">
-                        <div class="col-sm-6 text-right">
-                            Filter By Date:
-                        </div>
-                        <div class="col-sm-4">
-                            <input class="form-control" placeholder="dd/MM/yyyy" bsDatepicker [(ngModel)]="fromDate" [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" />
-                        </div>
-                        <div class="col-sm-2">
-                            <button class="btn btn-success" (click)="getDataDateFilter()"> GO</button>
-                        </div>
+                        <img src="../../../../assets/images/Add.png" (click)="openModal(template)"/>
                     </div>
-                    <div class="col-md-3 text-right">
+                    <div class="col-md-7 btn-mar">
                         <button (click)="getData('today')" class="btn btn-success">
                             <i class="fa fa-clock"></i> Today
                         </button>
                         <button (click)="getData('all')" class="btn btn-info">
                             <i class="fa fa-clock"></i> Old
                         </button>
-                    </div>
-                    <div class="col-md-2 text-right">
                         <button class="btn btn-primary pull-left" (click)="exportTableToExcel('tblReservationCheckInDate')"> Export</button>
+                    </div>
+                </div>
+                <div class="row secondmargin">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2 padtop">
+                          Filter By Date:
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" placeholder="dd/mm/yyyy" bsDatepicker [(ngModel)]="fromDate" [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" />
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-success btnnn" (click)="getDataDateFilter()"> GO</button>
+                    </div>
+                    <div class="col-md-2">
                     </div>
                 </div>
                 <div class="row">
@@ -41,10 +42,10 @@
                         <div *ngIf='reservedRooms && reservedRooms.length==0' class="alert alert-info" role="alert">No record found!</div>
                     </div>
                 </div>
-                <table class='table table-striped' *ngIf='reservedRooms && reservedRooms.length' id="tblReservationCheckInDate">
-                    <thead>
+                <table border="1" style="color:#000;border:none;" *ngIf='reservedRooms && reservedRooms.length' id="tblReservationCheckInDate">
+                    <thead class="text-center">
                         <tr>
-                            <th colspan="10" class="text-center">
+                            <th colspan="10" class="head-first">
                                 <strong>{{ company?.NameEnglish }}</strong>
                                 <br /> Reservation Check in Status
                             </th>
@@ -63,7 +64,7 @@
                             <th class="export-no-display">Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="text-center">
                         <tr *ngFor="let rm of reservedRooms">
                             <td>{{getCustomerFromReservation(rm).CustomerName}} &nbsp; ({{rm.ReservationId}})</td>
                             <td>{{rm.GuestName}}</td>
@@ -78,7 +79,7 @@
                             <td>{{rm.ToCheckInDate | date: 'dd/MM/yyyy h:mm a'}}</td>
                             <td>{{rm.ToCheckOutDate | date: 'dd/MM/yyyy h:mm a'}}</td>
                             <td class="export-no-display">
-                                <span>
+                                <span class="firstimg">
                                     <img src="../../../../assets/images/Edit.png" (click)="editReservedRoom(rm.Id,template)" height="32" width="32" />
                                 </span>
                                 <span>
@@ -509,23 +510,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer" style="background-color:#fafafa;">
-                    <div>
+                <div class="row footermodal">
+                    <div class="col-md-2">
                         <button type="button" class="btn btn-success btn1 pull-left" (click)="onSubmit(reservedRoomForm, fileUpload)" tabindex="30">{{modalBtnTitle}}</button>
-                        <button type="button" class="btn btn-danger pull-right" (click)="modalRef.hide()" tabindex="31">Cancel</button>
                     </div>
+                    <div class="col-md-8">
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-danger pull-right" (click)="modalRef.hide()" tabindex="31">Cancel</button>
+                     </div>
                 </div>
-                <style>
-                    .btn1 {
-                        margin-left: 42%;
-                        width: 80px;
-                    }
-
-                    .btn-danger {
-                        margin-right: 37%;
-                    }
-                </style>
-
+              
+               
             </div>
         </div>
     </form>

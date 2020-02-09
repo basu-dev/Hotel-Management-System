@@ -22,7 +22,10 @@ import { forkJoin } from "rxjs";
 import { map } from 'rxjs/operators';
 
 @Component({
-    templateUrl: './checkin.component.html'
+    templateUrl: './checkin.component.html',
+    styleUrls:[
+               "./checkin.component.css"
+    ]                      
 })
 export class CheckInComponent implements OnInit {
     @ViewChild('template', {static:false}) TemplateRef: TemplateRef<any>;
