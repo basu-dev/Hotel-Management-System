@@ -22,7 +22,10 @@ import { map } from 'rxjs/operators';
 import { AccountTransactionTypeService } from 'src/app/Service/Inventory/account-trans-type.service';
 
 @Component({
-    templateUrl: './checkin.component.html'
+    templateUrl: './checkin.component.html',
+    styleUrls:[
+               "./checkin.component.css"
+    ]                      
 })
 export class CheckInComponent implements OnInit {
     @ViewChild('template', {static:false}) TemplateRef: TemplateRef<any>;
