@@ -13,6 +13,7 @@ import {map,tap,catchError} from "rxjs/operators";
 import * as env from '../../../environments/environment';
 
 import { Global } from '../../Shared/global';
+import { DeleteAction } from 'src/app/actions/table.actions';
 
 @Injectable()
 export class OrderService {
@@ -85,7 +86,7 @@ export class OrderService {
 	 * Adds product in the given order
 	 * @param payload 
 	 */
-    deleteOrderProduct(payload: any) {
+    deleteOrderProduct(payload: DeleteAction) {
         return this.http.post(Global.BASE_ORDERSCancel_ENDPOINT, payload)
            
     }
