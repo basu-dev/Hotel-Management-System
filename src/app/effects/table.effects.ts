@@ -1,74 +1,75 @@
-﻿// import { Injectable } from '@angular/core';
+﻿import { Injectable } from '@angular/core';
 
-// import { Action } from '@ngrx/store';
-// import { Actions, Effect,ofType } from '@ngrx/effects';
+import { Action } from '@ngrx/store';
+import { Actions, Effect,ofType } from '@ngrx/effects';
 
-// import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 
-// import { map,catchError,switchMap,mergeMap } from 'rxjs/operators';
-// import { Table } from '../Model/table.model';
-// import { TableService } from '../Service/Billing/table.service';
+import { map,catchError,switchMap,mergeMap } from 'rxjs/operators';
+import { Table } from '../Model/table.model';
 
-// import * as tableActions from '../actions/table.actions';
 
-// // Custom Action
-// export class CAction implements Action {
-// 	type: string;
-// 	payload: any;
-// }
+import * as tableActions from '../actions/table.actions';
+import { BillingService } from '../Service/Billing/billing.service';
 
-// @Injectable()
-// export class TableEffects {
+// Custom Action
+export class CAction implements Action {
+	type: string;
+	payload: any;
+}
 
-// 	// Constructor
-// 	constructor(
-// 		private api: TableService,
-// 		private actions$: Actions
-// 	) { }
+@Injectable()
+export class TableEffects {
 
-// 	@Effect()
-// 	loadAllAction$: Observable<Action> = this.actions$.pipe(
-// 		ofType(tableActions.ActionTypes.LOAD_ALL),
-// 		switchMap(() => this.api.loadTables().pipe(
-// 			map(res => new tableActions.LoadAllSuccessAction({ 'tables': res })),
-// 			catchError(() => Observable.of({ 'type': tableActions.ActionTypes.LOAD_ERROR }))
-// 		)));
+	// Constructor
+	constructor(
+		private api: BillingService,
+		private actions$: Actions
+	) { }
 
-// 	@Effect()
-// 	loadAction$: Observable<Action> = this.actions$.pipe(
-// 		ofType(tableActions.ActionTypes.LOAD),
-// 		map((action: tableActions.LoadAction) => action.payload),
-// 		switchMap((id) => 
-// 			this.api.show(id)
-// 			.mergeMap((table: Table) => {
-// 				return [
-// 					new tableActions.LoadSuccessAction({'table': table}),
-// 					new tableActions.SetCurrentTableIdAction(table.TableId)
-// 				]
-// 			})
-// 		));
+	@Effect()
+	loadAllAction$: Observable<Action> = this.actions$.pipe(
+		ofType(tableActions.ActionTypes.LOAD_ALL),
+		switchMap(() => this.api.loadTables().pipe(
+			map(res => new tableActions.LoadAllSuccessAction({ 'tables': res })),
+			catchError(() => Observable.of({ 'type': tableActions.ActionTypes.LOAD_ERROR }))
+		)));
 
-// 	@Effect()
-// 	UpdateAction$: Observable<Action> = this.actions$.pipe(
-// 		ofType(tableActions.ActionTypes.PATCH),
-// 		map((action: tableActions.PatchAction) => action.payload),
-// 		switchMap((table: Table) =>
-// 			this.api.update(table).pipe(
-// 				map((updatedTable: Table) => new tableActions.PatchSuccessAction({ 
-// 					id: updatedTable.TableId, changes: updatedTable 
-// 				})),
-// 				catchError(err => {
-// 					alert(err['error']['error']['message']);
-// 					return Observable.of(new tableActions.LoadErrorAction('Updating error'));
-// 				})
-// 		)));
+	@Effect()
+	loadAction$: Observable<Action> = this.actions$.pipe(
+		ofType(tableActions.ActionTypes.LOAD),
+		map((action: tableActions.LoadAction) => action.payload),
+		switchMap((id) => 
+			this.api.show(id)
+			.mergeMap((table: Table) => {
+				return [
+					new tableActions.LoadSuccessAction({'table': table}),
+					new tableActions.SetCurrentTableIdAction(table.TableId)
+				]
+			})
+		));
 
-// 	@Effect()
-// 	DestroyAction$: Observable<Action> = this.actions$.pipe(
-// 		ofType(tableActions.ActionTypes.DELETE),
-// 		map((action: tableActions.DeleteAction) => action.payload),
-// 		switchMap((id: string) =>
-// 			this.api.destroy(id).pipe(
-// 				map(() => new tableActions.DeleteSuccessAction(id))
-// 	)));
-// }
+	@Effect()
+	UpdateAction$: Observable<Action> = this.actions$.pipe(
+		ofType(tableActions.ActionTypes.PATCH),
+		map((action: tableActions.PatchAction) => action.payload),
+		switchMap((table: Table) =>
+			this.api.update(table).pipe(
+				map((updatedTable: Table) => new tableActions.PatchSuccessAction({ 
+					id: updatedTable.TableId, changes: updatedTable 
+				})),
+				catchError(err => {
+					alert(err['error']['error']['message']);
+					return Observable.of(new tableActions.LoadErrorAction('Updating error'));
+				})
+		)));
+
+	@Effect()
+	DestroyAction$: Observable<Action> = this.actions$.pipe(
+		ofType(tableActions.ActionTypes.DELETE),
+		map((action: tableActions.DeleteAction) => action.payload),
+		switchMap((id: string) =>
+			this.api.destroy(id).pipe(
+				map(() => new tableActions.DeleteSuccessAction(id))
+	)));
+}

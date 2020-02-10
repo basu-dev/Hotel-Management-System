@@ -63,10 +63,8 @@ export class OrderService {
          
         payload.OrderItem.Tags = <any>payload.OrderItem.Tags.join(',');
         
-        return this.http.post(Global.BASE_ORDERS_ENDPOINT, payload).pipe(
-             map((res: Response) => {
-                return res.json();
-            }));
+        return this.http.post(Global.BASE_ORDERS_ENDPOINT, payload)
+             
     }
 
 	/**
@@ -79,10 +77,8 @@ export class OrderService {
         let newRequest = JSON.parse(JSON.stringify(orderItemRequest));
         newRequest.OrderItem.Tags = <any>newRequest.OrderItem.Tags.join(',');
         ' '
-        return this.http.post(Global.BASE_ORDERSUPDATE_ENDPOINT + "?updateType=" + updateType, newRequest).pipe(
-            map((res: Response) => {
-                return res.json();
-            }));
+        return this.http.post(Global.BASE_ORDERSUPDATE_ENDPOINT + "?updateType=" + updateType, newRequest)
+           
     }
 
 	/**
@@ -90,10 +86,8 @@ export class OrderService {
 	 * @param payload 
 	 */
     deleteOrderProduct(payload: any) {
-        return this.http.post(Global.BASE_ORDERSCancel_ENDPOINT, payload).pipe(
-            map((res: Response) => {
-                return res.json();
-            }));
+        return this.http.post(Global.BASE_ORDERSCancel_ENDPOINT, payload)
+           
     }
 
 	/**
@@ -101,10 +95,8 @@ export class OrderService {
 	 * @param payload 
 	 */
     moveOrderItems(payload: MoverOrderItem) {
-        return this.http.post(Global.BASE_ORDERSMove_ENDPOINT, payload).pipe(
-            map((res: Response) => {
-                return res.json();
-            }));
+        return this.http.post(Global.BASE_ORDERSMove_ENDPOINT, payload)
+           
     }
 
     // Converts in to JSON String

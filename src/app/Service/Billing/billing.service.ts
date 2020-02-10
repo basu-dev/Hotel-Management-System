@@ -56,10 +56,9 @@ export class BillingService {
 
     loadCustomers(): Observable<Customer[]> {
       // Call to API here
-          return this._http.get(Global.BASE_ACCOUNT_POSCUSTOMER_ENDPOINT).pipe(
-          map((res: HttpResponse<Customer[]>) => {
-            return res.body;
-        }));
+          return this._http.get<Customer[]>(Global.BASE_ACCOUNT_POSCUSTOMER_ENDPOINT)
+          
+
     }
     	// Load All Products
 	loadProducts (): Observable<Product[]> {

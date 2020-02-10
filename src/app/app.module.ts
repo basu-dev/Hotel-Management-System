@@ -116,7 +116,16 @@ import { TrialBalanceComponent } from './components/Report/TrialBalance/TrialBal
 import { MasterLedgerComponent } from './components/Accounts/master-ledger/master-ledger.component';
 import { SalesBillingComponent } from './components/Accounts/sales-billing/sales-billing.component';
 import { TicketStoreService } from './Service/Billing/ticket.store.service';
-
+import { ProductEffects } from './effects/product.effects';
+import { CategoryEffects } from './effects/category.effects';
+//reducers
+import {OrdersReducer} from "./reducers/orders.reducer";
+import {TablesReducer} from "./reducers/tables.reducer";
+import {UsersReducer} from "./reducers/users.reducer";
+import {TicketsReducer} from "./reducers/tickets.reducer";
+import {CustomersReducer} from "./reducers/customers.reducer";
+import {ProductsReducer} from "./reducers/products.reducer";
+import { CategoriesReducer } from './reducers/categories.reducer';
 // import { TicketService } from './Service/Billing/ticket.service';
 @NgModule({
   declarations: [
@@ -222,15 +231,24 @@ import { TicketStoreService } from './Service/Billing/ticket.store.service';
      BsDatepickerModule.forRoot(),
      BsModalModule,
       AngularDateTimePickerModule,
-      StoreModule.forRoot(reducers, {
-      metaReducers,
-      
-      runtimeChecks: {
-        strictStateImmutability: true,
-        strictActionImmutability: true
-      }
+      StoreModule.forRoot({
+        orders: OrdersReducer,
+        tables: TablesReducer,
+        products: ProductsReducer,
+        user: UsersReducer,
+        categories: CategoriesReducer,
+        customers: CustomersReducer,
+        tickets: TicketsReducer
     }),
-      EffectsModule.forRoot([AppEffects])
+    EffectsModule.forRoot([
+      // TableOrderEffects,
+      ProductEffects,
+      CategoryEffects,
+      // TableEffects,
+      // CustomerEffects,
+      // UserEffects,
+      // TicketEffects
+  ]),
   ],
   providers: [
     { provide: 'NAVCOMPONENTS', useValue: navcomponents }   ,
