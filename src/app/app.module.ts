@@ -115,6 +115,7 @@ import { AccountSaleBookItem } from './components/Report/SaleBookItem/AccountSal
 import { TrialBalanceComponent } from './components/Report/TrialBalance/TrialBalance.component';
 import { MasterLedgerComponent } from './components/Accounts/master-ledger/master-ledger.component';
 import { SalesBillingComponent } from './components/Accounts/sales-billing/sales-billing.component';
+import { TicketStoreService } from './Service/Billing/ticket.store.service';
 
 // import { TicketService } from './Service/Billing/ticket.service';
 @NgModule({
@@ -265,11 +266,11 @@ import { SalesBillingComponent } from './components/Accounts/sales-billing/sales
     CustomerStoreService,
     RoleService,
     UserRoleService,
-    //InventoryServices
-    // 
-    // TicketService,
-    // UserService,
-    AccountTransactionTypeService
+    AccountTransactionTypeService,
+    //pos
+    TicketStoreService,
+    BillingService,
+    
     
   ],
   bootstrap: [AppComponent]

@@ -303,8 +303,8 @@ const routes: Routes = [
           },
           
           {
-            path: 'pos/tables',
-            component: TableComponent,
+            path: 'pos/:tabName',
+            component: POSDashboardComponent,
             canActivate: [AuthGuard]
           },
           
