@@ -48,14 +48,11 @@ import { reducers, metaReducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
 import { TableComponent } from './components/POS-System/Table/table.component';
-import { CategoryService } from './Service/Billing/category.service';
-import { ProductService } from './Service/Billing/product.service';
+import { BillingService } from './Service/Billing/billing.service';
 import { TableStoreService } from './Service/Billing/table.store.service';
 // import { UserService } from './Service/Billing/user.service';
-import { CustomerService } from './Service/Billing/customer.service';
 import { OrderService } from './Service/Billing/Order.service';
 import { OrderStoreService } from './Service/Billing/order.store.service';
-import { tableService } from './Service/Billing/table.service';
 import { CustomerStoreService } from './Service/Billing/customer.store.service';
 import { POSDashboardComponent } from './components/POS-System/pos-dashboard/pos-dashboard.component';
 import { UserComponent } from './components/ManageDashboard/user/user.component';
@@ -142,8 +139,7 @@ import { SalesBillingComponent } from './components/Accounts/sales-billing/sales
     ReservationTypeComponent,
     RoomTypeComponent,
     CustomerTypeComponent,
-    TableComponent,
-    POSDashboardComponent,
+    
     UserComponent,
     CompanyComponent,
     DepartmentComponent,
@@ -209,6 +205,9 @@ import { SalesBillingComponent } from './components/Accounts/sales-billing/sales
     BillReturnViewComponent,
     MaterializedViewComponent,
     PurchaseComponent,
+    //POS
+    TableComponent,
+    POSDashboardComponent,
   ],
   imports: [
     SelectDropDownModule,
@@ -257,12 +256,11 @@ import { SalesBillingComponent } from './components/Accounts/sales-billing/sales
     ReservationTypeService,
     RoomTypeService,
     CustomerTypeService,
-    CategoryService,
-    CustomerService,
+    BillingService,
+ 
     OrderService,
     OrderStoreService,
-    ProductService,
-    tableService,
+   
     TableStoreService,
     CustomerStoreService,
     RoleService,

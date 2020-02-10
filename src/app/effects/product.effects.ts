@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { map,catchError,switchMap,mergeMap } from 'rxjs/operators';
 import { Product } from '../Model/product.model';
-import { ProductService } from '../Service/Billing/product.service';
+import { BillingService } from '../Service/Billing/billing.service';
 
 import * as productActions from '../actions/product.actions';
 
@@ -16,7 +16,7 @@ export class ProductEffects {
 	
 	// Constructor
 	constructor(
-		private api: ProductService,
+		private api: BillingService,
 		private actions$: Actions
 	) {}
 

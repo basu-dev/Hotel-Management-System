@@ -2,7 +2,7 @@
 //import { Router, Params, ActivatedRoute } from '@angular/router';
 //import 'rxjs/add/operator/switchMap';
 //import { Customer } from '../../Model/customer.model';
-//import { AccountTransactionTypeService } from '../../services/reservation/customer.services';
+//import { AccountTransactionTypeService } from '../../services/reservation/billing.services';
 
 //@Component({
 //    selector: 'employee-detail',

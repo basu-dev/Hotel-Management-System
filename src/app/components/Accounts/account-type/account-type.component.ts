@@ -21,7 +21,7 @@ export class AccountTypeComponent implements OnInit {
     @ViewChild('templateNested',{static:false}) TemplateRef2: TemplateRef<any>;
     modalRef: BsModalRef;
     modalRef2: BsModalRef;
-    accountTypes: AccountType[];
+    accountTypes;
     accountType: AccountType;
     msg: string;
     indLoading: boolean = false;
@@ -34,7 +34,7 @@ export class AccountTypeComponent implements OnInit {
 
     constructor(private fb: FormBuilder, private accTypeService: AccountTransactionTypeService
 , private modalService: BsModalService, private date: DatePipe) {
-        this.accTypeService.getaccounttypes().subscribe(data => { this.accountTypes = data });
+        this.accTypeService.getAccountTypes().subscribe(data => { this.accountTypes = data });
     }
 
     ngOnInit(): void {

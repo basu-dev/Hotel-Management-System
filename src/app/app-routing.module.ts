@@ -302,6 +302,12 @@ const routes: Routes = [
             canActivate: [AuthGuard]
           },
           
+          {
+            path: 'pos/tables',
+            component: TableComponent,
+            canActivate: [AuthGuard]
+          },
+          
           
           
           

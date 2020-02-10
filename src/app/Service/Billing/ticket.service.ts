@@ -1,34 +1,37 @@
 ﻿// // Main dependencies
 // import { Injectable } from '@angular/core';
-// import {} 
-// import { Observable } from 'rxjs/Observable';
+
+// import { Observable } from 'rxjs';
 // import { Global } from '../../Shared/global';
 
 // // Models
 // import { Ticket, PaymentSettle } from '../../Model/ticket.model';
+// import { HttpClient } from '@angular/common/http';
+// import { catchError } from 'rxjs/operators';
 
 // @Injectable()
 // export class TicketService {
 // 	// Constructor
-// 	constructor(private http: Http) { }
+// 	constructor(private http: HttpClient) { }
 
 // 	// Load Table Tickets
 // 	loadTableTickets(tableId: string): Observable<Ticket[]> {
 // 		// Call to API here
-//         return this.http.get(Global.BASE_SCREENTableTicket_ENDPOINT + "?TableId=" + tableId)
-//             .map((res: Response) => {
-// 				return res.json();
-// 			});
+//         return this.http.get<Ticket[]>(Global.BASE_SCREENTableTicket_ENDPOINT + "?TableId=" + tableId)
+            
 // 	}
 
 // 	// Load Customer Tickets
 // 	loadCustomerTickets(customerId: string): Observable<Ticket[]> {
 // 		// Call to API here
-//         return this.http.get(Global.BASE_SCREENCustomerTicket_ENDPOINT  + "?CustomerId=" + customerId)
-// 			.map((res: Response) => {
-// 				return res.json();
-// 			});
+//         return this.http.get(Global.BASE_SCREENCustomerTicket_ENDPOINT  + "?CustomerId=" + customerId).pipe(
+//             catchError(this.handleError);
+//         )
+		
 // 	}
+//     handleError(error:HttpErrorResponse){
+//         return throwError(error.error);
+//     }
 
 // 	// Parse into Json
 // 	getBody(data: any) {

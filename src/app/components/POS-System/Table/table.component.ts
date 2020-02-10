@@ -1,5 +1,5 @@
 ﻿import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
-import {tableService } from '../../../Service/Billing/table.service';
+import {BillingService } from '../../../Service/Billing/billing.service';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Table } from '../../../Model/table.model';
 
@@ -31,7 +31,7 @@ export class TableComponent implements OnInit {
 
     constructor(
         private fb: FormBuilder, 
-        private _tableService:tableService,
+        private _BillingService:BillingService,
         private _tableStoreService: TableStoreService, 
         private modalService: BsModalService
     ) { }
@@ -47,7 +47,7 @@ export class TableComponent implements OnInit {
     LoadTable(): void {
         this._tableStoreService.loadAllTables();
         this.indLoading = true;
-        this._tableService.get(Global.BASE_TABLEAPI_ENDPOINT)
+        this._BillingService.get(Global.BASE_TABLEAPI_ENDPOINT)
             .subscribe(tables => { this.tables = tables; this.indLoading = false; },
             error => this.msg = <any>error);
     }
@@ -100,7 +100,7 @@ export class TableComponent implements OnInit {
         if (tablefrm.valid) {
             switch (this.dbops) {
                 case DBOperation.create:
-                    this._tableService.post(Global.BASE_TABLEAPI_ENDPOINT, formData.value).subscribe(
+                    this._BillingService.post(Global.BASE_TABLEAPI_ENDPOINT, formData.value).subscribe(
                         data => {
                             if (data == 1) //Success
                             {
@@ -119,7 +119,7 @@ export class TableComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                    this._tableService.put(Global.BASE_TABLEAPI_ENDPOINT,  formData.value.Id, formData.value).subscribe(
+                    this._BillingService.put(Global.BASE_TABLEAPI_ENDPOINT,  formData.value.Id, formData.value).subscribe(
                         data => {
                             if (data == 1) //Success
                             {
@@ -138,7 +138,7 @@ export class TableComponent implements OnInit {
                     );
                     break;
                 case DBOperation.delete:
-                    this._tableService.delete(Global.BASE_TABLEAPI_ENDPOINT,  formData.value.Id).subscribe(
+                    this._BillingService.delete(Global.BASE_TABLEAPI_ENDPOINT,  formData.value.Id).subscribe(
                         data => {
                             if (data == 1) //Success
                             {

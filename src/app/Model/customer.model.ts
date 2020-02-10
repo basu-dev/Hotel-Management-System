@@ -1,5 +1,6 @@
 ﻿export interface Customer {
     Id: number;
+    name?:string;
     CustomerTypeId?: number;
     CustomerName?: string;
     FirstName?: string;
@@ -8,8 +9,8 @@
     Description?: string;
     Email?: string;
     Country?: string;
-    MemberId?: number;
-    MemberSince?: string;
+    MemberId?: string;
+    MemberSince?: Date;
     MobileNumber?: number;
     Title?: string;
     CustomerTypes?: CustomerType[];
