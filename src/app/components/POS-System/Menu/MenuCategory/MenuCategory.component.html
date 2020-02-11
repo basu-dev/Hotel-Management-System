@@ -20,7 +20,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let menucategory of menucategories | FilterMenuCategory: MenuCategory">
+                    <!-- <tr *ngFor="let menucategory of menucategories | FilterMenuCategory: MenuCategory"> -->
+                    <tr *ngFor="let menucategory of menucategories ">
                         <td>{{menucategory.Name}}</td>
                         <td>
                             <span><img src="../../images/Edit.png" (click)="editMenuCategory(menucategory.Id, template)" height="32" width="32" /></span>

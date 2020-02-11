@@ -17,11 +17,12 @@
                 <div class="card-header no-radius">
                     Choose Category:
                 </div>
-                <scrollbar>
+                
                     <div class="card-body category-list">
                         <input type="text" [(ngModel)]="SearchCategory" placeholder="Enter Categories" size="17" style="margin-bottom: 8px;" />
                         <div>
-                            <div class="col-md-12 category-item" *ngFor="let category of categories$ | async | search:SearchCategory"
+                            <!-- <div class="col-md-12 category-item" *ngFor="let category of categories$ | async | search:SearchCategory" -->
+                            <div class="col-md-12 category-item" *ngFor="let category of categories$ | async "
                                  style="cursor:pointer;" (click)="selectedCategory = category.Id"
                                  [ngClass]="{ 'active': category.Id === selectedCategory }"
                                  title="{{ category.Name }}">
@@ -29,7 +30,7 @@
                             </div>
                         </div>
                     </div>
-                </scrollbar>
+                
             </div>
         </div>
         <div class="row">
@@ -55,17 +56,18 @@
                     <div class="card-header">
                         Select Products:
                     </div>
-                    <scrollbar>
+                    
                         <div class="card-body product-list">
                             <input type="text" [(ngModel)]="SearchProduct" placeholder="Enter Products" size="40" style="margin-bottom: 8px;" />
                             <div *ngIf="selectedCategory">
-                                <div *ngFor="let product of products$ | async | filterByCategory:selectedCategory | search:SearchProduct" class="col-md-6 btn badge badge-success product-item"
+                                <!-- <div *ngFor="let product of products$ | async | filterByCategory:selectedCategory | search:SearchProduct" class="col-md-6 btn badge badge-success product-item" -->
+                                <div *ngFor="let product of products$ | async " class="col-md-6 btn badge badge-success product-item"
                                      (click)="addOrderItem(product)" title="{{ product.Name }}">
-                                    <scrollbar><strong>{{ product.Name}}</strong></scrollbar>
+                                    <strong>{{ product.Name}}</strong>
                                 </div>
                             </div>
                         </div>
-                    </scrollbar>
+                    
                 </div>
             </div>
         </div>

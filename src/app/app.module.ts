@@ -127,6 +127,27 @@ import {CustomersReducer} from "./reducers/customers.reducer";
 import {ProductsReducer} from "./reducers/products.reducer";
 import { CategoriesReducer } from './reducers/categories.reducer';
 import { POSDashboardComponent } from './components/POS-System/pos-dashboard/pos-dashboard.component';
+import { TableOrderEffects } from './effects/order.effects';
+import { TableEffects } from './effects/table.effects';
+import { CustomerEffects } from './effects/customer.effects';
+import { UserEffects } from './effects/user.effects';
+import { TicketEffects } from './effects/ticket.effects';
+import { MenuItemComponent } from './components/POS-System/Menu/MenuItem/MenuItem.component';
+import { MenuConsumptionComponent } from './components/POS-System/Menu/MenuConsumption/menu-consumption.component';
+import { PosTableComponent } from './components/POS-System/pos-table/pos-table.component';
+import { MenuComponent } from './components/POS-System/Menu/menu.component';
+import { MenuCategoryComponent } from './components/POS-System/Menu/MenuCategory/MenuCategory.component';
+import { InventoryIssueDetailsComponent } from './components/POS-System/Menu/MenuItem/MenuItemPortion/MenuItemPortion.component';
+import { ScreenMenuItemComponent } from './components/POS-System/Menu/MenuItem/ScreenMenuItem.component';
+import { MenuListComponent } from './components/POS-System/menu-list/menu-list.component';
+import { POSSaleBillingComponent } from './components/POS-System/pos-sale-billing/pos-sale-billing.component';
+import { FilterMenuItemName } from './filters/FilterMenuItemName.filter';
+import { FilterPipe } from './components/POS-System/pos-table/FilterPipe';
+import { PosOptionsComponent } from './components/POS-System/pos-table/pos-options/pos-options.component';
+import { PosCalculatorComponent } from './components/POS-System/pos-table/pos-calculator/pos-calculator.component';
+import { PosSettleComponent } from './components/POS-System/pos-table/pos-settle/pos-settle.component';
+import { PosOrdersComponent } from './components/POS-System/pos-table/pos-orders/pos-orders.component';
+import { PosTicketsComponent } from './components/POS-System/pos-table/pos-tickets/pos-tickets.component';
 // import { TicketService } from './Service/Billing/ticket.service';
 @NgModule({
   declarations: [
@@ -219,6 +240,24 @@ import { POSDashboardComponent } from './components/POS-System/pos-dashboard/pos
     //POS
     TableComponent,
     POSDashboardComponent,
+    MenuItemComponent,
+    MenuComponent,
+    MenuCategoryComponent,
+    MenuConsumptionComponent,
+    InventoryIssueDetailsComponent,
+    ScreenMenuItemComponent,
+    MenuListComponent,
+    POSSaleBillingComponent,
+    PosTableComponent,
+    FilterMenuItemName,
+    FilterPipe,
+    PosOptionsComponent,
+    PosCalculatorComponent,
+    PosSettleComponent,
+    PosOrdersComponent,
+    PosTicketsComponent,
+    
+
   ],
   imports: [
     SelectDropDownModule,
@@ -242,13 +281,13 @@ import { POSDashboardComponent } from './components/POS-System/pos-dashboard/pos
         tickets: TicketsReducer
     }),
     EffectsModule.forRoot([
-      // TableOrderEffects,
+      TableOrderEffects,
       ProductEffects,
       CategoryEffects,
-      // TableEffects,
-      // CustomerEffects,
-      // UserEffects,
-      // TicketEffects
+      TableEffects,
+      CustomerEffects,
+      UserEffects,
+      TicketEffects
   ]),
   ],
   providers: [
@@ -288,7 +327,7 @@ import { POSDashboardComponent } from './components/POS-System/pos-dashboard/pos
     AccountTransactionTypeService,
     //pos
     TicketStoreService,
-    BillingService,
+    
     
     
   ],

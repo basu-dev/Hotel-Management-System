@@ -35,7 +35,7 @@
         </div>
     </div>
     <div class="card-body orders__container scrollbar" id="style-2">
-        <scrollbar>
+        
             <div class="order-item" *ngFor="let order of orders">
                 <div class="row new-orders__label" style="color: darkgrey;">
                     <strong>Order No: {{ order.OrderNumber }}, {{ order.UserId + '-' }} {{ order.OrderOpeningTime }}</strong>
@@ -76,7 +76,7 @@
                     </div>
                 </div>
             </div>
-        </scrollbar>
+        
     </div>
     <div class="card-sub-header">
         <div class="row">

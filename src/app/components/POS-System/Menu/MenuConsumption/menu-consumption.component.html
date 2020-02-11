@@ -128,7 +128,8 @@
                             <th>Delete</th>
                         </tr>
                     </thead>
-                    <tbody *ngFor="let menuConsumption of menuConsumptions | FilterMenuConsumption: MenuConsumption">
+                    <!-- <tbody *ngFor="let menuConsumption of menuConsumptions | FilterMenuConsumption: MenuConsumption"> -->
+                    <tbody *ngFor="let menuConsumption of menuConsumptions ">
                         <tr>
                             <td>{{getProductName(menuConsumption.ProductPortionId)}}</td>
                             <td>&nbsp;</td>
