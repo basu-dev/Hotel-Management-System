@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
-import { Customer } from 'src/app/Model/reservation/customer.model';
+import { Customer } from 'src/app/Model/customer.model';
 import { Global } from 'src/app/Shared/global';
 import { Product } from 'src/app/Model/product.model';
 import { Table } from 'src/app/Model/table.model';
@@ -96,7 +96,47 @@ export class BillingService {
 		// Call to API here
 		return this._http.get<User>(Global.BASE_USER_ENDPOINT)
 
-	}
+  }
+  getMenuItems() {
+    return this._http.get("api/MenuItemAPI/get")
+        
+}
+
+getMenu() {
+    return this._http.get("api/MenuAPI/get")
+       
+}
+getMenuConsumptionProductPortions() {
+  return this._http.get("/api/MenuConsumptionProductPortionAPI/")
+      
+} 
+
+getMenuConsumptionCategoryFilters() {
+  return this._http.get("/api/MenuConsumptionCategoryFilterAPI/")
+      
+} 
+
+getMenuConsumptionListDetails() {
+  return this._http.get("/api/MenuConsumptionDetailAPI/")
+      
+} 
+getMenuCategories() {
+  return this._http.get("/api/MenuCategoryAPI/get")
+      
+}
+getInventoryItems(){
+  return this._http.get("/api/InventoryItemAPI/get")
+      
+} 
+getCategories() {
+  return this._http.get("/api/MenuCategoryAPI/get")
+}
+
+getAccounts() {
+
+  return this._http.get("/api/AccountAPI/get")
+      
+} 
     // Parse into Json
     getBody (data: any) {
       return JSON.stringify(data);

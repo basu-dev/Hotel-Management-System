@@ -1,5 +1,5 @@
 ﻿import { Action, ActionReducer } 				from '@ngrx/store';
-import { Update } 							 	from '@ngrx/entity/src/models';
+import { Update } 							 	from '@ngrx/entity';
 import { Table } 								from '../Model/table.model';
 import { TableAction, ActionTypes } 			from '../actions/table.actions';
 import { State, TableAdapter, InitialState } 	from '../adapters/table.adapter';

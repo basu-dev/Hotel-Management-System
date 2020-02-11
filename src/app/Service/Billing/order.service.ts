@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient,HttpHeaders, HttpResponse } from "@angular/common/http";
 import { Observable } from 'rxjs/Observable';
 
-// Models
+// Model
 import { Order, OrderItem, OrderItemRequest, MoverOrderItem } from '../../Model/order.model';
 
 // Mocks

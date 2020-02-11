@@ -3,7 +3,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Order, OrderItem } from '../Model/order.model';
 import { OrderAction, ActionTypes } from '../actions/order.actions';
 import { State, OrderAdapter, InitialState } from '../adapters/order.adapter';
-import { Update } from '@ngrx/entity/src/models';
 
 export function OrdersReducer(state: State = InitialState, action: OrderAction) {
     let orderItem: OrderItem;

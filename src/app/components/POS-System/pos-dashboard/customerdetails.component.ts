@@ -1,15 +1,15 @@
-﻿//import { Component, Input } from '@angular/core';
-//import { Router, Params, ActivatedRoute } from '@angular/router';
-//import 'rxjs/add/operator/switchMap';
-//import { Customer } from '../../Model/customer.model';
-//import { AccountTransactionTypeService } from '../../services/reservation/billing.services';
+﻿// import { Component, Input } from '@angular/core';
+// import { Router, Params, ActivatedRoute } from '@angular/router';
+// import 'rxjs/add/operator/switchMap';
+// import { Customer } from '../../../Model/customer.model';
+// import {  } from '../../../Service/reservation/customer.services';
 
-//@Component({
+// @Component({
 //    selector: 'employee-detail',
 //    templateUrl: 'customerdetails.component.html',
-//})
+// })
 
-//export class CustomerDetailComponent {
+// export class CustomerDetailComponent {
 
 //    customer: Customer;
 //    pageTitle: string = 'Customer Details';
@@ -17,7 +17,7 @@
 //    constructor(
 //        private router: Router,
 //        private route: ActivatedRoute,
-//        private _customerService: AccountTransactionTypeService,
+//        private _customerService: CustomerSer,
 //    ) { }
 
 //    ngOnInit(Id: number) {
@@ -31,11 +31,11 @@
 //        //    });
 
 //        this.route.paramMap.subscribe((params: Params) => {
-//             
+            
 //            let Id = parseInt(params.get('Id'));
 //            this.selectedEmployeeId = Id;
 //            this._customerService.getCustomerList(Id).subscribe((customerData: Customer) => {
-//                 
+                
 //                this.customer = customerData;
 //                console.log(customerData);
 //            })
@@ -47,4 +47,4 @@
 //    }
 
 
-//}
+// }

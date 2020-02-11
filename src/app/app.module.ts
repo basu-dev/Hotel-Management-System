@@ -54,7 +54,7 @@ import { TableStoreService } from './Service/Billing/table.store.service';
 import { OrderService } from './Service/Billing/Order.service';
 import { OrderStoreService } from './Service/Billing/order.store.service';
 import { CustomerStoreService } from './Service/Billing/customer.store.service';
-import { POSDashboardComponent } from './components/POS-System/pos-dashboard/pos-dashboard.component';
+
 import { UserComponent } from './components/ManageDashboard/user/user.component';
 import { DepartmentComponent } from './components/ManageDashboard/Department/Department.component';
 import { FinancialYearComponent } from './components/ManageDashboard/FinancialYear/FinancialYear.component';
@@ -126,6 +126,7 @@ import {TicketsReducer} from "./reducers/tickets.reducer";
 import {CustomersReducer} from "./reducers/customers.reducer";
 import {ProductsReducer} from "./reducers/products.reducer";
 import { CategoriesReducer } from './reducers/categories.reducer';
+import { POSDashboardComponent } from './components/POS-System/pos-dashboard/pos-dashboard.component';
 // import { TicketService } from './Service/Billing/ticket.service';
 @NgModule({
   declarations: [

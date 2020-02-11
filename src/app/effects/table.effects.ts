@@ -1,7 +1,7 @@
 ﻿import { Injectable } from '@angular/core';
 
 import { Action } from '@ngrx/store';
-import { Actions, Effect,ofType } from '@ngrx/effects';
+import { Actions, Effect,ofType, createEffect } from '@ngrx/effects';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -28,15 +28,15 @@ export class TableEffects {
 	) { }
 
 	@Effect()
-	loadAllAction$: Observable<Action> = this.actions$.pipe(
+	loadAllAction$:Observable<Action> =createEffect(():any=> this.actions$.pipe(
 		ofType(tableActions.ActionTypes.LOAD_ALL),
 		switchMap(() => this.api.loadTables().pipe(
 			map(res => new tableActions.LoadAllSuccessAction({ 'tables': res })),
 			catchError(() => Observable.of({ 'type': tableActions.ActionTypes.LOAD_ERROR }))
-		)));
+		))));
 
 	@Effect()
-	loadAction$: Observable<Action> = this.actions$.pipe(
+	loadAction$:Observable<Action> =createEffect(():any=> this.actions$.pipe(
 		ofType(tableActions.ActionTypes.LOAD),
 		map((action: tableActions.LoadAction) => action.payload),
 		switchMap((id) => 
@@ -47,10 +47,10 @@ export class TableEffects {
 					new tableActions.SetCurrentTableIdAction(table.TableId)
 				]
 			})
-		));
+		)));
 
 	@Effect()
-	UpdateAction$: Observable<Action> = this.actions$.pipe(
+	UpdateAction$:Observable<Action> =createEffect(():any=> this.actions$.pipe(
 		ofType(tableActions.ActionTypes.PATCH),
 		map((action: tableActions.PatchAction) => action.payload),
 		switchMap((table: Table) =>
@@ -62,14 +62,14 @@ export class TableEffects {
 					alert(err['error']['error']['message']);
 					return Observable.of(new tableActions.LoadErrorAction('Updating error'));
 				})
-		)));
+		))));
 
 	@Effect()
-	DestroyAction$: Observable<Action> = this.actions$.pipe(
+	DestroyAction$:Observable<Action> =createEffect(():any=> this.actions$.pipe(
 		ofType(tableActions.ActionTypes.DELETE),
 		map((action: tableActions.DeleteAction) => action.payload),
 		switchMap((id: string) =>
 			this.api.destroy(id).pipe(
 				map(() => new tableActions.DeleteSuccessAction(id))
-	)));
+	))));
 }

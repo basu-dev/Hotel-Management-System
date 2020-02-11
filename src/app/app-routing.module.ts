@@ -19,7 +19,6 @@ import { CustomerTypeComponent } from './components/Reservation/customer-type/cu
 import { FacilityComponent } from './components/Reservation/facility/facility.component';
 import { ReservationTypeComponent } from './components/Reservation/reservation-type/reservation-type.component';
 import { TableComponent } from './components/POS-System/Table/table.component';
-import { POSDashboardComponent } from './components/POS-System/pos-dashboard/pos-dashboard.component';
 import { UserComponent } from './components/ManageDashboard/user/user.component';
 import { RoleModuleComponent } from './components/ManageDashboard/rolemodule/rolemodule.component';
 import { RoleComponent } from './components/ManageDashboard/role/role.component';
@@ -62,23 +61,31 @@ import { SalesBillingComponent } from './components/Accounts/sales-billing/sales
 import { AccountLedgerViewComponent } from './components/Report/LedgerView/AccountLedgerView.Component';
 import { MaterializedViewComponent } from './components/Report/materialized view/materializedview.component';
 import { BillReturnViewComponent } from './components/Report/BillReturnView/BillReturnView.component';
+import { POSDashboardComponent } from './components/POS-System/pos-dashboard/pos-dashboard.component';
+import { MenuItemComponent } from './components/POS-System/Menu/MenuItem/MenuItem.component';
+import { MenuComponent } from './components/POS-System/Menu/menu.component';
+import { MenuCategoryComponent } from './components/POS-System/Menu/MenuCategory/MenuCategory.component';
+import { MenuConsumptionComponent } from './components/POS-System/Menu/MenuConsumption/menu-consumption.component';
+import { POSSaleBillingComponent } from './components/POS-System/pos-sale-billing/pos-sale-billing.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: "/test", pathMatch: 'full' },
   { path: "login", component: LoginComponent, canActivate: [AuthGuard] },
   { path: "user", component: UserComponent },
-
-
-
-
-
-
   { path: "test", component: TestComponent },
-  { path: "reservation", component: ReservationComponent, canActivate: [AuthGuard] },
-  { path: "reservation/checkin", component: CheckInComponent, canActivate: [AuthGuard] },
-  { path: "reservation/reservationstatus", component: RoomStatusComponent, canActivate: [AuthGuard] },
-  { path: "reservation/checkout", component: CheckOutComponent, canActivate: [AuthGuard] },
+  { path: "reservation",
+   component: ReservationComponent,
+    canActivate: [AuthGuard] },
+  { path: "reservation/checkin", 
+  component: CheckInComponent, 
+  canActivate: [AuthGuard] },
+  { path: "reservation/reservationstatus", 
+  component: RoomStatusComponent, 
+  canActivate: [AuthGuard] },
+  { path: "reservation/checkout", 
+  component: CheckOutComponent, 
+  canActivate: [AuthGuard] },
   { path: "reservation/reservationinquiry", component: ReservationInquiryComponent, canActivate: [AuthGuard] },
   { path: "reservation/customer", component: ReservationCustomerComponent, canActivate: [AuthGuard] },
   { path: "reservation/payment", component: PaymentTypeComponent, canActivate: [AuthGuard] },
@@ -87,12 +94,8 @@ const routes: Routes = [
   { path: "reservation/roomtype", component: RoomTypeComponent, canActivate: [AuthGuard] },
   { path: "reservation/room", component: RoomComponent, canActivate: [AuthGuard] },
   { path: "reservation/customertypes", component: CustomerTypeComponent, canActivate: [AuthGuard] },
-  {
-    path: 'pos-dashboard/:tabName',
-    component: POSDashboardComponent,
-    pathMatch: 'full',
-    canActivate: [AuthGuard]
-  },
+
+
   { path: "reservation/reservationtype", component: ReservationTypeComponent, canActivate: [AuthGuard] },
   { path: "billing/order", component: TableComponent, canActivate: [AuthGuard] },
   {
@@ -307,6 +310,31 @@ const routes: Routes = [
             component: POSDashboardComponent,
             canActivate: [AuthGuard]
           },
+          {
+            path: 'pos/table/items',
+            component: MenuItemComponent,
+            canActivate: [AuthGuard]
+        },
+        {
+            path: 'pos/table/menu',
+            component: MenuComponent,
+            canActivate: [AuthGuard]
+        },
+        {
+            path: 'pos/table/menucategory',
+            component: MenuCategoryComponent,
+            canActivate: [AuthGuard]
+        },
+        {
+            path: 'pos/table/menuconsumption',
+            component: MenuConsumptionComponent,
+            canActivate: [AuthGuard]
+        },
+        {
+            path: 'pos/table/posbilling',
+            component: POSSaleBillingComponent,
+            canActivate: [AuthGuard]
+        },
           
           
           

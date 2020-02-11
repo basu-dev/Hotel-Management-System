@@ -6,7 +6,7 @@ import { Global } from '../../../Shared/global';
 import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
 
 
-// Models
+// Model
 import { Table } from '../../../Model/table.model';
 import { Customer } from '../../../Model/customer.model';
 

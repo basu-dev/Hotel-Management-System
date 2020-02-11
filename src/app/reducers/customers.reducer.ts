@@ -1,5 +1,4 @@
 ﻿import { Action, ActionReducer } from '@ngrx/store';
-import { Update } from '@ngrx/entity/src/models';
 import { Customer } from '../Model/customer.model';
 import { CustomerAction, ActionTypes } from '../actions/customer.actions';
 import { State, CustomerAdapter, InitialState } from '../adapters/customer.adapter';

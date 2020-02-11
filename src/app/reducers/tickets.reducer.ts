@@ -1,5 +1,5 @@
 ﻿import { Action, ActionReducer } from '@ngrx/store';
-import { Update } from '@ngrx/entity/src/models';
+import { Update } from '@ngrx/entity';
 import { Ticket } from '../Model/ticket.model';
 import { TicketAction, ActionTypes } from '../actions/ticket.actions';
 import { State, TicketAdapter, InitialState } from '../adapters/ticket.adapter';

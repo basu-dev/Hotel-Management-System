@@ -1,7 +1,7 @@
 ﻿import { Injectable } from '@angular/core';
 
 import { Action } from '@ngrx/store';
-import { Actions, Effect,ofType } from '@ngrx/effects';
+import { Actions, Effect,ofType, createEffect } from '@ngrx/effects';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -21,10 +21,10 @@ export class ProductEffects {
 	) {}
 
 	@Effect()
-	loadAction$: Observable<Action> = this.actions$.pipe(
+	loadAction$:Observable<Action> =createEffect(():any=> this.actions$.pipe(
 		ofType(productActions.ActionTypes.LOAD_PRODUCTS),
 		switchMap(() => this.api.loadProducts().pipe(
 			map(res => new productActions.LoadProductsSuccessAction({'products': res})),
 			catchError(() => Observable.of({ 'type': productActions.ActionTypes.LOAD_ERROR }))
-		)));
+		))));
 }

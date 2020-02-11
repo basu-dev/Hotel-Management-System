@@ -1,7 +1,7 @@
 ﻿import { Injectable } from '@angular/core';
 
 import { Action } from '@ngrx/store';
-import { Actions, Effect ,ofType} from '@ngrx/effects';
+import { Actions, Effect ,ofType, createEffect} from '@ngrx/effects';
 
 import { Observable } from 'rxjs';
 
@@ -22,7 +22,7 @@ export class TicketEffects {
     ) { }
 
     @Effect()
-    loadTableTicketsAction$: Observable<Action> = this.actions$.pipe(
+    loadTableTicketsAction$:Observable<Action> =createEffect(():any=> this.actions$.pipe(
         ofType(ticketActions.ActionTypes.LOAD_TABLE_TICKETS),
         map((action: ticketActions.LoadTableTicketsAction) => action.payload),
         switchMap((tableId: string) => this.api.loadTableTickets(tableId).pipe(
@@ -31,10 +31,10 @@ export class TicketEffects {
                 new ticketActions.IsTicketLoadingSuccessAction()
             ]),
             catchError(() => Observable.of({ 'type': ticketActions.ActionTypes.LOAD_ERROR }))
-        )));
+        ))));
 
     @Effect()
-    loadCustomerTicketsAction$: Observable<Action> = this.actions$.pipe(
+    loadCustomerTicketsAction$:Observable<Action> =createEffect(():any=> this.actions$.pipe(
         ofType(ticketActions.ActionTypes.LOAD_CUSTOMER_TICKETS),
         map((action: ticketActions.LoadCustomerTicketsAction) => action.payload),
         switchMap((customerId: string) => this.api.loadCustomerTickets(customerId).pipe(
@@ -43,19 +43,19 @@ export class TicketEffects {
                 new ticketActions.IsTicketLoadingSuccessAction()
             ]),
             catchError(() => Observable.of({ 'type': ticketActions.ActionTypes.LOAD_ERROR }))
-        )));
+        ))));
 
     @Effect()
-    createNewTicket$ : Observable<Action> = this.actions$.pipe(
+    createNewTicket$ :Observable<Action> =createEffect(():any=> this.actions$.pipe(
         ofType(ticketActions.ActionTypes.CREATE_NEW_TICKET),
         map((action: ticketActions.CreateTableTicketAction) => action.payload),
         switchMap((data: any) => this.api.createNewTicket(data).pipe(
             map(res  => new ticketActions.CreateTableTicketSuccessAction({ 'ticket': res })),
             catchError(() => Observable.of({ 'type': ticketActions.ActionTypes.LOAD_ERROR }))
-        )));
+        ))));
 
     @Effect()
-    payTicketByCash$: Observable<Action> = this.actions$.pipe(
+    payTicketByCash$:Observable<Action> =createEffect(():any=> this.actions$.pipe(
         ofType(ticketActions.ActionTypes.PAY_BY_CASH),
         map((action: ticketActions.PayTicketByCashAction) => action.payload),
         switchMap((payload: any) => this.api.payTicketByCash(payload.ticketId, payload.details).pipe(
@@ -67,10 +67,10 @@ export class TicketEffects {
                 ];
             }),
             catchError(() => Observable.of({ 'type': ticketActions.ActionTypes.LOAD_ERROR }))
-        )));
+        ))));
 
     @Effect()
-    payTicketByCard$: Observable<Action> = this.actions$.pipe(
+    payTicketByCard$:Observable<Action> =createEffect(():any=> this.actions$.pipe(
         ofType(ticketActions.ActionTypes.PAY_BY_CARD),
         map((action: ticketActions.PayTicketByCardAction) => action.payload),
         switchMap((payload: any) => this.api.payTicketByCard(payload.ticketId, payload.details).pipe(
@@ -82,10 +82,10 @@ export class TicketEffects {
                 ];
             }),
             catchError(() => Observable.of({ 'type': ticketActions.ActionTypes.LOAD_ERROR }))
-        )));
+        ))));
 
     @Effect()
-    payTicketByVoucher$: Observable<Action> = this.actions$.pipe(
+    payTicketByVoucher$:Observable<Action> =createEffect(():any=> this.actions$.pipe(
         ofType(ticketActions.ActionTypes.PAY_BY_VOUCHER),
         map((action: ticketActions.PayTicketByVoucherAction) => action.payload),
         switchMap((payload: any) => this.api.payTicketByVoucher(payload.ticketId, payload.details).pipe(
@@ -97,10 +97,10 @@ export class TicketEffects {
                 ];
             }),
             catchError(() => Observable.of({ 'type': ticketActions.ActionTypes.LOAD_ERROR }))
-        )));
+        ))));
 
     @Effect()
-    payTicketByCustomerAccount$: Observable<Action> = this.actions$.pipe(
+    payTicketByCustomerAccount$:Observable<Action> =createEffect(():any=> this.actions$.pipe(
         ofType(ticketActions.ActionTypes.PAY_BY_CUSTOMER_ACCOUNT),
         map((action: ticketActions.PayTicketByCustomerAccountAction) => action.payload),
         switchMap((payload: any) => this.api.payTicketByCash(payload.ticketId, payload.details)
@@ -112,37 +112,37 @@ export class TicketEffects {
                 ];
             }),
             catchError(() => Observable.of({ 'type': ticketActions.ActionTypes.LOAD_ERROR }))
-        ));
+     ) ));
 
     @Effect()
-    roundOffTicket$: Observable<Action> = this.actions$.pipe(
+    roundOffTicket$:Observable<Action> =createEffect(():any=> this.actions$.pipe(
         ofType(ticketActions.ActionTypes.ROUND_OFF_TICKET),
         map((action: ticketActions.RoundOffTicketAction) => action.payload),
         switchMap((payload: any) => this.api.payTicketByCash(payload.ticketId, payload.details).pipe(
             map((ticket: Ticket) => new ticketActions.RoundOffTicketSuccessAction({ "id": ticket.Id, "changes": ticket })),
             catchError(() => Observable.of({ 'type': ticketActions.ActionTypes.LOAD_ERROR }))
-        )));
+        ))));
 
     @Effect()
-    addTicketNote$: Observable<Action> = this.actions$.pipe(
+    addTicketNote$:Observable<Action> =createEffect(():any=> this.actions$.pipe(
         ofType(ticketActions.ActionTypes.ADD_TICKET_NOTE),
         map((action: ticketActions.AddTicketNoteAction) => action.payload),
         switchMap((payload: any) => this.api.addTicketNote(payload.ticketId, payload.note).pipe(
             map(res => new ticketActions.AddTicketNoteSuccessAction({ 'ticket': res })),
             catchError(() => Observable.of({ 'type': ticketActions.ActionTypes.LOAD_ERROR }))
-        )));
+        ))));
 
     @Effect()
-    printBill$: Observable<Action> =createEffect(()) this.actions$.pipe(
+    printBill$:Observable<Action> =createEffect(():any=> this.actions$.pipe(
         ofType(ticketActions.ActionTypes.PRINT_BILL),
         map((action: ticketActions.PrintBillAction) => action.payload),
         switchMap((payload: any) => this.api.printBill(payload.ticketId).pipe(
             map((res:any) => new ticketActions.PrintBillSuccessAction({ 'ticket': res })),
             catchError(() => Observable.of({ 'type': ticketActions.ActionTypes.LOAD_ERROR }))
-        )));
+    ))));
     
     @Effect()
-    addDiscount$: Observable<Action> = this.actions$.pipe(
+    addDiscount$:Observable<Action> =createEffect(():any=> this.actions$.pipe(
         ofType(ticketActions.ActionTypes.ADD_DISCOUNT),
         map((action: ticketActions.AddTicketDiscountAction) => action.payload),
         switchMap((payload: any) => this.api.addDiscount(payload.ticketDetails).pipe(
@@ -151,5 +151,5 @@ export class TicketEffects {
                 new ticketActions.IsTicketLoadingSuccessAction()
             ]),
             catchError(() => Observable.of({ 'type': ticketActions.ActionTypes.LOAD_ERROR }))
-        )));
+        ))));
 }

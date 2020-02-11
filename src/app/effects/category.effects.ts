@@ -1,7 +1,7 @@
 ﻿import { Injectable } from '@angular/core';
 
 import { Action } from '@ngrx/store';
-import { Actions, Effect,ofType } from '@ngrx/effects';
+import { Actions, Effect,ofType, createEffect } from '@ngrx/effects';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -22,10 +22,10 @@ export class CategoryEffects {
 	) {}
 
 	@Effect()
-	loadAction$: Observable<Action> = this.actions$.pipe(
+	loadAction$:Observable<Action> =createEffect(():any=>createEffect(():any=> this.actions$.pipe(
 		ofType(categoryActions.ActionTypes.LOAD_CATEGORIES),
 		switchMap(() => this.api.loadCategories().pipe(
 			map(res => new categoryActions.LoadCategoriesSuccessAction({'categories': res})),
 			catchError(() => Observable.of({ 'type': categoryActions.ActionTypes.LOAD_ERROR }))
-		)));
+		)))));
 }
