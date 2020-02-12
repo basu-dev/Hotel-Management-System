@@ -15,7 +15,9 @@ import * as env from '../../../environments/environment';
 import { Global } from '../../Shared/global';
 import { DeleteAction } from 'src/app/actions/table.actions';
 
-@Injectable()
+@Injectable(
+    {providedIn:'root'}
+)
 export class OrderService {
     // Constructor
     constructor(private http: HttpClient) {}
