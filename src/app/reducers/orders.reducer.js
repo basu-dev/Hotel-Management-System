@@ -32,14 +32,14 @@ function OrdersReducer(state, action) {
             }
             return state;
         case order_actions_1.ActionTypes.ADD_PRODUCT_SUCCESS:
-            debugger;
+            
             var existingOrder = action.payload.OrderNumber && state.entities[action.payload.OrderNumber];
             (existingOrder)
                 ? state.entities[action.payload.OrderNumber].OrderItems.push(action.payload.OrderItems[0])
                 : __assign({}, state, order_adapter_1.OrderAdapter.addOne(action.payload, state));
             return state;
         case order_actions_1.ActionTypes.UPDATE_PRODUCT_SUCCESS:
-            debugger;
+            
             var Item = state.entities[action.payload.OrderId].OrderItems.filter(function (item) {
                 return item.ItemId === action.payload.OrderItem.ItemId;
             })[0];

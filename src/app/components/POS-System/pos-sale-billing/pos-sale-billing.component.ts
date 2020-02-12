@@ -62,7 +62,7 @@ export class POSSaleBillingComponent implements OnInit {
    *  Get the list of filtered journals by the form and to date
    */
     filterJournalByDate(sfromdate: string, stodate: string) {
-        debugger
+        
         if (sfromdate == "undefined" || sfromdate == null) {
             alert("Enter Start Date");
             return false;
@@ -101,7 +101,7 @@ export class POSSaleBillingComponent implements OnInit {
     }
 
     getCalcDiscount(salebillingbook) {
-        debugger
+        
         var Discount = 0;
         for (var i = 0; i < salebillingbook.length; i++) {
             Discount = Discount + parseFloat(salebillingbook[i].Discount);

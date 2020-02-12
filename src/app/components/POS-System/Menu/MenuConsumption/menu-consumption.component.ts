@@ -85,7 +85,7 @@ export class MenuConsumptionComponent implements OnInit {
     }
 
     LoadMenuConsumptions(): void {
-        debugger
+        
         this.indLoading = true;
         this._menuConsumptionService.get(Global.BASE_MENUCONSUMPTION_ENDPOINT)
             .subscribe(menuConsumptions => { this.menuConsumptions = menuConsumptions; this.indLoading = false; },
@@ -93,7 +93,7 @@ export class MenuConsumptionComponent implements OnInit {
     }
 
     getProductName(Id: number) {
-        debugger;
+        
         let ProductName;
         if (this.MenuItemPortions) {
             let ProductNamelist = this.MenuItemPortions.filter(ISRItem =>ISRItem.MenuItemPortionId === Id)[0];
@@ -103,7 +103,7 @@ export class MenuConsumptionComponent implements OnInit {
     }
 
     getIRItemName(Id: number) {
-        //debugger;
+        //
         if (this.inventoryReceiptItem) {
             return this.inventoryReceiptItem.filter((ISRItem) => {
                 return ISRItem.Id === Id;
@@ -112,7 +112,7 @@ export class MenuConsumptionComponent implements OnInit {
     }
 
     addMenuConsumptionDetail() {
-        debugger
+        
         const control = <FormArray>this.MenuConsumptionForm.controls['MenuConsumptionDetails'];
         const AddPortions = this.initMenuConsumptionPortions();
         control.push(AddPortions);
@@ -120,7 +120,7 @@ export class MenuConsumptionComponent implements OnInit {
 
 
     removeMenuConsumptionDetails(i: number) {
-        debugger
+        
         if (window.confirm('Are sure you want to delete this consumption item ?')) {
             let controls = <FormArray>this.MenuConsumptionForm.controls['MenuConsumptionDetails'];
             let controlToRemove = this.MenuConsumptionForm.controls.MenuConsumptionDetails['controls'][i].controls;
@@ -142,7 +142,7 @@ export class MenuConsumptionComponent implements OnInit {
     }
 
     onChangeCategory(CategoryId: number) {
-        debugger
+        
         this._menuItemService.get(Global.BASE_MENUITEM_ConsumptionCategory_ENDPOINT + '?CategoryId=' + CategoryId ).subscribe(data => {
             this.menuItemFilter = data;
             this.indLoading = false;
@@ -150,7 +150,7 @@ export class MenuConsumptionComponent implements OnInit {
     }
 
     onChangeProduct(ProductId: number) {
-        debugger
+        
         this._menuItemService.get(Global.BASE_MENUITEMPORTION_ENDPOINT + '?ItemId=' + ProductId).subscribe(data => {
             this.screenmenuitems = data;
             this.indLoading = false;
@@ -158,10 +158,10 @@ export class MenuConsumptionComponent implements OnInit {
     }
 
     onChangePortion(i: number) {
-        debugger;
+        
         this._menuConsumptionDetailsService.get(Global.BASE_MENUCONSUMPTIONDETAILS_ENDPOINT + '?ProductPortionId=' + i).subscribe((data) => {
             this.menuconsumptionDetails = data;
-            debugger
+            
             if (this.menuconsumptionDetails.length > 0) {
                 alert("The item position already added. Please edit your item position from Edit")
                 this.router.navigate(['pos-dashboard/table/menuconsumption'])
@@ -173,13 +173,13 @@ export class MenuConsumptionComponent implements OnInit {
     }
 
     getMenuComsumption(Id: number) {
-        debugger
+        
         this.indLoading = true;
         return this._menuConsumptionService.get(Global.BASE_MENUCONSUMPTION_ENDPOINT + '?Id=' + Id);
     }
 
     addMenuConsumptions(template: TemplateRef<any>) {
-        debugger
+        
         this.MenuConsumptionForm.reset();
         this.dbops = DBOperation.create;
         this.SetControlsState(true);
@@ -198,7 +198,7 @@ export class MenuConsumptionComponent implements OnInit {
         this.SetControlsState(true);
         this.modalTitle = "Edit Menu Consumption";
         this.modalBtnTitle = "Update";
-        debugger;
+        
         this.getMenuComsumption(Id).subscribe((menuConsumptions: MenuConsumption) => {
             this.indLoading = false;
             this.MenuConsumptionForm.controls['Id'].setValue(menuConsumptions.Id);
@@ -232,7 +232,7 @@ export class MenuConsumptionComponent implements OnInit {
     }
 
     deleteMenuConsumptions(Id: number, template: TemplateRef<any>) {
-        debugger
+        
         this.dbops = DBOperation.delete;
         this.SetControlsState(true);
         this.modalTitle = "Confirm to Delete?";
@@ -282,12 +282,12 @@ export class MenuConsumptionComponent implements OnInit {
     }
 
     onSubmit(formData: any) {
-        debugger
+        
         this.msg = "";
         this.formSubmitAttempt = true;
         let MenuConsumptionForm = this.MenuConsumptionForm;
         if (MenuConsumptionForm.valid) {
-            debugger
+            
             switch (this.dbops) {
                 case DBOperation.create:
                     let MenuItemAddObj = {
@@ -299,7 +299,7 @@ export class MenuConsumptionComponent implements OnInit {
                     }
                     this._menuConsumptionService.post(Global.BASE_MENUCONSUMPTION_ENDPOINT, MenuItemAddObj).subscribe(
                         data => {
-                            debugger
+                            
                             if (data == 1) //Success
                             {
                                 alert("Data successfully added.");
@@ -318,7 +318,7 @@ export class MenuConsumptionComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                    debugger
+                    
                     let MenuItemObj = {
                         Id: this.MenuConsumptionForm.controls['Id'].value,
                         CategoryId: this.MenuConsumptionForm.controls['CategoryId'].value,
@@ -327,10 +327,10 @@ export class MenuConsumptionComponent implements OnInit {
                         MenuConsumptionDetails: this.MenuConsumptionForm.controls['MenuConsumptionDetails'].value
                     }
 
-                    this._menuConsumptionService.put(Global.BASE_MENUCONSUMPTION_ENDPOINT, formData._value.Id, MenuItemObj).subscribe(
+                    this._menuConsumptionService.put(Global.BASE_MENUCONSUMPTION_ENDPOINT, formData.value.Id, MenuItemObj).subscribe(
 
                         data => {
-                            debugger
+                            
                             if (data == 1) //Success
                             {
                                 alert("Data successfully updated.");
@@ -349,7 +349,7 @@ export class MenuConsumptionComponent implements OnInit {
                     );
                     break;
                 case DBOperation.delete:
-                    this._menuConsumptionService.delete(Global.BASE_MENUCONSUMPTION_ENDPOINT, formData._value.Id).subscribe(
+                    this._menuConsumptionService.delete(Global.BASE_MENUCONSUMPTION_ENDPOINT, formData.value.Id).subscribe(
                         data => {
                             if (data == 1) //Success
                             {
@@ -388,7 +388,7 @@ export class MenuConsumptionComponent implements OnInit {
         //this.addMenuConsumptionDetail();
     }
     cancel() {
-        debugger
+        
         this.modalRef.hide();
         this.reset();
     }

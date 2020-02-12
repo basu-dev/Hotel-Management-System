@@ -39,7 +39,7 @@ var PosTicketsComponent = /** @class */ (function () {
         this.customer$ = this.store.select(CustomerSelector.getCurrentCustomer);
         this.store.select(TicketSelector.getAllTickets)
             .subscribe(function (tickets) {
-            debugger;
+            
             if (_this.router.url == "/pos/settle") {
                 return false;
             }
@@ -73,7 +73,7 @@ var PosTicketsComponent = /** @class */ (function () {
     };
     // Redirects to Tickets list view
     PosTicketsComponent.prototype.goToCustomerTicketDetailView = function (ticketId) {
-        debugger;
+        
         if (!ticketId) {
             return false;
         }

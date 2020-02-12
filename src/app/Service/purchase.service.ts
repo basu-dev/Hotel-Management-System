@@ -15,7 +15,7 @@
 
 
 //     get(url: string): Observable<any> {
-//         debugger
+//         
 //         return this._http.get(url)
 //             .map((response: Response) => <any>response.json())
 //             .do(data => console.log("All: " + JSON.stringify(data)))
@@ -32,7 +32,7 @@
 //     }
 
 //     put(url: string, Id: number, model: any): Observable<any> {
-//         debugger;
+//         
 //         let body = JSON.stringify(model,);
 //         let headers = new Headers({ 'Content-Type': 'application/json' });
 //         let options = new RequestOptions({ headers: headers });
@@ -42,7 +42,7 @@
 //     }
 
 //     delete(url: string, model: any): Observable<any> {
-//         debugger;
+//         
 //         let body = JSON.stringify(model);
 //         let headers = new Headers({ 'Content-Type': 'application/json' });
 //         let options = new RequestOptions({ headers: headers, body: body });

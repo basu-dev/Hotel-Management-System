@@ -118,7 +118,7 @@ export class MenuComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                    this._menuService.put(Global.BASE_MENU_ENDPOINT, formData._value.Id, formData._value).subscribe(
+                    this._menuService.put(Global.BASE_MENU_ENDPOINT, formData.value.Id, formData._value).subscribe(
                   
                         data => {
                             if (data == 1) //Success
@@ -139,7 +139,7 @@ export class MenuComponent implements OnInit {
                     );
                     break;
                 case DBOperation.delete:
-                    this._menuService.delete(Global.BASE_MENU_ENDPOINT, formData._value.Id).subscribe(
+                    this._menuService.delete(Global.BASE_MENU_ENDPOINT, formData.value.Id).subscribe(
                         data => {
                             if (data == 1) //Success
                             {

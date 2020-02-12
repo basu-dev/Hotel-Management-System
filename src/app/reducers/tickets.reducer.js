@@ -33,7 +33,7 @@ function TicketsReducer(state, action) {
         case ticket_actions_1.ActionTypes.ADD_TICKET_NOTE_SUCCESS:
         case ticket_actions_1.ActionTypes.PRINT_BILL_SUCCESS:
         case ticket_actions_1.ActionTypes.ADD_DISCOUNT_SUCCESS:
-            debugger;
+            
             return __assign({}, state, ticket_adapter_1.TicketAdapter.updateOne(action.payload.ticket, state));
         default:
             return state;

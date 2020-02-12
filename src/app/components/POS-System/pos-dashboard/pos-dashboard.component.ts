@@ -38,7 +38,7 @@ export class POSDashboardComponent implements OnInit {
     account: Account;
     accounts: Account[];
     customerName: string = '';
-    tabName: string = 'tables';
+    tabName: string = '';
     msg: string;
     indLoading: boolean = false;
     accountLedgerFrm: FormGroup;
@@ -51,7 +51,7 @@ export class POSDashboardComponent implements OnInit {
     modalRef2: BsModalRef;
     @ViewChild('template',{static:false}) TemplateRef: TemplateRef<any>;
     @ViewChild('templateNested',{static:false}) TemplateRef2: TemplateRef<any>;
-    // Constructors
+    
     constructor(
         private router: Router,
         private store: Store<any>,

@@ -67,6 +67,9 @@ import { MenuComponent } from './components/POS-System/Menu/menu.component';
 import { MenuCategoryComponent } from './components/POS-System/Menu/MenuCategory/MenuCategory.component';
 import { MenuConsumptionComponent } from './components/POS-System/Menu/MenuConsumption/menu-consumption.component';
 import { POSSaleBillingComponent } from './components/POS-System/pos-sale-billing/pos-sale-billing.component';
+import { PosTableComponent } from './components/POS-System/pos-table/pos-table.component';
+import { PosInvoicePrintComponent } from './components/POS-System/pos-table/pos-invoiceprint/pos-invoiceprint.component';
+import { PosSettleComponent } from './components/POS-System/pos-table/pos-settle/pos-settle.component';
 
 
 const routes: Routes = [
@@ -306,32 +309,98 @@ const routes: Routes = [
           },
           
           {
-            path: 'pos/:tabName',
+            path: 'pos-dashboard/:tabName',
             component: POSDashboardComponent,
             canActivate: [AuthGuard]
           },
+          
           {
-            path: 'pos/table/items',
+            path: 'tables/:tableId',
+            component: PosTableComponent,
+            canActivate: [AuthGuard]
+          },
+          {
+            path: 'pos/table/:tableId/empty-ticket',
+            component: PosTableComponent,
+            pathMatch: 'full', canActivate: [AuthGuard]
+          },
+          {
+            path: 'table/:tableId/move/:ToOpenTicketId',
+            component: PosTableComponent,
+            pathMatch: 'full', canActivate: [AuthGuard]
+        },
+        {
+            path: 'customer/:customerId/move/:ToOpenTicketId',
+            component: PosTableComponent,
+            pathMatch: 'full', canActivate: [AuthGuard]
+        },
+        {
+            path: 'customer/:customerId',
+            component: PosTableComponent,
+            pathMatch: 'full', canActivate: [AuthGuard]
+        },
+      {
+        path: 'table/:tableId/ticket/:ticketId',
+        component: PosTableComponent,
+            pathMatch: 'full', canActivate: [AuthGuard]
+      },
+      {
+        path: 'customer/:customerId/ticket/:ticketId',
+        component: PosTableComponent,
+            pathMatch: 'full', canActivate: [AuthGuard]
+      },
+      {
+        path: 'order/move/:itemId',
+        component: PosTableComponent,
+            pathMatch: 'full', canActivate: [AuthGuard]
+      },
+      {
+        path: 'pos/table/:tableId/empty-ticket',
+        component: PosTableComponent,
+            pathMatch: 'full', canActivate: [AuthGuard]
+      },
+      {
+        path: 'pos/customer/:customerId/empty-ticket',
+        component: PosTableComponent,
+            pathMatch: 'full', canActivate: [AuthGuard]
+      },
+        {
+            path: 'pos/settle',
+            component: PosSettleComponent,
+            pathMatch: 'full', canActivate: [AuthGuard]
+        },
+        {
+            path: 'pos/InvoicePrint',
+            component: PosInvoicePrintComponent,
+            pathMatch: 'full', canActivate: [AuthGuard]
+        },
+          {
+            path: 'pos-dashboard/table/items',
             component: MenuItemComponent,
             canActivate: [AuthGuard]
         },
         {
-            path: 'pos/table/menu',
+            path: 'pos-dashboard/table/menu',
             component: MenuComponent,
             canActivate: [AuthGuard]
         },
         {
-            path: 'pos/table/menucategory',
-            component: MenuCategoryComponent,
+            path: 'pos-dashboard/table/table',
+            component: TableComponent,
             canActivate: [AuthGuard]
         },
         {
-            path: 'pos/table/menuconsumption',
+            path: 'pos-dashboard/table/category',
+            component: CategoryComponent,
+            canActivate: [AuthGuard]
+        },
+        {
+            path: 'pos-dashboard/table/menuconsumption',
             component: MenuConsumptionComponent,
             canActivate: [AuthGuard]
         },
         {
-            path: 'pos/table/posbilling',
+            path: 'pos-dashboard/table/posbilling',
             component: POSSaleBillingComponent,
             canActivate: [AuthGuard]
         },
@@ -343,11 +412,11 @@ const routes: Routes = [
   
 
 
-  { path: "404", component: PagenotfoundComponent },
-  {
-    path: '**',
-    redirectTo: "/404",
-  },
+  { path: "**", component: PagenotfoundComponent },
+  // {
+  //   path: '**',
+  //   redirectTo: "/404",
+  // },
 
 ];
 

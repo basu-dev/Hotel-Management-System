@@ -47,7 +47,7 @@ export class ScreenMenuItemComponent implements OnInit {
     }
 
     LoadScreenCategoryItems(Id: number): void {
-        debugger
+        
         this.indLoading = true;
         this._menuItemService.get(Global.BASE_CATEGORIESITEM_ENDPOINT + Id)
             .subscribe(screenmenuitems => { this.screenmenuitems = screenmenuitems; this.indLoading = false; },
@@ -55,11 +55,11 @@ export class ScreenMenuItemComponent implements OnInit {
     }
 
     addMenuToCategories(ItemId: number, categoryId, MenuItem_Bool: boolean, MenuId: number): void {
-        debugger
+        
         let MenuCategoriesItem = new IScreenMenuItems(ItemId, categoryId, MenuId, MenuItem_Bool);
             this._menuItemService.post(Global.BASE_CATEGORIESITEM_ENDPOINT, MenuCategoriesItem).subscribe(
                 data => {
-                    debugger
+                    
                     if (data == 1) {
                         alert("Product added successfully");
                     }

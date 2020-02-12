@@ -36,7 +36,7 @@
 //     }
 
 //     delete(url: string, id: number): Observable<any> {
-//         debugger
+//         
 //         let headers = new Headers({ 'Content-Type': 'application/json' });
 //         let options = new RequestOptions({ headers: headers });
 //         return this._http.delete(url + id, options)

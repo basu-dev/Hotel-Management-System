@@ -28,6 +28,7 @@
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
     "jspdf": "^1.5.3",
+    "jspdf-autotable": "^3.2.11",
     "ng2-bs3-modal": "^0.15.0",
     "ng2-datetimepicker": "^1.0.0",
     "ngx-bootstrap": "^5.3.2",

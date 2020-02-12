@@ -226,7 +226,7 @@ export class PosInvoicePrintComponent implements OnInit {
 
     //Print Bill
     printBill() {
-        debugger
+        
         if (this.getFinalBalance() > 0) {
             alert("Before bill print! Please settle amount");
         }

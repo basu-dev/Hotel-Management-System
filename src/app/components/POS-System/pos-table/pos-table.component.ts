@@ -300,7 +300,7 @@ export class PosTableComponent implements OnInit {
 
     // Add Product in orders function
     addOrderItem(product: Product) {
-        debugger
+        
         let UnSubmittedOrder = this.getUnSubmittedOrder(this.parsedOrders);
         let TempQty = this.qtyFromCalculator ? eval(this.qtyFromCalculator) : 1;
         let ProductTotal = eval((TempQty * product.UnitPrice / 1.13).toFixed(2)); //Add Function VAT Value Minues;
@@ -510,7 +510,7 @@ export class PosTableComponent implements OnInit {
      * @param selectedOrderItem 
      */
     prepareOrderItemRequest(orderId: number, selectedOrderItem: OrderItem, parsedOrders: Order[] = this.parsedOrders, isMove: boolean = false, isAdd: boolean = false, isNew: boolean = false, isIncDec: boolean = false, flag: boolean = false) {
-        debugger
+        
         let ticketTotal = 0;
         let serviceCharge = 0;
         let tTotal = this.calculateSum(parsedOrders);

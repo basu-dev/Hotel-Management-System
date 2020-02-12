@@ -45,7 +45,7 @@ export class MenuCategoryItem implements OnInit {
     }
 
     LoadMenuItems(Id: number): void {
-        debugger
+        
         this.indLoading = true;
         this._menuItemService.get(Global.BASE_MENUCATEGORYITEM_ENDPOINT + Id)
             .subscribe(menuItems => { this.menuItems = menuItems; this.indLoading = false; },

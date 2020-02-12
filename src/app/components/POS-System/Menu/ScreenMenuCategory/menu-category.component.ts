@@ -40,7 +40,7 @@ export class MenuCategoryComponent1 implements OnInit {
     }
 
     LoadMenuCategory(Id: number): void {
-        debugger
+        
         this.indLoading = true;
         this._menucategoryService.get(Global.BASE_MENUSCATEOGRY_ENDPOINT + Id)
             .subscribe(screenmenucategories => {
@@ -51,12 +51,12 @@ export class MenuCategoryComponent1 implements OnInit {
     }
 
     addCategoriesToMenu(categoryId, MenuId, Menu_Bool: boolean): void {
-        debugger;
+        
         let MenuCategory = new IScreenMenuCategorys(categoryId, MenuId, Menu_Bool);
 
         this._menucategoryService.post(Global.BASE_MENUSCATEOGRY_ENDPOINT, MenuCategory).subscribe(
             data => {
-                debugger
+                
                 if (data == 1) {
                     alert("Category successfully added.");
                     this.route.params.subscribe((params: Params) => {

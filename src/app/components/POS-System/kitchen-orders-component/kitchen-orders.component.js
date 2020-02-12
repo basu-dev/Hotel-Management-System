@@ -33,7 +33,7 @@ var KitchenOrdersComponent = /** @class */ (function () {
         // Socket things
         this.socket = socket_io_client_1.default.connect(this.url);
         this.socket.on('Orders::Added', function (data) {
-            debugger;
+            
             console.log('Order Added: ' + JSON.stringify(data));
             _this.orderStoreApi.loadKitchenOrders();
         });

@@ -1,4 +1,5 @@
-﻿import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
+﻿
+import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { IMenuItem, IMenuItemPortion } from '../../../../Model/Menu/MenuItem';
 import { IMenuCategory } from '../../../../Model/Menu/MenuCategory';
@@ -43,7 +44,9 @@ export class MenuItemComponent implements OnInit {
         private _menuportionservice: BillingService,
         private modalService: BsModalService)
     {
-        this._menuItemService.getMenuCategories().subscribe(data => { this.menucategory = data });
+        this._menuItemService.getMenuCategories().subscribe(data => { this.menucategory = data },
+                                error=>console.log(error)
+                );
     }
 
     ngOnInit(): void {
@@ -71,21 +74,21 @@ export class MenuItemComponent implements OnInit {
 
     LoadMenuItems(): void {
         this.indLoading = true;
-        debugger
+        
         this._menuItemService.get(Global.BASE_MENUITEM_ENDPOINT)
             .subscribe(menuItems => { this.menuItems = menuItems; this.indLoading = false; },
             error => this.msg = <any>error);
     }
 
     addMenuItemPortions() {
-        debugger
+        
         const control = <FormArray>this.MenuItemForm.controls['MenuItemPortions'];
         const AddPortions = this.initMenuItemPortions();
         control.push(AddPortions);
     }
 
     removeMenuItemPortions(i: number) {
-        debugger
+        
         if (window.confirm('Are sure you want to delete this position item ?')) {
             let controls = <FormArray>this.MenuItemForm.controls['MenuItemPortions'];
             let controlToRemove = this.MenuItemForm.controls.MenuItemPortions['controls'][i].controls;
@@ -108,7 +111,7 @@ export class MenuItemComponent implements OnInit {
     }
 
     addMenuItems() {
-        debugger
+        
         this.modalTitle = "Add Menu Item";
         this.modalBtnTitle = "Save";
         this.dbops = DBOperation.create;
@@ -121,7 +124,7 @@ export class MenuItemComponent implements OnInit {
     }
 
     editMenuItems(Id: number, template: TemplateRef<any>) {
-        debugger
+        
         this.dbops = DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit Menu Item";
@@ -149,7 +152,7 @@ export class MenuItemComponent implements OnInit {
     }
 
     deleteMenuItems(id: number, template: TemplateRef<any>) {
-        debugger
+        
         this.dbops = DBOperation.delete;
         this.SetControlsState(true);
         this.modalTitle = "Confirm to Delete?";
@@ -186,7 +189,7 @@ export class MenuItemComponent implements OnInit {
     }
 
     onSubmit(formData: any) {
-        debugger
+        
         this.msg = "";
         this.formSubmitAttempt = true;
         let menuitemform = this.MenuItemForm;
@@ -204,10 +207,10 @@ export class MenuItemComponent implements OnInit {
                     }
                     this._menuItemService.post(Global.BASE_MENUITEM_ENDPOINT, AddMenuItemObj).subscribe(
                         data => {
-                            debugger
+                            
                             if (data >= 0) //Success
                             {
-                                debugger
+                                
                                 alert("Data successfully added.");
                                 this.modalRef.hide();
                                 this.reset();
@@ -224,7 +227,7 @@ export class MenuItemComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                    debugger
+                    
                     let MenuItemObj = {
                         Id: this.MenuItemForm.controls['Id'].value,
                         Name: this.MenuItemForm.controls['Name'].value,
@@ -234,10 +237,10 @@ export class MenuItemComponent implements OnInit {
                         MenuItemPortions: this.MenuItemForm.controls['MenuItemPortions'].value
                     }
 
-                    this._menuItemService.put(Global.BASE_MENUITEM_ENDPOINT, formData._value.Id, MenuItemObj).subscribe(
+                    this._menuItemService.put(Global.BASE_MENUITEM_ENDPOINT, formData.value.Id, MenuItemObj).subscribe(
                         
                         data => {
-                            debugger
+                            
                             if (data > 0) //Success
                             {
                                 alert("Data successfully updated.");
@@ -256,7 +259,7 @@ export class MenuItemComponent implements OnInit {
                     );
                     break;
                 case DBOperation.delete:
-                    this._menuItemService.delete(Global.BASE_MENUITEM_ENDPOINT, formData._value.Id).subscribe(
+                    this._menuItemService.delete(Global.BASE_MENUITEM_ENDPOINT, formData.value.Id).subscribe(
                         data => {
                             if (data == 1) //Success
                             {
@@ -287,7 +290,7 @@ export class MenuItemComponent implements OnInit {
     }
 
     cancel() {
-        debugger
+        
         this.modalRef.hide();
         this.reset();
     }

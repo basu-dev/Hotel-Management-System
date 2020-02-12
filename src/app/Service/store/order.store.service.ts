@@ -5,7 +5,9 @@ import { Observable } from 'rxjs/Observable';
 
 import * as actions from '../../actions/order.actions';
 
-@Injectable()
+@Injectable(
+    {providedIn:'root'}
+)
 export class OrderStoreService {
 
     // Constructor

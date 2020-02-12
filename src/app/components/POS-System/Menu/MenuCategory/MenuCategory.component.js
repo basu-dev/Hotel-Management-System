@@ -93,7 +93,7 @@ var MenuCategoryComponent = /** @class */ (function () {
                     });
                     break;
                 case enum_1.DBOperation.update:
-                    this._menucategoryService.put(global_1.Global.BASE_MENUCATEGORY_ENDPOINT, formData._value.Id, formData._value).subscribe(function (data) {
+                    this._menucategoryService.put(global_1.Global.BASE_MENUCATEGORY_ENDPOINT, formData.value.Id, formData._value).subscribe(function (data) {
                         if (data == 1) {
                             alert("Data successfully updated.");
                             _this.modalRef.hide();
@@ -109,7 +109,7 @@ var MenuCategoryComponent = /** @class */ (function () {
                     });
                     break;
                 case enum_1.DBOperation.delete:
-                    this._menucategoryService.delete(global_1.Global.BASE_MENUCATEGORY_ENDPOINT, formData._value.Id).subscribe(function (data) {
+                    this._menucategoryService.delete(global_1.Global.BASE_MENUCATEGORY_ENDPOINT, formData.value.Id).subscribe(function (data) {
                         if (data == 1) {
                             alert("Data successfully deleted.");
                             _this.modalRef.hide();

@@ -44,7 +44,7 @@
 //     }
 
 //     put(url: string, id: number, model: any): Observable<any> {
-//         debugger
+//         
 //         let body = JSON.stringify(model);
 //         let headers = new Headers({ 'Content-Type': 'application/json' });
 //         let options = new RequestOptions({ headers: headers });
@@ -54,7 +54,7 @@
 //     }
 
 //     delete(url: string, model : any): Observable<any> {
-//         debugger
+//         
 //         let body = JSON.stringify(model);
 //         let headers = new Headers({ 'Content-Type': 'application/json' });
 //         let options = new RequestOptions({ headers: headers });
@@ -63,7 +63,7 @@
 //             .catch(this.handleError);
 //     }
 //     deletes(url: string, id): Observable<any> {
-//         debugger
+//         
 //         let headers = new Headers({ 'Content-Type': 'application/json' });
 //         let options = new RequestOptions({ headers: headers });
 //         return this._http.delete(url + id, options)

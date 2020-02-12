@@ -55,7 +55,7 @@
 // 		// Socket things
 // 		//this.socket = io.connect(this.url);
 //     this.socket.on('Orders::Added', (data) => {
-// 			debugger
+// 			
 //       console.log('Order Added: ' + JSON.stringify(data));
 //       this.orderStoreApi.loadKitchenOrders();
 //     });

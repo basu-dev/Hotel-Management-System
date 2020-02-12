@@ -11,6 +11,7 @@
     public static BASE_STOCKINHAND_ENDPOINT=Global.BASE_HOST_ENDPOINT+ '/api/StockInHand/';
     public static BASE_MENUITEM_ENDPOINT=Global.BASE_HOST_ENDPOINT+ '/api/MenuItemAPI/';
     public static BASE_MENUITEM_ConsumptionCategory_ENDPOINT=Global.BASE_HOST_ENDPOINT+ '/api/MenuConsumptionCategoryFilterAPI/';
+    public static BASE_MENUITEM_PRODUCT_PORTION_ENDPOINT=Global.BASE_HOST_ENDPOINT+ '/api/MenuConsumptionProductPortionAPI/';
     public static BASE_SALE_BILLING_DETAILS_ENDPOINT=Global.BASE_HOST_ENDPOINT+ '/api/SalesBillingDetailsAPI/';
 
     //menu consumption

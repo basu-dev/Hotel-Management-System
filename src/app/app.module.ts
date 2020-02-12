@@ -148,8 +148,41 @@ import { PosCalculatorComponent } from './components/POS-System/pos-table/pos-ca
 import { PosSettleComponent } from './components/POS-System/pos-table/pos-settle/pos-settle.component';
 import { PosOrdersComponent } from './components/POS-System/pos-table/pos-orders/pos-orders.component';
 import { PosTicketsComponent } from './components/POS-System/pos-table/pos-tickets/pos-tickets.component';
+import { TicketService } from './Service/Billing/ticket.service';
+import { PosInvoicePrintComponent } from './components/POS-System/pos-table/pos-invoiceprint/pos-invoiceprint.component';
 // import { TicketService } from './Service/Billing/ticket.service';
 @NgModule({
+  imports: [
+    SelectDropDownModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+     ModalModule.forRoot(),
+     BsDatepickerModule.forRoot(),
+     BsModalModule,
+      AngularDateTimePickerModule,
+      StoreModule.forRoot({
+        orders: OrdersReducer,
+        tables: TablesReducer,
+        products: ProductsReducer,
+        user: UsersReducer,
+        categories: CategoriesReducer,
+        customers: CustomersReducer,
+        tickets: TicketsReducer
+    }),
+    EffectsModule.forRoot([
+      TableOrderEffects,
+      ProductEffects,
+      CategoryEffects,
+      TableEffects,
+      CustomerEffects,
+      UserEffects,
+      TicketEffects
+  ]),
+  ],
   declarations: [
 
     AppComponent,
@@ -256,39 +289,8 @@ import { PosTicketsComponent } from './components/POS-System/pos-table/pos-ticke
     PosSettleComponent,
     PosOrdersComponent,
     PosTicketsComponent,
-    
+    PosInvoicePrintComponent
 
-  ],
-  imports: [
-    SelectDropDownModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-     ModalModule.forRoot(),
-     BsDatepickerModule.forRoot(),
-     BsModalModule,
-      AngularDateTimePickerModule,
-      StoreModule.forRoot({
-        orders: OrdersReducer,
-        tables: TablesReducer,
-        products: ProductsReducer,
-        user: UsersReducer,
-        categories: CategoriesReducer,
-        customers: CustomersReducer,
-        tickets: TicketsReducer
-    }),
-    EffectsModule.forRoot([
-      TableOrderEffects,
-      ProductEffects,
-      CategoryEffects,
-      TableEffects,
-      CustomerEffects,
-      UserEffects,
-      TicketEffects
-  ]),
   ],
   providers: [
     { provide: 'NAVCOMPONENTS', useValue: navcomponents }   ,
@@ -326,11 +328,14 @@ import { PosTicketsComponent } from './components/POS-System/pos-table/pos-ticke
     UserRoleService,
     AccountTransactionTypeService,
     //pos
-    TicketStoreService,
+    TicketStoreService, 
+    TicketService,
     
     
     
   ],
+
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

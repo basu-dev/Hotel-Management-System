@@ -98,43 +98,43 @@ export class BillingService {
 
   }
   getMenuItems() {
-    return this._http.get("api/MenuItemAPI/get")
+    return this._http.get(Global.BASE_MENUITEM_ENDPOINT)
         
 }
 
 getMenu() {
-    return this._http.get("api/MenuAPI/get")
+    return this._http.get(Global.BASE_MENU_ENDPOINT)
        
 }
 getMenuConsumptionProductPortions() {
-  return this._http.get("/api/MenuConsumptionProductPortionAPI/")
+  return this._http.get(Global.BASE_MENUITEM_PRODUCT_PORTION_ENDPOINT)
       
 } 
 
 getMenuConsumptionCategoryFilters() {
-  return this._http.get("/api/MenuConsumptionCategoryFilterAPI/")
+  return this._http.get(Global.BASE_MENUITEM_ConsumptionCategory_ENDPOINT)
       
 } 
 
 getMenuConsumptionListDetails() {
-  return this._http.get("/api/MenuConsumptionDetailAPI/")
+  return this._http.get(Global.BASE_MENUCONSUMPTIONDETAILS_ENDPOINT)
       
 } 
 getMenuCategories() {
-  return this._http.get("/api/MenuCategoryAPI/get")
+  return this._http.get(Global.BASE_MENUCATEGORY_ENDPOINT)
       
 }
 getInventoryItems(){
-  return this._http.get("/api/InventoryItemAPI/get")
+  return this._http.get(Global.BASE_INVENTORY_ENDPOINT)
       
 } 
 getCategories() {
-  return this._http.get("/api/MenuCategoryAPI/get")
+  return this._http.get(Global.BASE_MENUCATEGORY_ENDPOINT)
 }
 
 getAccounts() {
 
-  return this._http.get("/api/AccountAPI/get")
+  return this._http.get(Global.BASE_ACCOUNT_ENDPOINT)
       
 } 
     // Parse into Json

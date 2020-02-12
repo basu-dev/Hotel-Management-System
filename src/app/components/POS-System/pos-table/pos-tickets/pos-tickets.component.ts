@@ -56,7 +56,7 @@ export class PosTicketsComponent {
         this.customer$ = this.store.select(CustomerSelector.getCurrentCustomer);       
         this.store.select(TicketSelector.getAllTickets)
             .subscribe((tickets: Ticket[]) => {
-                debugger
+                
                 if (this.router.url == "/pos/settle") {
                     return false;
                 }
@@ -96,7 +96,7 @@ export class PosTicketsComponent {
 
     // Redirects to Tickets list view
     goToCustomerTicketDetailView(ticketId: any) {
-        debugger
+        
         if (!ticketId) {
             return false;
         }

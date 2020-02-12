@@ -80,17 +80,17 @@ export const navcomponents=[
       children: [
         {
           title: 'Order',
-          link: 'pos/tables',
+          link: 'pos-dashboard/tables',
           home: true,
         },
         
         {
           title: 'Customer',
-          link: 'pos/customers',
+          link: 'pos-dashboard/customers',
         },
         {
           title: 'Billing',
-          link: 'pos/table/posbilling',
+          link: 'pos-dashboard/table/posbilling',
         },
         {
           title: 'Menu',
@@ -98,24 +98,24 @@ export const navcomponents=[
           children: [
             {
               title: 'Item',
-              link: 'pos/table/items',
+              link: 'pos-dashboard/table/items',
             },
             {
               title: 'Category',
-              link: 'pos/table/category',
+              link: 'pos-dashboard/table/category',
             },
             {
               title: 'Consumption',
-              link: 'pos/table/consumption',
+              link: 'pos-dashboard/table/menuconsumption',
             },
             {
               title: 'Menu',
-              link: 'pos/table/menu',
+              link: 'pos-dashboard/table/menu',
             },
             {
               title: 'Table and Room Design',
               pathMatch: 'prefix',
-              link: 'pos/table/table',
+              link: 'pos-dashboard/table/table',
             },
           ],
         },

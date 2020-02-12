@@ -5,7 +5,9 @@ import { Observable } from 'rxjs/Observable';
 
 import * as actions from '../../actions/ticket.actions';
 
-@Injectable()
+@Injectable(
+	{providedIn:'root'}
+)
 export class TicketStoreService {
     tickets$: Observable<Ticket[]>;
 

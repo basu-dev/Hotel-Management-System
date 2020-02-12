@@ -32,7 +32,7 @@ var MenuCategoryComponent1 = /** @class */ (function () {
     };
     MenuCategoryComponent1.prototype.LoadMenuCategory = function (Id) {
         var _this = this;
-        debugger;
+        
         this.indLoading = true;
         this._menucategoryService.get(global_1.Global.BASE_MENUSCATEOGRY_ENDPOINT + Id)
             .subscribe(function (screenmenucategories) {
@@ -42,7 +42,7 @@ var MenuCategoryComponent1 = /** @class */ (function () {
     };
     MenuCategoryComponent1.prototype.addCategoriesToMenu = function (categoryId, MenuId, Menu_Bool) {
         var _this = this;
-        debugger;
+        
         var MenuCategory = new MenuCategory_1.IScreenMenuCategorys(categoryId, MenuId, Menu_Bool);
         this._menucategoryService.posts(global_1.Global.BASE_MENUSCATEOGRY_ENDPOINT, MenuCategory).subscribe(function (data) {
             if (data == 1) {

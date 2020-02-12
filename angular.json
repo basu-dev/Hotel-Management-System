@@ -39,7 +39,8 @@
               "./node_modules/admin-lte/dist/js/adminlte.js",
               "./node_modules/admin-lte/dist/js/demo.js",
               "./node_modules/xlsx/dist/xlsx.full.min.js",
-              "./node_modules/jspdf/dist/jspdf.min.js"
+              "./node_modules/jspdf/dist/jspdf.min.js",
+              "./node_modules/jspdf-autotable/dist/jspdf.plugin.autotable.min.js"
 
             ]
           },
