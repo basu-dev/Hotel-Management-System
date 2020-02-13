@@ -1,8 +1,6 @@
 
-
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 
@@ -89,11 +87,6 @@ export class PosTableComponent implements OnInit {
             if (this.router.url.indexOf('move') !== -1) {
                 this.toOpenTicketId = (params['ToOpenTicketId']) ? params['ToOpenTicketId'] : 0;
             }
-
-			/**
-			 * Set current Ticket Id
-			 * Get current ticket's orders
-			 */
             if ((this.selectedTicket || this.toOpenTicketId) || this.selectedCustomerId) {
                 this.ticketStoreApi.setCurrentTicket(this.selectedTicket || this.toOpenTicketId);
                 this.orderStoreApi.loadOrdersByTicket(this.selectedTicket || this.toOpenTicketId);

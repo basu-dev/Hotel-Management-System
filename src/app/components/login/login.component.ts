@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
         private authenticationSevice: AuthenticationService,
         private route: ActivatedRoute,
         private router: Router,
+        private authService:AuthenticationService
       
     ) { }
 
@@ -59,11 +60,11 @@ export class LoginComponent implements OnInit {
                 (data) => {
                     
                     if (data!= null ) {
-                        localStorage.setItem("userToken",data.Token),
-                        localStorage.setItem("currentUser",JSON.stringify(data))
+                        localStorage.setItem("userToken",data.Token);
+                        this.authService.authenticate();
                         this.router.navigate(["/reservation"]);
                     } else {
-                        alert("Login failed");
+                        alert("Login failed no data");
                     }
                 },
                 error => {

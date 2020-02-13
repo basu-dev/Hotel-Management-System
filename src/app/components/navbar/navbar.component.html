@@ -1,5 +1,7 @@
-<div class="master-main-container col-sm-12 clearfix no-padding "  *ngIf="navdisplay;else notAuthenticated">
-<app-header-component></app-header-component>
+<div class="master-main-container col-sm-12 clearfix no-padding "  *ngIf="authenticated ;else notAuthenticated">
+<app-header-component>
+
+</app-header-component>
     <div class="wrapper">
   
       
@@ -21,9 +23,12 @@
           <div class="navbar-custom-menu">
            
           </div>
+         
           <ul>
-           
           </ul>
+          <div class="" style="cursor: pointer; color:white">
+            <a (click)="logout()">Logout</a>
+          </div>
         </nav>
       </header>
   
@@ -31,7 +36,7 @@
   
       <div class="content-wrapper" style="min-height: 959.667px">
       <!-- Content Header (Page header) CPVARIYANI -->
-     
+      
       <router-outlet></router-outlet>
    
       <!-- /.content -->

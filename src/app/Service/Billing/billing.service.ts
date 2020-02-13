@@ -42,7 +42,7 @@ export class BillingService {
     }
 
     delete(url: string, id: number): Observable<any> {
-         ;
+
         let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         let options = ({ headers: headers });
         return this._http.delete(url + id, options).pipe(
@@ -51,90 +51,128 @@ export class BillingService {
 
     getAccountTypes() {
 
-        return this._http.get("/api/AccountTypeAPI/get");
+        return this._http.get(Global.BASE_ACCOUNTTYPE_ENDPOINT).pipe(
+          catchError(this.handleError)
+        )
     }
 
     loadCustomers(): Observable<Customer[]> {
       // Call to API here
-          return this._http.get<Customer[]>(Global.BASE_ACCOUNT_POSCUSTOMER_ENDPOINT)
+          return this._http.get<Customer[]>(Global.BASE_ACCOUNT_POSCUSTOMER_ENDPOINT).pipe(
+            catchError(this.handleError)
+          )
           
 
     }
     	// Load All Products
 	loadProducts (): Observable<Product[]> {
 		// Call to API here
-        return this._http.get<Product[]>(Global.BASE_MENUCATEGORYITEM_ENDPOINT)
+        return this._http.get<Product[]>(Global.BASE_MENUCATEGORYITEM_ENDPOINT).pipe(
+          catchError(this.handleError)
+        )
        
 	}
 	loadTables (): Observable<Table[]> {
 		// Call to API here
-        return this._http.get<Table[]>(Global.BASE_SCREENTABLES_ENDPOINT)
+        return this._http.get<Table[]>(Global.BASE_SCREENTABLES_ENDPOINT).pipe(
+          catchError(this.handleError)
+        )
   }
 	loadCategories (): Observable<Category[]> {
 		// Call to API hered
-        return this._http.get<Category[]>(Global.BASE_MENUCATEGORYNAMES_ENDPOINT)
+        return this._http.get<Category[]>(Global.BASE_MENUCATEGORYNAMES_ENDPOINT).pipe(
+          catchError(this.handleError)
+        )
   }
 	// Load All Tables
 	show (TableId: string): Observable<Table> {
 		// Call to API here
-		return this._http.get<Table>('/db.new.json')
+		return this._http.get<Table>('/db.new.json').pipe(
+      catchError(this.handleError)
+    )
 		  
 	}
 
 	// Update Table
     update(table: Table): Observable<Table> {
-		return this._http.patch<Table>('/db.new.json', table)
+		return this._http.patch<Table>('/db.new.json', table).pipe(
+      catchError(this.handleError)
+    )
 		
 	}
 
 	// Delete table
     destroy(TableId: string): Observable<Table> {
-		return this._http.delete<Table>(`/db.new.json/contacts/${TableId}`)
+		return this._http.delete<Table>(`/db.new.json/contacts/${TableId}`).pipe(
+      catchError(this.handleError)
+    )
 		
 	}
 	loadUser (): Observable<User> {
 		// Call to API here
-		return this._http.get<User>(Global.BASE_USER_ENDPOINT)
+		return this._http.get<User>(Global.BASE_USER_ENDPOINT).pipe(
+      catchError(this.handleError)
+    )
 
   }
   getMenuItems() {
-    return this._http.get(Global.BASE_MENUITEM_ENDPOINT)
+    return this._http.get(Global.BASE_MENUITEM_ENDPOINT).pipe(
+      catchError(this.handleError)
+    )
         
 }
 
 getMenu() {
-    return this._http.get(Global.BASE_MENU_ENDPOINT)
+    return this._http.get(Global.BASE_MENU_ENDPOINT).pipe(
+      catchError(this.handleError)
+    )
        
 }
 getMenuConsumptionProductPortions() {
-  return this._http.get(Global.BASE_MENUITEM_PRODUCT_PORTION_ENDPOINT)
+  return this._http.get(Global.BASE_MENUITEM_PRODUCT_PORTION_ENDPOINT).pipe(
+    catchError(this.handleError)
+  )
       
 } 
 
 getMenuConsumptionCategoryFilters() {
-  return this._http.get(Global.BASE_MENUITEM_ConsumptionCategory_ENDPOINT)
+  return this._http.get(Global.BASE_MENUITEM_ConsumptionCategory_ENDPOINT).pipe(
+    catchError(this.handleError)
+  )
       
 } 
 
 getMenuConsumptionListDetails() {
-  return this._http.get(Global.BASE_MENUCONSUMPTIONDETAILS_ENDPOINT)
+  return this._http.get(Global.BASE_MENUCONSUMPTIONDETAILS_ENDPOINT).pipe(
+    catchError(this.handleError)
+  )
       
 } 
 getMenuCategories() {
-  return this._http.get(Global.BASE_MENUCATEGORY_ENDPOINT)
+  return this._http.get(Global.BASE_MENUCATEGORY_ENDPOINT).pipe(
+    catchError(this.handleError)
+  ).pipe(
+          catchError(this.handleError)
+        )
       
 }
 getInventoryItems(){
-  return this._http.get(Global.BASE_INVENTORY_ENDPOINT)
+  return this._http.get(Global.BASE_INVENTORY_ENDPOINT).pipe(
+          catchError(this.handleError)
+        )
       
 } 
 getCategories() {
-  return this._http.get(Global.BASE_MENUCATEGORY_ENDPOINT)
+  return this._http.get(Global.BASE_MENUCATEGORY_ENDPOINT).pipe(
+          catchError(this.handleError)
+        )
 }
 
 getAccounts() {
 
-  return this._http.get(Global.BASE_ACCOUNT_ENDPOINT)
+  return this._http.get(Global.BASE_ACCOUNT_ENDPOINT).pipe(
+          catchError(this.handleError)
+        )
       
 } 
     // Parse into Json
@@ -143,6 +181,6 @@ getAccounts() {
     }
     private handleError (error:HttpErrorResponse) {
         console.error(error);
-           return  throwError(error.message|| 'Server error');  
+           return  throwError(error.error|| 'Server error');  
     }
 }

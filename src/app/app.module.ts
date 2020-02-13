@@ -150,6 +150,9 @@ import { PosOrdersComponent } from './components/POS-System/pos-table/pos-orders
 import { PosTicketsComponent } from './components/POS-System/pos-table/pos-tickets/pos-tickets.component';
 import { TicketService } from './Service/Billing/ticket.service';
 import { PosInvoicePrintComponent } from './components/POS-System/pos-table/pos-invoiceprint/pos-invoiceprint.component';
+import { authReducer } from './reducers/auth.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 // import { TicketService } from './Service/Billing/ticket.service';
 @NgModule({
   imports: [
@@ -171,7 +174,8 @@ import { PosInvoicePrintComponent } from './components/POS-System/pos-table/pos-
         user: UsersReducer,
         categories: CategoriesReducer,
         customers: CustomersReducer,
-        tickets: TicketsReducer
+        tickets: TicketsReducer,
+        auth:authReducer
     }),
     EffectsModule.forRoot([
       TableOrderEffects,
@@ -182,6 +186,9 @@ import { PosInvoicePrintComponent } from './components/POS-System/pos-table/pos-
       UserEffects,
       TicketEffects
   ]),
+  StoreDevtoolsModule.instrument({
+    maxAge: 10
+  })
   ],
   declarations: [
 

@@ -5,10 +5,13 @@ import { Observable, throwError } from 'rxjs';
 import { User } from '../Model/user.model';
 import { IUser } from '../Model/User/user';
 import { Router } from '@angular/router';
-
+import {Store} from "@ngrx/store";
+import * as fromAuth from "../reducers/auth.reducer";
+import * as ActionTypes from "../actions/auth.action";
+import * as jwt_decode from "jwt-decode";
 @Injectable()
 export class AuthenticationService {
-    constructor(private http: HttpClient,public router:Router) { }
+    constructor(private http: HttpClient,public router:Router,public store:Store<{auth:fromAuth.State}>) { }
 
     login(url:string,model: any){
        
@@ -20,25 +23,33 @@ export class AuthenticationService {
             catchError(this.handleError)
         )}
     public isAuthenticated(): boolean {
-
+        
         const user = localStorage.getItem('userToken');
-        if (user != null)
+        
+        
+        if (user)
         {
+            console.log("Token",jwt_decode(user))
             return true;
         }
         else
         {
-            this.router.navigate(["/login"])
             return false;
+           
+            
         }
         
 
     }
-
+    authenticate(){
+        this.store.dispatch({type:ActionTypes.ActionTypes.IS_AUTHENTICATED})
+    }
     logout() {
         // remove user from local storage to log user out
+        this.store.dispatch({type:ActionTypes.ActionTypes.IS_UNAUTHENTICATED})
         localStorage.removeItem('userToken');
         localStorage.removeItem('currentUser');
+        this.router.navigate(['/login'])
     }
     public handleError(error:HttpErrorResponse){
         return throwError(error.error);

@@ -129,11 +129,13 @@ export class POSDashboardComponent implements OnInit {
         });
              
         this.tables$ = this.store.select(TableSelector.getAllTables);
+        console.log("loadedTable",this.tables$)
         this.LoadCustomers();
         this.LoadMasters();
     }
 
     LoadCustomers() {
+        console.log("loading Customers")
         this.indLoading = true;
         this._customerService.get(Global.BASE_ACCOUNT_POSCUSTOMER_ENDPOINT)
             .subscribe(

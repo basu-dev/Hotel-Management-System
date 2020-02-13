@@ -74,7 +74,7 @@ import { PosSettleComponent } from './components/POS-System/pos-table/pos-settle
 
 const routes: Routes = [
   { path: '', redirectTo: "/test", pathMatch: 'full' },
-  { path: "login", component: LoginComponent, canActivate: [AuthGuard] },
+  { path: "login", component: LoginComponent},
   { path: "user", component: UserComponent },
   { path: "test", component: TestComponent },
   { path: "reservation",
