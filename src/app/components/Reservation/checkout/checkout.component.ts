@@ -20,7 +20,10 @@ import { RoomType } from '../../../Model/reservation/customer-screen.model';
 import { forkJoin } from "rxjs/observable/forkJoin";
 
 @Component({
-    templateUrl: './checkout.component.html'
+    templateUrl: './checkout.component.html',
+    styleUrls:[
+        './checkout.component.css'
+    ]
 })
 
 export class CheckOutComponent implements OnInit {

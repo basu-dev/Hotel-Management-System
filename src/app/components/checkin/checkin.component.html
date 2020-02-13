@@ -45,11 +45,11 @@
                 <table border="1" style="color:#000;border:none;" *ngIf='reservedRooms && reservedRooms.length' id="tblReservationCheckInDate">
                     <thead class="text-center">
                         <tr>
-                            <th colspan="10" class="head-first">
+                            <th colspan="10" class="headfirst">
                                 <strong>{{ company?.NameEnglish }}</strong>
                                 <br /> Reservation Check in Status
                             </th>
-                            <th class="export-no-display"></th>
+                            <!-- <th class="export-no-display"></th> -->
                         </tr>
                         <tr>
                             <th>Customer</th>
@@ -101,12 +101,11 @@
         </div>
     </div>
 </div>
-
 <ng-template #imageView>
     <div class="modal-header">
         <h4 class="modal-title pull-left">{{modalTitle}}</h4>
         <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-            <span aria-hidden="true">&times;</span>
+            <i class="fa fa-times"></i>
         </button>
     </div>
     <div class="modal-body">
@@ -117,7 +116,6 @@
         </div>
     </div>
 </ng-template>
-
 <ng-template #template>
     <form class="panel-primary" novalidate [formGroup]="reservedRoomForm">
         <div class="modal-header panel-heading">
@@ -127,9 +125,7 @@
             </button>
         </div>
         <div class="modal-body">
-            <div class="panel-body">
                 <input type="hidden" class="hidden" formControlName="UserName" />
-                <div class="panel panel-defaut">
                     <div class="tab-v1">
                         <ul class="nav nav-tabs nav-justified">
                             <li class="nav-item">
@@ -154,7 +150,7 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="control-label">Plan:</label>
-                                            <input type="text" class="form-control" placeholder="Guest Plan" formControlName="Plan" tabindex="1">
+                                            <input type="text" class="form-control" placeholder="Guest Plan" formControlName="Plan" tabindex="2">
                                             <div class="alert alert-danger" *ngIf="reservedRoomForm.get('Plan').hasError('required') && formSubmitAttempt">
                                                 Guest Plan field is required
                                             </div>
@@ -163,14 +159,14 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label class="control-label">Check In:</label>
-                                            <angular2-date-picker formControlName="ToCheckInDate" [settings]="settings" tabindex="2"></angular2-date-picker>
+                                            <angular2-date-picker class="styleme" formControlName="ToCheckInDate" [settings]="settings" tabindex="3"></angular2-date-picker>
                                             <div class="alert alert-danger" *ngIf="reservedRoomForm.get('ToCheckInDate').hasError('required') && formSubmitAttempt">
                                                 Check In Date field is required.
                                             </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="control-label">Check Out:</label>
-                                            <angular2-date-picker formControlName="ToCheckOutDate" [settings]="settings" tabindex="3"></angular2-date-picker>
+                                            <angular2-date-picker formControlName="ToCheckOutDate" [settings]="settings" tabindex="4"></angular2-date-picker>
                                             <div class="alert alert-danger" *ngIf="reservedRoomForm.get('ToCheckOutDate').hasError('required') && formSubmitAttempt">
                                                 Check Out Date field is required
                                             </div>
@@ -179,14 +175,14 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label class="control-label">No. of Person:</label>
-                                            <input type="number" class="form-control" placeholder="Number of Adulat guests." formControlName="Adult" tabindex="4">
+                                            <input type="number" class="form-control" placeholder="Number of Adulat guests." formControlName="Adult" tabindex="5">
                                             <div class="alert alert-danger" *ngIf="reservedRoomForm.get('Adult').hasError('required') && formSubmitAttempt">
                                                 Adult field is required
                                             </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="control-label">Children:</label>
-                                            <input type="number" class="form-control" placeholder="Number of Childern" formControlName="Children" tabindex="5">
+                                            <input type="number" class="form-control" placeholder="Number of Childern" formControlName="Children" tabindex="6">
                                             <div class="alert alert-danger" *ngIf="reservedRoomForm.get('Children').hasError('required') && formSubmitAttempt">
                                                 Children field is required
                                             </div>
@@ -195,14 +191,14 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label class="control-label">No. of Room:</label>
-                                            <input type="number" class="form-control" placeholder="Number of rooms" formControlName="NumberofRoom" tabindex="6">
+                                            <input type="number" class="form-control" placeholder="Number of rooms" formControlName="NumberofRoom" tabindex="7">
                                             <div class="alert alert-danger" *ngIf="reservedRoomForm.get('NumberofRoom').hasError('required') && formSubmitAttempt">
                                                 Number of Room field is required
                                             </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="control-label">Room Type:</label>
-                                            <select class="form-control" formControlName="RoomTypeId" tabindex="7">
+                                            <select class="form-control" formControlName="RoomTypeId" tabindex="8">
                                                 <option value="" selected>--- Choose Room Type ---</option>
                                                 <option class="form-control" *ngFor="let CType of roomTypes" [ngValue]="CType.Id">{{CType.Name}}</option>
                                             </select>
@@ -217,11 +213,11 @@
                                     <div class="form-group col-md-6">
                                         <label class="control-label">Identity:</label>
                                             <div class="row">
-                                                <div class="col-md-10 bg-warning">
-                                                    <app-file-upload #fileUpload [extraFormData]="reservedRoomForm" [uploadUrl]="uploadUrl" [dropMessage]="dropMessage" tabindex="8"></app-file-upload>
+                                                <div class="col-md-10">
+                                                    <app-file-upload #fileUpload [extraFormData]="reservedRoomForm" [uploadUrl]="uploadUrl" [dropMessage]="dropMessage" tabindex="9"></app-file-upload>
                                                 </div>
-                                                <div class="col-md-2 bg-danger">
-                                                    <button type="button" class="btn btn-sm btn-danger" (click)="clearFile()" tabindex="8">Clear</button>
+                                                <div class="col-md-2" style="margin-left:-200px!important;">
+                                                    <button type="button" class="btn btn-sm btn-danger" (click)="clearFile()" tabindex="10">Clear</button>
                                                 </div>
                                             </div>
                                             <div class="row" *ngIf="reservedRoom?.File && reservedRoom.File !== ''">
@@ -238,7 +234,7 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="control-label">G.R. No.:</label>
-                                            <input type="number" class="form-control" placeholder="G.R. No." formControlName="GRC" tabindex="9">
+                                            <input type="number" class="form-control" placeholder="G.R. No." formControlName="GRC" tabindex="11">
                                             <div class="alert alert-danger" *ngIf="reservedRoomForm.get('GRC').hasError('required') && formSubmitAttempt">
                                                 Guest Record No. field is required
                                             </div>
@@ -247,59 +243,59 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label class="control-label">Rate (Rs.):</label>
-                                            <input type="number" class="form-control" placeholder="Rate (Rs.)" formControlName="Rate" tabindex="10">
+                                            <input type="number" class="form-control" placeholder="Rate (Rs.)" formControlName="Rate" tabindex="12">
                                             <div class="alert alert-danger" *ngIf="reservedRoomForm.get('Rate').hasError('required') && formSubmitAttempt">
                                                 Rate field is required
                                             </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="control-label">Advance (Rs.):</label>
-                                            <input type="number" class="form-control" placeholder="Advance (Rs.)" formControlName="AdvanceAmount" tabindex="11">
+                                            <input type="number" class="form-control" placeholder="Advance (Rs.)" formControlName="AdvanceAmount" tabindex="13">
                                             <div class="alert alert-danger" *ngIf="reservedRoomForm.get('AdvanceAmount').hasError('required') && formSubmitAttempt">
                                                 Advance field is required
                                             </div>
                                     </div>
                                 </div>
-                                <div class="row col-md-12 bg-danger" *ngIf="reservedRoomForm.controls.listRoomOccupiedDetail.controls.length">
-                                    <div formArrayName="listRoomOccupiedDetail" class="panel panel-default">
+                                <div  *ngIf="reservedRoomForm.controls.listRoomOccupiedDetail.controls.length">
+                                    <div  formArrayName="listRoomOccupiedDetail" class="panel panel-default">
                                         <div *ngFor="let occupancyD of reservedRoomForm.controls.listRoomOccupiedDetail.controls; let i=index" [formGroupName]="i" style="margin-bottom:10px;">
-                                             <div class="row" style="width:100%;"> 
-                                                <div class="col-md-3 bg-danger" style="width:100%">
+                                             <div class="row"> 
+                                                <div class="col-md-3">
                                                     <input type="hidden" formControlName="Id" />
                                                     <input type="hidden" formControlName="RoomOccupiedId" />
                                                     <input type="hidden" formControlName="ReservationId" />
                                                     <label class="control-label" align="right">Room:</label>
-                                                    <select class="form-control" formControlName="RoomId" tabindex="12">
+                                                    <select class="form-control" formControlName="RoomId" tabindex="14">
                                                         <option class="form-control" *ngFor="let room of rooms" [ngValue]="room.Id">Room {{room.RoomNumber}}</option>
                                                     </select>
                                                     <div class="alert alert-danger" *ngIf="occupancyD.get('RoomId').hasError('required') && formSubmitAttempt">
                                                         Room field is required
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3 bg-success"  style="width:100%">
+                                                <div class="col-md-3">
                                                     <label class="control-label" align="right">No.Guest:</label>
-                                                    <input type="text" class="form-control" placeholder="No.Guest" formControlName="PAX" tabindex="13">
+                                                    <input type="text" class="form-control" placeholder="No.Guest" formControlName="PAX" tabindex="15">
                                                     <div class="alert alert-danger" *ngIf="occupancyD.get('PAX').hasError('required') && formSubmitAttempt">
                                                         Guest Name field is required
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3 bg-warning"  style="width:500%">
+                                                <div class="col-md-3">
                                                     <label class="control-label" align="right">Guest:</label>
-                                                    <input type="text" class="form-control" placeholder="Guest Name" formControlName="GuestName" tabindex="14">
+                                                    <input type="text" class="form-control" placeholder="Guest Name" formControlName="GuestName" tabindex="16">
                                                     <div class="alert alert-danger" *ngIf="occupancyD.get('GuestName').hasError('required') && formSubmitAttempt">
                                                         Guest Name field is required
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3 close-btn bg-success" (click)="removeRoom(i)">
+                                                <div class="col-md-1 close-btn" (click)="removeRoom(i)">
                                                     <i class="fa fa-times"></i>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <button type="button" (click)="addRoom()" [disabled]="reservedRoomForm.controls.listRoomOccupiedDetail.invalid" class="btn btn-success btnwidth" tabindex="17">
+                                                        <i class="fa fa-plus"></i>
+                                                    </button>
                                                 </div>
                                          </div>
                                         </div>
-                                    </div>
-                                    <div class="col-sm-12 pull-right">
-                                        <button type="button" (click)="addRoom()" [disabled]="reservedRoomForm.controls.listRoomOccupiedDetail.invalid" class="btn btn-success col-sm-1" tabindex="15">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -307,14 +303,14 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label class="control-label">Full Name:</label>
-                                            <input type="text" class="form-control" style="max-width:100%" placeholder="Guest Full Name" formControlName="GuestName" tabindex="16">
+                                            <input type="text" class="form-control" style="max-width:100%" placeholder="Guest Full Name" formControlName="GuestName" tabindex="18">
                                             <div class="alert alert-danger" *ngIf="reservedRoomForm.get('GuestName').hasError('required') && formSubmitAttempt">
                                                 Guest Name field is required
                                             </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="control-label">Address:</label>
-                                            <input type="text" class="form-control" placeholder="Address" style="max-width:100%" formControlName="Address" tabindex="17" />
+                                            <input type="text" class="form-control" placeholder="Address" style="max-width:100%" formControlName="Address" tabindex="19" />
                                             <div class="alert alert-danger" *ngIf="reservedRoomForm.get('Address').hasError('required') && formSubmitAttempt">
                                                 Address field is required
                                             </div>
@@ -324,7 +320,7 @@
                                     <div class="form-group col-md-6">
                                         <label class="control-label" for="country">Nationality:</label>
                                      
-                                            <input type="text" class="form-control" formControlName="Country" tabindex="18" />
+                                            <input type="text" class="form-control" formControlName="Country" tabindex="19" />
                                    
                                         <div class="alert alert-danger" *ngIf="reservedRoomForm.get('Country').hasError('required') && formSubmitAttempt">
                                             Address field is required
@@ -332,7 +328,7 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="control-label">ID/Passport No:</label>
-                                            <input type="text" class="form-control" placeholder="" formControlName="Id_Passport_No" tabindex="19">
+                                            <input type="text" class="form-control" placeholder="" formControlName="Id_Passport_No" tabindex="20">
                                             <div class="alert alert-danger" *ngIf="reservedRoomForm.get('Id_Passport_No').hasError('required') && formSubmitAttempt">
                                                 passport field is required
                                             </div>
@@ -341,14 +337,14 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label class="control-label">Date of Issue:</label>
-                                            <input class="form-control" placeholder="dd/MM/yyyy" bsDatepicker formControlName="DateofIssue" [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" tabindex="20" />
+                                            <input class="form-control" placeholder="dd/mm/yyyy" bsDatepicker formControlName="DateofIssue" [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" tabindex="21" />
                                             <div class="alert alert-danger" *ngIf="reservedRoomForm.get('DateofIssue').hasError('required') && formSubmitAttempt">
                                                 Date of Issue field is required.
                                             </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="control-label">Visa No:</label>
-                                            <input type="text" class="form-control" placeholder="" formControlName="VisaNo" tabindex="21">
+                                            <input type="text" class="form-control" placeholder="" formControlName="VisaNo" tabindex="22">
                                             <div class="alert alert-danger" *ngIf="reservedRoomForm.get('VisaNo').hasError('required') && formSubmitAttempt">
                                                 visa no. field is required
                                             </div>
@@ -357,14 +353,14 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label class="control-label">Place Issued:</label>
-                                            <input type="text" class="form-control" placeholder="" formControlName="PlaceIssued" tabindex="22">
+                                            <input type="text" class="form-control" placeholder="" formControlName="PlaceIssued" tabindex="23">
                                             <div class="alert alert-danger" *ngIf="reservedRoomForm.get('PlaceIssued').hasError('required') && formSubmitAttempt">
                                                 Place of Issued field is required
                                             </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="control-label">Date of Birth:</label>
-                                            <input class="form-control" placeholder="dd/MM/yyyy" bsDatepicker formControlName="DateofBirth" [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" tabindex="23" />
+                                            <input class="form-control" placeholder="dd/mm/yyyy" bsDatepicker formControlName="DateofBirth" [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" tabindex="24" />
                                             <div class="alert alert-danger" *ngIf="reservedRoomForm.get('DateofBirth').hasError('required') && formSubmitAttempt">
                                                 Date of birth field is required
                                             </div>
@@ -373,14 +369,14 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label class="control-label">Occupation:</label>
-                                            <input type="text" class="form-control" placeholder="" formControlName="Occupation" tabindex="24">
+                                            <input type="text" class="form-control" placeholder="" formControlName="Occupation" tabindex="25">
                                             <div class="alert alert-danger" *ngIf="reservedRoomForm.get('Occupation').hasError('required') && formSubmitAttempt">
                                                 occupation field is required
                                             </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="control-label">Organization:</label>
-                                            <input type="text" class="form-control" placeholder="" formControlName="Organization" tabindex="25">
+                                            <input type="text" class="form-control" placeholder="" formControlName="Organization" tabindex="26">
                                             <div class="alert alert-danger" *ngIf="reservedRoomForm.get('Organization').hasError('required') && formSubmitAttempt">
                                                 Organization field is required
                                             </div>
@@ -389,14 +385,14 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label class="control-label">Purpose of Visit:</label>
-                                            <input type="text" class="form-control" placeholder="" formControlName="PurposeofVisit" tabindex="26">
+                                            <input type="text" class="form-control" placeholder="" formControlName="PurposeofVisit" tabindex="27">
                                             <div class="alert alert-danger" *ngIf="reservedRoomForm.get('PurposeofVisit').hasError('required') && formSubmitAttempt">
                                                 Purpose of visit field is required
                                             </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="control-label">Next Visit:</label>
-                                            <input type="text" class="form-control" placeholder="" formControlName="NextVisit" tabindex="27">
+                                            <input type="text" class="form-control" placeholder="" formControlName="NextVisit" tabindex="28">
                                             <div class="alert alert-danger" *ngIf="reservedRoomForm.get('NextVisit').hasError('required') && formSubmitAttempt">
                                                 Forward Address field is required
                                             </div>
@@ -405,14 +401,14 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label class="control-label">Vehicle No:</label>
-                                            <input type="text" class="form-control" placeholder="" formControlName="VehicleNo" tabindex="28">
+                                            <input type="text" class="form-control" placeholder="" formControlName="VehicleNo" tabindex="29">
                                             <div class="alert alert-danger" *ngIf="reservedRoomForm.get('VehicleNo').hasError('required') && formSubmitAttempt">
                                                 Vehicle number  field is required
                                             </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="control-label">Mobile No:</label>
-                                            <input type="text" class="form-control" placeholder="" formControlName="MobileNo" tabindex="29">
+                                            <input type="text" class="form-control" placeholder="" formControlName="MobileNo" tabindex="30">
                                             <div class="alert alert-danger" *ngIf="reservedRoomForm.get('MobileNo').hasError('required') && formSubmitAttempt">
                                                 Mobile No. field is required
                                             </div>
@@ -422,14 +418,14 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label class="control-label">PAX:</label>
-                                            <input type="text" class="form-control" placeholder="" formControlName="PAX" tabindex="30">
+                                            <input type="text" class="form-control" placeholder="" formControlName="PAX" tabindex="31">
                                             <div class="alert alert-danger" *ngIf="reservedRoomForm.get('PAX').hasError('required') && formSubmitAttempt">
                                                 Mobile No. field is required
                                             </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="control-label">Remarks:</label>
-                                            <input type="text" class="form-control" placeholder="" formControlName="Remarks" tabindex="31">
+                                            <input type="text" class="form-control" placeholder="" formControlName="Remarks" tabindex="32">
                                             <div class="alert alert-danger" *ngIf="reservedRoomForm.get('Remarks').hasError('required') && formSubmitAttempt">
                                                 Remarks field is required
                                             </div>
@@ -439,7 +435,7 @@
                                     <div class="form-group col-md-6">
                                         <label class="control-label">Relation:</label>
                                        
-                                            <select class="form-control" formControlName="Relation" tabindex="32">
+                                            <select class="form-control" formControlName="Relation" tabindex="33">
                                                 <option value="Husband">Husband</option>
                                                 <option value="Wife">Wife</option>
                                                 <option value="Childern">Childern</option>
@@ -454,18 +450,18 @@
                             </div>
                         </div>
                     </div>
-                </div>
+               
                 <div class="row footermodal">
                     <div class="col-md-2">
-                        <button type="button" class="btn btn-success btn1 pull-left" (click)="onSubmit(reservedRoomForm, fileUpload)" tabindex="30">{{modalBtnTitle}}</button>
+                        <button type="button" class="btn btn-success btn1 pull-left" (click)="onSubmit(reservedRoomForm, fileUpload)" tabindex="34">{{modalBtnTitle}}</button>
                     </div>
                     <div class="col-md-8">
                     </div>
                     <div class="col-md-2">
-                        <button type="button" class="btn btn-danger pull-right" (click)="modalRef.hide()" tabindex="31">Cancel</button>
+                        <button type="button" class="btn btn-danger pull-right" (click)="modalRef.hide()" tabindex="35">Cancel</button>
                      </div>
                 </div>
-            </div>
+        
         </div>
     </form>
 </ng-template>

@@ -127,6 +127,11 @@ table td .firstimg{
        padding:0;
        box-sizing: border-box;
 }
+.fa-times{
+          padding-right:10px;
+          border-radius:50%;
+          color:#fff;
+}
 .footermodal{
               margin-top:25px;
 
