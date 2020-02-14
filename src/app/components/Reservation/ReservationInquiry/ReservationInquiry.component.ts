@@ -17,7 +17,10 @@ import { RoomType } from '../../../Model/reservation/customer-screen.model';
 import { PaymentType } from '../../../Model/reservation/payment-type.model';
 
 @Component({
-    templateUrl: './ReservationInquiry.component.html'
+    templateUrl: './ReservationInquiry.component.html',
+    styleUrls:[
+        './ReservationInquiry.component.css'
+    ]
 })
 
 export class ReservationInquiryComponent implements OnInit {
@@ -47,7 +50,7 @@ export class ReservationInquiryComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.modalTitle = "Reservation Inquery Form";
+        this.modalTitle = "Reservation Inquiry Form";
         this.modalBtnTitle = "Search Room Availability";
         this.InqueryForm = this.fb.group({
             Id: [''],
