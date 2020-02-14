@@ -1,23 +1,4 @@
-.panel-heading h2{
-    font-size:18px;
-    font-weight:bold;
-    font-family:'Raleway',sans-serif;
-    color:#2874a6;
-}
-.panel-primary{
-    padding:30px;
-    background-color:#fff;
-}
-.panel-heading{
-  padding-bottom:15px;
-}
-.panel-body{
- background-color: #3b5998;
- color:#fff;
- padding: 30px 30px;
- box-shadow:5px 6px 5px #151a30;
- border-radius:5px;
-}
+
 .padfirst{
            padding-top: 7px;
            padding-left: 15px;
@@ -28,30 +9,4 @@
 .firstmar{
            margin-bottom:30px;
 }
-/* =========== style css of table ============== */
-table{
-    background:#fff!important;
-    width:100%;
-    margin-top:30px;
-    border: 1px solid #2874a6!important;
-}
-table th{
-       padding:8px;
-       font-size:15px;
-       font-weight:bold;
-       background-color: #dcdcdc;
-       border: 1px solid #2874a6!important;
-}
-table .headfirst{
-               padding-top:5px!important;
-               background:#2874a6;
-               color:#fff;
-}
-table td{
-  font-size:15px;
-  font-weight:200;
-  padding:10px;
-  border: 1px solid #2874a6!important;
-}
-
 

@@ -1,23 +1,4 @@
-.panel-heading h2{
-    font-size:18px;
-    font-weight:bold;
-    font-family:'Raleway',sans-serif;
-    color:#2874a6;
-}
-.panel-primary{
-               padding:30px;
-               background-color:#fff;
-}
-.panel-heading{
-               padding-bottom:15px;
-}
-.panel-body{
-            background-color: #3b5998;
-            color:#fff;
-            padding: 30px 30px;
-            box-shadow:5px 6px 5px #151a30;
-            border-radius:5px;
-}
+
 .lastmar{
          margin-top:25px;
 }

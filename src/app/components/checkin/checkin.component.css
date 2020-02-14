@@ -1,24 +1,4 @@
-.panel-heading h2{
-    font-size:18px;
-    font-weight:bold;
-    font-family:'Raleway',sans-serif;
-    color:#2874a6;
-}
-.panel-primary{
-padding:30px;
-background-color:#fff;
-}
-.panel-heading{
-padding-bottom:15px;
 
-}
-.panel-body{
-background-color: #3b5998;
-color:#fff;
-padding: 30px 30px;
-box-shadow:5px 6px 5px #151a30;
-border-radius:5px;
-}
 .btn-mar .btn{
     margin-right:25px;
     font-size:15px;
@@ -81,74 +61,12 @@ border-radius:5px;
                      margin-top:2px;
 }
 /* =========== style css of table ============== */
-table{
-    background:#fff!important;
-    width:100%;
-    margin-top:30px;
-    border: 1px solid #2874a6!important;
-}
-table th{
-       padding:8px;
-       font-size:15px;
-       font-weight:bold;
-       background-color: #dcdcdc;
-       border: 1px solid #2874a6!important;
-}
-table .headfirst{
-               padding-top:5px!important;
-               background:#2874a6;
-               color:#fff;
-}
-table td{
-  font-size:15px;
-  font-weight:200;
-  padding:6px;
-  border: 1px solid #2874a6!important;
-}
-
-
 table td img{
-            height:22px;
-            width:22px;
+            height:20px;
+            width:20px;
 }
 table td .firstimg{
                  padding-right:5px;
-}
-/* ================= style css of modal ========================== */
-.modal-header{
-    background:#2874a6;
-    color:#fff;
-    font-family: "Raleway",sans-serif;
-    font-size: 18px;
-}
-.modal-header button{
-            color:#fff!important;
-            width:30px;
-            height:30px;
-}
-.modal-header button span{
-                 width:100px!important;
-                 height:100px!important;
-}
-.modal-body{
-   background-color: #dcdcdc!important;
-   color:#212226;
-}
-
-.modal{
-margin:0;
-padding:0;
-box-sizing: border-box;
-}
-.footermodal{
-    margin-top:25px;
-
-}
-.footermodal button,a{
-            width:80%;
-            color:#fff;
-            border:none;
-            padding:8px;
 }
 /* ================== css of tab section =========== */
 .marginoftab{
@@ -163,11 +81,7 @@ div.wc-date-container{
         padding:7px 15px;
         margin-top:30px;
 }
-.fa-times{
-          background-color:#fff;
-          padding:5px;
-          border-radius:50%;
-}
+
 .nav-item a{
             width:100%;
             background: #fff;
@@ -182,12 +96,5 @@ div.wc-date-container{
 }
 .tab-content{
              border:none!important;
-}
-.fa-design{
-          background-color:#212226!important;
-          padding:5px;
-          position:absolute;
-          right: 5%;
-          border-radius:50%;
 }
 
