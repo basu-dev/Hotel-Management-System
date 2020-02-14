@@ -9,7 +9,10 @@ import { Global } from '../../../Shared/global';
 import { DatePipe } from '@angular/common';
 
 @Component({
-    templateUrl: './Reservationstatus.component.html'
+    templateUrl: './Reservationstatus.component.html',
+    styleUrls:[
+        './Reservationstatus.component.css'
+    ]
 })
 
 export class RoomStatusComponent implements OnInit{

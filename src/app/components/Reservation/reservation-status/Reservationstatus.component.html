@@ -1,28 +1,26 @@
 ﻿<div class='panel panel-primary'>
     <div class='panel-heading'>
-        Room Status
+        <h2>Room Status</h2>
     </div>
     <div class='panel-body'>
         <div class='table-responsive'>
             <div style="padding-bottom:10px">
-                <div class="row">
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-9">
-                        <div class="row" style="padding-top: 17px;">
-                            <div class="col-sm-2">
-                                Filter By Date:
-                            </div>
-                            <div class="col-sm-3">
-                                <input class="form-control" placeholder="dd/MM/yyyy" bsDatepicker [(ngModel)]="fromDate" [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" />
-                            </div>
-                            <div class="col-sm-2">
-                                <button class="btn btn-success" (click)="getDataDateFilter()"> GO</button>
-                            </div>
-                            <div class="col-sm-2">
-                                <button *ngIf='RoomStatuss && RoomStatuss.length' class="btn btn-primary pull-left" (click)="exportTableToExcel('TableGuestStatus')"> Export</button>
-                            </div>
-                        </div>
+                <div class="row firstmar">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2 padfirst">
+                        Filter By Date:
                     </div>
+                    <div class="col-md-3 designinput">
+                        <input class="form-control" placeholder="dd/mm/yyyy" bsDatepicker [(ngModel)]="fromDate" [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" />
+                    </div>
+                    <div class="col-md-1">
+                        <button class="btn btn-success" (click)="getDataDateFilter()"> GO</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button *ngIf='RoomStatuss && RoomStatuss.length' class="btn btn-primary pull-left" (click)="exportTableToExcel('TableGuestStatus')"> Export</button>
+                     </div>
+                     <div class="col-md-2">
+                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
@@ -32,10 +30,10 @@
                         <div *ngIf='RoomStatuss && RoomStatuss.length==0' class="alert alert-info" role="alert">No record found!</div>
                     </div>
                 </div>
-                <table id="TableGuestStatus" class='table table-striped' *ngIf='RoomStatuss && RoomStatuss.length'>
-                    <thead>
+                <table border="1" style="color:#000;border:none;" id="TableGuestStatus" *ngIf='RoomStatuss && RoomStatuss.length'>
+                    <thead class="text-center">
                         <tr>
-                            <th colspan="13" class="text-center">
+                            <th colspan="13" class="headfirst">
                                 <strong>{{ company?.NameEnglish }}</strong>
                                 <br /> ROOM OCCUPANCY CHART
                             </th>
@@ -56,7 +54,7 @@
                             <th>Remarks</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="text-center">
                         <tr *ngFor="let RoomStatus of RoomStatuss">
                             <td>{{RoomStatus.RoomName}}</td>
                             <td>{{RoomStatus.GRC}}</td>

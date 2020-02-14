@@ -1,6 +1,6 @@
 ﻿<div class='panel panel-primary'>
     <div class='panel-heading'>
-        RESERVATION CUSTOMERS
+         <h2> RESERVATION CUSTOMERS</h2>
     </div>
     <div class='panel-body'>
         <div class='table-responsive'>
@@ -11,8 +11,10 @@
                     </div>
                     <div class="col-md-6">
                     </div>
-                    <div class="col-md-3 pull-right">
-                        <button class="btn btn-primary pull-left" (click)="exportTableToExcel('tblReservationCustomer')"> Export</button>
+                    <div class="col-md-2 pull-right">
+                        <button class="btn btn-primary pull-left btndesign" (click)="exportTableToExcel('tblReservationCustomer')"> Export</button>
+                    </div>
+                    <div class="col-md-1">
                     </div>
                 </div>
                 <div class="row">
@@ -23,10 +25,10 @@
                         <div *ngIf='customers && customers.length==0' class="alert alert-info" role="alert">No record found!</div>
                     </div>
                 </div>
-                <table class='table table-striped' *ngIf='customers && customers.length' id="tblReservationCustomer">
-                    <thead>
+                <table border="1" style="color:#000;border:none;"  *ngIf='customers && customers.length' id="tblReservationCustomer">
+                    <thead class="text-center">
                         <tr>
-                            <th colspan="6" class="text-center">
+                            <th colspan="6" class="headfirst">
                                 <strong>{{ company?.NameEnglish }}</strong>
                                 <br /> Reservation Customers List
                             </th>
@@ -40,7 +42,7 @@
                             <th class="export-no-display">Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="text-center">
                         <tr *ngFor="let customer of customers">
                             <td>{{customer.CustomerName}}</td>
                             <td>{{customer.MemberId}}</td>
@@ -48,7 +50,7 @@
                             <td>{{customer.Country}}</td>
                             <td>{{customer.MobileNumber}}</td>
                             <td class="export-no-display">
-                                <span>
+                                <span class="firstimg">
                                     <img src="../../../../assets/images/Edit.png" (click)="editDepartment(customer.Id,template)" height="32" width="32" />
                                 </span>
                                 <span>
@@ -78,13 +80,12 @@
         <div class="modal-header panel-heading">
             <h4 class="modal-title pull-left">{{modalTitle}}</h4>
             <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-                <span aria-hidden="true">&times;</span>
+                <i class="fa fa-times fa-design"></i>
             </button>
         </div>
         <div class="modal-body">
             <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
+                <div class="form-group col-md-6">
                         <label class="control-label">Title:</label>
                         <div class="input-group">
                             <span class="input-group-addon">
@@ -92,7 +93,7 @@
                                     <i class="fa fa-user"></i>&nbsp;
                                 </strong>
                             </span>
-                            <select class="col-md-3 form-control" formControlName="Title" setAutoFocus tabindex="1">
+                            <select class="form-control" formControlName="Title" setAutoFocus tabindex="1">
                                 <option value="">--- Choose Title ---</option>
                                 <option value="Mr.">Mr.</option>
                                 <option value="Mrs.">Mrs.</option>
@@ -105,11 +106,8 @@
                         <div class="alert alert-danger col-md-9" *ngIf="customerForm.get('Title').hasError('required') && formSubmitAttempt">
                             Title field is required
                         </div>
-                    </div>
                 </div>
-
-                <div class="col-md-6">
-                    <div class="form-group">
+                <div class="form-group col-md-6">
                         <label class="control-label">First / Company Name:</label>
                         <div class="input-group">
                             <span class="input-group-addon">
@@ -122,12 +120,10 @@
                         <div class="alert alert-danger col-md-9" *ngIf="customerForm.get('FirstName').hasError('required') && formSubmitAttempt">
                             First Name field is required
                         </div>
-                    </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
+                <div class="form-group col-md-6">
                         <label class="control-label">Middle Name:</label>
                         <div class="input-group">
                             <span class="input-group-addon">
@@ -140,10 +136,8 @@
                                 Middle Name field is required
                             </div>
                         </div>
-                    </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="form-group">
+                <div class="form-group col-md-6">
                         <label class="control-label">Last Name:</label>
                         <div class="input-group">
                             <span class="input-group-addon">
@@ -156,13 +150,11 @@
                         <div class="alert alert-danger col-md-9" *ngIf="customerForm.get('LastName').hasError('required') && formSubmitAttempt">
                             Last Name field is required
                         </div>
-                    </div>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
+                <div class="form-group col-md-6">
                         <label class="control-label">Email:</label>
                         <div class="input-group">
                             <span class="input-group-addon">
@@ -175,10 +167,8 @@
                         <div class="alert alert-danger col-md-9" *ngIf="(customerForm.get('Email').hasError('Invalidemail') || customerForm.get('Email').hasError('required')) && formSubmitAttempt">
                             Email field must be in abcd@ab.com format.
                         </div>
-                    </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="form-group">
                         <label class="control-label">Mobile Number:</label>
                         <div class="input-group">
                             <span class="input-group-addon">
@@ -191,13 +181,11 @@
                         <div class="alert alert-danger col-md-9" *ngIf="customerForm.get('MobileNumber').hasError('required') && formSubmitAttempt">
                             Mobile Number field is required
                         </div>
-                    </div>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
+                <div class="form-group col-md-6">
                         <label class="control-label">Country:</label>
                         <div class="input-group">
                             <span class="input-group-addon">
@@ -210,10 +198,8 @@
                         <div class="alert alert-danger col-md-9" *ngIf="customerForm.get('Country').hasError('required') && formSubmitAttempt">
                             Country field is required
                         </div>
-                    </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="form-group">
+                <div class="form-group col-md-6">
                         <label class="control-label">Member Since:</label>
                         <div class="input-group">
                             <span class="input-group-addon">
@@ -226,12 +212,11 @@
                         <div class="alert alert-danger col-md-9" *ngIf="customerForm.get('MemberSince').hasError('required') && formSubmitAttempt">
                             Member Since field is required
                         </div>
-                    </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
+                <div class="form-group col-md-6">
+        
                         <label class="control-label">Member Id:</label>
                         <div class="input-group">
                             <span class="input-group-addon">
@@ -244,11 +229,10 @@
                         <div class="alert alert-danger col-md-9" *ngIf="customerForm.get('MemberId').hasError('required') && formSubmitAttempt">
                             Member Id field is required
                         </div>
-                    </div>
+            
                 </div>
 
-                <div class="col-md-6">
-                    <div class="form-group">
+                <div class="form-group col-md-6">
                         <label class="control-label">Customer Type:</label>
                         <div class="input-group">
                             <span class="input-group-addon">
@@ -256,22 +240,29 @@
                                     <i class="fa fa-user"></i>&nbsp;
                                 </strong>
                             </span>
-                            <select class="col-md-3 form-control" formControlName="CustomerTypeId" tabindex="10">
+                            <select class="form-control" formControlName="CustomerTypeId" tabindex="10">
                                 <option class="form-control" *ngFor="let CType of customerTypes" [ngValue]="CType.Id">{{CType.Name}}</option>
                             </select>
                         </div>
                         <div class="alert alert-danger col-md-9" *ngIf="customerForm.get('CustomerTypeId').hasError('required') && formSubmitAttempt">
                             Customer Type field is required
                         </div>
-                    </div>
+                </div>
+            </div>
+            <div class="row footermodal">
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-success pull-left" tabindex="19">{{modalBtnTitle}}</button>
+
+                </div>
+                <div class="col-md-8">
+
+                </div>
+                <div class="col-md-2">
+                    <a class="btn btn-danger pull-right" (click)="modalRef.hide()" tabindex="20">Cancel</a>
+
                 </div>
             </div>
         </div>
-        <div class="modal-footer">
-            <div>
-                <button type="submit" class="btn btn-success pull-left" tabindex="11">{{modalBtnTitle}}</button>
-                <a class="btn btn-danger pull-right" (click)="modalRef.hide()" tabindex="12">Cancel</a>
-            </div>
-        </div>
+      
     </form>
 </ng-template>

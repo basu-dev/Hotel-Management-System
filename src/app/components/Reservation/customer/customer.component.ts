@@ -13,7 +13,8 @@ import { Global } from '../../../Shared/global'; import { AccountTransactionType
 import { CustomerType } from '../../../Model/reservation/customer-type.model';
 
 @Component({
-    templateUrl: './customer.component.html'
+    templateUrl: './customer.component.html',
+    styleUrls : ['./customer.component.css']
 })
 
 export class ReservationCustomerComponent implements OnInit {
