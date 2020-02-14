@@ -23,7 +23,7 @@
                 <div class="pull-right">
                     <button *ngIf='SaleBooks && SaleBooks.length' class="btn btn-primary pull-left" (click)="exportTableToExcel('CoustomerSalesTable')"> Export</button>
                 </div>
-                <div class="alert alert-info" role="alert" *ngIf="isLoading"><img src="../../images/loading.gif" width="32" height="32" /> Loading...</div>
+                <div class="alert alert-info" role="alert" *ngIf="isLoading"><img src="../../../../assets/images/loading.gif" width="32" height="32" /> Loading...</div>
                 <div *ngIf='SaleBooks && SaleBooks.length==0' class="alert alert-info" role="alert">No record found!</div>
                 <table id="CoustomerSalesTable"  *ngIf='SaleBooks && SaleBooks.length'>
                     <thead>

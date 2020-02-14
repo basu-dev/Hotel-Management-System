@@ -1,7 +1,7 @@
 export const navcomponents=[
     {
       title: 'Front Office',
-      icon: 'layout-outline',
+      icon: 'fa fa-shopping-cart',
       children: [
         {
         
@@ -39,7 +39,7 @@ export const navcomponents=[
         },
         {
           title: 'Master Setup',
-          icon: 'home-outline',
+          icon: 'fa fa-book',
           children: [
             {
               title: 'Payment',
