@@ -1,13 +1,12 @@
-﻿import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { ICategory } from '../../../Model/Category';
-
+﻿import { Component, OnInit, TemplateRef } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
+import { ICategory } from '../../../Model/Category';
+import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
 import { DBOperation } from '../../../Shared/enum';
-import { Observable } from 'rxjs/Rx';
-import { Global } from '../../../Shared/global'; import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
+import { Global } from '../../../Shared/global';
 
 
 @Component({

@@ -1,14 +1,15 @@
-﻿import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import {map, catchError} from 'rxjs/operators';
-import { Observable, throwError } from 'rxjs';
-import { User } from '../Model/user.model';
-import { IUser } from '../Model/User/user';
+﻿import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import {Store} from "@ngrx/store";
-import * as fromAuth from "../reducers/auth.reducer";
-import * as ActionTypes from "../actions/auth.action";
-import * as jwt_decode from "jwt-decode";
+import { Store } from '@ngrx/store';
+import * as jwt_decode from 'jwt-decode';
+import { throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+
+import * as ActionTypes from '../actions/auth.action';
+import { IUser } from '../Model/User/user';
+import * as fromAuth from '../reducers/auth.reducer';
+
 @Injectable()
 export class AuthenticationService {
     constructor(private http: HttpClient,public router:Router,public store:Store<{auth:fromAuth.State}>) { }
@@ -34,9 +35,7 @@ export class AuthenticationService {
         }
         else
         {
-            return false;
-           
-            
+            return false; 
         }
         
 

@@ -1,17 +1,15 @@
-﻿import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
-import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
-import { PeriodicConsumption } from '../../../Model/periodic-consumption-items/periodic-consumption-item';
-import { DBOperation } from '../../../Shared/enum';
-import { Observable } from 'rxjs/Rx';
-import { Global } from '../../../Shared/global'; 
-
+﻿import { DatePipe } from '@angular/common';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-import { DatePipe } from '@angular/common';
-import { IInventoryItem } from '../../../Model/Inventory/inventoryItem';
-import { MenuItemPortion } from '../../../Model/Menu/MenuItemPortion';
 import { map } from 'rxjs/operators';
+
+import { MenuItemPortion } from '../../../Model/Menu/MenuItemPortion';
+import { PeriodicConsumption } from '../../../Model/periodic-consumption-items/periodic-consumption-item';
+import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
+import { DBOperation } from '../../../Shared/enum';
+import { Global } from '../../../Shared/global';
 
 @Component({
     moduleId: module.id,

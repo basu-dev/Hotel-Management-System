@@ -70,37 +70,115 @@ import { POSSaleBillingComponent } from './components/POS-System/pos-sale-billin
 import { PosTableComponent } from './components/POS-System/pos-table/pos-table.component';
 import { PosInvoicePrintComponent } from './components/POS-System/pos-table/pos-invoiceprint/pos-invoiceprint.component';
 import { PosSettleComponent } from './components/POS-System/pos-table/pos-settle/pos-settle.component';
+import { LoginGuard } from './guard/login.guard';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: "/test", pathMatch: 'full' },
-  { path: "login", component: LoginComponent},
-  { path: "user", component: UserComponent },
-  { path: "test", component: TestComponent },
-  { path: "reservation",
-   component: ReservationComponent,
-    canActivate: [AuthGuard] },
-  { path: "reservation/checkin", 
-  component: CheckInComponent, 
-  canActivate: [AuthGuard] },
-  { path: "reservation/reservationstatus", 
-  component: RoomStatusComponent, 
-  canActivate: [AuthGuard] },
-  { path: "reservation/checkout", 
-  component: CheckOutComponent, 
-  canActivate: [AuthGuard] },
-  { path: "reservation/reservationinquiry", component: ReservationInquiryComponent, canActivate: [AuthGuard] },
-  { path: "reservation/customer", component: ReservationCustomerComponent, canActivate: [AuthGuard] },
-  { path: "reservation/payment", component: PaymentTypeComponent, canActivate: [AuthGuard] },
-  { path: "reservation/roomtype", component: RoomTypeComponent, canActivate: [AuthGuard] },
-  { path: "reservation/facility", component: FacilityComponent, canActivate: [AuthGuard] },
-  { path: "reservation/roomtype", component: RoomTypeComponent, canActivate: [AuthGuard] },
-  { path: "reservation/room", component: RoomComponent, canActivate: [AuthGuard] },
-  { path: "reservation/customertypes", component: CustomerTypeComponent, canActivate: [AuthGuard] },
+  {
+    path: '',
+    redirectTo: "/reservation",
+    pathMatch: 'full'
+  },
+
+  {
+    path: "login",
+    component: LoginComponent,
+    canActivate:[LoginGuard]
+  },
+  {
+    path: "user",
+    component: UserComponent
+  },
+
+  {
+    path: "test",
+    component: TestComponent
+  },
+
+  {
+    path: "reservation",
+    component: ReservationComponent,
+    canActivate: [AuthGuard]
+  },
+
+  {
+    path: "reservation/checkin",
+    component: CheckInComponent,
+    canActivate: [AuthGuard]
+  },
+
+  {
+    path: "reservation/reservationstatus",
+    component: RoomStatusComponent,
+    canActivate: [AuthGuard]
+  },
+
+  {
+    path: "reservation/checkout",
+    component: CheckOutComponent,
+    canActivate: [AuthGuard]
+  },
+
+  {
+    path: "reservation/reservationinquiry",
+    component: ReservationInquiryComponent,
+    canActivate: [AuthGuard]
+  },
+
+  {
+    path: "reservation/customer",
+    component: ReservationCustomerComponent,
+    canActivate: [AuthGuard]
+  },
+
+  {
+    path: "reservation/payment",
+    component: PaymentTypeComponent,
+    canActivate: [AuthGuard]
+  },
+
+  {
+    path: "reservation/roomtype", component: RoomTypeComponent,
+    canActivate: [AuthGuard]
+  },
+
+  {
+    path: "reservation/facility",
+    component: FacilityComponent,
+    canActivate: [AuthGuard]
+  },
+
+  {
+    path: "reservation/roomtype",
+    component: RoomTypeComponent,
+    canActivate: [AuthGuard]
+  },
+
+  {
+    path: "reservation/room",
+    component: RoomComponent,
+    canActivate: [AuthGuard]
+  },
+
+  {
+    path: "reservation/customertypes",
+    component: CustomerTypeComponent,
+    canActivate: [AuthGuard]
+  },
 
 
-  { path: "reservation/reservationtype", component: ReservationTypeComponent, canActivate: [AuthGuard] },
-  { path: "billing/order", component: TableComponent, canActivate: [AuthGuard] },
+  {
+    path: "reservation/reservationtype",
+    component: ReservationTypeComponent,
+    canActivate: [AuthGuard]
+  },
+
+  {
+    path: "billing/order",
+    component: TableComponent,
+    canActivate: [AuthGuard]
+  },
+
   {
     path: 'managedashboard/rolemodule',
     component: RoleModuleComponent,
@@ -170,15 +248,18 @@ const routes: Routes = [
 
   {
     path: 'Inventory/warehouses',
-    component: WareHouseComponent, canActivate: [AuthGuard]
+    component: WareHouseComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'Inventory/WareHouse',
-    component: WareHouseComponent, canActivate: [AuthGuard]
+    component: WareHouseComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'Inventory/stockinhand',
-    component: StockInHandComponent, canActivate: [AuthGuard]
+    component: StockInHandComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'Inventory/WareHouseType',
@@ -189,234 +270,241 @@ const routes: Routes = [
     path: 'Account',
     component: InventoryDashboardComponent,
     canActivate: [AuthGuard],
-    
-      },
-      
-        {
-          path: 'Account/contra',
-          component: ContraComponent,
-          canActivate: [AuthGuard]
-        },
-        {
-          path: 'Account/receipt',
-          component: ReceiptComponent,
-          canActivate: [AuthGuard]
-        },
-        {
-          path: 'Account/sales',
-          component: SalesComponent,
-          canActivate: [AuthGuard],
-        },
-            {path:'Account/sales/detail/:id',
-            component:SalesDetailComponent,
-            canActivate:[AuthGuard]
-          },
-          {
-            path: 'Account/purchase',
-            component: PurchaseComponent,
-            canActivate: [AuthGuard]
-          },
-          {
-            path: 'Account/payment',
-            component: PaymentComponent,
-            canActivate: [AuthGuard]
-          },
-          {
-            path: 'Account/journalVoucher',
-            component: JournalVouchercomponent,
-            canActivate: [AuthGuard]
-          },
-          {
-            path: 'Account/debit-note',
-            component: DebitNoteComponent,
-            canActivate: [AuthGuard]
-          },
-          {
-            path: 'Account/credit-note',
-            component: CreditNoteComponent,
-            canActivate: [AuthGuard]
-          },
-          {
-            path: 'Account/accounttransType',
-            component: AccountTransactionTypeComponent,
-            canActivate: [AuthGuard]
-          },
-          {
-            path: 'Account/account',
-            component: AccountComponent,
-            canActivate: [AuthGuard]
-          },
-          {
-            path: 'Account/accountType',
-            component: AccountTypeComponent,
-            canActivate: [AuthGuard]
-          },
-          {
-            path: 'Account/accountLedgerView',
-            component: AccountLedgerViewComponent,
-            canActivate: [AuthGuard]
-          },
-          {
-            path: 'Account/TrialBalance',
-            component: TrialBalanceComponent,
-            canActivate: [AuthGuard]
-          },
-          {
-            path: 'Account/ProfitLoss',
-            component: AccountProfitAndLossComponent,
-            canActivate: [AuthGuard]
-          },
-          {
-            path: 'Account/BalanceSheet',
-            component: BalanceSheetComponent,
-            canActivate: [AuthGuard]
-          },
-          {
-            path: 'Account/SaleBook',
-            component: SalesBillingComponent,
-            canActivate: [AuthGuard]
-          },
-          {
-            path: 'Account/SaleItemWise',
-            component: AccountSaleBookItem,
-            canActivate: [AuthGuard]
-          },
-          {
-            path: 'Account/SaleDateWise',
-            component: AccountSaleBookDaywise,
-            canActivate: [AuthGuard]
-          },
-          {
-            path: 'Account/SaleCustomerWise',
-            component: AccountSaleBookCustomer,
-            canActivate: [AuthGuard]
-          },
-          {
-            path: 'Account/PurchaseBook',
-            component: SalesComponent
-            ,
-            canActivate: [AuthGuard]
-          },
-          {
-            path: 'Account/MaterializedView',
-            component: MaterializedViewComponent,
-            canActivate: [AuthGuard]
-          },
-          {
-            path: 'Account/BillReturnView',
-            component: BillReturnViewComponent,
-            canActivate: [AuthGuard]
-          },
-          
-          {
-            path: 'pos-dashboard/:tabName',
-            component: POSDashboardComponent,
-            canActivate: [AuthGuard]
-          },
-          
-          {
-            path: 'tables/:tableId',
-            component: PosTableComponent,
-            canActivate: [AuthGuard]
-          },
-          {
-            path: 'pos/table/:tableId/empty-ticket',
-            component: PosTableComponent,
-            pathMatch: 'full', canActivate: [AuthGuard]
-          },
-          {
-            path: 'table/:tableId/move/:ToOpenTicketId',
-            component: PosTableComponent,
-            pathMatch: 'full', canActivate: [AuthGuard]
-        },
-        {
-            path: 'customer/:customerId/move/:ToOpenTicketId',
-            component: PosTableComponent,
-            pathMatch: 'full', canActivate: [AuthGuard]
-        },
-        {
-            path: 'customer/:customerId',
-            component: PosTableComponent,
-            pathMatch: 'full', canActivate: [AuthGuard]
-        },
-      {
-        path: 'table/:tableId/ticket/:ticketId',
-        component: PosTableComponent,
-            pathMatch: 'full', canActivate: [AuthGuard]
-      },
-      {
-        path: 'customer/:customerId/ticket/:ticketId',
-        component: PosTableComponent,
-            pathMatch: 'full', canActivate: [AuthGuard]
-      },
-      {
-        path: 'order/move/:itemId',
-        component: PosTableComponent,
-            pathMatch: 'full', canActivate: [AuthGuard]
-      },
-      {
-        path: 'pos/table/:tableId/empty-ticket',
-        component: PosTableComponent,
-            pathMatch: 'full', canActivate: [AuthGuard]
-      },
-      {
-        path: 'pos/customer/:customerId/empty-ticket',
-        component: PosTableComponent,
-            pathMatch: 'full', canActivate: [AuthGuard]
-      },
-        {
-            path: 'pos/settle',
-            component: PosSettleComponent,
-            pathMatch: 'full', canActivate: [AuthGuard]
-        },
-        {
-            path: 'pos/InvoicePrint',
-            component: PosInvoicePrintComponent,
-            pathMatch: 'full', canActivate: [AuthGuard]
-        },
-          {
-            path: 'pos-dashboard/table/items',
-            component: MenuItemComponent,
-            canActivate: [AuthGuard]
-        },
-        {
-            path: 'pos-dashboard/table/menu',
-            component: MenuComponent,
-            canActivate: [AuthGuard]
-        },
-        {
-            path: 'pos-dashboard/table/table',
-            component: TableComponent,
-            canActivate: [AuthGuard]
-        },
-        {
-            path: 'pos-dashboard/table/category',
-            component: CategoryComponent,
-            canActivate: [AuthGuard]
-        },
-        {
-            path: 'pos-dashboard/table/menuconsumption',
-            component: MenuConsumptionComponent,
-            canActivate: [AuthGuard]
-        },
-        {
-            path: 'pos-dashboard/table/posbilling',
-            component: POSSaleBillingComponent,
-            canActivate: [AuthGuard]
-        },
-          
-          
-          
-          
-    
-  
 
+  },
 
-  { path: "**", component: PagenotfoundComponent },
-  // {
-  //   path: '**',
-  //   redirectTo: "/404",
-  // },
+  {
+    path: 'Account/contra',
+    component: ContraComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Account/receipt',
+    component: ReceiptComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Account/sales',
+    component: SalesComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'Account/sales/detail/:id',
+    component: SalesDetailComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Account/purchase',
+    component: PurchaseComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Account/payment',
+    component: PaymentComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Account/journalVoucher',
+    component: JournalVouchercomponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Account/debit-note',
+    component: DebitNoteComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Account/credit-note',
+    component: CreditNoteComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Account/accounttransType',
+    component: AccountTransactionTypeComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Account/account',
+    component: AccountComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Account/accountType',
+    component: AccountTypeComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Account/accountLedgerView',
+    component: AccountLedgerViewComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Account/TrialBalance',
+    component: TrialBalanceComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Account/ProfitLoss',
+    component: AccountProfitAndLossComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Account/BalanceSheet',
+    component: BalanceSheetComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Account/SaleBook',
+    component: SalesBillingComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Account/SaleItemWise',
+    component: AccountSaleBookItem,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Account/SaleDateWise',
+    component: AccountSaleBookDaywise,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Account/SaleCustomerWise',
+    component: AccountSaleBookCustomer,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Account/PurchaseBook',
+    component: SalesComponent
+    ,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Account/MaterializedView',
+    component: MaterializedViewComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Account/BillReturnView',
+    component: BillReturnViewComponent,
+    canActivate: [AuthGuard]
+  },
+
+  {
+    path: 'pos-dashboard/:tabName',
+    component: POSDashboardComponent,
+    canActivate: [AuthGuard]
+  },
+
+  {
+    path: 'tables/:tableId',
+    component: PosTableComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'pos/table/:tableId/empty-ticket',
+    component: PosTableComponent,
+    pathMatch: 'full', canActivate: [AuthGuard]
+  },
+  {
+    path: 'table/:tableId/move/:ToOpenTicketId',
+    component: PosTableComponent,
+    pathMatch: 'full', canActivate: [AuthGuard]
+  },
+  {
+    path: 'customer/:customerId/move/:ToOpenTicketId',
+    component: PosTableComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'customer/:customerId',
+    component: PosTableComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'table/:tableId/ticket/:ticketId',
+    component: PosTableComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'customer/:customerId/ticket/:ticketId',
+    component: PosTableComponent,
+
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'order/move/:itemId',
+    component: PosTableComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'pos/table/:tableId/empty-ticket',
+    component: PosTableComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'pos/customer/:customerId/empty-ticket',
+    component: PosTableComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'pos/settle',
+    component: PosSettleComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'pos/InvoicePrint',
+    component: PosInvoicePrintComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'pos-dashboard/table/items',
+    component: MenuItemComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'pos-dashboard/table/menu',
+    component: MenuComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'pos-dashboard/table/table',
+    component: TableComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'pos-dashboard/table/category',
+    component: CategoryComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'pos-dashboard/table/menuconsumption',
+    component: MenuConsumptionComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'pos-dashboard/table/posbilling',
+    component: POSSaleBillingComponent,
+    canActivate: [AuthGuard]
+  },
+
+  {
+    path: "**",
+    component: PagenotfoundComponent
+  },
+  {
+    path: '**',
+    redirectTo: "/404",
+  },
 
 ];
 

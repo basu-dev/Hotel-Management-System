@@ -1,15 +1,14 @@
-﻿import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
-import { DepartmentService } from '../../../Service/Department.service';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { IDepartment } from '../../../Model/Department';
-
+﻿import { Component, OnInit, TemplateRef } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-    
-import { DBOperation } from '../../../Shared/enum';
-import { Observable } from 'rxjs/Rx';
-import { Global } from '../../../Shared/global'; import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
 
+import { IDepartment } from '../../../Model/Department';
+import { DepartmentService } from '../../../Service/Department.service';
+import { DBOperation } from '../../../Shared/enum';
+import { Global } from '../../../Shared/global';
+
+    
 
 @Component({
     selector: 'my-department-list',

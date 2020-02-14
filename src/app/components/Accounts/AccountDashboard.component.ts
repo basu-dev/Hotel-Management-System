@@ -1,9 +1,9 @@
-﻿import { Component, OnInit } from "@angular/core";
-import { RouterModule, Router, NavigationEnd, ActivatedRoute } from '@angular/router';
-
-import { Global } from '../../Shared/global';
-import { ProfitAndLoss } from '../../Model/ProfitAndLoss';
+﻿import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { AccountTransactionTypeService } from 'src/app/Service/Inventory/account-trans-type.service';
+
+import { ProfitAndLoss } from '../../Model/ProfitAndLoss';
+import { Global } from '../../Shared/global';
 
 @Component({
     selector: "accountdashboard-app",

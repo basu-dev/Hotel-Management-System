@@ -1,10 +1,10 @@
-import { Component, OnInit, OnDestroy, ViewChild, Input } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpEventType, HttpRequest } from '@angular/common/http';
-import { FormControl, FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
+import { HttpEventType } from '@angular/common/http';
+import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+
+import { FileService } from '../../Service/file.service';
 
 // Services
-import { FileService } from '../../Service/file.service'
-
 @Component({
   selector: 'app-file-upload',
   templateUrl: './file-upload.component.html',

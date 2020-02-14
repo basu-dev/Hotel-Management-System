@@ -1,9 +1,7 @@
 ﻿import { Component, Input } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms'
-import { Observable } from 'rxjs/Rx';
-
-import { InventoryItem } from '../../../../Model/Inventory/inventoryItem';
+import { FormGroup } from '@angular/forms';
 import { AccountTransactionTypeService } from 'src/app/Service/Inventory/account-trans-type.service';
+
 @Component({
     selector: 'my-salesDetail-list',
     templateUrl: './salesDetail.component.html'

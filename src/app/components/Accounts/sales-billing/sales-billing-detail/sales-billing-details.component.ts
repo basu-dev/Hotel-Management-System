@@ -1,11 +1,11 @@
 ﻿import { Component, Input } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms'
+import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs/Rx';
-
-import { IInventoryItem, InventoryItem} from '../../../../Model/Inventory/inventoryItem';
-import { ScreenOrderDetail } from '../../../../Model/AccountTransaction/accountTrans';
-import { Global } from '../../../../Shared/global';
 import { AccountTransactionTypeService } from 'src/app/Service/Inventory/account-trans-type.service';
+
+import { ScreenOrderDetail } from '../../../../Model/AccountTransaction/accountTrans';
+import { InventoryItem } from '../../../../Model/Inventory/inventoryItem';
+import { Global } from '../../../../Shared/global';
 
 @Component({
     selector: 'my-salesBillingDetail-list',

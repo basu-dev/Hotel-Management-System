@@ -1,25 +1,20 @@
-﻿import { Component, OnInit, ViewChild, TemplateRef, ElementRef } from '@angular/core';
-import { DatePipe } from '@angular/common';
-import { FormBuilder, FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
-import { RoomReserverd } from '../../Model/reservation/room-reserved.model';
-
-import { Reservation } from '../../Model/reservation/reservation.model';
-import { Room } from '../../Model/reservation/room.model';
-
+﻿import { DatePipe } from '@angular/common';
+import { Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-
-import { RoomOccupiedService } from '../../Service/reservation/room-occupied.services';
-import { FileService } from '../../Service/file.service';
-
-import { DBOperation } from '../../Shared/enum';
-import { Observable } from 'rxjs';
-import { Global } from '../../Shared/global';
-import { Customer } from '../../Model/reservation/customer.model';
-import { RoomType } from '../../Model/reservation/customer-screen.model';
-import { forkJoin } from "rxjs";
-import { map } from 'rxjs/operators';
+import { forkJoin } from 'rxjs';
 import { AccountTransactionTypeService } from 'src/app/Service/Inventory/account-trans-type.service';
+
+import { RoomType } from '../../Model/reservation/customer-screen.model';
+import { Customer } from '../../Model/reservation/customer.model';
+import { Reservation } from '../../Model/reservation/reservation.model';
+import { RoomReserverd } from '../../Model/reservation/room-reserved.model';
+import { Room } from '../../Model/reservation/room.model';
+import { FileService } from '../../Service/file.service';
+import { RoomOccupiedService } from '../../Service/reservation/room-occupied.services';
+import { DBOperation } from '../../Shared/enum';
+import { Global } from '../../Shared/global';
 
 @Component({
     templateUrl: './checkin.component.html',

@@ -1,13 +1,11 @@
-﻿import { Component, OnInit, ViewChild,TemplateRef } from '@angular/core';
-import { LoginService } from '../../Service/login.service';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
-import { IUser } from '../../Model/User/user';
-import { Observable } from 'rxjs';
-import { Global } from '../../Shared/global';
-import { DBOperation } from '../../Shared/enum';
+﻿import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { AuthenticationService } from '../../Service/authentication.service';
-import { User } from 'src/app/Model/user.model';
+import { LoginService } from '../../Service/login.service';
+import { DBOperation } from '../../Shared/enum';
+import { Global } from '../../Shared/global';
 
 
 @Component({

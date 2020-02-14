@@ -1,16 +1,13 @@
-﻿import { Component, OnInit, ViewChild, Directive, TemplateRef } from '@angular/core';
-import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
-import { FormBuilder, FormGroup, Validators, NgModel, FormArray, FormControl } from '@angular/forms';
-import { InventoryReceipt, InventoryReceiptDetails } from '../../../Model/Inventory/InventoryReceipt';
-import { Account } from '../../../Model/Account/account';
-import { DBOperation } from '../../../Shared/enum';
-import { Observable } from 'rxjs/Rx';
-import { Global } from '../../../Shared/global';
-
-import { DatePipe } from '@angular/common';
+﻿import { DatePipe } from '@angular/common';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-import { IInventoryItem } from '../../../Model/Inventory/inventoryItem';
+
+import { InventoryReceipt, InventoryReceiptDetails } from '../../../Model/Inventory/InventoryReceipt';
+import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
+import { DBOperation } from '../../../Shared/enum';
+import { Global } from '../../../Shared/global';
 
 @Component({
     moduleId: module.id,

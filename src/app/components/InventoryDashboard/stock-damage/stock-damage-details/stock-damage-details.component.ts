@@ -1,13 +1,12 @@
-﻿import { Component, ViewChild, Input } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { AccountTransactionTypeService } from '../../../../Service/Inventory/account-trans-type.service';
-import { PeriodicConsumptionItem } from '../../../../Model/periodic-consumption-items/periodic-consumption-item';
-import { DBOperation } from '../../../../Shared/enum';
+﻿import { Component, Input } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs/Rx';
-import { InventoryReceiptDetails } from '../../../../Model/Inventory/InventoryReceipt';
-import { Global } from '../../../../Shared/global';
-import { IMenuItemPortion} from '../../../../Model/Menu/MenuItem';
+
+import { IMenuItemPortion } from '../../../../Model/Menu/MenuItem';
 import { MenuItemPortion } from '../../../../Model/Menu/MenuItemPortion';
+import { PeriodicConsumptionItem } from '../../../../Model/periodic-consumption-items/periodic-consumption-item';
+import { AccountTransactionTypeService } from '../../../../Service/Inventory/account-trans-type.service';
+import { Global } from '../../../../Shared/global';
 
 @Component({
     selector: 'stock-damage-details',

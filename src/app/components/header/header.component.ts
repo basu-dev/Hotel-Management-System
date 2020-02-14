@@ -1,9 +1,6 @@
-import { Component, ViewChild, ElementRef, OnDestroy, OnInit, Inject } from '@angular/core';
-import { ViewEncapsulation } from '@angular/core';
+import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import * as moment from 'moment';
 import * as $ from 'jquery';
-import { inject } from '@angular/core/testing';
 
 @Component({
     selector: 'app-header-component',

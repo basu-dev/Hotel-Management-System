@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Customer } from '../../Model/customer.model';
 import { Observable } from 'rxjs/Observable';
 
 import * as actions from '../../actions/customer.actions';
+import { Customer } from '../../Model/customer.model';
 
 @Injectable()
 export class CustomerStoreService {

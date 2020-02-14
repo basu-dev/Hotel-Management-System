@@ -4,36 +4,34 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import{FormsModule, ReactiveFormsModule}from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AuthenticationService } from './Service/authentication.service';
 import { DepartmentService } from './Service/Department.service';
 import { LoginService } from './Service/login.service';
-import { UsersService } from './Service/user.service';  
+import { UsersService } from './Service/user.service';
 
 
 import { HeaderComponent } from './components/header/header.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TestComponent } from './components/test/test.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
-import{navcomponents} from "./Shared/navcomponents";
+import { navcomponents } from "./Shared/navcomponents";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CheckInComponent } from './components/checkin/checkin.component';
-import {CustomerTypeService} from "./Service/reservation/customer-type.services";
-import {FacilityService} from "./Service/reservation/facility.services";
-import {RoomOccupiedService} from "./Service/reservation/room-occupied.services";
-import {RoomTypeService} from "./Service/reservation/room-type.services";
-import {PaymentTypeService} from "./Service/reservation/payment-type.services";
-import {ReservationTypeService} from "./Service/reservation/reservation-type.services";
+import { CustomerTypeService } from "./Service/reservation/customer-type.services";
+import { FacilityService } from "./Service/reservation/facility.services";
+import { RoomOccupiedService } from "./Service/reservation/room-occupied.services";
+import { RoomTypeService } from "./Service/reservation/room-type.services";
+import { PaymentTypeService } from "./Service/reservation/payment-type.services";
+import { ReservationTypeService } from "./Service/reservation/reservation-type.services";
 import { ModalModule } from 'node_modules/ngx-bootstrap/modal';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
-import {FileService} from "./Service/file.service";
-//  import {TimepickerModule} from "node_modules/ngx-bootstrap";
- import {BsModalModule} from "ng2-bs3-modal";
- import {DatePipe} from "@angular/common";
-  import {AngularDateTimePickerModule} from "angular2-datetimepicker";
- import {BsDatepickerModule} from "node_modules/ngx-bootstrap";
-//  import { DateTimePickerModule} from "ng2-datetimepicker";
-import { RoomStatusComponent} from "./components/Reservation/reservation-status/Reservationstatus.component"
+import { FileService } from "./Service/file.service";
+import { BsModalModule } from "ng2-bs3-modal";
+import { DatePipe } from "@angular/common";
+import { AngularDateTimePickerModule } from "angular2-datetimepicker";
+import { BsDatepickerModule } from "node_modules/ngx-bootstrap";
+import { RoomStatusComponent } from "./components/Reservation/reservation-status/Reservationstatus.component"
 import { ReservationComponent } from './components/Reservation/reservation.component';
 import { CheckOutComponent } from './components/Reservation/checkout/checkout.component';
 import { ReservationInquiryComponent } from './components/Reservation/ReservationInquiry/ReservationInquiry.component';
@@ -86,7 +84,7 @@ import { WareHousesComponent } from './components/InventoryDashboard/WareHouse/W
 import { TokenInterceptorService } from './interceptor/token-interceptor.service';
 import { PeriodicConsumptionItemComponent } from './components/InventoryDashboard/periodic-consumption/periodic-consumption-items/periodic-consumption-item.component';
 import { ContraComponent } from './components/Accounts/contra/contra.component';
-import {SelectDropDownModule} from "ngx-select-dropdown";
+import { SelectDropDownModule } from "ngx-select-dropdown";
 import { SalesComponent } from './components/Accounts/sales/sales.component';
 import { SalesDetailComponent } from './components/Accounts/sales/sales-detail/salesDetail.component';
 import { ReceiptComponent } from './components/Accounts/receipt/receipt.component';
@@ -119,12 +117,12 @@ import { TicketStoreService } from './Service/Billing/ticket.store.service';
 import { ProductEffects } from './effects/product.effects';
 import { CategoryEffects } from './effects/category.effects';
 //reducers
-import {OrdersReducer} from "./reducers/orders.reducer";
-import {TablesReducer} from "./reducers/tables.reducer";
-import {UsersReducer} from "./reducers/users.reducer";
-import {TicketsReducer} from "./reducers/tickets.reducer";
-import {CustomersReducer} from "./reducers/customers.reducer";
-import {ProductsReducer} from "./reducers/products.reducer";
+import { OrdersReducer } from "./reducers/orders.reducer";
+import { TablesReducer } from "./reducers/tables.reducer";
+import { UsersReducer } from "./reducers/users.reducer";
+import { TicketsReducer } from "./reducers/tickets.reducer";
+import { CustomersReducer } from "./reducers/customers.reducer";
+import { ProductsReducer } from "./reducers/products.reducer";
 import { CategoriesReducer } from './reducers/categories.reducer';
 import { POSDashboardComponent } from './components/POS-System/pos-dashboard/pos-dashboard.component';
 import { TableOrderEffects } from './effects/order.effects';
@@ -163,19 +161,19 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-     ModalModule.forRoot(),
-     BsDatepickerModule.forRoot(),
-     BsModalModule,
-      AngularDateTimePickerModule,
-      StoreModule.forRoot({
-        orders: OrdersReducer,
-        tables: TablesReducer,
-        products: ProductsReducer,
-        user: UsersReducer,
-        categories: CategoriesReducer,
-        customers: CustomersReducer,
-        tickets: TicketsReducer,
-        auth:authReducer
+    ModalModule.forRoot(),
+    BsDatepickerModule.forRoot(),
+    BsModalModule,
+    AngularDateTimePickerModule,
+    StoreModule.forRoot({
+      orders: OrdersReducer,
+      tables: TablesReducer,
+      products: ProductsReducer,
+      user: UsersReducer,
+      categories: CategoriesReducer,
+      customers: CustomersReducer,
+      tickets: TicketsReducer,
+      auth: authReducer
     }),
     EffectsModule.forRoot([
       TableOrderEffects,
@@ -185,10 +183,10 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
       CustomerEffects,
       UserEffects,
       TicketEffects
-  ]),
-  StoreDevtoolsModule.instrument({
-    maxAge: 10
-  })
+    ]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 10
+    })
   ],
   declarations: [
 
@@ -211,7 +209,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     ReservationTypeComponent,
     RoomTypeComponent,
     CustomerTypeComponent,
-    
+
     UserComponent,
     CompanyComponent,
     DepartmentComponent,
@@ -221,7 +219,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     RoleModuleComponent,
     UserPermissionComponent,
     RoleNameComponent,
-//INventoryComponents
+    //INventoryComponents
     CategoryComponent,
     InventoryDashboardComponent,
     InventoryItemComponent,
@@ -231,7 +229,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     PeriodicConsumptionComponent,
     StockDamageComponent,
     StockDamageDetailsComponent,
-     UnitTypeComponent,
+    UnitTypeComponent,
     WareHouseComponent,
     WareHouseTypeComponent,
     WareHousesComponent,
@@ -300,8 +298,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
   ],
   providers: [
-    { provide: 'NAVCOMPONENTS', useValue: navcomponents }   ,
-    {provide:HTTP_INTERCEPTORS,useClass:TokenInterceptorService,multi:true},
+    { provide: 'NAVCOMPONENTS', useValue: navcomponents },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true },
     AuthenticationService,
     ReservationTypeService,
     CustomerTypeService,
@@ -315,7 +313,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     LoginService,
     UsersService,
     AccountTransactionTypeService
-,
+    ,
     DatePipe,
     FileService,
     AccountTransactionTypeService,
@@ -325,24 +323,20 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     RoomTypeService,
     CustomerTypeService,
     BillingService,
- 
+
     OrderService,
     OrderStoreService,
-   
+
     TableStoreService,
     CustomerStoreService,
     RoleService,
     UserRoleService,
     AccountTransactionTypeService,
     //pos
-    TicketStoreService, 
+    TicketStoreService,
     TicketService,
-    
-    
-    
   ],
 
- 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

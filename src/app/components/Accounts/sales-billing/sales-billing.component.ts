@@ -1,6 +1,6 @@
 ﻿import { Component, OnInit, ViewChild, TemplateRef, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, NgModel, FormArray, FormControl, AbstractControl } from '@angular/forms';
-import { AccountTransactionValues, AccountTrans, PurchaseOrderDetail, ScreenOrderDetail, EntityMock } from '../../../Model/AccountTransaction/accountTrans';
+import {  AccountTrans, EntityMock } from '../../../Model/AccountTransaction/accountTrans';
 import { Account } from '../../../Model/Account/account';
 
 import { DBOperation } from '../../../Shared/enum';

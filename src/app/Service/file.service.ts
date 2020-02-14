@@ -1,6 +1,5 @@
+import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
 
 /* Naming NOTE
   The API's file field is `fileItem` thus, we name it the same below

@@ -1,15 +1,14 @@
-﻿import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
-;
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { MasterLedger } from '../../../Model/MasterLedger/masterLedger';
-import { DBOperation } from '../../../Shared/enum';
-import { Observable } from 'rxjs/Rx';
-import { Global } from '../../../Shared/global';
-import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
-
+﻿import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
+import { MasterLedger } from '../../../Model/MasterLedger/masterLedger';
+import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
+import { DBOperation } from '../../../Shared/enum';
+import { Global } from '../../../Shared/global';
+
+;
 @Component({
     templateUrl: './master-Ledger.component.html'
 })

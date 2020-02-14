@@ -1,15 +1,14 @@
-﻿import { Component, OnInit, ViewChild,TemplateRef } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl, NgModel } from '@angular/forms';
-import { IInventoryItem, ICategory } from '../../../Model/Inventory/inventoryItem';
-import { UnitType } from '../../../Model/Inventory/UnitType';
-import { DBOperation } from '../../../Shared/enum';
-import { Observable } from 'rxjs/Rx';
-import { Global } from '../../../Shared/global';
- import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
-
+﻿import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-import { Router } from '@angular/router';
+
+import { ICategory, IInventoryItem } from '../../../Model/Inventory/inventoryItem';
+import { UnitType } from '../../../Model/Inventory/UnitType';
+import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
+import { DBOperation } from '../../../Shared/enum';
+import { Global } from '../../../Shared/global';
 
 @Component({
     templateUrl: './inventory-item.component.html'

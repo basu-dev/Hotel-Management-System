@@ -1,5 +1,5 @@
-﻿import { Component } from "@angular/core"
-import { Router, ActivatedRoute ,NavigationEnd} from '@angular/router';
+﻿import { Component } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 @Component({
     moduleId: module.id,

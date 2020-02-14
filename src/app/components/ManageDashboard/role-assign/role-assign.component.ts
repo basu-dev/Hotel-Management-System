@@ -1,18 +1,16 @@
-﻿import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { IRole } from '../../../Model/Roles/role';
-import { IUser } from '../../../Model/User/user';
-import { IUserRole } from '../../../Model/User/userRole';
-import { UserRoleService } from '../../../Service/userRole.service';
-import { RoleService } from '../../../Service/role.service';
-import { UsersService } from '../../../Service/user.service';
-import { DBOperation } from '../../../Shared/enum';
-import { Observable } from 'rxjs/Rx';
-import { Global } from '../../../Shared/global'; import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
-
+﻿import { DatePipe } from '@angular/common';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-import { DatePipe } from '@angular/common';
+
+import { IUser } from '../../../Model/User/user';
+import { IUserRole } from '../../../Model/User/userRole';
+import { RoleService } from '../../../Service/role.service';
+import { UsersService } from '../../../Service/user.service';
+import { UserRoleService } from '../../../Service/userRole.service';
+import { DBOperation } from '../../../Shared/enum';
+import { Global } from '../../../Shared/global';
 
 @Component({
     templateUrl: './role-assign.component.html'

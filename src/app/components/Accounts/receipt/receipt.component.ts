@@ -1,18 +1,16 @@
-import { Component, OnInit, ViewChild, TemplateRef, ElementRef } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
-import { Account } from '../../../Model/Account/account';
-import { AccountTrans } from '../../../Model/AccountTransaction/accountTrans';
-
-import { DBOperation } from '../../../Shared/enum';
-
-import { Observable } from 'rxjs/Rx';
-import { Global } from '../../../Shared/global';
- import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
-
 import { DatePipe } from '@angular/common';
+import { Component, ElementRef, TemplateRef, ViewChild } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { Observable } from 'rxjs/Rx';
+
+import { Account } from '../../../Model/Account/account';
+import { AccountTrans } from '../../../Model/AccountTransaction/accountTrans';
 import { FileService } from '../../../Service/file.service';
+import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
+import { DBOperation } from '../../../Shared/enum';
+import { Global } from '../../../Shared/global';
 
 type CSV = any[][];
 

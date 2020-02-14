@@ -35,7 +35,7 @@ export class LoadAction implements Action {
 export class LoadCompletedAction implements Action {
     // Variables
     type = ActionTypes.LOAD_COMPLETED;
-    ' '
+   
     // Constructor
     constructor(public payload: CustomersPayLoad) { }
 }

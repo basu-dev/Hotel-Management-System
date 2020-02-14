@@ -1,17 +1,14 @@
-﻿import { Component, OnInit, ViewChild, TemplateRef, ElementRef } from '@angular/core';
-import { DatePipe } from '@angular/common';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { Company } from '../../../Model/company.model';
-
+﻿import { DatePipe } from '@angular/common';
+import { Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
+import { Company } from '../../../Model/company.model';
 import { FileService } from '../../../Service/file.service';
-
+import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
 import { DBOperation } from '../../../Shared/enum';
-import { Observable } from 'rxjs/Rx';
 import { Global } from '../../../Shared/global';
- import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
 
 
 @Component({

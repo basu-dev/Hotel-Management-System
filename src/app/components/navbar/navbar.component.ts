@@ -1,9 +1,9 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { AuthenticationService } from 'src/app/Service/authentication.service';
-import {Store} from "@ngrx/store";
-import * as authReducer from "../../reducers/auth.reducer";
-import * as authAction from "../../actions/auth.action"
-import { Observable } from 'rxjs';
+
+import * as authReducer from '../../reducers/auth.reducer';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -18,6 +18,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.store.subscribe(data=>this.authenticated=data.auth.IsAuthenticated)
       console.log("from navbar:"+this.authenticated)
+     
     }
  logout(){
   this.authService.logout()

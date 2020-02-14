@@ -1,16 +1,14 @@
-﻿import { Component, OnInit, ViewChild, TemplateRef, ElementRef } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, NgModel, FormArray, FormControl, AbstractControl } from '@angular/forms';
-import { AccountTransactionValues, AccountTrans, PurchaseOrderDetail, EntityMock } from '../../../Model/AccountTransaction/accountTrans';
-import { Account } from '../../../Model/Account/account';
-
-import { DBOperation } from '../../../Shared/enum';
-import { Observable } from 'rxjs/Rx';
-import { Global } from '../../../Shared/global';
- import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
-
-import { DatePipe } from '@angular/common'
+﻿import { DatePipe } from '@angular/common';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+
+import { AccountTrans, AccountTransactionValues, EntityMock } from '../../../Model/AccountTransaction/accountTrans';
+import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
+import { DBOperation } from '../../../Shared/enum';
+import { Global } from '../../../Shared/global';
+
 // import * as XLSX from 'xlsx';import { FileService } from '../../../Service/file.service';
 
 type CSV = any[][];
