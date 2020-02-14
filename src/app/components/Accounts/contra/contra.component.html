@@ -10,7 +10,7 @@
                     <div class="col-md-3">
                         <div (click)="addPayment()" style="cursor: pointer">
                             <span>
-                                <img src="../../images/Add.png" height="60" width="60" />
+                                <img src="../../../../assets/images/Add.png" height="60" width="60" />
                             </span>
                             Add Cash/Bank
                         </div>
@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="alert alert-info" role="alert" *ngIf="indLoading">
-                <img src="../../images/loading.gif" width="32" height="32" /> Loading...
+                <img src="../../../../assets/images/loading.gif" width="32" height="32" /> Loading...
             </div>
             <div *ngIf='paymentList && paymentList.length==0' class="alert alert-info" role="alert">No record found!</div>
             <!-- Voucher list table starts -->
@@ -73,8 +73,8 @@
                             <span *ngIf="row.File == ''">Not Added</span>
                         </td>
                         <td class="export-no-display">
-                            <img src="../../images/Edit.png" (click)="editPayment(row.Id)" title="Edit Voucher" height="32" width="32" />
-                            <img src="../../images/Delete.png" (click)="deletePayment(row.Id)" title="Delete Voucher" height="32" width="32" />
+                            <img src="../../../../assets/images/Edit.png" (click)="editPayment(row.Id)" title="Edit Voucher" height="32" width="32" />
+                            <img src="../../../../assets/images/Delete.png" (click)="deletePayment(row.Id)" title="Delete Voucher" height="32" width="32" />
                         </td>
                     </tr>
                     <tr *ngFor="let transaction of row.AccountTransactionValues">

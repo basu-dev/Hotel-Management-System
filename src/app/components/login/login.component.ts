@@ -35,8 +35,8 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
         this.form = this.fb.group({
-            UserName: ['dcubehotel', Validators.required],
-            Password: ['dcubehotel', Validators.required],
+            UserName: ['', Validators.required],
+            Password: ['', Validators.required],
             Remember: ['']
         });
     }
@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
                         localStorage.setItem("userToken",data.Token);
                         this.authService.authenticate();
                         this.router.navigate(["/reservation"]);
-                        this.ngOnInit();
+                        window.location.reload();
                     } else {
                         alert("Login failed no data");
                     }

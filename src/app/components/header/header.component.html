@@ -1,11 +1,11 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 <aside class="main-sidebar">
     <section class="sidebar">
-     <ul class="sidebar-menu tree" *ngFor="let item of items" data-widget="tree">
+     <ul class="sidebar-menu tree" data-widget="tree"  *ngFor="let item of items" >
             <li class="treeview mb-1" [class.group]="item.group" >
                 <a   *ngIf="item.children; else elseBlockk">
                     <i class="text-danger"></i> 
-                    <i class="fa fa-columns pull-left"></i><span>{{item.title}}</span>
+                    <i [ngClass]="item.icon" class="fa pull-left"></i><span>{{item.title}}</span>
                    <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -21,7 +21,7 @@
                         <div  *ngFor="let child of item.children" >
                         <li class="treeview">
                             <a href="#" class="flexing" *ngIf="child.children; else elseBlock">
-                                <i class="fa fa-book pull-left"></i><span class="textleft">{{child.title}}</span><span class="pull-right-container">
+                                <i [ngClass]="child.icon" class="fa  pull-left"></i><span class="textleft">{{child.title}}</span><span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span></a>
                             <ng-template #elseBlock>
