@@ -8,7 +8,7 @@
                 <img src="../../../../assets/images/Add.png" (click)="openModal(template)" height="60" width="60" />
                 <div class="alert alert-info" role="alert" *ngIf="indLoading"><img src="../../../../assets/images/loading.gif" width="32" height="32" /> Loading...</div>
                 <div *ngIf='warehousetypes && warehousetypes.length==0' class="alert alert-info" role="alert">No record found!</div>
-                <table class='table table-striped' *ngIf='warehousetypes && warehousetypes.length'>
+                <table  *ngIf='warehousetypes && warehousetypes.length'>
                     <thead>
                         <tr>
                             <th>Name</th>

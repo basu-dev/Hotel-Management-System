@@ -10,11 +10,10 @@ import { DBOperation } from '../../../Shared/enum';
 import { Observable } from 'rxjs';
 import { Global } from '../../../Shared/global'; import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
 
-
 @Component({
-    templateUrl: './customer-type.component.html'
+    templateUrl: './customer-type.component.html',
+    styleUrls: ['./customer-type.component.css']
 })
-
 export class CustomerTypeComponent implements OnInit {
     customerTypes: CustomerType[];
     customerType: CustomerType;

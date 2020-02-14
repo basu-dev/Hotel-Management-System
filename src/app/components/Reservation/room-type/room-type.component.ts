@@ -12,7 +12,8 @@ import { Global } from '../../../Shared/global'; import { AccountTransactionType
 
 
 @Component({
-    templateUrl: './room-type.component.html'
+    templateUrl: './room-type.component.html',
+    styleUrls: ['./room-type.component.css']
 })
 
 export class RoomTypeComponent implements OnInit {

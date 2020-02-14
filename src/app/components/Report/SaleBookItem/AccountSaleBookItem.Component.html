@@ -29,7 +29,7 @@
             <div style="padding-bottom:10px">
                 <div class="alert alert-info" role="alert" *ngIf="isLoading"><img src="../../images/loading.gif" width="32" height="32" /> Loading...</div>
                 <div *ngIf='SaleBooks && SaleBooks.length==0' class="alert alert-info" role="alert">No record found!</div>
-                <table id="SalesItemTable" class='table table-striped' *ngIf='SaleBooks && SaleBooks.length'>
+                <table id="SalesItemTable"  *ngIf='SaleBooks && SaleBooks.length'>
                     <thead>
                         <tr>
                             <th colspan="4" class="text-center">

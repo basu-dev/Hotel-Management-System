@@ -13,7 +13,8 @@ import { Global } from '../../../Shared/global'; import { AccountTransactionType
 
 
 @Component({
-    templateUrl: './room.component.html'
+    templateUrl: './room.component.html',
+    styleUrls: ['./room.component.css']
 })
 
 export class RoomComponent implements OnInit {

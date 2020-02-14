@@ -10,11 +10,10 @@ import { DBOperation } from '../../../Shared/enum';
 import { Observable } from 'rxjs';
 import { Global } from '../../../Shared/global'; import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
 
-
 @Component({
-    templateUrl: './reservation-type.component.html'
+    templateUrl: './reservation-type.component.html',
+    styleUrls: ['./reservation-type.component.css']
 })
-
 export class ReservationTypeComponent implements OnInit {
     reservationTypes: ReservationType[];
     reservationType: ReservationType;

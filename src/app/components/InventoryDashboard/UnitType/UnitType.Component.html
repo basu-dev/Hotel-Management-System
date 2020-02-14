@@ -10,7 +10,7 @@
             </div>
             <div class="alert alert-info" role="alert" *ngIf="indLoading"><img src="../../../../assets/images/loading.gif" width="32" height="32" /> Loading...</div>
             <div *ngIf='unitTypes && unitTypes.length==0' class="alert alert-info" role="alert">No record found!</div>
-            <table class='table table-striped' *ngIf='unitTypes && unitTypes.length'>
+            <table  *ngIf='unitTypes && unitTypes.length'>
                 <thead>
                     <tr>
                         <th>Name</th>
