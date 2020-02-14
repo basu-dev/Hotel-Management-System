@@ -25,7 +25,10 @@ public open(link){
         console.log(what);
     }
     ngOnInit(){
-        
+        $(document).ready(() => {
+            const trees: any = $('[data-widget="tree"]');
+            trees.tree();
+          })
         
     }
     public pageName = 'Job';

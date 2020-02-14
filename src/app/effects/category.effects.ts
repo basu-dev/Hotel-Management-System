@@ -22,10 +22,10 @@ export class CategoryEffects {
 	) {}
 
 	@Effect()
-	loadAction$:Observable<Action> =createEffect(():any=>createEffect(():any=> this.actions$.pipe(
+	loadAction$:Observable<Action> =createEffect(():any=> this.actions$.pipe(
 		ofType(categoryActions.ActionTypes.LOAD_CATEGORIES),
 		switchMap(() => this.api.loadCategories().pipe(
 			map(res => new categoryActions.LoadCategoriesSuccessAction({'categories': res})),
 			catchError(() => Observable.of({ 'type': categoryActions.ActionTypes.LOAD_ERROR }))
-		)))));
+		))));
 }

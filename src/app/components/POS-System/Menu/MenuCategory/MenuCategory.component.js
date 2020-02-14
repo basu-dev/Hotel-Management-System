@@ -78,7 +78,7 @@ var MenuCategoryComponent = /** @class */ (function () {
         if (menucatform.valid) {
             switch (this.dbops) {
                 case enum_1.DBOperation.create:
-                    this._menucategoryService.post(global_1.Global.BASE_MENUCATEGORY_ENDPOINT, formData._value).subscribe(function (data) {
+                    this._menucategoryService.post(global_1.Global.BASE_MENUCATEGORY_ENDPOINT, formData.value).subscribe(function (data) {
                         if (data == 1) {
                             alert("Data successfully added");
                             _this.LoadMenuCategory();
@@ -93,7 +93,7 @@ var MenuCategoryComponent = /** @class */ (function () {
                     });
                     break;
                 case enum_1.DBOperation.update:
-                    this._menucategoryService.put(global_1.Global.BASE_MENUCATEGORY_ENDPOINT, formData.value.Id, formData._value).subscribe(function (data) {
+                    this._menucategoryService.put(global_1.Global.BASE_MENUCATEGORY_ENDPOINT, formData.value.Id, formData.value).subscribe(function (data) {
                         if (data == 1) {
                             alert("Data successfully updated.");
                             _this.modalRef.hide();

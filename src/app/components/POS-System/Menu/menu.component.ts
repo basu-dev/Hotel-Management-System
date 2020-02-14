@@ -99,7 +99,7 @@ export class MenuComponent implements OnInit {
         if (MenuFrm.valid) {
             switch (this.dbops) {
                 case DBOperation.create:
-                    this._menuService.post(Global.BASE_MENU_ENDPOINT, formData._value).subscribe(
+                    this._menuService.post(Global.BASE_MENU_ENDPOINT, formData.value).subscribe(
                         data => {
                             if (data == 1) //Success
                             {
@@ -118,7 +118,7 @@ export class MenuComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                    this._menuService.put(Global.BASE_MENU_ENDPOINT, formData.value.Id, formData._value).subscribe(
+                    this._menuService.put(Global.BASE_MENU_ENDPOINT, formData.value.Id, formData.value).subscribe(
                   
                         data => {
                             if (data == 1) //Success

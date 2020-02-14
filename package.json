@@ -28,6 +28,7 @@
     "angular2-datetimepicker": "^1.1.1",
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
+    "jquery-ui-dist": "^1.12.1",
     "jspdf": "^1.5.3",
     "jspdf-autotable": "^3.2.11",
     "jwt-decode": "^2.2.0",

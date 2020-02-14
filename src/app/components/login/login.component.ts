@@ -63,6 +63,7 @@ export class LoginComponent implements OnInit {
                         localStorage.setItem("userToken",data.Token);
                         this.authService.authenticate();
                         this.router.navigate(["/reservation"]);
+                        this.ngOnInit();
                     } else {
                         alert("Login failed no data");
                     }

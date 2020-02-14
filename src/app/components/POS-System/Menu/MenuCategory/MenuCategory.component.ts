@@ -102,7 +102,7 @@ export class MenuCategoryComponent implements OnInit {
         if (menucatform.valid) {
             switch (this.dbops) {
                 case DBOperation.create:
-                    this._menucategoryService.post(Global.BASE_MENUCATEGORY_ENDPOINT, formData._value).subscribe(
+                    this._menucategoryService.post(Global.BASE_MENUCATEGORY_ENDPOINT, formData.value).subscribe(
                         data => {
                             if (data == 1) //Success
                             {
@@ -121,7 +121,7 @@ export class MenuCategoryComponent implements OnInit {
                     );
                     break;
                 case DBOperation.update:
-                    this._menucategoryService.put(Global.BASE_MENUCATEGORY_ENDPOINT, formData.value.Id, formData._value).subscribe(
+                    this._menucategoryService.put(Global.BASE_MENUCATEGORY_ENDPOINT, formData.value.Id, formData.value).subscribe(
                         data => {
                             if (data == 1) //Success
                             {
