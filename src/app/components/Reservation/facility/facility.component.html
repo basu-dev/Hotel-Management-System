@@ -1,6 +1,6 @@
 ﻿<div class='panel panel-primary'>
     <div class='panel-heading'>
-        FACILITIES
+       <h2>FACILITIES</h2> 
     </div>
     <div class='panel-body'>
         <div class='table-responsive'>
@@ -8,17 +8,17 @@
                 <img src="../../../../assets/images/Add.png" (click)="openModal(template)" height="60" width="60" />
                 <div class="alert alert-info" role="alert" *ngIf="isLoading"><img src="../../../../assets/images/loading.gif" width="32" height="32" /> Loading...</div>
                 <div *ngIf='facilities && facilities.length==0' class="alert alert-info" role="alert">No record found!</div>
-                <table class='table table-striped' *ngIf='facilities && facilities.length'>
-                    <thead>
+                <table border="1" style="color:#000;border:none;" *ngIf='facilities && facilities.length'>
+                    <thead class="text-center">
                         <tr>
-                            <th>Name</th>
+                            <th colspan="2" class="headfirst">Name</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="text-center">
                         <tr *ngFor="let facility of facilities">
                             <td>{{facility.Name}}</td>
                             <td>
-                                <span><img src="../../../../assets/images/Edit.png" (click)="editDepartment(facility.Id,template)" height="32" width="32" /></span>
+                                <span class="firstimg"><img src="../../../../assets/images/Edit.png" (click)="editDepartment(facility.Id,template)" height="32" width="32" /></span>
                                 <span><img src="../../../../assets/images/Delete.png" (click)="deleteDepartment(facility.Id,template)" height="32" width="32" /></span>
                             </td>
                         </tr>
@@ -41,26 +41,30 @@
         <div class="modal-header panel-heading">
             <h4 class="modal-title pull-left">{{modalTitle}}</h4>
             <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-                <span aria-hidden="true">&times;</span>
+                <i class="fa fa-times fa-design"></i>
             </button>
         </div>
         <div class="modal-body">
             <div class="row">
-                <div class="form-group">
-                    <label class="control-label col-sm-2">Name:</label>
-                    <div class="col-sm-6">
+                <div class="form-group col-md-12">
+                    <label class="control-label">Name:</label>
                         <input type="text" class="form-control" placeholder="" formControlName="Name" setAutoFocus  tabindex="1">
                         <div class="alert alert-danger" *ngIf="facilityForm.get('Name').hasError('required') && formSubmitAttempt">
                             Name is required
                         </div>
-                    </div>
                 </div>
             </div>
-        </div>
-        <div class="modal-footer">
-            <div>
-                <button type="submit" class="btn btn-success pull-left"  tabindex="2">{{modalBtnTitle}}</button>
-                <a class="btn btn-danger pull-right" (click)="modalRef.hide()"  tabindex="3">Cancel</a>
+            <div class="row footermodal">
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-success"  tabindex="2">{{modalBtnTitle}}</button>
+                </div>
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-3">
+                    <a class="btn btn-danger pull-right" (click)="modalRef.hide()"  tabindex="3">Cancel</a>
+                </div>
+                <div class="col-md-1"></div>
             </div>
         </div>
     </form>

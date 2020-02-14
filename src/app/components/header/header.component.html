@@ -5,7 +5,7 @@
             <li class="treeview mb-1" [class.group]="item.group" >
                 <a   *ngIf="item.children; else elseBlockk">
                     <i class="text-danger"></i> 
-                    <i class="fa fa-columns pull-left"></i><span>{{item.title}}</span>
+                    <i class="pull-left"></i><span>{{item.title}}</span>
                    <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -21,7 +21,7 @@
                         <div  *ngFor="let child of item.children" >
                         <li class="treeview">
                             <a href="#" class="flexing" *ngIf="child.children; else elseBlock">
-                                <i class="fa fa-book pull-left"></i><span class="textleft">{{child.title}}</span><span class="pull-right-container">
+                                <i class="pull-left"></i><span class="textleft">{{child.title}}</span><span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span></a>
                             <ng-template #elseBlock>

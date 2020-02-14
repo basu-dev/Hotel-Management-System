@@ -12,7 +12,8 @@ import { Global } from '../../../Shared/global'; import { AccountTransactionType
 
 
 @Component({
-    templateUrl: './payment-type.component.html'
+    templateUrl: './payment-type.component.html',
+    styleUrls: ['./payment-type.component.css']
 })
 
 export class PaymentTypeComponent implements OnInit {

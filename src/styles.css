@@ -179,3 +179,8 @@ box-sizing: border-box;
     right: 5%;
     border-radius:50%;
 }
+form{
+    margin:0!important;
+    padding:0!important;
+    border-radius: none!important;
+}
