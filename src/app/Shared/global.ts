@@ -1,6 +1,14 @@
 ﻿export class Global {
     // public static BASE_HOST_ENDPOINT=Global.BASE_HOST_ENDPOINT+ 'http://' + location.hostname + ':' + location.port + '/';
+<<<<<<< HEAD
  public static BASE_HOST_ENDPOINT='http://192.168.100.35:8081';
+=======
+
+    public static BASE_HOST_ENDPOINT='http://localhost:8080';
+    //asldkfjlkj
+    //laksdfjlkjds
+
+>>>>>>> fadbae56a008c661eba94a02ad39bf1730965b6a
     public static BASE_NEPALIMONTH_ENDPOINT=Global.BASE_HOST_ENDPOINT+ '/api/NepaliMonthAPI/';
     public static BASE_USER_ENDPOINT=Global.BASE_HOST_ENDPOINT+ '/api/userapi/';
     public static BASE_USERROLE_ENDPOINT=Global.BASE_HOST_ENDPOINT+ '/api/userRoleAPI/';

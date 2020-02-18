@@ -26,8 +26,6 @@ export class AuthenticationService {
     public isAuthenticated(): boolean {
         
         const user = localStorage.getItem('userToken');
-        
-        
         if (user)
         {
             console.log("Token",jwt_decode(user))
@@ -37,8 +35,6 @@ export class AuthenticationService {
         {
             return false; 
         }
-        
-
     }
     authenticate(){
         this.store.dispatch({type:ActionTypes.ActionTypes.IS_AUTHENTICATED})
@@ -49,6 +45,11 @@ export class AuthenticationService {
         localStorage.removeItem('userToken');
         localStorage.removeItem('currentUser');
         this.router.navigate(['/login'])
+    }
+    public get(url){
+       return this.http.get(url).pipe(
+            catchError(this.handleError)
+        )
     }
     public handleError(error:HttpErrorResponse){
         return throwError(error.error);
