@@ -2,6 +2,7 @@
     // public static BASE_HOST_ENDPOINT=Global.BASE_HOST_ENDPOINT+ 'http://' + location.hostname + ':' + location.port + '/';
 
     public static BASE_HOST_ENDPOINT='http://localhost:8080';
+    //asldkfjlkj
     //laksdfjlkjds
 
     public static BASE_NEPALIMONTH_ENDPOINT=Global.BASE_HOST_ENDPOINT+ '/api/NepaliMonthAPI/';
