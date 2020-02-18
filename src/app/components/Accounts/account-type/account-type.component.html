@@ -27,7 +27,7 @@
                 <img src="../../../../assets/images/loading.gif" width="32" height="32" /> Loading...
             </div>
             <div *ngIf='accountTypes && accountTypes.length==0' class="alert alert-info" role="alert">No record found!</div>
-            <table id="GroupLedgerTable" class='table table-striped' *ngIf='accountTypes && accountTypes.length'>
+            <table id="GroupLedgerTable"  *ngIf='accountTypes && accountTypes.length'>
                 <thead>
                     <tr>
                         <th>Group Name</th>

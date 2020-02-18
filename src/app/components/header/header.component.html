@@ -5,7 +5,9 @@
             <li class="treeview mb-1" [class.group]="item.group" >
                 <a   *ngIf="item.children; else elseBlockk">
                     <i class="text-danger"></i> 
+
                     <i [ngClass]="item.icon" class="fa pull-left"></i><span>{{item.title}}</span>
+
                    <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>

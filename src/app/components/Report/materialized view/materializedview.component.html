@@ -26,7 +26,7 @@
                 <br>
                 <div class="alert alert-info" role="alert" *ngIf="isLoading"><img src="../../../../assets/images/loading.gif" width="32" height="32" /> Loading...</div>
                 <div *ngIf='materializedViews && materializedViews.length==0' class="alert alert-info" role="alert">No record found!</div>
-                <table id="MaterializedViewTable" class='table table-striped' *ngIf='materializedViews && materializedViews.length'>
+                <table id="MaterializedViewTable"  *ngIf='materializedViews && materializedViews.length'>
                     <thead>
                         <tr>
                             <th colspan="11" class="text-center">

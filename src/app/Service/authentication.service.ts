@@ -46,6 +46,11 @@ export class AuthenticationService {
         localStorage.removeItem('currentUser');
         this.router.navigate(['/login'])
     }
+    public get(url){
+       return this.http.get(url).pipe(
+            catchError(this.handleError)
+        )
+    }
     public handleError(error:HttpErrorResponse){
         return throwError(error.error);
     }

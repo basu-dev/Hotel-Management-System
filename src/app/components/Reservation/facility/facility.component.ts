@@ -12,7 +12,8 @@ import { Global } from '../../../Shared/global'; import { AccountTransactionType
 
 
 @Component({
-    templateUrl: './facility.component.html'
+    templateUrl: './facility.component.html',
+    styleUrls: ['./facility.component.css']
 })
 
 export class FacilityComponent implements OnInit {

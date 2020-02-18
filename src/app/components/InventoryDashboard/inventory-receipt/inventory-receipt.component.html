@@ -121,7 +121,7 @@
             </div>
             <div class="alert alert-info" role="alert" *ngIf="indLoading"><img src="../../../../assets/images/loading.gif" width="32" height="32" /> Loading...</div>
             <div *ngIf='inventoryReceipt && inventoryReceipt.length==0' class="alert alert-info" role="alert">No record found!</div>
-            <table id="inventoryTable" class='table table-striped' *ngIf='inventoryReceipt && inventoryReceipt.length'>
+            <table id="inventoryTable"  *ngIf='inventoryReceipt && inventoryReceipt.length'>
                 <thead>
                     <tr>
                         <th width="150px;">Receipt No.</th>

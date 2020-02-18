@@ -15,7 +15,7 @@
                     <img src="../../../../assets/images/loading.gif" width="32" height="32" /> Loading...
                 </div>
                 <div *ngIf='TrialBalances && TrialBalances.length==0' class="alert alert-info" role="alert">No record found!</div>
-                <table id="TrialBalanceTable" class='table table-striped' *ngIf='TrialBalances && TrialBalances.length'>
+                <table id="TrialBalanceTable"  *ngIf='TrialBalances && TrialBalances.length'>
                     <thead>
                         <tr>
                             <th colspan="3" class="text-center">

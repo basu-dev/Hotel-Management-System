@@ -27,7 +27,7 @@
                 <br>
                 <div class="alert alert-info" role="alert" *ngIf="inLoading"><img src="../../../../assets/images/loading.gif" width="32" height="32" /> Loading...</div>
                 <div *ngIf='LedgerViews && LedgerViews.length==0' class="alert alert-info" role="alert">No record found!</div>
-                <table id="LedgerTable" class='table table-striped' *ngIf='LedgerViews && LedgerViews.length'>
+                <table id="LedgerTable"  *ngIf='LedgerViews && LedgerViews.length'>
                     <thead>
                         <tr>
                             <th colspan="6" class="text-center">

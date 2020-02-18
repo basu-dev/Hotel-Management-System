@@ -40,7 +40,7 @@
                 <img src="../../../../assets/images/loading.gif" width="32" height="32" /> Loading...
             </div>
             <div *ngIf='purchaseorder && purchaseorder.length==0' class="alert alert-info" role="alert">No record found!</div>
-            <table id="purchaseTable" class='table table-striped' *ngIf='purchaseorder && purchaseorder.length'>
+            <table id="purchaseTable"  *ngIf='purchaseorder && purchaseorder.length'>
                 <thead>
                     <tr>
                         <th colspan="5" class="text-center">
