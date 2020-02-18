@@ -1,7 +1,7 @@
 ﻿export class Global {
     // public static BASE_HOST_ENDPOINT=Global.BASE_HOST_ENDPOINT+ 'http://' + location.hostname + ':' + location.port + '/';
 
-    public static BASE_HOST_ENDPOINT='http://localhost:8080';
+    public static BASE_HOST_ENDPOINT='http://localhost:8081';
     //asldkfjlkj
     //laksdfjlkjds
 
