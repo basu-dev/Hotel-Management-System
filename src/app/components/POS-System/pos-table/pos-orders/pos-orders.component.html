@@ -1,153 +1,136 @@
 <div class="card" *ngIf="orders">
     <div class="card-header no-radius">
-        <div class="row rowfirst">
-            <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+        <div class="row">
+            <div class="col-md-3">
                 <strong>
-                    Bill No. {{ ticket ? '#' + ticket?.TicketId : '' }}
+                   Bill No. {{ ticket ? '#' + ticket?.TicketId : '' }}
+                </strong>
+            </div>
+            <div class="col-md-5">
+                <strong>
+                    {{ selectedCustomerId ? 'Cust#: ' + (customer$ | async)?.CustomerName : 'Table: ' + table ? table.Name : '' }}
+                </strong>
+            </div>
+            <div class="col-md-4">
+                <strong>
+                    Status: {{ orders.length ? orders[0].OrderStatus : 'Un Settled' }}
                 </strong>
             </div>
         </div>
-            <div class="row rowsecond">
-                <div class="col-md-6 col-sm-6 col-xs-6 text-center bordering">
-                    <strong>
-                        {{ selectedCustomerId ? 'Cust#: ' + (customer$ | async)?.CustomerName : 'Table: ' + table ? table.Name : '' }}
-                    </strong>
-                </div>
-                <div class="col-md-6 col-sm-6 col-xs-6 text-center borderingsecond" >
-                    <strong>
-                        Status: {{ orders.length ? orders[0].OrderStatus : 'Un Settled' }}
-                    </strong>
-                </div>
-            </div>
     </div>
     <div class="card-sub-header no-radius">
         <div class="row">
-            <table border="1" class="tablefirst">
-                <tr>
-                    <td>
-                        <strong>Item</strong>
-                    </td>
-                    <td>
-                        <strong>Qty</strong>
-                    </td>
-                    <td>
-                        <strong>Unit (Rs.)</strong> 
-                    </td>
-                    <td>
-                        <strong>Amount (Rs.)</strong>
-                    </td>
-                </tr>
-            </table> 
+            <div class="col-md-6 text-left">
+                <strong>Item</strong>
+            </div>
+            <div class="col-md-1 text-center">
+                <strong>Qty</strong>
+            </div>
+            <div class="col-md-2 text-right">
+                <strong>Unit (Rs.)</strong>
+            </div>
+            <div class="col-md-3 text-right">
+                <strong>Amount (Rs.)</strong>
+            </div>
         </div>
     </div>
     <div class="card-body orders__container scrollbar" id="style-2">
-        <scrollbar>
+        
             <div class="order-item" *ngFor="let order of orders">
-                <table border="1" class="tablethird">
-                    <tr>
-                        <td>
-                            <strong>Order No: {{ order.OrderNumber }}, {{ order.UserId + '-' }} {{ order.OrderOpeningTime }}</strong>
-                        </td>
-                        </tr>
-                </table>
-                    <div class="row order" *ngFor="let item of order.OrderItems" [ngClass]="{
+                <div class="row new-orders__label" style="color: darkgrey;">
+                    <strong>Order No: {{ order.OrderNumber }}, {{ order.UserId + '-' }} {{ order.OrderOpeningTime }}</strong>
+                    <hr>
+                </div>
+                <div class="row order" *ngFor="let item of order.OrderItems" [ngClass]="{
                         'active': item.IsSelected,
                         'submitted': item.Tags.indexOf('Submitted') !== -1,
                         'void': item.IsVoid
                     }" (click)="selectOrderItem.emit(item)">
-                        <div class="col-md-12">
-                            <table border="1" class="tablemiddle">
-                                <tr>
-                                    <td>
-                                        <span>
-                                           {{ getProductById(products,item.ItemId)?.Name }}
-                                            <br />
-                                            <small>{{ item.Tags.join(', ') }}</small>
-                                        </span>
-                                    </td>
-
-                                    <td>
-                                        <span>
-                                            {{ item.Qty }}
-                                        </span>
-                                    </td>
-
-                                    <td>
-                                        <span>
-                                           {{CurrentUnitPrice(item.UnitPrice)}}
-                                        </span>
-                                    </td>
-                                    <td>
-                                     {{ProductPrice(item.UnitPrice, item.Qty)}}
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
+                    <div class="col-md-6 text-left">
+                        <p>
+                            <span>
+                                <strong>{{ getProductById(products,item.ItemId)?.Name }}</strong>
+                                <br />
+                                <small>{{ item.Tags.join(', ') }}</small>
+                            </span>
+                        </p>
                     </div>
+                    <div class="col-md-1 text-center">
+                        <p>
+                            <span>
+                                <strong>{{ item.Qty }}</strong>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="col-md-2 text-right">
+                        <p>
+                            <span>
+                                <strong>{{CurrentUnitPrice(item.UnitPrice)}}</strong>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="col-md-3 text-right" style="padding-right:20px;">
+                        <p>
+                            <strong>{{ProductPrice(item.UnitPrice, item.Qty)}}</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        
     </div>
-        </scrollbar>
-    </div>
-    <div class="card-sub-header carding">
+    <div class="card-sub-header">
         <div class="row">
-            <table border="1" class="cardingtable">
-                <tr>
-                    <td>
-                        <small><strong>Order opening time:</strong></small>
-                    </td>
-                    <td>
-                        <div class="row"><small>{{ getDate(ticket?.TicketOpeningTime) }}</small></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <small><strong>Last Order time:</strong></small>
-                    </td>
-                    <td>
-                        <div class="row"><small>{{ getLastOrderTime(orders) }}</small></div>
-                    </td>
-                 </tr>
-                 <tr style="width:100%;">
-                    <td>
-                  
-                        <small *ngIf="ticket?.PaymentHistory.length">Last Payment time:</small>
-
-                    </td>
-                     <td>
-                         <div *ngIf="ticket?.PaymentHistory.length" class="row"><small>{{ getLastPaymentTime(ticket) }}</small></div>
-                     </td>
-                </tr>
-            </table>
-           
+            <div class="col-md-4 text-center">
+                <small><strong>Order opening time:</strong></small>
+                <div class="row"><small>{{ getDate(ticket?.TicketOpeningTime) }}</small></div>
+            </div>
+            <div class="col-md-4 text-center"><small><strong>Last Order time:</strong></small><div class="row"><small>{{ getLastOrderTime(orders) }}</small></div></div>
+            <div class="col-md-4">
+                <small *ngIf="ticket?.PaymentHistory.length">Last Payment time:</small>
+                <div *ngIf="ticket?.PaymentHistory.length" class="row"><small>{{ getLastPaymentTime(ticket) }}</small></div>
+            </div>
         </div>
     </div>
     <div class="order-footer">
         <div class="row">
-            <table  border="1" class="tablefourth">
-                <tr>
-                    <td>Ticket Total:</td>
-                    <td> Rs. {{ calculateSum().toFixed(2) }}</td>
-                </tr>
-                <tr>
-                    <td>Discount: </td>
-                    <td>Rs. {{ calculateDiscount() }}</td>
-                </tr>
-                <tr>
-                    <td>Service Charge:</td>
-                    <td>Rs. {{ calculateServiceCharge() }}</td>
-                </tr>
-                <tr>
-                    <td>VAT (13%): </td>
-                    <td>Rs. {{ calculateVat() }}</td>
-                </tr>
-                <tr>
-                    <td>Grand Total:</td>
-                    <td>Rs. {{ getGrandTotal() }}</td>
-                </tr>
-                <tr>
-                    <td>Balance: </td>
-                    <td>Rs. {{ getFinalBalance() }}</td>
-                </tr>
-            </table>
+            <div class="col-md-6 text-left">
+                <strong>Ticket Total: </strong>
+            </div>
+            <div class="col-md-6 text-right">
+                <strong>Rs. {{ calculateSum().toFixed(2) }}</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 text-left">
+                <strong>Discount: </strong>
+            </div>
+            <div class="col-md-6 text-right">
+                <strong>Rs. {{ calculateDiscount() }}</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 text-left">
+                <strong>Service Charge: </strong>
+            </div>
+            <div class="col-md-6 text-right">
+                <strong>Rs. {{ calculateServiceCharge() }}</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 text-left">
+                <strong>VAT (13%): </strong>
+            </div>
+            <div class="col-md-6 text-right">
+                <strong>Rs. {{ calculateVat() }}</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 text-left">
+                <strong>Grand Total: </strong>
+            </div>
+            <div class="col-md-6 text-right">
+                <strong>Rs. {{ getGrandTotal() }}</strong>
+            </div>
         </div>
         <div class="row" *ngIf="ticket?.PaymentHistory.length">
             <div class="col-md-12">
@@ -167,18 +150,25 @@
                 </div>
             </div>
         </div>
-      
+        <div class="row balance-section">
+            <div class="col-md-6 text-left">
+                <strong>Balance: </strong>
+            </div>
+            <div class="col-md-6 text-right">
+                <strong>Rs. {{ getFinalBalance() }}</strong>
+            </div>
+        </div>
         <div class="row handler-section">
-            <div class="col-md-6 col-sm-6 col-xs-6 pull-left">
+            <div class="col-md-6 text-left">
                 <a routerLink="/pos/settle">
-                    <div class="text-center btn btn-successs">
-                        <span class="text-center"> Settle </span>
+                    <div class="border border-dark text-center style border-radius btn btn-success" style="width:100%; font-size: 35px; cursor: pointer;">
+                        <span class="text-center text-dark style m-0"> Settle </span>
                     </div>
                 </a>
             </div>
-            <div class="col-md-6 col-sm-6 col-xs-6 pull-right">
-                <div (click)="close()" class="text-center btn btn-dangerr">
-                    <span class="text-center"> Close </span>
+            <div class="col-md-6 text-right">
+                <div (click)="close()" class="border border-dark bg-danger text-center style border-radius btn btn-danger" style="width:100%; font-size: 35px; cursor: pointer;">
+                    <span class="text-center text-white border border-danger m-0"> Close </span>
                 </div>
             </div>
         </div>

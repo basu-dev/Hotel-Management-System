@@ -1,10 +1,10 @@
+
 <!-- <div class="loading" *ngIf="isLoading">
     <div class="spinner"></div>
 </div> -->
-
 <div class="row">
     <div class="col-md-2">
-        <h2 style="color:#4267b2;margin: 10px auto 10px 14px;font-weight: bold;"> Order</h2>
+        <h2 style="color: #4267b2;margin: 10px auto 10px 14px;font-weight: bold;"> Order</h2>
     </div>
     <div class="col-md-10">
         <pos-options [selectedItem]="selectedItem" [orders]="orders$" (showTicketNote)="showTicketNote()" (createNewTicket)="createNewTicket()" (printBill)="printBill()" (removeItem)="removeItem($event)" (voidItem)="voidItem($event)" (incrementQty)="incrementQty($event)" (decrementQty)="decrementQty($event)" (toogleGiftItem)="toogleGiftItem($event)" (moveItems)="moveItems($event)"></pos-options>
@@ -17,6 +17,7 @@
                 <div class="card-header no-radius">
                     Choose Category:
                 </div>
+                
                     <div class="card-body category-list">
                         <input type="text" [(ngModel)]="SearchCategory" placeholder="Enter Categories" size="17" style="margin-bottom: 8px;" />
                         <div>
@@ -29,6 +30,7 @@
                             </div>
                         </div>
                     </div>
+                
             </div>
         </div>
         <div class="row">
@@ -54,16 +56,18 @@
                     <div class="card-header">
                         Select Products:
                     </div>
-                    <div class="card-body product-list">
-                    <input type="text" [(ngModel)]="SearchProduct" placeholder="Enter Products" size="40" style="margin-bottom: 8px;" />
-                    <div *ngIf="selectedCategory">
-                    <!-- <div *ngFor="let product of products$ | async | filterByCategory:selectedCategory | search:SearchProduct" class="col-md-6 btn badge badge-success product-item" -->
-                        <div *ngFor="let product of products$ | async " class="col-md-6 btn badge badge-success product-item"
+                    
+                        <div class="card-body product-list">
+                            <input type="text" [(ngModel)]="SearchProduct" placeholder="Enter Products" size="40" style="margin-bottom: 8px;" />
+                            <div *ngIf="selectedCategory">
+                                <!-- <div *ngFor="let product of products$ | async | filterByCategory:selectedCategory | search:SearchProduct" class="col-md-6 btn badge badge-success product-item" -->
+                                <div *ngFor="let product of products$ | async " class="col-md-6 btn badge badge-success product-item"
                                      (click)="addOrderItem(product)" title="{{ product.Name }}">
                                     <strong>{{ product.Name}}</strong>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>

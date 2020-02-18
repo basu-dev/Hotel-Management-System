@@ -2,22 +2,27 @@
     padding: 5px 0px 0px 15px;
     font-size: 12px;
 }
+
 hr {
     margin-top: 2px;
     margin-bottom: 6px;
 }
+
 .orders__container {
-    height: 157px !important;
+    height: auto !important;
 }
+
 .order {
+    padding: 5px;
     cursor: pointer;
-    background: #fff;
-    height: auto;
+    margin-bottom: 3px;
 }
+
 .active {
     background: #007bff;
     color:white !important;
 }
+
 .card-footer {
     background: #dcdcdc;
     padding: 10px 5px 5px 5px;
@@ -28,42 +33,35 @@ hr {
 }
 
 .handler-section {
-                   height: 70px;
+    height: 70px;
 }
 
 .balance-section {
     color: #dc3545;
 }
+
 .card-header {
-    background: #2874a6;
-    color:#fff;
+    background: #f7f7f7;
     border: 1px solid #dfdfdf;
     border-radius: 3px 3px 0 0;
-     font-size: 13px;
- 
-}
-.card-header .rowfirst{
-                        border-bottom:1px solid #ffffff;
-                        padding:5px;
-}
-.card-header .rowsecond{
-                        padding: 5px;
-}
-.card-header .rowsecond .bordering{
-                                  border-right: 1px solid #ffffff;
+    padding: 5px;
 }
 .card-sub-header {
-    background: #dcdcdc;
+    background: #dbd9d9;
+    border: 1px solid #c8c3c3;
     border-radius: 3px 3px 0 0;
+    padding: 3px;
 }
 .card-body {
     border: 1px solid #dfdfdf;
-    background: #dcdcdc;
+    padding: 5px;
     border-top: 0;
 }
+    
 .submitted {
     color: #a94442;
 }
+
 .list-group-item.active {
     background-color: #ffc107 !important;
     border-color: #ffc107 !important;
@@ -91,163 +89,4 @@ p {
 
 dl {
     margin-bottom: 0;
-}
-.order-footer{
-              background: #fff;
-              margin-right: 15px;
-              margin-left: 15px;
-}
-.order-footer .handler-section{
-                               padding-top:12px;
-                               margin-bottom:10px;
-                               background:#dcdcdc;
-                               padding-bottom:15px;
-}
-.order-footer .row{
-                   border-bottom:1px solid #212226;
-                   border-right:1px solid #212226;
-                   border-left:1px solid #212226;
-}
-.btn-successs{
-             background:#2874a6;
-             color: #ffffff;
-             font-size: 16px!important;
-             cursor:pointer;
-             padding:10px;
-             transition: all 400ms linear;
-             width:100%;
-}
-.btn-dangerr{
-            background: #037f32;
-            color: #ffffff;
-            font-size: 16px!important;
-            cursor:pointer;
-            padding:10px;
-            width:100%;
-            transition: all 400ms linear;
-}
-.btn-success:hover{
-                   background: #212226;
-                   color: #fff;
-}
-.btn-dangerr:hover{
-                  background: #212226;
-                  color: #fff;
-}
-.pull-left a{
-              text-decoration:none;
-}
-.card-sub-header .tablefirst{
-                                   margin:0px;
-                                   width:92%;
-                                   background:#dcdcdc;
-                                   margin-left:4%;
-                                   margin-right:4%;
-}
-.card-sub-header .tablefirst  tr{
-                                      width:100%;
-}
-.card-sub-header .tablefirst td{
-                                padding:5px;
-                                text-align:center;
-                                font-size:12px;
-                                width:25%;
-}
-.order-footer .tablefourth {
-                            margin:0px;
-                            width:100%;
-}
-.order-footer .tablefourth tr{
-                              width:100%;
-}
-.order-footer .tablefourth td{
-                              padding:5px;
-                              text-align:center;
-                              font-size:13px;
-                              width:50%;
-}
-.carding .row{
-              margin-left:1px;
-              margin-right:1px;
-}
-.carding .cardingtable{
-                       margin:0px;
-                       width:100%;
-}
-.carding .cardingtable tr{
-                          width:100%;    
-}
-.carding .cardingtable td{
-                          padding:10px;
-                          text-align:center;
-                          font-size:14px;
-                          width:50%;
-}
-.order-item .tablethird{
-                        margin:0px;
-                        width:100%;
-}
-.order-item .tablethird tr{
-                           width:100%;
-}
-.order-item .tablethird td{
-                             padding:5px;
-                             text-align:center;
-                             font-size:14px;
-                             width:100%;
-}
-.order-item .tablemiddle{
-                        margin:0px;
-                        width:100%;
-}
-.order-item .tablemiddle tr{
-                            width:100%;
-}
-.order-item .tablemiddle td{
-                           padding:2px;
-                           text-align:center;
-                           font-size:13px;
-                           width:25%;
-}
-
-
-/* =================  Start of media query ================ */
-
- @media (min-width:992px) and (max-width:1199px){
-                                                .card-sub-header .tablefirst{
-                                                                              margin:0px;
-                                                                              width:90%;
-                                                                              background:#dcdcdc;
-                                                                              margin-left:5%;
-                                                                              margin-right:5%;
-                                                 }
-}
-@media (min-width:768px) and (max-width:991px) {
-                                               .card-sub-header .tablefirst{
-                                                                            margin:0px;
-                                                                            width:90%;
-                                                                            background:#dcdcdc;
-                                                                            margin-left:5%;
-                                                                            margin-right:3%;
-                                }
-}
-@media (min-width:700px) and (max-width:767px){
-   .card-sub-header .tablefirst {
-                                  margin: 0px;
-                                  width: 96%;
-                                  background: #dcdcdc;
-                                  margin-left: 2%;
-                                  margin-right: 2%;
-                                 }
-    
-}
-@media (min-width:575px) and (max-width:659px){
-                 .card-sub-header .tablefirst {
-                                              margin: 0px;
-                                              width: 94%;
-                                              background: #dcdcdc;
-                                              margin-left:3%;
-                                           
-                                              }
-    
 }

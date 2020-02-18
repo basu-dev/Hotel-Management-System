@@ -7,11 +7,11 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="row">
-                                <div class="col-md-1"> Search: </div>
-                                <div class="col-md-9">
+                                <div class="col-md-1 padme"> Search: </div>
+                                <div class="col-md-8">
                                     <input type="text" class="form-control" [(ngModel)]="customerName" placeholder="Search customer by name">
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <button style="margin-bottom: 10px; margin-left: 55px;" class="btn btn-primary" (click)="addAccounts()"><strong>New Customer</strong></button>
                                 </div>
                             </div>
@@ -46,8 +46,8 @@
                                                 {{ customer.Telephone }}
                                             </td>
                                             <td class="export-no-display">
-                                                <img src="../../../../assets/images/Edit.png" (click)="editAccounts(customer.Id)" title="Edit customer" height="32" width="32" />
-                                                <img src="../../../../assets/images/Delete.png" (click)="deleteAccounts(customer.Id)" title="Delete customer" height="32" width="32" />
+                                           <span class="firstimg"><img src="../../../../assets/images/Edit.png" (click)="editAccounts(customer.Id)" title="Edit customer" height="32" width="32" /></span>
+                                            <span> <img src="../../../../assets/images/Delete.png" (click)="deleteAccounts(customer.Id)" title="Delete customer" height="32" width="32" /></span>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -81,57 +81,49 @@
         <div class="modal-header panel-heading">
             <h4 class="modal-title pull-left">{{modalTitle}}</h4>
             <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-                <span aria-hidden="true">&times;</span>
+                <i class="fa fa-times fa-design"></i>
             </button>
         </div>
         <div class="modal-body">
-            <div class="panel-body">
-                <div class="panel panel-defaut">
                     <div class="tab-v1">
-                        <ul class="nav nav-tabs">
-                            <li class="active">
-                                <a href="#Ledger" data-toggle="tab">Ledger</a>
+                        <ul class="nav nav-tabs nav-justified">
+                            <li class="nav-item">
+                                <a href="#Ledger" class="nav-link active" data-toggle="tab">Ledger</a>
                             </li>
-                            <li>
-                                <a href="#Taxation" data-toggle="tab">Taxation</a>
+                            <li class="nav-item">
+                                <a href="#Taxation" class="nav-link" data-toggle="tab">Taxation</a>
                             </li>
-                            <li>
-                                <a href="#Settings" data-toggle="tab">Settings</a>
+                            <li class="nav-item">
+                                <a href="#Settings" class="nav-link" data-toggle="tab">Settings</a>
                             </li>
-                            <li>
-                                <a href="#Address" data-toggle="tab">Address</a>
+                            <li class="nav-item">
+                                <a href="#Address" class="nav-link" data-toggle="tab">Address</a>
                             </li>
                         </ul>
                         <div class="tab-content">
                             <br />
-                            <div class="tab-pane fade in active" id="Ledger">
+                            <div class="tab-pane  active" id="Ledger">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="control-label col-md-4 pull-left">Name</label>
-                                            <div class="col-md-8">
+                                            <label class="control-label">Name</label>
                                                 <input type="text" class="form-control" placeholder="Name" formControlName="Name">
                                                 <div class="alert alert-danger" *ngIf="accountLedgerFrm.get('Name').hasError('required') && formSubmitAttempt">
                                                     Name is required
                                                 </div>
-                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <label class="control-label col-md-4 pull-left">Account Type</label>
-                                        <div class="form-group col-md-8">
+                                    <div class="col-md-4">
+                                        <label class="control-label">Account Type</label>
                                             <select class="form-control" formControlName="AccountTypeId">
                                                 <option class="form-control" *ngFor="let acctypes of acctype" [ngValue]="acctypes.Id">{{acctypes.Name}}</option>
                                             </select>
-                                        </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="control-label col-md-4 pull-left">Amount</label>
-                                            <div class="col-md-8">
+                                            <label class="control-label">Amount</label>
                                                 <input type="text" name="Amount" ng-model="settingFrm.Amount" class="form-control" formControlName="Amount" />
-                                            </div>
-                                        </div>
+                                      </div>
                                     </div>
                                 </div>
                                 <div class="row" style="margin-top: 10px;">
@@ -159,123 +151,106 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label col-md-5">Tax Classification Name</label>
-                                            <div class="col-md-7">
+                                            <label class="control-label">Tax Classification Name</label>
                                                 <select class="form-control" placeholder="TaxClassificationName" formControlName="TaxClassificationName">
                                                     <option value="0"></option>
                                                 </select>
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label col-md-5">Tax Type</label>
-                                            <div class="col-md-7" style="margin-bottom: 10px;">
+                                            <label class="control-label">Tax Type</label>
                                                 <select class="form-control" placeholder="TaxType" formControlName="TaxType">
                                                     <option value="0"></option>
                                                 </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-5">Tax Rate</label>
-                                            <div class="col-md-7" style="margin-bottom: 10px;">
-                                                <select class="form-control" placeholder="TaxRate" formControlName="TaxRate">
-                                                    <option value="0"></option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-5">Nature of Purchase</label>
-                                            <div class="col-md-7">
-                                                <select class="form-control" placeholder="NatureOfPurchase" formControlName="TraderLedNatureOfPurchase">
-                                                    <option value="0"></option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-5">TDS Deductee Type</label>
-                                            <div class="col-md-7">
-                                                <select class="form-control" placeholder="TDSDeducteeType" formControlName="TDSDeducteeType">
-                                                    <option value="0"></option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-5">TDS Rate Name</label>
-                                            <div class="col-md-7" style="margin-top: 10px;">
-                                                <select class="form-control" placeholder="TDSRateName" formControlName="TDSRateName">
-                                                    <option value="0"></option>
-                                                </select>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Tax Rate</label>
+                                                <select class="form-control" placeholder="TaxRate" formControlName="TaxRate">
+                                                    <option value="0"></option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Nature of Purchase</label>
+                                                <select class="form-control" placeholder="NatureOfPurchase" formControlName="TraderLedNatureOfPurchase">
+                                                    <option value="0"></option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">TDS Deductee Type</label>
+                                                <select class="form-control" placeholder="TDSDeducteeType" formControlName="TDSDeducteeType">
+                                                    <option value="0"></option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">TDS Rate Name</label>
+                                                <select class="form-control" placeholder="TDSRateName" formControlName="TDSRateName">
+                                                    <option value="0"></option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                    </div>
+                            
                             </div>
                             <div class="tab-pane fade in" id="Address">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label col-md-3"> Address</label>
-                                            <div class="col-md-9">
+                                            <label class="control-label"> Address</label>
                                                 <input type="text" class="form-control" placeholder="Address" formControlName="Address">
-                                            </div>
-                                        </div>
+                                     </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label col-md-3">Street</label>
-                                            <div class="col-md-9" style="margin-bottom: 10px;">
+                                            <label class="control-label">Street</label>
                                                 <input type="text" class="form-control" placeholder="Street" formControlName="Street" />
-                                            </div>
-                                        </div>
+                                   </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label col-md-3">City</label>
-                                            <div class="col-md-9">
+                                            <label class="control-label">City</label>
+                                           
                                                 <input type="text" class="form-control" placeholder="City" formControlName="City" />
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label col-md-3">District</label>
-                                            <div class="col-md-9" style="margin-bottom: 10px;">
+                                            <label class="control-label">District</label>
                                                 <input type="text" class="form-control" placeholder="District" formControlName="District">
-                                            </div>
+                            
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label col-md-3">Pan / Vat No.</label>
-                                            <div class="col-md-9">
+                                            <label class="control-label">Pan / Vat No.</label>
                                                 <input type="text" class="form-control" placeholder="PanNo" formControlName="PanNo" />
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label col-md-3">Telephone</label>
-                                            <div class="col-md-9" style="margin-bottom: 10px;">
+                                            <label class="control-label">Telephone</label>
                                                 <input type="text" class="form-control" placeholder="Telephone" formControlName="Telephone" />
-                                            </div>
-                                        </div>
+                                     </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label col-md-3">Email</label>
-                                            <div class="col-md-9">
+                                            <label class="control-label">Email</label>
                                                 <input type="text" class="form-control" placeholder="Email" formControlName="Email" />
-                                            </div>
-                                        </div>
+                                    </div>
                                     </div>
                                 </div>
                             </div>
@@ -528,14 +503,14 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                    
                 <div class="modal-footer">
                     <div>
-                        <button type="button" class="btn btn-danger pull-right" (click)="reset(); modalRef.hide();">Cancel</button>
-                        <button type="submit" [disabled]="accountLedgerFrm.invalid" class="btn btn-success pull-left">{{modalBtnTitle}} </button>
+                        <button type="button" class="btn btn-danger pull-left" (click)="reset(); modalRef.hide();">Cancel</button>
+                        <button type="submit" [disabled]="accountLedgerFrm.invalid" class="btn btn-success pull-right">{{modalBtnTitle}} </button>
                     </div>
                 </div>
-            </div>
+            
         </div>
     </form>
 </ng-template>
