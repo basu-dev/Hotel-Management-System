@@ -1,0 +1,27 @@
+.padtop{
+    padding-top:7px;
+    padding-left: 70px!important;
+}
+.martop{
+        margin-top:15px;
+}
+/* =========== style css of table ============== */
+table td img{
+             height:30px;
+             width:30px;
+}
+table td .firstimg{
+                  padding-right:10px;
+}
+.designmyrow{
+             background: #287a46;
+             margin-left:4px;
+             margin-right:4px;
+             font-family: 'Raleway', sans-serif;
+             padding-top: 15px;
+             padding-bottom: 15px;
+}
+.designmyrow h3{
+                font-size:18px;
+                color:#fff;
+}

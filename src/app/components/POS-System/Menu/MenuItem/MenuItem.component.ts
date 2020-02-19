@@ -15,9 +15,11 @@ import { BillingService } from 'src/app/Service/Billing/billing.service';
 
 
 @Component({
-    templateUrl: './MenuItem.component.html'
+    templateUrl: './MenuItem.component.html',
+    styleUrls:[
+        "./MenuItem.component.css"
+    ]    
 })
-
 export class MenuItemComponent implements OnInit {
     @ViewChild("template",{static:false}) TemplateRef: TemplateRef<any>;
     menuItems: IMenuItem[];
@@ -119,7 +121,7 @@ export class MenuItemComponent implements OnInit {
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
             keyboard: false,
-            class: 'modal-lg',
+            class: 'modal-xl',
         });
     }
 
@@ -147,7 +149,7 @@ export class MenuItemComponent implements OnInit {
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
             keyboard: false,
-            class: 'modal-lg',
+            class: 'modal-xl',
         });
     }
 
@@ -173,7 +175,7 @@ export class MenuItemComponent implements OnInit {
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
             keyboard: false,
-            class: 'modal-lg',
+            class: 'modal-xl',
         });
     }
 

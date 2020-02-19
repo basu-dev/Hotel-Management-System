@@ -18,8 +18,10 @@ import { OrderStoreService } from '../../../Service/store/order.store.service';
 @Component({
     selector: 'pos-sale-billing',
     templateUrl: 'pos-sale-billing.component.html',
+    styleUrls:[
+        'pos-sale-billing.component.css'
+    ]    
 })
-
 export class POSSaleBillingComponent implements OnInit {
     currentYear: any;
     currentUser: any;
