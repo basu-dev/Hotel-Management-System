@@ -1,6 +1,6 @@
 ﻿<div class='panel panel-primary'>
     <div class='panel-heading'>
-        Tables and Floor Planning
+        <h2>Tables and Floor Planning</h2>
     </div>
     <div class='panel-body'>
         <div class='table-responsive'>
@@ -11,20 +11,21 @@
                 <table  *ngIf='tables && tables.length'>
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th class="bg-primary">Name</th>
+                            <th class="bg-primary">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let table of tables">
                             <td>{{table.Name}}</td>
-                            <td>
-                                <span><img src="../../../../assets/images/Edit.png" (click)="editTable(table.Id,template)" height="32" width="32" /></span>
+                            <td class="text-center">
+                                <span class="firstimg"><img src="../../../../assets/images/Edit.png" (click)="editTable(table.Id,template)" height="32" width="32" /></span>
                                 <span><img src="../../../../assets/images/Delete.png" (click)="deleteTable(table.Id,template)" height="32" width="32" /></span>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-                <div *ngIf='tables && tables.length>=10' style="padding-bottom:10px"><img src="../../../../assets/images/Add.png" (click)="openModal(template)" height="60" width="60" /></div>
+                <div *ngIf='tables && tables.length>=10' style="padding-bottom:10px;padding-top:20px;"><img src="../../../../assets/images/Add.png" (click)="openModal(template)" height="60" width="60" /></div>
             </div>
             <div *ngIf="msg" role="alert" class="alert alert-info alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -40,28 +41,31 @@
         <div class="modal-header panel-heading">
             <h4 class="modal-title pull-left">{{modalTitle}}</h4>
             <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-                <span aria-hidden="true">&times;</span>
+                <i class="fa fa-times fa-design"></i>
             </button>
         </div>
         <div class="modal-body">
             <div class="row">
-                <div class="form-group">
-                    <label class="control-label col-sm-2">Name:</label>
-                    <div class="col-sm-9">
+                <div class="form-group col-md-12">
+                    <label class="control-label">Name:</label>
                         <input type="text" class="form-control" placeholder="" formControlName="Name">
                         <div class="alert alert-danger" *ngIf="TableForm.get('Name').hasError('required') && formSubmitAttempt">
                             Name is required
                         </div>
-                    </div>
+                </div>
+            </div>
+            <div class="row footermodal">
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-success pull-left">{{modalBtnTitle}}</button>
+                </div>
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                    <a class="btn btn-danger pull-right" (click)="modalRef.hide()">Cancel</a>
                 </div>
             </div>
         </div>
-        <div class="modal-footer">
-            <div>
-                <button type="submit" class="btn btn-success pull-left">{{modalBtnTitle}}</button>
-                <a class="btn btn-danger pull-right" (click)="modalRef.hide()">Cancel</a>
-            </div>
-        </div>
+       
     </form>
 </ng-template>
 

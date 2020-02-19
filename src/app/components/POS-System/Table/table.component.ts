@@ -15,7 +15,8 @@ import { TableStoreService } from '../../../Service/Billing/table.store.service'
 
 @Component({
     selector: 'my-table-list',
-    templateUrl: './table.component.html'
+    templateUrl: './table.component.html',
+    styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
     tables: Table[];

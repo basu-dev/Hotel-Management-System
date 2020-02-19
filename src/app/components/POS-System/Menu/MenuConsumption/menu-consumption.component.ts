@@ -23,7 +23,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'menu-consumption',
-    templateUrl: 'menu-consumption.component.html'
+    templateUrl: 'menu-consumption.component.html',
+    styleUrls: [ 'menu-consumption.component.css']
 })
 
 export class MenuConsumptionComponent implements OnInit {
@@ -189,7 +190,7 @@ export class MenuConsumptionComponent implements OnInit {
         this.modalRef = this.modalService.show(template, {
             backdrop: 'static',
             keyboard: false,
-            class: 'modal-lg'
+            class: 'modal-xl'
         });
     }
 
@@ -225,7 +226,7 @@ export class MenuConsumptionComponent implements OnInit {
              this.modalRef = this.modalService.show(template, {
                 backdrop: 'static',
                  keyboard: false,
-                 class: 'modal-lg'
+                 class: 'modal-xl'
             });
         },
             error => this.msg = <any>error);
@@ -264,7 +265,7 @@ export class MenuConsumptionComponent implements OnInit {
             this.modalRef = this.modalService.show(template, {
                 backdrop: 'static',
                 keyboard: false,
-                class: 'modal-lg'
+                class: 'modal-xl'
             });
         },
             error => this.msg = <any>error);

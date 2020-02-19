@@ -12,8 +12,6 @@ import { BillingService } from 'src/app/Service/Billing/billing.service';
     selector : 'MenuCategoryItem',
     templateUrl: './MenuCategoryItem.component.html'
 })
-
-
 export class MenuCategoryItem implements OnInit {
     menuItems: IMenuItem[];
     menuItem: IMenuItem;

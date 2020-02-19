@@ -1,0 +1,8 @@
+/* =========== style css of table ============== */
+table td img{
+    height:30px;
+    width:30px;
+}
+table td .firstimg{
+         padding-right:10px;
+}

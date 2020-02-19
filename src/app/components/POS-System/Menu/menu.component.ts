@@ -14,7 +14,8 @@ import { Global } from '../../../Shared/global';
 
 @Component({
     selector: 'my-menu-list',
-    templateUrl: './Menu.component.html'
+    templateUrl: './Menu.component.html',
+    styleUrls : ['./Menu.component.css']
 })
 
 export class MenuComponent implements OnInit {
