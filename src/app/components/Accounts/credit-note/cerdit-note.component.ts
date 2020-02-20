@@ -292,10 +292,9 @@ export class CreditNoteComponent implements OnInit {
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
             keyboard: false,
-            class: 'modal-lg'
+            class: 'modal-xl'
         });
     }
-
     /**
      * Gets individual journal voucher
      * @param Id 
@@ -356,7 +355,7 @@ export class CreditNoteComponent implements OnInit {
                 this.modalRef = this.modalService.show(this.TemplateRef, {
                     backdrop: 'static',
                     keyboard: false,
-                    class: 'modal-lg'
+                    class: 'modal-xl'
                 });
             },
             error => this.msg = <any>error);
@@ -411,7 +410,7 @@ export class CreditNoteComponent implements OnInit {
                 this.modalRef = this.modalService.show(this.TemplateRef, {
                     backdrop: 'static',
                     keyboard: false,
-                    class: 'modal-lg'
+                    class: 'modal-xl'
                 });
             });
     }
@@ -439,13 +438,10 @@ export class CreditNoteComponent implements OnInit {
 
     //remove the rows//
     removeAccount(i: number) {
-        
         let controls = <FormArray>this.cerditNoteFrm.controls['AccountTransactionValues'];
         let controlToRemove = this.cerditNoteFrm.controls.AccountTransactionValues['controls'][i].controls;
         let selectedControl = controlToRemove.hasOwnProperty('Id') ? controlToRemove.Id.value : 0;
-
         let currentaccountid = controlToRemove.Id.value;
-
         if (currentaccountid != "0") {
             this._accountTransValues.delete(Global.BASE_JOURNAL_ENDPOINT, currentaccountid).subscribe(data => {
                 (data == 1) && controls.removeAt(i);
@@ -458,26 +454,20 @@ export class CreditNoteComponent implements OnInit {
             }
         }
     }
-
-
     //calulate the sum of debit columns//
     sumDebit() {
         let controls = this.cerditNoteFrm.controls.AccountTransactionValues.value;
-
         return controls.reduce(function (total: any, accounts: any) {
             return (accounts.Debit) ? (total + Math.round(accounts.Debit)) : total;
         }, 0);
     }
-
     //calculate the sum of credit columns//
     sumCredit() {
         let controls = this.cerditNoteFrm.controls.AccountTransactionValues.value;
-
         return controls.reduce(function (total: any, accounts: any) {
             return (accounts.Credit) ? (total + Math.round(accounts.Credit)) : total;
         }, 0);
     }
-
     /**
      * Validate fields
      * @param formGroup 
@@ -492,7 +482,6 @@ export class CreditNoteComponent implements OnInit {
             }
         });
     }
-
     /**
      * Open Modal
      * @param template 
@@ -500,7 +489,6 @@ export class CreditNoteComponent implements OnInit {
     openModal2(template: TemplateRef<any>) {
         this.modalRef2 = this.modalService.show(template, { class: 'modal-sm' });
     }
-
     /**
      * Enable or Disable the form fields
      * @param data 

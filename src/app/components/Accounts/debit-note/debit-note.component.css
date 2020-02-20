@@ -33,3 +33,34 @@ input, select, textarea {
     font-size: smaller;
     margin-top: 3px;
 }
+.hidden{
+    display:none;
+}
+.padtop{
+padding-top:5px;
+padding-left: 50px!important;
+}
+.secondrow{
+        margin-top:10px;
+        padding-bottom: 11px;
+}
+.firstrow{
+      margin-bottom:13px;
+      margin-top:20px;
+      color: #fff;
+}
+.designmyrow{
+color:#fff;
+background-color: #287a46;
+margin-left:3px;
+margin-right:3px;
+}
+.designmysecondrow{
+     padding-top:20px;
+     padding-bottom:20px;
+     margin-left:3px;
+     margin-right:3px;
+}
+.designmythirdrow{
+margin-top:20px;
+}

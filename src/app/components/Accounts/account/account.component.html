@@ -1,8 +1,7 @@
 ﻿<div class="panel panel-primary">
     <div class="panel panel-heading">
-        Ledger's
+        <h2>Ledger's</h2>
     </div>
-
     <div class="panel-body">
         <div class="table-responsive">
             <div style="padding-bottom:10px">
@@ -48,7 +47,7 @@
                     <tr *ngFor="let account of accounts">
                         <td>{{account.Name}}</td>
                         <td class="export-no-display">
-                            <span>
+                            <span class="firstimg">
                                 <img src="../../../../assets/images/Edit.png" (click)="editAccounts(account.Id)" height="32" width="32" />
                             </span>
                             <span>
@@ -76,57 +75,46 @@
         <div class="modal-header panel-heading">
             <h4 class="modal-title pull-left">{{modalTitle}}</h4>
             <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-                <span aria-hidden="true">&times;</span>
+               <i class="fa fa-times fa-design"></i>
             </button>
         </div>
         <div class="modal-body">
-            <div class="panel-body">
-                <div class="panel panel-defaut">
                     <div class="tab-v1">
-                        <ul class="nav nav-tabs">
-                            <li class="active">
-                                <a href="#Ledger" data-toggle="tab">Ledger</a>
+                        <ul class="nav nav-tabs nav-justified">
+                            <li class="nav-item">
+                                <a href="#Ledger" lass="nav-link active" data-toggle="tab">Ledger</a>
                             </li>
-                            <li>
-                                <a href="#Taxation" data-toggle="tab">Taxation</a>
+                            <li class="nav-item">
+                                <a href="#Taxation" lass="nav-link" data-toggle="tab">Taxation</a>
                             </li>
-                            <li>
-                                <a href="#Settings" data-toggle="tab">Settings</a>
+                            <li class="nav-item">
+                                <a href="#Settings" lass="nav-link" data-toggle="tab">Settings</a>
                             </li>
-                            <li>
-                                <a href="#Address" data-toggle="tab">Address</a>
+                            <li class="nav-item">
+                                <a href="#Address" lass="nav-link" data-toggle="tab">Address</a>
                             </li>
                         </ul>
                         <div class="tab-content">
                             <br />
-                            <div class="tab-pane fade in active" id="Ledger">
+                            <div class="tab-pane active" id="Ledger">
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-4 pull-left">Name</label>
-                                            <div class="col-md-8">
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label">Name</label>
                                                 <input type="text" class="form-control" placeholder="Name" formControlName="Name">
                                                 <div class="alert alert-danger" *ngIf="accountLedgerFrm.get('Name').hasError('required') && formSubmitAttempt">
                                                     Name is required
                                                 </div>
-                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="control-label col-md-4 pull-left">Account Type</label>
-                                        <div class="form-group col-md-8">
-                                            <ngx-select-dropdown (searchChange)="searchChange($event)" formControlName="AccountTypeId" [config]="config" [options]="acctype"></ngx-select-dropdown>
+                                        <div class="form-group col-md-6">
+                                               <label class="control-label">Account Type</label>
+                                               <ngx-select-dropdown (searchChange)="searchChange($event)" formControlName="AccountTypeId" [config]="config" [options]="acctype"></ngx-select-dropdown>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-4 pull-left">Amount</label>
-                                            <div class="col-md-8">
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label">Amount</label>
                                                 <input type="number" name="Amount" ng-model="settingFrm.Amount" class="form-control" formControlName="Amount" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
+                                       </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="control-label"></label><br/>
                                         <select class="form-control" formControlName="entityLists">
                                             <option *ngFor="let entityList of entityLists" [ngValue]="entityList.name">{{ entityList.name }}</option>
                                         </select>
@@ -136,89 +124,63 @@
                                     </div>
                                 </div>
                                 <div class="row" style="margin-top: 10px;">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
+                                    <div class="col-md-6 styleinput">
+                                        
                                             <label class="control-label col-md-8">Inventory values are Affected By ?</label>
                                             <div class="col-md-2 pull-right">
-                                                <input type="checkbox" name="InventoryValue" ng-model="masterLedgerFrm.InventoryValue" class="form-control" formControlName="InventoryValue"
+                                                <input class="largerCheckbox" type="checkbox" name="InventoryValue" ng-model="masterLedgerFrm.InventoryValue" formControlName="InventoryValue"
                                                 />
                                             </div>
-                                        </div>
+                                    
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
+                                    <div class="col-md-6 styleinput">
                                             <label class="control-label col-md-8">
                                                 Maintain balances bill by bill
                                             </label>
                                             <div class="col-md-2 pull-right">
-                                                <input type="checkbox" name="MaintainBilByBill" ng-model="masterLedgerFrm.MaintainBilByBill" class="form-control" formControlName="MaintainBilByBill"
+                                                <input  class="largerCheckbox" type="checkbox" name="MaintainBilByBill" ng-model="masterLedgerFrm.MaintainBilByBill"  formControlName="MaintainBilByBill"
                                                 />
                                             </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="tab-pane fade in" id="Taxation">
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-5">Tax Classification Name</label>
-                                            <div class="col-md-7">
+                                    <div class="form-group col-md-6">
+                                            <label class="control-label">Tax Classification Name</label>
                                                 <select class="form-control" placeholder="TaxClassificationName" formControlName="TaxClassificationName">
                                                     <option value="0"></option>
                                                 </select>
-                                            </div>
-                                        </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-5">Tax Type</label>
-                                            <div class="col-md-7" style="margin-bottom: 10px;">
+                                   <div class="col-md-6 form-group">
+                                            <label class="control-label">Tax Type</label>
                                                 <select class="form-control" placeholder="TaxType" formControlName="TaxType">
                                                     <option value="0"></option>
                                                 </select>
-                                            </div>
-                                        </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-5">Tax Rate</label>
-                                            <div class="col-md-7" style="margin-bottom: 10px;">
+                                    <div class="form-group col-md-6">
+                                            <label class="control-label">Tax Rate</label>
                                                 <select class="form-control" placeholder="TaxRate" formControlName="TaxRate">
                                                     <option value="0"></option>
                                                 </select>
-                                            </div>
-                                        </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-5">Nature of Purchase</label>
-                                            <div class="col-md-7">
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label">Nature of Purchase</label>
                                                 <select class="form-control" placeholder="NatureOfPurchase" formControlName="TraderLedNatureOfPurchase">
                                                     <option value="0"></option>
                                                 </select>
-                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-5">TDS Deductee Type</label>
-                                            <div class="col-md-7">
+                                    <div class="form-group col-md-6">
+                                            <label class="control-label">TDS Deductee Type</label>
                                                 <select class="form-control" placeholder="TDSDeducteeType" formControlName="TDSDeducteeType">
                                                     <option value="0"></option>
                                                 </select>
-                                            </div>
-                                        </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-5">TDS Rate Name</label>
-                                            <div class="col-md-7" style="margin-top: 10px;">
+                                    <div class="form-group col-md-6">
+                                            <label class="control-label">TDS Rate Name</label>
                                                 <select class="form-control" placeholder="TDSRateName" formControlName="TDSRateName">
                                                     <option value="0"></option>
                                                 </select>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -553,14 +515,14 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                
                 <div class="modal-footer">
                     <div>
                         <button type="button" class="btn btn-danger pull-right" [disabled]="buttonDisabled" (click)="reset(); modalRef.hide();">Cancel</button>
                         <button type="submit" [disabled]="accountLedgerFrm.invalid" class="btn btn-success pull-left">{{modalBtnTitle}} </button>
                     </div>
                 </div>
-            </div>
+            
         </div>
     </form>
 </ng-template>

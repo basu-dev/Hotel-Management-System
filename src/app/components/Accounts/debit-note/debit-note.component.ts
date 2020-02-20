@@ -258,7 +258,7 @@ export class DebitNoteComponent implements OnInit {
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
             keyboard: false,
-            class: 'modal-lg'
+            class: 'modal-xl'
         });
     }
 
@@ -276,7 +276,6 @@ export class DebitNoteComponent implements OnInit {
      * @param Id {String} Voucher Id
      */
     editDebitNote(Id: number) {
-        
         this.dbops = DBOperation.update;
         this.SetControlsState(true);
         this.modalTitle = "Edit Debit Note";
@@ -294,7 +293,6 @@ export class DebitNoteComponent implements OnInit {
                 this.debitNoteFrm.controls['crTotal'].setValue(debitNote.crTotal);
                 this.debitNoteFrm.controls['AccountTransactionValues'] = this.fb.array([]);
                 const control = <FormArray>this.debitNoteFrm.controls['AccountTransactionValues'];
-
                 for (let i = 0; i < debitNote.AccountTransactionValues.length; i++) {
                     this.currentaccount = this.account.filter(x => x.Id === debitNote.AccountTransactionValues[i]["AccountId"])[0];
                     let valuesFromServer = debitNote.AccountTransactionValues[i];
@@ -302,32 +300,27 @@ export class DebitNoteComponent implements OnInit {
                     if (this.currentaccount !== undefined) {
                         instance.controls["AccountId"].setValue(this.currentaccount.Name);
                     }
-
                     if (valuesFromServer['entityLists'] === "Dr") {
                         instance.controls['Credit'].disable();
                     }
-
                     if (valuesFromServer['entityLists'] === "Cr") {
                         instance.controls['Debit'].disable();
                     }
-
                     control.push(instance);
                 }
                 this.modalRef = this.modalService.show(this.TemplateRef, {
                     backdrop: 'static',
                     keyboard: false,
-                    class: 'modal-lg'
+                    class: 'modal-xl'
                 });
             },
             error => this.msg = <any>error);
     }
-
     /**
      * Delete Existing Credit Note Voucher
      * @param id 
      */
     deleteDebitNote(id: number) {
-        
         this.dbops = DBOperation.delete;
         this.SetControlsState(true);
         this.modalTitle = "Confirm to Delete Debit Note?";
@@ -365,11 +358,10 @@ export class DebitNoteComponent implements OnInit {
                 this.modalRef = this.modalService.show(this.TemplateRef, {
                     backdrop: 'static',
                     keyboard: false,
-                    class: 'modal-lg'
+                    class: 'modal-xl'
                 });
             });
     }
-
     /**
      * Initializes Account values 
      */

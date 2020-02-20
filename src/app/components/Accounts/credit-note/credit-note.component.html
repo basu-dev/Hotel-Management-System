@@ -3,7 +3,7 @@
         <div class="modal-header panel-heading">
             <h4 class="modal-title pull-left">{{modalTitle}}</h4>
             <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-                <span aria-hidden="true">&times;</span>
+                <i class="fa fa-times fa-design"></i>
             </button>
         </div>
         <div class="modal-body">
@@ -13,19 +13,19 @@
                 <input type="text" class="hidden" placeholder="Credit Note No" formControlName="AccountTransactionDocumentId" />
             </div>
             <div class="row">
-                <label class="control-label col-md-2 text-center">
-                    <strong>Voucher Type:</strong>
-                </label>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-6">
+                    <label class="control-label">
+                        <strong>Voucher Type:</strong>
+                    </label>
                     <input type="text" class="form-control" formControlName="Name" readonly="true" />
                     <div class="text-danger" *ngIf="cerditNoteFrm.get('Name'). hasError('required') && formSubmitAttempt">
                         <strong>Credit Note is required</strong>
                     </div>
                 </div>
-                <label class="control-label col-md-2 text-center">
-                    <strong>Date:</strong>
-                </label>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-6">
+                    <label class="control-label">
+                        <strong>Date:</strong>
+                    </label>
                     <input class="form-control" type="text" placeholder="yyyy.mm.dd" formControlName="Date" />
                     <div class="text-danger" *ngIf="(cerditNoteFrm.get('Date').hasError('InvalidDate') || cerditNoteFrm.get('Date').hasError('required')) && formSubmitAttempt">
                         {{ cerditNoteFrm.get('Date').getError('InvalidDate') }}
@@ -33,10 +33,10 @@
                 </div>
             </div>
             <div class="row">
-                <label class="control-label col-md-2 text-center">
-                    <strong>Customer: </strong>
-                </label>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-6">
+                    <label class="control-label">
+                        <strong>Customer: </strong>
+                    </label>
                     <ngx-select-dropdown (searchChange)="searchChange($event)" formControlName="SourceAccountTypeId" (change)="fillCustomerInvoice($event)" [config]="config" [options]="customeraccount"></ngx-select-dropdown>
                     <!--<select class="form-control " (change)="fillCustomerInvoice($event)" formControlName="SourceAccountTypeId">
                         <option *ngFor="let accounts of account" [ngValue]="accounts.Id">{{accounts.Name}}</option>
@@ -45,10 +45,10 @@
                         Select Customer is required
                     </div>
                 </div>
-                <label class="control-label col-md-2 text-center">
-                    <strong>Ref. No.: </strong>
-                </label>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-6">
+                    <label class="control-label">
+                        <strong>Ref. No.: </strong>
+                    </label>
                     <select class="form-control" formControlName="ref_invoice_number">
                         <option *ngFor="let Dnotes of TicketReferences" [ngValue]="Dnotes.Id">{{Dnotes.Name}}</option>
                     </select>
@@ -57,9 +57,9 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="container col-md-12">
-                    <div formArrayName="AccountTransactionValues" class="panel panel-default container-padding">
+           
+                    <div formArrayName="AccountTransactionValues">
+                        <div class="row designmyrow">
                         <div class="col-md-4 custom-padding">
                             <strong>Account:</strong>
                         </div>
@@ -72,9 +72,9 @@
                         <div class="col-md-1 custom-padding">
                             <strong>&nbsp;</strong>
                         </div>
-                        <br>
-                        <div class="panel-body" *ngFor="let AccountTransactionValue of cerditNoteFrm.controls.AccountTransactionValues.controls; let i=index" [formGroupName]="i">
-                            <div class="row">
+                    </div>
+                         <div *ngFor="let AccountTransactionValue of cerditNoteFrm.controls.AccountTransactionValues.controls; let i=index" [formGroupName]="i">
+                            <div class="row  bg-success designmysecondrow">
                                 <div class="col-md-4 custom-padding">
                                     <ngx-select-dropdown (searchChange)="searchChangeAccountId($event)" formControlName="AccountId" [config]="configAccount" [options]="account"></ngx-select-dropdown>
                                     <div *ngIf="!cerditNoteFrm.controls.AccountTransactionValues.controls[i].controls.AccountId.valid && formSubmitAttempt" class="text-danger">
@@ -91,7 +91,7 @@
                                     <input type="number" class="form-control" placeholder="Credit" formControlName="Credit">
                                 </div>
                                 <div class="col-md-4 custom-padding">
-                                    <textarea class="form-control" name="Description" formControlName="Description" rows="2" placeholder="Credit Note trancacton description here..."></textarea>
+                                    <textarea class="form-control" name="Description" formControlName="Description" rows="1" placeholder="Credit Note trancacton description here..."></textarea>
                                     <div class="help-block alert alert-danger" *ngIf="!cerditNoteFrm.controls.AccountTransactionValues.controls[i].controls.Description.valid && formSubmitAttempt">
                                         Transaction description is required.
                                     </div>
@@ -108,11 +108,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="row">
+                
+            <div class="row designmythirdrow">
                 <div class="form-group col-md-7">
-                    <textarea class="form-control" name="Description" formControlName="Description" rows="4" placeholder="Add Credit Note description here..."></textarea>
+                    <textarea class="form-control" name="Description" formControlName="Description" rows="3" placeholder="Add Credit Note description here..."></textarea>
                     <div class="help-block alert alert-danger" *ngIf="cerditNoteFrm.get('Description').hasError('required') && formSubmitAttempt">
                         Credit Note description is required.
                     </div>
@@ -130,11 +129,15 @@
                 </div>
                 <div class="col-md-1">&nbsp;</div>
             </div>
-        </div>
-        <div class="modal-footer">
-            <div>
-                <button type="submit" class="btn btn-success pull-left" [disabled]="cerditNoteFrm.invalid"> {{modalBtnTitle}}</button>
-                <button type="button" class="btn btn-danger pull-right" (click)="reset(); modalRef.hide()" aria-label="Close">Cancel</button>
+            <div class="row footermodal">
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-success pull-left" [disabled]="cerditNoteFrm.invalid"> {{modalBtnTitle}}</button>
+                </div>
+                <div class="col-md-8">
+                </div>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-danger pull-right" (click)="reset(); modalRef.hide()" aria-label="Close">Cancel</button>
+                </div>
             </div>
         </div>
     </form>
@@ -142,23 +145,23 @@
 
 <div class='panel panel-primary'>
     <div class='panel-heading'>
-        Credit Note
+      <h2>Credit Note</h2> 
     </div>
     <div class='panel-body'>
-        <div class='table' style="min-height: 400px;">
+        <div class='table'>
             <div style="padding-bottom:10px">
-                <div class="row">
+                <div class="row firstrow">
                     <div class="col-md-3">
                         <div (click)="addCreditNote()" style="cursor: pointer">
                             <span>
-                                <img src="../../../../assets/images/Add.png" height="60" width="60" />
+                                <img src="../../../../assets/images/Add.png"/>
                             </span>
-                            Add Credit Note
+                            &nbsp;&nbsp;Add Credit Note
                         </div>
                     </div>
                     <div class="col-md-9">
-                        <div class="row" style="padding-top: 17px;">
-                            <div class="col-md-2">
+                        <div class="row secondrow">
+                            <div class="col-md-3 padtop">
                                 Filter By Date:
                             </div>
                             <div class="col-md-3">
@@ -167,7 +170,7 @@
                             <div class="col-md-3">
                                 <input class="form-control" type="text" required pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2]).(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2]).(?:32))|(?:(?:0[13578]|1[02])-32))" placeholder="yyyy.mm.dd" [(ngModel)]="stoDate" />
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-1">
                                 <button class="btn btn-success" (click)="loadCreditNote(sfromDate, stoDate)"> GO</button>
                             </div>
                             <div class="col-md-2">
@@ -214,8 +217,8 @@
                             <span *ngIf="voucher.File == ''">Not Added</span>
                         </td>
                         <td>
-                            <img src="../../../../assets/images/Edit.png" (click)="editCreditNote(voucher.Id)" title="Edit Voucher" height="32" width="32" />
-                            <img src="../../../../assets/images/Delete.png" (click)="deleteCreditNote(voucher.Id)" title="Delete Voucher" height="32" width="32" />
+                          <span class="firstimg"><img src="../../../../assets/images/Edit.png" (click)="editCreditNote(voucher.Id)" title="Edit Voucher" height="32" width="32" /></span> 
+                           <span><img src="../../../../assets/images/Delete.png" (click)="deleteCreditNote(voucher.Id)" title="Delete Voucher" height="32" width="32" /></span>
                         </td>
                     </tr>
                     <tr *ngFor="let transaction of voucher.AccountTransactionValues">

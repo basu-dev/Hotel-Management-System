@@ -1,35 +1,59 @@
 label {
     margin-top: 7px;
 }
-
 input, select, textarea {
     max-width: 100%;
     width: 100%;
 }
-
 .custom-padding {
     padding: 3px !important;
 }
-
 .container-padding {
     padding: 0 15px !important;
 }
-
 .panel-body {
     padding: 2px 15px;
 }
-
 .textarea-container {
     width: 58.003333%;
     padding-right: 5px;
 }
-
 .debit-total,
 .credit-total {
     width: 15.6666667%;
 }
-
 .text-danger {
     font-size: smaller;
     margin-top: 3px;
+}
+.hidden{
+        display:none;
+}
+.padtop{
+    padding-top:5px;
+    padding-left: 50px!important;
+}
+.secondrow{
+            margin-top:10px;
+            padding-bottom: 11px;
+}
+.firstrow{
+          margin-bottom:13px;
+          margin-top:20px;
+          color: #fff;
+}
+.designmyrow{
+    color:#fff;
+    background-color: #287a46;
+    margin-left:3px;
+    margin-right:3px;
+}
+.designmysecondrow{
+         padding-top:20px;
+         padding-bottom:20px;
+         margin-left:3px;
+         margin-right:3px;
+}
+.designmythirdrow{
+    margin-top:20px;
 }
