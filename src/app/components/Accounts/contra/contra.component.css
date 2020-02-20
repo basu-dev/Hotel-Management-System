@@ -25,3 +25,28 @@ input, select, textarea {
         width: 1200px; /* New width for large modal */
     }
 }
+.padtop{
+    padding-top:5px;
+    padding-left: 50px!important;
+}
+.secondrow{
+            margin-top:10px;
+            padding-bottom: 11px;
+}
+.firstrow{
+          margin-bottom:20px;
+}
+.designmyrow{
+             color:#fff;
+             background-color: #287a46;
+             margin-left:3px;
+             margin-right:3px;
+}
+.designmysecondrow{
+                  padding-top:20px;
+                  margin-left:3px;
+                  margin-right:3px;
+}
+.designmythirdrow{
+                  margin-top:20px;
+}

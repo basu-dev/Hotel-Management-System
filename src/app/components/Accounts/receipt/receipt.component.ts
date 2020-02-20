@@ -264,7 +264,7 @@ export class ReceiptComponent {
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
             keyboard: false,
-            class: 'modal-lg'
+            class: 'modal-xl'
         });
     }
     
@@ -317,7 +317,7 @@ export class ReceiptComponent {
                 this.modalRef = this.modalService.show(this.TemplateRef, {
                     backdrop: 'static',
                     keyboard: false,
-                    class: 'modal-lg'
+                    class: 'modal-xl'
                 });
             },
             error => this.msg = <any>error);
@@ -358,7 +358,7 @@ export class ReceiptComponent {
                 this.modalRef = this.modalService.show(this.TemplateRef, {
                     backdrop: 'static',
                     keyboard: false,
-                    class: 'modal-lg'
+                    class: 'modal-xl'
                 });
             },
             error => this.msg = <any>error);

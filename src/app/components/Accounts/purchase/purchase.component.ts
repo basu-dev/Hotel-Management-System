@@ -192,7 +192,7 @@ export class PurchaseComponent implements OnInit {
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
             keyboard: false,
-            class: 'modal-lg'
+            class: 'modal-xl'
         });
     }
 
@@ -312,7 +312,7 @@ export class PurchaseComponent implements OnInit {
                 this.modalRef = this.modalService.show(this.TemplateRef, {
                     backdrop: 'static',
                     keyboard: false,
-                    class: 'modal-lg'
+                    class: 'modal-xl'
                 });
             });
     }
@@ -370,7 +370,7 @@ export class PurchaseComponent implements OnInit {
                 this.modalRef = this.modalService.show(this.TemplateRef, {
                     backdrop: 'static',
                     keyboard: false,
-                    class: 'modal-lg'
+                    class: 'modal-xl'
                 });
             });
     }
@@ -669,8 +669,6 @@ export class PurchaseComponent implements OnInit {
         this.modalRef2.hide();
         this.formSubmitAttempt = false;
     }
-
-    
     /**
      * Resets the journal form
      */
