@@ -7,6 +7,7 @@ import { IInventoryItem } from '../../../../Model/Inventory/inventoryItem';
     moduleId: module.id,
     selector: 'my-inventoryDetail-list',
     templateUrl: 'inventory-receiptdetails.component.html',
+    styleUrls: ['inventory-receiptdetails.component.css']
 })
 export class InventoryReceiptDetailsComponent  implements OnInit{
     @Input('group')

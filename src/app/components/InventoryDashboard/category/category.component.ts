@@ -7,13 +7,10 @@ import { ICategory } from '../../../Model/Category';
 import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
 import { DBOperation } from '../../../Shared/enum';
 import { Global } from '../../../Shared/global';
-
-
 @Component({
-    templateUrl: './category.component.html'
+    templateUrl: './category.component.html',
+    styleUrls: ['./category.component.css']
 })
-
-
 export class CategoryComponent implements OnInit {
     categorys: ICategory[];
     category: ICategory;

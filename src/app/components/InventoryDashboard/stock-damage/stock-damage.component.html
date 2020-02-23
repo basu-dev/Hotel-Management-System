@@ -3,39 +3,33 @@
         <div class="modal-header panel-heading">
             <h4 class="modal-title pull-left">{{modalTitle}}</h4>
             <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-                <span aria-hidden="true">&times;</span>
+                <i class="fa fa-times fa-design"></i>
             </button>
         </div>
         <div class="modal-body">
             <div class="row">
-                <div>
-                    <label style="margin-top: 5px;" class="col-md-1">Name</label>
-                    <div class="form-group col-md-5">
+                <div class="form-group col-md-6">
+                    <label>Name</label>
                         <input type="text" class="form-control" placeholder="Name" formControlName="Name" readonly="">
                         <div class="control-label alert alert-danger" *ngIf="pConsumeFrm.get('Name').hasError('required') ">
                             Name is required
                         </div>
-                    </div>
                 </div>
-                <div>
-                    <label style="margin-top: 5px;" class="col-md-1">StartDate</label>
-                    <div class="form-group col-md-5">
+                <div class="form-group col-md-6">
+                    <label>StartDate</label>
                         <input type="text" class="form-control" placeholder="dd/MM/yyyy" bsDatepicker [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" formControlName="StartDate" />
                         <div class="text-danger" *ngIf="(pConsumeFrm.get('StartDate').hasError('InvalidDate') || pConsumeFrm.get('StartDate').hasError('required')) && formSubmitAttempt">
                             {{ pConsumeFrm.get('StartDate').getError('InvalidDate') }}
                         </div>
-                    </div>
                 </div>
-                <div class="hidden">
+                <div class="hidden" style="display:none">
                     <input type="date" class="form-control" formControlName="LastUpdateTime">
                 </div>
             </div>
             <br /> <br />
-
-            <div class="row">
-                <div class="container col-md-12">
+            
                     <div formArrayName="PeriodicConsumptionItems" class="panel panel-default container-padding">
-                        <div class="panel-body" *ngFor="let PeriodicConsumptionItems of pConsumeFrm.controls.PeriodicConsumptionItems.controls; let i=index" [formGroupName]="i">
+                        <div *ngFor="let PeriodicConsumptionItems of pConsumeFrm.controls.PeriodicConsumptionItems.controls; let i=index" [formGroupName]="i">
                             <div class="row">
                                 <div class="col-md-11">
                                     <stock-damage-details [group]="pConsumeFrm.controls.PeriodicConsumptionItems.controls[i]"></stock-damage-details>
@@ -51,37 +45,39 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <div>
-                <button type="submit" class="btn btn-success pull-left" [disabled]="pConsumeFrm.invalid">{{modalBtnTitle}} </button>
-                <a class="btn btn-danger pull-right" aria-label="Close" (click)="modalRef.hide()">Cancel</a>
-            </div>
+                    <div class="row footermodal">
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-success pull-left" [disabled]="pConsumeFrm.invalid">{{modalBtnTitle}} </button>
+                        </div>
+                        <div class="col-md-8">
+
+                        </div>
+                        <div class="col-md-2">
+                            <a class="btn btn-danger pull-right" aria-label="Close" (click)="modalRef.hide()">Cancel</a>
+                        </div>
+                    </div>
         </div>
     </form>
 </ng-template>
-
 <div class='panel panel-primary'>
     <div class="panel-heading">
-        Stock Damage
+       <h2>Stock Damage</h2>
     </div>
     <div class='panel-body'>
-        <div class='table-responsive-xl' style="min-height: 400px;">
+        <div class='table-responsive-xl'>
             <div style="padding-bottom:10px; cursor: pointer;">
-                <div class="row">
-                    <div class="col-md-3">
+                <div class="row firstrow">
+                    <div class="col-md-4">
                         <div (click)="addPeriodicConsumed()" style="cursor: pointer">
                             <span>
-                                <img src="../../../../assets/images/Add.png" height="60" width="60" />
-                                Add Stock Damage
+                                <img src="../../../../assets/images/Add.png"/>
+                               &nbsp;&nbsp; Add Stock Damage
                             </span>
                         </div>
                     </div>
-                    <div class="col-md-9">
-                        <div class="row" style="padding-top: 17px;">
-                            <div class="col-md-2">
+                    <div class="col-md-8">
+                        <div class="row secondrow">
+                            <div class="col-md-3 padtop">
                                 Filter By Date:
                             </div>
                             <div class="col-md-3">
@@ -90,7 +86,7 @@
                             <div class="col-md-3">
                                 <input class="form-control" placeholder="dd/MM/yyyy" bsDatepicker [(ngModel)]="toDate" [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" />
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-1">
                                 <button class="btn btn-success" (click)="filterJournalByDate()"> GO</button>
                             </div>
                             <div class="col-md-2">

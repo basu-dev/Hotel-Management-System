@@ -10,7 +10,8 @@ import { DBOperation } from '../../../Shared/enum';
 import { Global } from '../../../Shared/global';
 
 @Component({
-    templateUrl: './account-type.component.html'
+    templateUrl: './account-type.component.html',
+    styleUrls: ['./account-type.component.css']
 })
 
 export class AccountTypeComponent implements OnInit {
@@ -115,7 +116,7 @@ export class AccountTypeComponent implements OnInit {
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
             keyboard: false,
-            class:'modal-lg'
+            class:'modal-xl'
         });
       
     }
@@ -130,7 +131,7 @@ export class AccountTypeComponent implements OnInit {
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
             keyboard: false,
-            class:'modal-lg'
+            class:'modal-xl'
         });
     }
 
@@ -145,7 +146,7 @@ export class AccountTypeComponent implements OnInit {
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
             keyboard: false,
-            class: 'modal-lg'
+            class: 'modal-xl'
         });
     }
 

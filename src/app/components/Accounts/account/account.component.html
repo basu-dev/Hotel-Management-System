@@ -5,16 +5,16 @@
     <div class="panel-body">
         <div class="table-responsive">
             <div style="padding-bottom:10px">
-                <div class="row">
-                    <div class="col-md-2">
+                <div class="row firstrow">
+                    <div class="col-md-6">
                         <div (click)="addAccounts()" style="cursor: pointer">
                             <span>
-                                <img src="../../../../assets/images/Add.png" height="60" width="60" />
+                                <img src="../../../../assets/images/Add.png"/>
                             </span>
-                            Add Ledger's
+                           &nbsp;&nbsp; Add Ledger's
                         </div>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-3">
                         <div class="row" style="padding-top: 17px;">
                             <div class="col-md-2 pull-right">
                                 <button *ngIf='accounts && accounts.length' class="btn btn-primary pull-left" (click)="exportTableToExcel('ledgersTable')"> Export</button>
@@ -29,6 +29,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
             <div class="alert alert-info" role="alert" *ngIf="indLoading">
                 <img src="../../../../assets/images/loading.gif" width="32" height="32" /> 
@@ -40,13 +41,13 @@
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Action</th>
+                        <th class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let account of accounts">
                         <td>{{account.Name}}</td>
-                        <td class="export-no-display">
+                        <td class="export-no-display text-center">
                             <span class="firstimg">
                                 <img src="../../../../assets/images/Edit.png" (click)="editAccounts(account.Id)" height="32" width="32" />
                             </span>
@@ -82,16 +83,16 @@
                     <div class="tab-v1">
                         <ul class="nav nav-tabs nav-justified">
                             <li class="nav-item">
-                                <a href="#Ledger" lass="nav-link active" data-toggle="tab">Ledger</a>
+                                <a href="#Ledger" class="nav-link active" data-toggle="tab">Ledger</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#Taxation" lass="nav-link" data-toggle="tab">Taxation</a>
+                                <a href="#Taxation" class="nav-link" data-toggle="tab">Taxation</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#Settings" lass="nav-link" data-toggle="tab">Settings</a>
+                                <a href="#Settings" class="nav-link" data-toggle="tab">Settings</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#Address" lass="nav-link" data-toggle="tab">Address</a>
+                                <a href="#Address" class="nav-link" data-toggle="tab">Address</a>
                             </li>
                         </ul>
                         <div class="tab-content">
@@ -246,283 +247,167 @@
                             </div>
                             <div class="tab-pane fade in" id="Settings">
                                 <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
+                                    <div class="col-md-4 styleinput">
                                             <label class="control-label col-md-10">
-                                                Bill Wise On
+                                            Bill Wise On
                                             </label>
-                                            <div class="col-md-2">
-                                                <input type="checkbox" name="IsBillWiseOn" ng-model="settingFrm.IsBillWiseOn" class="form-control" formControlName="IsBillWiseOn"
-                                                />
-                                            </div>
-                                        </div>
+                                            <input type="checkbox" class="largerCheckbox" name="IsBillWiseOn" ng-model="settingFrm.IsBillWiseOn" formControlName="IsBillWiseOn" />
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-10">
+                                    <div class="col-md-4 styleinput">
+                                            <label class="control-label  col-md-10">
                                                 Cost Centres On
                                             </label>
-                                            <div class="col-md-2">
-                                                <input type="checkbox" name="ISCostCentresOn" ng-model="settingFrm.ISCostCentresOn" class="form-control" formControlName="ISCostCentresOn"
-                                                />
-                                            </div>
-                                        </div>
+                                                <input type="checkbox" class="largerCheckbox"  name="ISCostCentresOn" ng-model="settingFrm.ISCostCentresOn" formControlName="ISCostCentresOn" />
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-10">
+                                    <div class="col-md-4 styleinput">
+                                            <label class="control-label  col-md-10">
                                                 Interest On
                                             </label>
-                                            <div class="col-md-2">
-                                                <input type="checkbox" name="IsInterestOn" ng-model="settingFrm.IsInterestOn" class="form-control" formControlName="IsInterestOn"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
+                                            <input type="checkbox" class="largerCheckbox"  name="IsInterestOn" ng-model="settingFrm.IsInterestOn" formControlName="IsInterestOn" />
+                                   </div>
+                                    <div class="col-md-4 styleinput">
                                             <label class="control-label col-md-10">
                                                 Allow InMobile
                                             </label>
-                                            <div class="col-md-2">
-                                                <input type="checkbox" name="AllowInMobile" ng-model="settingFrm.AllowInMobile" class="form-control" formControlName="AllowInMobile"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
+                                            <input type="checkbox" class="largerCheckbox"  name="AllowInMobile" ng-model="settingFrm.AllowInMobile" formControlName="AllowInMobile" />
+                                   </div>
+                                    <div class="col-md-4 styleinput">
                                             <label class="control-label col-md-10">
                                                 Condensed
                                             </label>
-                                            <div class="col-md-2">
-                                                <input type="checkbox" name="IsCondensed" ng-model="settingFrm.IsCondensed" class="form-control" formControlName="IsCondensed"
-                                                />
-                                            </div>
-                                        </div>
+                                            <input type="checkbox" class="largerCheckbox"  name="IsCondensed" ng-model="settingFrm.IsCondensed" formControlName="IsCondensed" />
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
+                                    <div class="col-md-4 styleinput">
                                             <label class="control-label col-md-10">
                                                 Affects Stock
                                             </label>
-                                            <div class="col-md-2">
-                                                <input type="checkbox" name="AffectsStock" ng-model="settingFrm.AffectsStock" class="form-control" formControlName="AffectsStock"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-10">
+                                            <input type="checkbox" class="largerCheckbox"  name="AffectsStock" ng-model="settingFrm.AffectsStock"  formControlName="AffectsStock" />
+                                   </div>
+                                    <div class="col-md-4 styleinput">
+                                            <label class="control-label  col-md-10">
                                                 For PayRoll
                                             </label>
-                                            <div class="col-md-2">
-                                                <input type="checkbox" name="ForPayRoll" ng-model="settingFrm.ForPayRoll" class="form-control" formControlName="ForPayRoll"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-10">
+                                                <input type="checkbox" class="largerCheckbox"  name="ForPayRoll" ng-model="settingFrm.ForPayRoll" formControlName="ForPayRoll" />
+                                   </div>
+                                    <div class="col-md-4 styleinput">
+                                            <label class="control-label  col-md-10">
                                                 Interest On Bill Wise
                                             </label>
-                                            <div class="col-md-2">
-                                                <input type="checkbox" name="InterestOnBillWise" ng-model="settingFrm.InterestOnBillWise" class="form-control" formControlName="InterestOnBillWise"
-                                                />
-                                            </div>
-                                        </div>
+                                            <input type="checkbox" class="largerCheckbox"  name="InterestOnBillWise" ng-model="settingFrm.InterestOnBillWise" formControlName="InterestOnBillWise" />
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
+                                    <div class="col-md-4 styleinput">
                                             <label class="control-label col-md-10">
                                                 OverRide Interest
                                             </label>
-                                            <div class="col-md-2">
-                                                <input type="checkbox" name="OverRideInterest" ng-model="settingFrm.OverRideInterest" class="form-control" formControlName="OverRideInterest"
-                                                />
-                                            </div>
-                                        </div>
+                                            <input type="checkbox" class="largerCheckbox"  name="OverRideInterest" ng-model="settingFrm.OverRideInterest" formControlName="OverRideInterest" />
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-10">
+                                    <div class="col-md-4 styleinput">
+                                            <label class="control-label  col-md-10">
                                                 OverRide ADV Interest
                                             </label>
-                                            <div class="col-md-2">
-                                                <input type="checkbox" name="OverRideADVInterest" ng-model="settingFrm.OverRideADVInterest" class="form-control" formControlName="OverRideADVInterest"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-10">
+                                            <input type="checkbox" class="largerCheckbox"  name="OverRideADVInterest" ng-model="settingFrm.OverRideADVInterest" formControlName="OverRideADVInterest" />
+                                 </div>
+                                    <div class="col-md-4 styleinput">
+                                            <label class="control-label  col-md-10">
                                                 Use For VAT
                                             </label>
-                                            <div class="col-md-2">
-                                                <input type="checkbox" name="UseForVat" ng-model="settingFrm.UseForVat" class="form-control" formControlName="UseForVat"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-10">
+                                            <input type="checkbox" class="largerCheckbox"  name="UseForVat" ng-model="settingFrm.UseForVat" formControlName="UseForVat" />
+                                   </div>
+                                    <div class="col-md-4 styleinput">
+                                            <label class="control-label  col-md-10">
                                                 Ignore TDS Exempt
                                             </label>
-                                            <div class="col-md-2">
-                                                <input type="checkbox" name="IgnoreTDSExempt" ng-model="settingFrm.IgnoreTDSExempt" class="form-control" formControlName="IgnoreTDSExempt"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
+                                            <input type="checkbox" class="largerCheckbox"  name="IgnoreTDSExempt" ng-model="settingFrm.IgnoreTDSExempt" formControlName="IgnoreTDSExempt" />
+                                   </div>
+                                    <div class="col-md-4 styleinput">
                                             <label class="control-label col-md-10">
                                                 Is TCS Applicable
                                             </label>
-                                            <div class="col-md-2">
-                                                <input type="checkbox" name="IsTCSApplicable" ng-model="settingFrm.IsTCSApplicable" class="form-control" formControlName="IsTCSApplicable"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
+                                                <input type="checkbox" class="largerCheckbox"  name="IsTCSApplicable" ng-model="settingFrm.IsTCSApplicable" formControlName="IsTCSApplicable" />
+                                  </div>
+                                    <div class="col-md-4 styleinput">
                                             <label class="control-label col-md-10">
                                                 Is TDS Applicable
                                             </label>
-                                            <div class="col-md-2">
-                                                <input type="checkbox" name="IsTDSApplicable" ng-model="settingFrm.IsTDSApplicable" class="form-control" formControlName="IsTDSApplicable"
-                                                />
-                                            </div>
-                                        </div>
+                                            <input type="checkbox" class="largerCheckbox"  name="IsTDSApplicable" ng-model="settingFrm.IsTDSApplicable"  formControlName="IsTDSApplicable" />
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
+                                    <div class="col-md-4 styleinput">
                                             <label class="control-label col-md-10">
                                                 Is FBT Applicable
                                             </label>
-                                            <div class="col-md-2">
-                                                <input type="checkbox" name="IsFBTApplicable" ng-model="settingFrm.IsFBTApplicable" class="form-control" formControlName="IsFBTApplicable"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-10">
+                                            <input type="checkbox" class="largerCheckbox" name="IsFBTApplicable" ng-model="settingFrm.IsFBTApplicable"  formControlName="IsFBTApplicable" />
+                                   </div>
+                                    <div class="col-md-4 styleinput">
+                                            <label class="control-label  col-md-10">
                                                 Is GST Applicable
                                             </label>
-                                            <div class="col-md-2">
-                                                <input type="checkbox" name="IsGSTApplicable" ng-model="settingFrm.IsGSTApplicable" class="form-control" formControlName="IsGSTApplicable"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-10">
+                                            <input type="checkbox" class="largerCheckbox"  name="IsGSTApplicable" ng-model="settingFrm.IsGSTApplicable"  formControlName="IsGSTApplicable" />
+                                   </div>
+                                    <div class="col-md-4 styleinput">
+                                            <label class="control-label  col-md-10">
                                                 Show In PaySlip
                                             </label>
-                                            <div class="col-md-2">
-                                                <input type="checkbox" name="ShowInPaySlip" ng-model="settingFrm.ShowInPaySlip" class="form-control" formControlName="ShowInPaySlip"
-                                                />
-                                            </div>
-                                        </div>
+                                            <input type="checkbox" class="largerCheckbox"  name="ShowInPaySlip" ng-model="settingFrm.ShowInPaySlip"  formControlName="ShowInPaySlip" />
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
+                                    <div class="col-md-4 styleinput">
                                             <label class="control-label col-md-10">
                                                 Use For Gratuity
-
                                             </label>
-                                            <div class="col-md-2">
-                                                <input type="checkbox" name="UseForGratuity" ng-model="settingFrm.UseForGratuity" class="form-control" formControlName="UseForGratuity"
-                                                />
-                                            </div>
-                                        </div>
+                                                <input type="checkbox" class="largerCheckbox"  name="UseForGratuity" ng-model="settingFrm.UseForGratuity" formControlName="UseForGratuity" />
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-10">
+                                    <div class="col-md-4 styleinput">
+                                            <label class="control-label  col-md-10">
                                                 For ServiceTax
                                             </label>
-                                            <div class="col-md-2">
-                                                <input type="checkbox" name="ForServiceTax" ng-model="settingFrm.ForServiceTax" class="form-control" formControlName="ForServiceTax"
-                                                />
-                                            </div>
-                                        </div>
+                                            <input type="checkbox" class="largerCheckbox"  name="ForServiceTax" ng-model="settingFrm.ForServiceTax" formControlName="ForServiceTax" />
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
+                                    <div class="col-md-4 styleinput">
                                             <label class="control-label col-md-10">
                                                 Is InputCredit
                                             </label>
-                                            <div class="col-md-2">
-                                                <input type="checkbox" name="IsInputCredit" ng-model="settingFrm.IsInputCredit" class="form-control" formControlName="IsInputCredit"
-                                                />
-                                            </div>
-                                        </div>
+                                            <input type="checkbox" class="largerCheckbox"  name="IsInputCredit" ng-model="settingFrm.IsInputCredit" formControlName="IsInputCredit" />
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-10">
+                                    <div class="col-md-4 styleinput">
+                                            <label class="control-label  col-md-10">
                                                 Is Exempte
-
                                             </label>
-                                            <div class="col-md-2">
-                                                <input type="checkbox" name="IsExempte" ng-model="settingFrm.IsExempte" class="form-control" formControlName="IsExempte"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-10">
+                                            <input type="checkbox" class="largerCheckbox"  name="IsExempte" ng-model="settingFrm.IsExempte"  formControlName="IsExempte" />
+                                   </div>
+                                    <div class="col-md-4 styleinput">
+                                            <label class="control-label  col-md-10">
                                                 Is Abatement Applicable
                                             </label>
-                                            <div class="col-md-2">
-                                                <input type="checkbox" name="IsAbatementApplicable" ng-model="settingFrm.IsAbatementApplicable" class="form-control" formControlName="IsAbatementApplicable"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-10">
-                                                TDS Deductee Is SpecialRate
-                                            </label>
-                                            <div class="col-md-2">
-                                                <input type="checkbox" name="TDSDeducteeIsSpecialRate" ng-model="settingFrm.TDSDeducteeIsSpecialRate" class="form-control"
-                                                    formControlName="TDSDeducteeIsSpecialRate" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-10">
+                                            <input type="checkbox" class="largerCheckbox"  name="IsAbatementApplicable" ng-model="settingFrm.IsAbatementApplicable"  formControlName="IsAbatementApplicable" />
+                                   </div>
+                                    <div class="col-md-4 styleinput">
+                                    <label class="control-label  col-md-10">
+                                        TDS Deductee Is SpecialRate
+                                    </label>
+                                    <input type="checkbox" class="largerCheckbox"  name="TDSDeducteeIsSpecialRate" ng-model="settingFrm.TDSDeducteeIsSpecialRate"
+                                                       formControlName="TDSDeducteeIsSpecialRate" />
+                                   </div>
+                                    <div class="col-md-4 styleinput">
+                                     <label class="control-label col-md-10">
                                                 Audited
-                                            </label>
-                                            <div class="col-md-2">
-                                                <input type="checkbox" name="Audited" ng-model="settingFrm.Audited" class="form-control" formControlName="Audited" />
-                                            </div>
-                                        </div>
-                                    </div>
+                                     </label>
+                                      <input type="checkbox" class="largerCheckbox"  name="Audited" ng-model="settingFrm.Audited" formControlName="Audited" />
+                                   </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                
-                <div class="modal-footer">
-                    <div>
-                        <button type="button" class="btn btn-danger pull-right" [disabled]="buttonDisabled" (click)="reset(); modalRef.hide();">Cancel</button>
-                        <button type="submit" [disabled]="accountLedgerFrm.invalid" class="btn btn-success pull-left">{{modalBtnTitle}} </button>
+
+                    <div class="row footermodal">
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-danger pull-right" [disabled]="buttonDisabled" (click)="reset(); modalRef.hide();">Cancel</button>
+                        </div>
+                        <div class="col-md-8">
+
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" [disabled]="accountLedgerFrm.invalid" class="btn btn-success pull-left">{{modalBtnTitle}} </button>
+                        </div>
                     </div>
-                </div>
-            
         </div>
     </form>
 </ng-template>

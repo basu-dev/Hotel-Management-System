@@ -11,7 +11,8 @@ import { Global } from '../../../Shared/global';
 
 @Component({
     selector: 'my-warehouse-list',
-    templateUrl: './warehousetype.component.html'
+    templateUrl: './warehousetype.component.html',
+    styleUrls: ['./warehousetype.component.css']
 })
 
 

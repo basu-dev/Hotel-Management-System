@@ -1,25 +1,21 @@
 ﻿<div class='panel panel-primary'>
     <div class='panel-heading'>
-        Transaction Type
+      <h2>Transaction Type</h2> 
     </div>
     <div class='panel-body'>
         <div class='table-responsive'>
             <div style="padding-bottom:10px">
-                <div class="row">
+                <div class="row firstrow">
                     <div class="col-md-3">
                         <div (click)="addAcctransType()" style="cursor: pointer">
                             <span>
                                 <img src="../../../../assets/images/Add.png" height="60" width="60" />
                             </span>
-                            Add Transaction Type
+                             &nbsp;&nbsp;Add Transaction Type
                         </div>
                     </div>
-                    <div class="col-md-9">
-                        <div class="row" style="padding-top: 17px;">
-                            <div class="col-md-2 pull-right">
-                                <button *ngIf='accounttransTypes && accounttransTypes.length' class="btn btn-primary pull-left" (click)="exportTableToExcel('TransactionTypeTable')"> Export</button>
-                            </div>
-                        </div>
+                    <div class="col-md-6 pull-right marme">
+                       <button *ngIf='accounttransTypes && accounttransTypes.length' class="btn btn-primary pull-left" (click)="exportTableToExcel('TransactionTypeTable')"> Export</button>
                     </div>
                 </div>
               </div>
@@ -51,7 +47,6 @@
         </div>
     </div>
 </div>
-
 <ng-template #template>
     <form class="panel-primary" novalidate (ngSubmit)="onSubmit(acctransTypeFrm)" [formGroup]="acctransTypeFrm">
         <div class="modal-header panel-heading">
@@ -125,3 +120,13 @@
         <button type="button" class="btn btn-default" (click)="confirm()">Ok</button>
     </div>
 </ng-template>
+<style>
+table th{
+    color: #2874a6;
+    font-size: 18px;
+    font-family: 'Raleway', sans-serif;
+}
+.marme{
+ margin-top:17px;
+}
+</style>

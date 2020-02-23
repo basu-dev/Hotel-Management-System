@@ -10,9 +10,9 @@ import { DBOperation } from '../../../Shared/enum';
 import { Global } from '../../../Shared/global';
 
 @Component({
-    templateUrl: './UnitType.Component.html'
+    templateUrl: './UnitType.Component.html',
+    styleUrls: ['./UnitType.component.css']
 })
-
 export class UnitTypeComponent implements OnInit {
     modalRef: BsModalRef;
     modalRef2: BsModalRef;

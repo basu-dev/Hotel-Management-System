@@ -13,7 +13,8 @@ import { Global } from '../../../Shared/global';
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'stock-damage.component.html'
+    templateUrl: 'stock-damage.component.html',
+    styleUrls: ['stock-damage.component.css']
 })
 
 export class StockDamageComponent implements OnInit {

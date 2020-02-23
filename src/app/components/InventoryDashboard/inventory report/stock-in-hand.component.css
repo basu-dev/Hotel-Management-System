@@ -1,0 +1,11 @@
+table th{
+        color: #2874a6;
+}
+
+.btn-primary{
+          border:none;
+          transition: all 400ms linear;
+}
+.btn-primary:hover{
+                    border:none;
+}

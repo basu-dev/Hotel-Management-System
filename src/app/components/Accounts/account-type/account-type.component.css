@@ -1,0 +1,13 @@
+input.largerCheckbox { 
+    width: 20px; 
+    height: 20px; 
+    background-color:#000!important;
+} 
+table th{
+          color: #2874a6;
+          font-size: 18px;
+          font-family: 'Raleway', sans-serif;
+}
+.marme{
+       margin-top:17px;
+}

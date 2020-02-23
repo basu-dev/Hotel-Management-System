@@ -3,7 +3,7 @@
         <input type="number" class="hidden" formControlName="Id"><input />
     </div>
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <label>Item Name</label>
             <select class="form-control" formControlName="InventoryItemId">
                 <option class="form-control" *ngFor="let inventoryitems of inventoryItem" [value]="inventoryitems.Id">{{inventoryitems.Name}}</option>
@@ -12,36 +12,32 @@
                 Item Name is required
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-1">
             <label>Quantity</label>
             <input type="number" class="form-control" formControlName="Quantity" (blur)="calculateAmount(InventoryReceiptDetails.controls)" />
             <div class="alert alert-danger" *ngIf="InventoryReceiptDetails.get('Quantity').hasError('required') && formSubmitAttempt">
                 Quantity is required
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-1">
             <label>Rate</label>
             <input type="number" class="form-control" formControlName="Rate" (blur)="calculateAmount(InventoryReceiptDetails.controls)" />
             <div class="alert alert-danger" *ngIf="InventoryReceiptDetails.get('Rate').hasError('required') && formSubmitAttempt">
                 Rate is required
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <label>TotalAmount</label>
             <input type="number" class="form-control" formControlName="TotalAmount" />
         </div>
-    </div>
-    <br />
-    <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-1">
             <label>Batch No.</label>
             <input type="text" class="form-control" formControlName="BatchNo" />
             <div class="alert alert-danger" *ngIf="InventoryReceiptDetails.get('BatchNo').hasError('required') && formSubmitAttempt">
                 BatchNo is required
             </div>
         </div>
-
-        <div class="col-md-4">
+        <div class="col-md-2">
             <label>M.Date</label>
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="dd/MM/yyyy" bsDatepicker [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" formControlName="Mdate" />
@@ -50,7 +46,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
             <label>E.Date</label>
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="dd/MM/yyyy" bsDatepicker [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" formControlName="Edate" />
@@ -59,6 +55,7 @@
                 </div>
             </div>
         </div>
-
     </div>
+    <br />
+    
 </div>

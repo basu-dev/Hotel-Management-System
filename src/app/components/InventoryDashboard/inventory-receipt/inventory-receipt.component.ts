@@ -13,6 +13,7 @@ import { Global } from '../../../Shared/global';
     moduleId: module.id,
     selector: 'my-receipt-list',
     templateUrl: 'inventory-receipt.component.html',
+    styleUrls: ['inventory-receipt.component.css']
 })
 
 export class InventoryReceiptComponent implements OnInit {

@@ -15,7 +15,8 @@ import { Global } from '../../../Shared/global';
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'periodic-consumption.component.html'
+    templateUrl: 'periodic-consumption.component.html',
+    styleUrls: ['periodic-consumption.component.css']
 })
 
 export class PeriodicConsumptionComponent implements OnInit {

@@ -7,14 +7,11 @@ import { IWareHouse, IWareHouseType } from '../../../Model/WareHouse/WareHouse';
 import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
 import { DBOperation } from '../../../Shared/enum';
 import { Global } from '../../../Shared/global';
-
-
 @Component({
     selector: 'my-room-list',
-    templateUrl: './warehouse.component.html'
+    templateUrl: './warehouse.component.html',
+    styleUrls: ['./warehouse.component.css']
 })
-
-
 export class WareHouseComponent implements OnInit {
     warehouses: IWareHouse[];
     warehouse: IWareHouse;
@@ -28,14 +25,12 @@ export class WareHouseComponent implements OnInit {
     modalTitle: string;
     modalBtnTitle: string;
     modalRef: BsModalRef;
-
     constructor(private fb: FormBuilder, private _warehouseServices: AccountTransactionTypeService, private modalService: BsModalService) {
         this._warehouseServices.getWareHouseType().subscribe(data => {
             
             this.warehousetype = data;
         });
     }
-
     ngOnInit(): void {
         this.WarehouseFrm = this.fb.group({
             Id: [''],
@@ -45,7 +40,6 @@ export class WareHouseComponent implements OnInit {
         });
         this.LoadRoom();
     }
-
     LoadRoom(): void {
         console.log(Global.BASE_WAREHOUSEAPI_ENDPOINT)
         this.indLoading = true;
@@ -56,7 +50,6 @@ export class WareHouseComponent implements OnInit {
             },
             error => this.msg = <any>error);
     }
-
     openModal(template: TemplateRef<any>) {
 
         this.dbops = DBOperation.create;

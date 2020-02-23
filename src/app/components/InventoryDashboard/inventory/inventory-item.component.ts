@@ -11,7 +11,8 @@ import { DBOperation } from '../../../Shared/enum';
 import { Global } from '../../../Shared/global';
 
 @Component({
-    templateUrl: './inventory-item.component.html'
+    templateUrl: './inventory-item.component.html',
+    styleUrls: ['./inventory-item.component.css']
 })
 
 export class InventoryItemComponent implements OnInit {

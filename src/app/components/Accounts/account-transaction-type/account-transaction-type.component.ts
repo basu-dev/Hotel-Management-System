@@ -8,11 +8,10 @@ import { AccountTransType } from '../../../Model/AccountTransactionType/accountT
 import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
 import { DBOperation } from '../../../Shared/enum';
 import { Global } from '../../../Shared/global';
-
 @Component({
-    templateUrl: './account-transaction-type.component.html'
+    templateUrl: './account-transaction-type.component.html',
+    styleUrls: ['./account-transaction-type.component.css']
 })
-
 export class AccountTransactionTypeComponent implements OnInit {
     @ViewChild('template',{static:false})
  TemplateRef: TemplateRef<any>;
@@ -31,11 +30,9 @@ export class AccountTransactionTypeComponent implements OnInit {
     modalBtnTitle: string;
     private formSubmitAttempt: boolean;
     private buttonDisabled: boolean;
-
     constructor(private fb: FormBuilder, private acctransTypeService: AccountTransactionTypeService, private date: DatePipe, private modalService: BsModalService) {
         this.acctransTypeService.getAccountTypes().subscribe(data =>{this.acctype =data})
     }
-    
     ngOnInit(): void {
         this.acctransTypeFrm = this.fb.group({
             Id: [''],
@@ -48,20 +45,14 @@ export class AccountTransactionTypeComponent implements OnInit {
             UserString:[''],
             Name: [''],        
         });
-
         this.LoadAcctransTypes();
     }
-
-
-
-
     LoadAcctransTypes(): void {
         this.indLoading = true;
         this.acctransTypeService.get(Global.BASE_ACCOUNTTRANSTYPE_ENDPOINT)
             .subscribe(accounttransTypes => { this.accounttransTypes = accounttransTypes; this.indLoading = false; },
             error => this.msg = <any>error);
     }
-
     exportTableToExcel(tableID, filename = '') {
         var downloadLink;
         var dataType = 'application/vnd.ms-excel';
@@ -71,7 +62,6 @@ export class AccountTransactionTypeComponent implements OnInit {
         var tableSelect = document.getElementById(tableID);
         var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
         $('#' + tableID).html(clonedHtml.html());
-
         // Specify file name
         filename = filename ? filename + '.xls' : 'Trial Balance of ' + this.date.transform(new Date, 'dd-MM-yyyy') + '.xls';
 

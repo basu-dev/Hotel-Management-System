@@ -6,7 +6,8 @@ import { AccountTransactionTypeService } from '../../../Service/Inventory/accoun
 import { Global } from '../../../Shared/global';
 
 @Component({
-    templateUrl: './stock-in-hand.component.html'
+    templateUrl: './stock-in-hand.component.html',
+    styleUrls: ['./stock-in-hand.component.css']
 })
 
 export class StockInHandComponent implements OnInit {
