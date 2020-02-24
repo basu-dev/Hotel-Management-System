@@ -7,14 +7,11 @@ import { IDepartment } from '../../../Model/Department';
 import { DepartmentService } from '../../../Service/Department.service';
 import { DBOperation } from '../../../Shared/enum';
 import { Global } from '../../../Shared/global';
-
-    
-
 @Component({
     selector: 'my-department-list',
-    templateUrl: './Department.component.html'
+    templateUrl: './Department.component.html',
+    styleUrls: ['./Department.component.css']
 })
-
 export class DepartmentComponent implements OnInit {
     departments: IDepartment[];
     department: IDepartment;

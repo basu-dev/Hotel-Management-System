@@ -1,6 +1,6 @@
 ﻿<div class='panel panel-primary'>
     <div class='panel-heading'>
-        DEPARTMENT
+        <h2>DEPARTMENT</h2>
     </div>
     <div class='panel-body'>
         <div class='table-responsive'>
@@ -8,17 +8,18 @@
                 <img src="../../../../assets/images/Add.png" (click)="openModal(template)" height="60" width="60" />
                 <div class="alert alert-info" role="alert" *ngIf="indLoading"><img src="../../../../assets/images/loading.gif" width="32" height="32" /> Loading...</div>
                 <div *ngIf='departments && departments.length==0' class="alert alert-info" role="alert">No record found!</div>
-                <table  *ngIf='departments && departments.length'>
-                    <thead>
+                <table border="1" *ngIf='departments && departments.length'>
+                    <thead class="text-center">
                         <tr>
-                            <th>Name</th>
+                            <th colspan="1" class="headfirst">Name</th>
+                            <th colspan="1" class="headfirst">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let department of departments">
                             <td>{{department.Name}}</td>
-                            <td>
-                                <span><img src="../../../../assets/images/Edit.png" (click)="editDepartment(department.Id,template)" height="60" width="60" /></span>
+                            <td class="text-center">
+                                <span class="firstimg"><img src="../../../../assets/images/Edit.png" (click)="editDepartment(department.Id,template)" height="60" width="60" /></span>
                                 <span><img src="../../../../assets/images/Delete.png" (click)="deleteDepartment(department.Id,template)" height="60" width="60" /></span>
                             </td>
                         </tr>
@@ -41,26 +42,27 @@
         <div class="modal-header">
             <h4 class="modal-title pull-left">{{modalTitle}}</h4>
             <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-                <span aria-hidden="true">&times;</span>
+                <i class="fa fa-times fa-design"></i>
             </button>
         </div>
         <div class="modal-body">
             <div class="row">
-                <div class="form-group">
-                    <label class="control-label col-sm-2">Name:</label>
-                    <div class="col-sm-9">
+                <div class="form-group col-md-12">
+                    <label class="control-label">Name:</label>
                         <input type="text" class="form-control" placeholder="" formControlName="Name">
                         <div class="alert alert-danger" *ngIf="DepartFrm.get('Name').hasError('required') && formSubmitAttempt">
                             Name is required
                         </div>
-                    </div>
                 </div>
             </div>
-        </div>
-        <div class="modal-footer">
-            <div>
-                <button type="submit" class="btn btn-success pull-left">{{modalBtnTitle}}</button>
-                <a class="btn btn-danger pull-right" (click)="modalRef.hide()">Cancel</a>
+            <div class="row footermodal">
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-success pull-left">{{modalBtnTitle}}</button>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <a class="btn btn-danger pull-right" (click)="modalRef.hide()">Cancel</a>
+                </div>
             </div>
         </div>
     </form>

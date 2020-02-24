@@ -12,4 +12,12 @@ table th{
 input.checkboxdesign{
                       height:30px;
                       width:30px;
+                      position:absolute;
+                      top:-4px;
+}
+.padtopping{
+            padding-top:1px;
+}
+.marfirst{
+          margin-bottom:20px;
 }

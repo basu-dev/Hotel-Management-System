@@ -112,7 +112,7 @@ export class CompanyComponent implements OnInit {
         this.modalTitle = "Add Company";
         this.modalBtnTitle = "Save & Submit";
         this.companyForm.reset();
-        this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false });
+        this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false, class: 'modal-xl' });
     }
 
     viewFile(fileUrl, template: TemplateRef<any>) {
@@ -141,7 +141,7 @@ export class CompanyComponent implements OnInit {
         this.companyForm.controls.Pan_Vat.setValue(this.company.Pan_Vat);
         this.companyForm.controls.Phone.setValue(this.company.Phone);
 
-        this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false });
+        this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false, class:'modal-xl'});
     }
 
     deleteCompany(id: number, template: TemplateRef<any>) {
@@ -163,7 +163,7 @@ export class CompanyComponent implements OnInit {
         this.companyForm.controls.NameNepali.setValue(this.company.NameNepali);
         this.companyForm.controls.Pan_Vat.setValue(this.company.Pan_Vat);
         this.companyForm.controls.Phone.setValue(this.company.Phone);
-        this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false });
+        this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false, class: 'modal-xl' });
     }
 
     validateAllFields(formGroup: FormGroup) {

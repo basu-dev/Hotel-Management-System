@@ -11,7 +11,8 @@ import { Global } from '../../../Shared/global';
 
 @Component({
     selector: 'my-FinancialYear-list',
-    templateUrl: './FinancialYear.component.html'
+    templateUrl: './FinancialYear.component.html',
+    styleUrls: ['./FinancialYear.component.css']
 })
 
 export class FinancialYearComponent implements OnInit {
@@ -68,7 +69,7 @@ export class FinancialYearComponent implements OnInit {
         this.FYearFrm.controls.NepaliEndDate.setValue(this.financialyear.NepaliEndDate);
         this.FYearFrm.controls.StartDate.setValue(new Date(this.financialyear.StartDate));
         this.FYearFrm.controls.EndDate.setValue(new Date(this.financialyear.EndDate));
-        this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false });
+        this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false, class: 'modal-lg' });
     }
 
     deleteFinancialYear(id: number, template: TemplateRef<any>) {
@@ -83,7 +84,7 @@ export class FinancialYearComponent implements OnInit {
         this.FYearFrm.controls.NepaliEndDate.setValue(this.financialyear.NepaliEndDate);
         this.FYearFrm.controls.StartDate.setValue(new Date(this.financialyear.StartDate));
         this.FYearFrm.controls.EndDate.setValue(new Date(this.financialyear.EndDate));
-        this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false });
+        this.modalRef = this.modalService.show(template, { backdrop: 'static', keyboard: false, class: 'modal-lg' });
     }
 
     nepaliDateValidator(control: FormControl) {

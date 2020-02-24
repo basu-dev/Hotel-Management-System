@@ -49,7 +49,7 @@
             </button>
         </div>
         <div class="modal-body">
-            <div class="row">
+            <div class="row marfirst">
                 <div class="form-group col-md-6">
                     <label class="control-label">Role Name:</label>
                         <input type="text" class="form-control" placeholder="Role Name" formControlName="RoleName">
@@ -57,7 +57,6 @@
                             Role name is required
                         </div>
                 </div>
-           
                 <div class="form-group col-md-6">
                     <label class="control-label">Description:</label>
                         <textarea class="form-control" name="Description" formControlName="Description" rows="2" placeholder="Add description here..."></textarea>
@@ -68,36 +67,39 @@
             </div>
            
             <div class="row">
-                <div class="col-md-4">
-                    <label class="control-label">Permission: </label>
+                <div class="col-md-2">
+                    <label class="control-label padtopping">Permission: </label>
                 </div>
-                <div class="col-md-8">
-                    <div class="form-group col-md-2">
-                        <label class="control-label">Add</label>
-                        <input style="margin-left: 25px; margin-top: -30px" type="checkbox" name="Selected" ng-model="RoleFrm.Selected" class="checkboxdesign" formControlName="Selected" />
+                <div class="col-md-10">
+                    <div class="row">
+                    <div class="form-group col-md-3">
+                        <label class="control-label col-md-6">Add</label>
+                        <input type="checkbox" name="Selected" ng-model="RoleFrm.Selected" class="checkboxdesign" formControlName="Selected" />
                     </div>
-
-                    <div class="form-group col-md-2">
-                        <label class="control-label">Edit</label>
-                        <input style="margin-left: 25px; margin-top: -30px" type="checkbox" name="Selected" ng-model="RoleFrm.Selected" class="checkboxdesign" formControlName="Selected" />
+                    <div class="form-group col-md-3">
+                        <label class="control-label col-md-6">Edit</label>
+                        <input  type="checkbox" name="Selected" ng-model="RoleFrm.Selected" class="checkboxdesign" formControlName="Selected" />
                     </div>
-
-                    <div class="form-group col-md-2">
-                        <label class="control-label">Delete</label>
-                        <input style="margin-left: 35px; margin-top: -30px" type="checkbox" name="Selected" ng-model="RoleFrm.Selected" class="checkboxdesign" formControlName="Selected" />
+                    <div class="form-group col-md-3">
+                        <label class="control-label col-md-6">Delete</label>
+                        <input type="checkbox" name="Selected" ng-model="RoleFrm.Selected" class="checkboxdesign" formControlName="Selected" />
                     </div>
-
-                    <div class="form-group col-md-2">
-                        <label class="control-label">View</label>
-                        <input style="margin-left: 25px; margin-top: -30px" type="checkbox" name="Selected" ng-model="RoleFrm.Selected" class="checkboxdesign" formControlName="Selected" />
+                    <div class="form-group col-md-3">
+                        <label class="control-label col-md-6">View</label>
+                        <input type="checkbox" name="Selected" ng-model="RoleFrm.Selected" class="checkboxdesign" formControlName="Selected" />
                     </div>
+                   </div>
                 </div>
             </div>
-        </div>
-        <div class="modal-footer">
-            <div>
-                <button type="button" class="btn btn-danger pull-right" [disabled]="buttonDisabled" (click)="reset();modalRef.hide();">Cancel</button>
-                <button type="submit" class="btn btn-success pull-left">{{modalBtnTitle}} </button>
+            <div class="row footermodal">
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-danger pull-right" [disabled]="buttonDisabled" (click)="reset();modalRef.hide();">Cancel</button>
+                </div>
+                <div class="col-md-6">
+                </div>
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-success pull-left">{{modalBtnTitle}} </button>
+                </div>
             </div>
         </div>
     </form>

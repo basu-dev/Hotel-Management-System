@@ -1,6 +1,6 @@
 ﻿<div class='panel panel-primary'>
     <div class='panel-heading'>
-        Financial Year
+        <h2>Financial Year</h2>
     </div>
     <div class='panel-body'>
         <div class='table-responsive'>
@@ -11,7 +11,7 @@
                     <img src="../../../../assets/images/loading.gif" width="32" height="32" /> Loading...
                 </div>
                 <div *ngIf='FinancialYears && FinancialYears.length==0' class="alert alert-info" role="alert">No record found!</div>
-                <table  *ngIf='FinancialYears && FinancialYears.length'>
+                <table  border="1" *ngIf='FinancialYears && FinancialYears.length'>
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -30,7 +30,7 @@
                             <td>{{ fy.StartDate | date: 'dd/MM/yyyy' }}</td>
                             <td>{{ fy.EndDate | date: 'dd/MM/yyyy' }}</td>
                             <td>
-                                <span>
+                                <span class="firstimg">
                                     <img src="../../../../assets/images/Edit.png" (click)="editFinancialYear(fy.Id,template)" height="32" width="32" />
                                 </span>
                                 <span>
@@ -57,62 +57,55 @@
         <div class="modal-header panel-heading">
             <h4 class="modal-title pull-left">{{modalTitle}}</h4>
             <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-                <span aria-hidden="true">&times;</span>
+                  <i class="fa fa-times fa-design"></i>
             </button>
         </div>
         <div class="modal-body">
             <div class="row">
-                <div class="form-group">
-                    <label class="control-label col-sm-4">Start Date:</label>
-                    <div class="col-sm-6" style="padding-bottom: 10px;">
+                <div class="form-group col-md-4">
+                    <label class="control-label">Start Date:</label>
                         <input class="form-control" placeholder="dd/MM/yyyy" bsDatepicker formControlName="StartDate" [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" />
                         <div class="text-danger" *ngIf="FYearFrm.get('StartDate').hasError('required') && formSubmitAttempt">
                             Start Date is required
                         </div>
-                    </div>
                 </div>
-                <div class="form-group">
-                    <label class="control-label col-sm-4">End Date:</label>
-                    <div class="col-sm-6" style="padding-bottom: 10px;">
+                <div class="form-group col-md-4">
+                    <label class="control-label">End Date:</label>
                         <input class="form-control" placeholder="dd/MM/yyyy" bsDatepicker formControlName="EndDate" [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" />
                         <div class="text-danger" *ngIf="FYearFrm.get('EndDate').hasError('required') && formSubmitAttempt">
                             End Date is required
                         </div>
-                    </div>
                 </div>
-                <div class="form-group">
-                    <label class="control-label col-sm-4">Name:</label>
-                    <div class="col-sm-8" style="padding-bottom: 10px;">
+                <div class="form-group col-md-4">
+                    <label class="control-label">Name:</label>
                         <input type="text" class="form-control" placeholder="" formControlName="Name">
                         <div class="text-danger" *ngIf="(FYearFrm.get('Name').hasError('InvalidYear') || FYearFrm.get('Name').hasError('required')) && formSubmitAttempt">
                             Financial year must be in YYYY.YYY format.
                         </div>
-                    </div>
                 </div>
-                <div class="form-group">
-                    <label class="control-label col-sm-4">Nepali Start Date:</label>
-                    <div class="col-sm-8" style="padding-bottom: 10px;">
+                <div class="form-group col-md-4">
+                    <label class="control-label">Nepali Start Date:</label>
                         <input type="text" class="form-control" placeholder="" formControlName="NepaliStartDate">
                         <div class="text-danger" *ngIf="(FYearFrm.get('NepaliStartDate').hasError('InvaliDate') || FYearFrm.get('NepaliStartDate').hasError('required')) && formSubmitAttempt">
                             Add Nepali Start Date in YYYY.MM.DD format.
                         </div>
-                    </div>
                 </div>
-                <div class="form-group">
-                    <label class="control-label col-sm-4">Nepali End Date:</label>
-                    <div class="col-sm-8">
+                <div class="form-group col-md-4">
+                    <label class="control-label">Nepali End Date:</label>
                         <input type="text" class="form-control" placeholder="" formControlName="NepaliEndDate">
                         <div class="text-danger" *ngIf="(FYearFrm.get('NepaliEndDate').hasError('InvaliDate')  || FYearFrm.get('NepaliEndDate').hasError('required')) && formSubmitAttempt">
                             Add Nepali End Date in YYYY.MM.DD format.
                         </div>
-                    </div>
                 </div>
             </div>
-        </div>
-        <div class="modal-footer">
-            <div>
-                <button type="submit" class="btn btn-success pull-left">{{modalBtnTitle}}</button>
-                <button type="button" class="btn btn-danger pull-right" (click)="modalRef.hide()">Cancel</button>
+            <div class="row footermodal">
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-success pull-left">{{modalBtnTitle}}</button>
+                </div>
+                <div class="col-md-6"></div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-danger pull-right" (click)="modalRef.hide()">Cancel</button>
+                </div>
             </div>
         </div>
     </form>
