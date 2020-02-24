@@ -11,7 +11,8 @@ import { Global } from '../../../Shared/global';
 import { DatePipe } from '@angular/common';
 
 @Component({
-    templateUrl: './BillReturnView.component.html'
+    templateUrl: './BillReturnView.component.html',
+    styleUrls: ['./BillReturnView.component.css']
 })
 
 export class BillReturnViewComponent {

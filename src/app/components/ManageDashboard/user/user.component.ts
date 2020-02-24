@@ -10,7 +10,8 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 @Component({
-    templateUrl: './user.component.html'
+    templateUrl: './user.component.html',
+    styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
     @ViewChild('template',{static:false}) TemplateRef: TemplateRef<any>;
@@ -63,7 +64,8 @@ export class UserComponent implements OnInit {
         this.userFrm.reset();
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
-            keyboard: false
+            keyboard: false,
+            class: 'modal-lg'
         });
     }
 
@@ -77,7 +79,8 @@ export class UserComponent implements OnInit {
         this.userFrm.setValue(this.users);
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
-            keyboard: false
+            keyboard: false,
+            class: 'modal-lg'
         });
 
      
@@ -93,7 +96,8 @@ export class UserComponent implements OnInit {
         this.userFrm.setValue(this.users);
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
-            keyboard: false
+            keyboard: false,
+            class: 'modal-lg'
         });
     }
 

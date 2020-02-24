@@ -7,13 +7,13 @@ import { SaleBookCustomer } from '../../../Model/SaleBook';
 import { Observable } from 'rxjs/Rx';
 import { Global } from '../../../Shared/global' ;
 import { AccountTransactionTypeService } from '../../../Service/Inventory/account-trans-type.service';
-;
+
 import { DatePipe } from '@angular/common';
 
 @Component({
-    templateUrl: './AccountSaleBookCustomer.Component.html'
+    templateUrl: './AccountSaleBookCustomer.Component.html',
+    styleUrls: ['./AccountSaleBookCustomer.component.css']
 })
-
 export class AccountSaleBookCustomer {
     currentYear: any;
     currentUser: any;

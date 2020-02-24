@@ -1,12 +1,12 @@
 ﻿  
 <div class='panel panel-primary'>
     <div class='panel-heading'>
-        Trial Balance Sheet
+       <h2>Trial Balance Sheet</h2> 
     </div>
     <div class='panel-body'>
         <div class='table-responsive'>
             <div style="padding-bottom:10px">
-                <div class="pull-right">
+                <div class="pull-left">
                     <button *ngIf='TrialBalances && TrialBalances.length' class="btn btn-primary pull-left" (click)="exportTableToExcel('TrialBalanceTable')"> Export</button>
                 </div>
                 <br>
@@ -38,8 +38,8 @@
                         </tr>
                     </tbody>
                     <tfoot>
-                        <tr>
-                            <td align="right"> <strong>Total</strong></td>
+                        <tr class="bggiveme">
+                            <td align="left"> <strong>Total</strong></td>
                             <td align="right"><span ng-show='discussionsSelect == "total"'> {{ calcDebitTotal(TrialBalances).toFixed(2) }} </span></td>
                             <td align="right"><span ng-show='discussionsSelect == "total"'> {{ calcCreditTotal(TrialBalances).toFixed(2) }} </span></td>
                         </tr>

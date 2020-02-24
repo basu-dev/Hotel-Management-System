@@ -8,11 +8,10 @@ import { IRole } from '../../../Model/Roles/role';
 import { RoleService } from '../../../Service/role.service';
 import { DBOperation } from '../../../Shared/enum';
 import { Global } from '../../../Shared/global';
-
 @Component({
-    templateUrl: './role.component.html'
+    templateUrl: './role.component.html',
+    styleUrls: ['./role.component.css']
 })
-
 export class RoleComponent implements OnInit {
     @ViewChild('template',{static:false}) TemplateRef: TemplateRef<any>;
     @ViewChild('templateNested',{static:false}) TemplateRef2: TemplateRef<any>;
@@ -66,7 +65,7 @@ export class RoleComponent implements OnInit {
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
             keyboard: false,
-            class: 'modal-xl'
+            class: 'modal-lg'
         });
     }
 
@@ -81,7 +80,7 @@ export class RoleComponent implements OnInit {
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
             keyboard: false,
-            class: 'modal-xl'
+            class: 'modal-lg'
         });
 
     }
@@ -97,7 +96,7 @@ export class RoleComponent implements OnInit {
         this.modalRef = this.modalService.show(this.TemplateRef, {
             backdrop: 'static',
             keyboard: false,
-            class: 'modal-xl'
+            class: 'modal-lg'
         });
     }
 

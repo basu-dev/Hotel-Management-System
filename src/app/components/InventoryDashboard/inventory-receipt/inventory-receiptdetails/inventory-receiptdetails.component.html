@@ -30,7 +30,7 @@
             <label>TotalAmount</label>
             <input type="number" class="form-control" formControlName="TotalAmount" />
         </div>
-        <div class="col-md-1">
+        <div class="col-md-2">
             <label>Batch No.</label>
             <input type="text" class="form-control" formControlName="BatchNo" />
             <div class="alert alert-danger" *ngIf="InventoryReceiptDetails.get('BatchNo').hasError('required') && formSubmitAttempt">

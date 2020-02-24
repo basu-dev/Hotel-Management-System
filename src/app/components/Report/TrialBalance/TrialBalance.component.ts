@@ -12,7 +12,8 @@ import { Global } from '../../../Shared/global' ;
 import { DatePipe } from '@angular/common';
 
 @Component({
-    templateUrl: './TrialBalance.component.html'
+    templateUrl: './TrialBalance.component.html',
+    styleUrls: ['./TrialBalance.component.css']
 })
 
 export class TrialBalanceComponent implements OnInit {

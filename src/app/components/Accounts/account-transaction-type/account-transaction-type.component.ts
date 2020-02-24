@@ -11,6 +11,7 @@ import { Global } from '../../../Shared/global';
 @Component({
     templateUrl: './account-transaction-type.component.html',
     styleUrls: ['./account-transaction-type.component.css']
+   
 })
 export class AccountTransactionTypeComponent implements OnInit {
     @ViewChild('template',{static:false})

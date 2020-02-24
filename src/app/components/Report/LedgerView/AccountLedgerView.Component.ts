@@ -14,7 +14,8 @@ import { ActivatedRoute, Params } from "@angular/router";
 import {switchMap} from "rxjs/operators";
 
 @Component({
-    templateUrl: './AccountLedgerView.Component.html'
+    templateUrl: './AccountLedgerView.Component.html',
+    styleUrls: ['./AccountLedgerView.component.css']
 })
 
 export class AccountLedgerViewComponent {

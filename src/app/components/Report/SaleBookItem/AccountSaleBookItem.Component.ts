@@ -11,7 +11,8 @@ import { AccountTransactionTypeService } from '../../../Service/Inventory/accoun
 import { DatePipe } from '@angular/common';
 
 @Component({
-    templateUrl: './AccountSaleBookItem.Component.html'
+    templateUrl: './AccountSaleBookItem.Component.html',
+    styleUrls: ['./AccountSaleBookItem.component.css']
 })
 
 export class AccountSaleBookItem {

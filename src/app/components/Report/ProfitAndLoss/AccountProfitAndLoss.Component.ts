@@ -11,9 +11,9 @@ import { Global } from '../../../Shared/global';
 import { DatePipe } from '@angular/common';
 
 @Component({
-    templateUrl: './AccountProfitAndLoss.Component.html'
+    templateUrl: './AccountProfitAndLoss.Component.html',
+    styleUrls: ['./AccountProfitAndLoss.component.css']
 })
-
 export class AccountProfitAndLossComponent implements OnInit {
     currentYear: any;
     currentUser: any;

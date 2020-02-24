@@ -11,7 +11,8 @@ import { AccountTransactionTypeService } from '../../../Service/Inventory/accoun
 import { DatePipe } from '@angular/common';
 
 @Component({
-    templateUrl: './AccountSaleBookDatewise.Component.html'
+    templateUrl: './AccountSaleBookDatewise.Component.html',
+    styleUrls: ['./AccountSaleBookDatewise.component.css']
 })
 
 export class AccountSaleBookDaywise {

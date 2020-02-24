@@ -1,26 +1,33 @@
 ﻿  
-<div class="row">
-    <label class="control-label col-md-2" align="right">
+<div class="row highestmar">
+    <div class="form-group col-md-4">
+            
+    </div>
+    <div class="form-group col-md-4">
+    <label class="control-label" align="right">
         <strong>Account/Ledger:</strong>
     </label>
-    <div class="col-md-4" style="float: left; margin-bottom: 10px;">
+    
         <select [(ngModel)]="selectedName" class="form-control" (change)="SearchLedgerTransaction($event.target.value)">
             <option value=""></option>
             <option *ngFor="let accounts of accountledger" [value]="accounts.Id">
                 {{accounts.Name}}
             </option>
         </select>
-        <br />
-    </div>
+        </div>
+        <div class="form-group col-md-4">
+
+        </div>
+    
 </div>
 <div class='panel panel-primary'>
     <div class='panel-heading'>
-        Sales Book
+       <h2>Sales Book</h2> 
     </div>
     <div class='panel-body'>
         <div class='table-responsive'>
             <div style="padding-bottom:10px">
-                <div class="pull-right">
+                <div class="pull-left">
                     <button *ngIf='SaleBooks && SaleBooks.length' class="btn btn-primary pull-left" (click)="exportTableToExcel('CoustomerSalesTable')"> Export</button>
                 </div>
                 <div class="alert alert-info" role="alert" *ngIf="isLoading"><img src="../../../../assets/images/loading.gif" width="32" height="32" /> Loading...</div>
@@ -43,7 +50,7 @@
                                     Invoice No.
                                 </strong>
                             </th>
-                            <th></th>
+                            <!-- <th></th> -->
                             <th align="center">
                                 <strong>
                                     Amount
@@ -55,7 +62,7 @@
                         <tr>
                             <td>{{SaleBook.VDate | date: 'yyyy.MM.dd'}}</td>
                             <td>{{SaleBook.BillNo}}</td>
-                            <td></td>
+                            <!-- <td></td> -->
                             <td align="right">{{SaleBook.TotalSale.toFixed(2)}}</td>
                         </tr>
                         <tr *ngIf="SaleBook.SalesBillItems.length > 0">
@@ -87,7 +94,7 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="3" align="right"> <strong>Total</strong></td>
+                            <td colspan="2" align="right"> <strong>Total</strong></td>
                             <td align="right"><span ng-show='discussionsSelect == "total"'> {{ calcTotalSale(SaleBooks).toFixed(2) }} </span></td>
                         </tr>
                     </tfoot>

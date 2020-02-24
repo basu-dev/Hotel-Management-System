@@ -1,16 +1,15 @@
 ﻿   
 <div class='panel panel-primary'>
     <div class='panel-heading'>
-        BillReturn View
+       <h2>BillReturn View</h2>
     </div>
     <div class='panel-body'>
         <div class='table-responsive'>
             <div style="padding-bottom:10px">
-                <div class="pull-right">
+                <div class="pull-left">
                     <button *ngIf='billReturnViews && billReturnViews.length' class="btn btn-primary pull-left" (click)="exportTableToExcel('TrialBalanceTable')"> Export</button>
                 </div>
-                <br>
-                <br>
+              
                 <div class="alert alert-info" role="alert" *ngIf="isLoading">
                     <img src="../../../../assets/images/loading.gif" width="32" height="32" /> Loading...
                 </div>

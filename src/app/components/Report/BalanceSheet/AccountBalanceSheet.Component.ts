@@ -10,7 +10,8 @@ import { AccountTransactionTypeService } from '../../../Service/Inventory/accoun
 ;
 
 @Component({
-    templateUrl: './AccountBalanceSheet.Component.html'
+    templateUrl: './AccountBalanceSheet.Component.html',
+    styleUrls: ['./AccountBalanceSheet.component.css']
 })
 
 export class AccountBalanceSheetComponent implements OnInit {

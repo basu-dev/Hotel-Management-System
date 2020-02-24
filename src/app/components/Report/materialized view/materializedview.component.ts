@@ -12,7 +12,8 @@ import { Global } from '../../../Shared/global' ;
 import { DatePipe } from '@angular/common';
 
 @Component({
-    templateUrl: './materializedview.Component.html'
+    templateUrl: './materializedview.Component.html',
+    styleUrls: ['./materializedview.component.css']
 })
 
 export class MaterializedViewComponent {

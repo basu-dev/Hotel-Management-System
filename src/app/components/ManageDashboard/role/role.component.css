@@ -1,0 +1,15 @@
+table th{
+    color:#2874a6;
+}
+.input-group-addon{
+              background:#2874a6;
+              color:#fff;
+              padding-left:8px;
+              padding-top: 5px;
+              width:35px;
+              height:37px;
+}
+input.checkboxdesign{
+                      height:30px;
+                      width:30px;
+}

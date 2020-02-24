@@ -1,29 +1,31 @@
 ﻿  
-<div class="row">
-    <label class="control-label col-md-2" align="right">
-        <strong>Month:</strong>
-    </label>
-    <div class="col-md-4" style="float: left; margin-bottom: 10px;">
-        <select [(ngModel)]="selectedMonths" class="form-control" (change)="SearchLedgerTransaction($event.target.value)">
-            <option value=""></option>
-            <option *ngFor="let Month of Months" [value]="Month.Name">
-                {{Month.Name}}
-            </option>
-        </select>
+<div class="row highestmar">
+    <div class="form-group col-md-4">
     </div>
-</div>
+    <div class="form-group col-md-4">
+        <label class="control-label" align="right">
+            <strong>Month:</strong>
+        </label>
+            <select [(ngModel)]="selectedMonths" class="form-control" (change)="SearchLedgerTransaction($event.target.value)">
+                <option value=""></option>
+                <option *ngFor="let Month of Months" [value]="Month.Name">
+                    {{Month.Name}}
+                </option>
+            </select>
+    </div>
+    <div class="form-group col-md-4">
+    </div></div>
 <div class='panel panel-primary'>
     <div class='panel-heading'>
-        Materialized View
+       <h2>Materialized View</h2> 
     </div>
     <div class='panel-body'>
         <div class='table-responsive'>
             <div style="padding-bottom:10px">
-                <div class="pull-right">
+                <div class="pull-left">
                     <button *ngIf='materializedViews && materializedViews.length' class="btn btn-primary pull-left" (click)="exportTableToExcel('MaterializedViewTable')"> Export</button>
                 </div>
-                <br>
-                <br>
+               
                 <div class="alert alert-info" role="alert" *ngIf="isLoading"><img src="../../../../assets/images/loading.gif" width="32" height="32" /> Loading...</div>
                 <div *ngIf='materializedViews && materializedViews.length==0' class="alert alert-info" role="alert">No record found!</div>
                 <table id="MaterializedViewTable"  *ngIf='materializedViews && materializedViews.length'>

@@ -49,11 +49,11 @@
             <div formArrayName="InventoryReceiptDetails" class="panel panel-default container-padding">
                  <div  *ngFor="let InventoryReceiptDetails of InventReceiptFrm.controls.InventoryReceiptDetails.controls; let i=index" [formGroupName]="i">
                     <div class="row">
-                         <div class="col-md-11">
+                         <div class="col-md-10">
                               <my-inventoryDetail-list [group]="InventReceiptFrm.controls.InventoryReceiptDetails.controls[i]"></my-inventoryDetail-list>
                          </div>
-                         <div class="col-md-1">
-                            <span *ngIf="InventReceiptFrm.controls.InventoryReceiptDetails.controls.length > 1" style="cursor: pointer; font-size: 30px; margin-top: 105px;" class="fa fa-window-close pull-right" (click)="removeInventory(i)"></span>
+                         <div class="col-md-2">
+                            <span *ngIf="InventReceiptFrm.controls.InventoryReceiptDetails.controls.length > 1" style="cursor: pointer; font-size: 30px; margin-top: 10px;" class="fa fa-window-close pull-right" (click)="removeInventory(i)"></span>
                          </div>
                     </div>
                  </div>

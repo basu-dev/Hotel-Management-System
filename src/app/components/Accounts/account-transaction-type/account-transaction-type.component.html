@@ -6,16 +6,16 @@
         <div class='table-responsive'>
             <div style="padding-bottom:10px">
                 <div class="row firstrow">
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <div (click)="addAcctransType()" style="cursor: pointer">
                             <span>
-                                <img src="../../../../assets/images/Add.png" height="60" width="60" />
+                                <img src="../../../../assets/images/Add.png"/>
                             </span>
                              &nbsp;&nbsp;Add Transaction Type
                         </div>
                     </div>
                     <div class="col-md-6 pull-right marme">
-                       <button *ngIf='accounttransTypes && accounttransTypes.length' class="btn btn-primary pull-left" (click)="exportTableToExcel('TransactionTypeTable')"> Export</button>
+                       <button *ngIf='accounttransTypes && accounttransTypes.length' class="btn btn-primary pull-right" (click)="exportTableToExcel('TransactionTypeTable')"> Export</button>
                     </div>
                 </div>
               </div>
@@ -32,7 +32,7 @@
                     <tr *ngFor="let accounttransType of accounttransTypes">
                         <td>{{accounttransType.Name}}</td>
                         <td class="export-no-display">
-                            <span><img src="../../../../assets/images/Edit.png" (click)="editAcctransType(accounttransType.Id)" height="32" width="32" /></span>
+                            <span class="firstimg"><img src="../../../../assets/images/Edit.png" (click)="editAcctransType(accounttransType.Id)" height="32" width="32" /></span>
                             <span><img src="../../../../assets/images/Delete.png" (click)="deleteAcctransType(accounttransType.Id)" height="32" width="32" /></span>
                         </td>
                     </tr>
@@ -52,7 +52,7 @@
         <div class="modal-header panel-heading">
             <h4 class="modal-title pull-left">{{modalTitle}}</h4>
             <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-                <span aria-hidden="true">&times;</span>
+              <i class="fa fa-times fa-design"></i>
             </button>
         </div>
         <div class="modal-body">
@@ -61,56 +61,60 @@
                     Transaction Type
                 </div>-->
                 <div class="row">
-                    <div class="form-group">
-                        <label class="control-label col-sm-2">Name</label>
-                        <div class="col-sm-10" style="margin-bottom: 15px;">
+                    <div class="form-group col-md-6">
+                        <label class="control-label">Name</label>
                             <input type="text" class="form-control" placeholder="" formControlName="Name">
-                        </div>
                     </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-3">Source Account Type Id</label>
-                        <div class="col-sm-3" style="margin-bottom: 10px;">
+                    <div class="form-group col-md-6">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label class="control-label">Source Account Type Id</label>
                             <select class="form-control" placeholder="SourceAccountTypeId" formControlName="SourceAccountTypeId">
                                 <option class="form-control" *ngFor="let acctypes of acctype" [ngValue]="acctypes.Id">{{acctypes.Name}}</option>                
                             </select>
                             <div class="alert alert-danger" *ngIf="acctransTypeFrm.get('SourceAccountTypeId').hasError('required') && formSubmitAttempt">
                                 Source Account Type Id is required
                             </div>
-                        </div>
-                        <label class="control-label col-sm-3">Target Account Type Id</label>
-                        <div class="col-sm-3" style="margin-bottom: 15px;">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label">Target Account Type Id</label>
                             <select class="form-control" placeholder="TargetAccountTypeId" formControlName="TargetAccountTypeId">
                                 <option class="form-control" *ngFor="let acctypes of acctype" [ngValue]="acctypes.Id">{{acctypes.Name}}</option>
                             </select>
                             <div class="alert alert-danger" *ngIf="acctransTypeFrm.get('TargetAccountTypeId').hasError('required') && formSubmitAttempt">
                                 Target Account Type Id is required
                             </div>
-                        </div>
                     </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-3">Default Source Account Id</label>
-                        <div class="col-sm-3">
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label class="control-label">Default Source Account Id</label>
                             <select class="form-control" placeholder="DefaultSourceAccountId" formControlName="DefaultSourceAccountId">
                                 <option class="form-control" *ngFor="let acctypes of acctype" [ngValue]="acctypes.Id">{{acctypes.Name}}</option>
                             </select>
-                        </div>
-                        <label class="control-label col-sm-3">Default Target Account Id</label>
-                        <div class="col-sm-3">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label">Default Target Account Id</label>
                             <select class="form-control" placeholder="DefaultTargetAccountId" formControlName="DefaultTargetAccountId">
                                 <option></option>
                                 <option class="form-control" *ngFor="let acctypes of acctype" [ngValue]="acctypes.Id">{{acctypes.Name}}</option>
                             </select>
-                        </div>
                     </div>
+            </div>
+            <div class="row footermodal">
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-danger pull-right" [disabled]="buttonDisabled" (click)="reset(); modalRef.hide();">Cancel</button>
                 </div>
-            <!--</div>-->
-        </div>
-        <div class="modal-footer">
-            <div>
-                <button type="button" class="btn btn-danger pull-right" [disabled]="buttonDisabled" (click)="reset(); modalRef.hide();">Cancel</button>
-                <button type="submit" [disabled]="acctransTypeFrm.invalid" class="btn btn-success pull-left">{{modalBtnTitle}} </button>
+                <div class="col-md-6">
+                </div>
+                <div class="col-md-3">
+                    <button type="submit" [disabled]="acctransTypeFrm.invalid" class="btn btn-success pull-left">{{modalBtnTitle}} </button>
+                </div>
             </div>
         </div>
+        
     </form>
 </ng-template>
 
